@@ -1,113 +1,192 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+
 <head>
-  <meta charset="utf-8">
-  
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
 
-  
-  <title>认识Java | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1认识Java+ 1. Java在公司里是用于干啥的?(主要1和3)①Java web: 银行系统&amp;银行网站&amp;酒店系统&amp;N多后台管理系统   主要②App: android是 用java写的，今年出了新的kotlin语言③接口:为android、i0S等App提供数据访问接口    主要④大数据(马云说过“大”是计算的意思)⑤桌面应用(比较少开发桌面应用)⑥…. 2. Ja">
-<meta property="og:type" content="article">
-<meta property="og:title" content="认识Java">
-<meta property="og:url" content="http://yoursite.com/2020/05/17/sj/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1认识Java+ 1. Java在公司里是用于干啥的?(主要1和3)①Java web: 银行系统&amp;银行网站&amp;酒店系统&amp;N多后台管理系统   主要②App: android是 用java写的，今年出了新的kotlin语言③接口:为android、i0S等App提供数据访问接口    主要④大数据(马云说过“大”是计算的意思)⑤桌面应用(比较少开发桌面应用)⑥…. 2. Ja">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/banner.jpg">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_1.png">
-<meta property="og:image" content="http://yoursite.com/1_1.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_2.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_3.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_4.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_5.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_6.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_7.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_8.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_9.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_10.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_11.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_12.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/sj/1_14.png">
-<meta property="article:published_time" content="2020-05-16T16:53:33.000Z">
-<meta property="article:modified_time" content="2020-05-16T22:38:14.846Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/17/sj/banner.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="keywords" content="" />
 
-<meta name="generator" content="Hexo 4.2.1"></head>
 
+<meta name="description" content="1认识Java+
+1. Java在公司里是用于干啥的?(主要1和3)①Java web: 银行系统&amp;银行网站&amp;酒店系统&amp;N多后台管理系统   主要②App: androi..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    认识Java |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner-img.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-sj" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/17/sj/" class="article-date">
-  <time datetime="2020-05-16T16:53:33.000Z" itemprop="datePublished">2020-05-17</time>
-</a>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="认识Java">
+            
+            认识Java
+            
+        </h1>
+        <div class="post-meta">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
         
-  
-    <h1 class="article-title" itemprop="name">
-      认识Java
-    </h1>
-  
-
-      </header>
+    </span>
     
-    <div class="article-entry" itemprop="articleBody">
-      
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/05/17</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
         <h3 id="1认识Java"><a href="#1认识Java" class="headerlink" title="1认识Java+"></a>1认识Java+</h3><p><img src="/2020/05/17/sj/banner.jpg" alt="banner"></p>
 <h4 id="1-Java在公司里是用于干啥的-主要1和3"><a href="#1-Java在公司里是用于干啥的-主要1和3" class="headerlink" title="1. Java在公司里是用于干啥的?(主要1和3)"></a>1. Java在公司里是用于干啥的?(主要1和3)</h4><p>①Java web: 银行系统&amp;银行网站&amp;酒店系统&amp;N多后台管理系统   主要<br>②App: android是 用java写的，今年出了新的kotlin语言<br>③接口:为android、i0S等App提供数据访问接口    主要<br>④大数据(马云说过“大”是计算的意思)<br>⑤桌面应用(比较少开发桌面应用)<br>⑥….</p>
 <h4 id="2-Java的招聘需求及薪资"><a href="#2-Java的招聘需求及薪资" class="headerlink" title="2. Java的招聘需求及薪资"></a>2. Java的招聘需求及薪资</h4><p> 拉钩</p>
-<img src="/2020/05/17/sj/1_1.png" class title="This is an example image">
+<img src="/2020/05/17/sj/1_1.png" class="" title="This is an example image">
 
 <h4 id="3-Java的职业规划发展方向"><a href="#3-Java的职业规划发展方向" class="headerlink" title="3. Java的职业规划发展方向"></a>3. Java的职业规划发展方向</h4><ol>
 <li>席丝java程序员</li>
@@ -184,7 +263,7 @@
 <p>   <img src="/2020/05/17/sj/1_3.png" alt="1586911588039"></p>
 <p>   2.3 特殊用法 ;返回当前盘的根路径</p>
 <p>   <img src="/2020/05/17/sj/1_4.png" alt="1586911661427"></p>
-<h5 id="3-创建目录命令-语法-md-文件夹名字-—mkdir-dir"><a href="#3-创建目录命令-语法-md-文件夹名字-—mkdir-dir" class="headerlink" title="3. 创建目录命令[语法:md 文件夹名字]  —mkdir dir"></a>3. 创建目录命令[语法:<code>md 文件夹名字</code>]  —mkdir dir</h5><h5 id="4-删除当前指定的目录-语法-rd-路径-–remove-123"><a href="#4-删除当前指定的目录-语法-rd-路径-–remove-123" class="headerlink" title="4. 删除当前指定的目录[语法:rd 路径]   –remove 123"></a>4. 删除当前指定的目录[语法:<code>rd 路径</code>]   –remove 123</h5><h5 id="5-创建文件-echo-a-gt-a-txt"><a href="#5-创建文件-echo-a-gt-a-txt" class="headerlink" title="5. 创建文件 echo a&gt; a.txt"></a>5. 创建文件 <code>echo a&gt; a.txt</code></h5><h5 id="6-文件复制命令-语法-copy-源文件路径-目标文件路径"><a href="#6-文件复制命令-语法-copy-源文件路径-目标文件路径" class="headerlink" title="6. 文件复制命令[语法: copy 源文件路径 目标文件路径]"></a>6. 文件复制命令[语法: <code>copy 源文件路径 目标文件路径</code>]</h5><p>   <img src="/2020/05/17/sj/1_5.png" alt="1586912287262"></p>
+<h5 id="3-创建目录命令-语法-md-文件夹名字-—mkdir-dir"><a href="#3-创建目录命令-语法-md-文件夹名字-—mkdir-dir" class="headerlink" title="3. 创建目录命令[语法:md 文件夹名字]  —mkdir dir"></a>3. 创建目录命令[语法:<code>md 文件夹名字</code>]  —mkdir dir</h5><h5 id="4-删除当前指定的目录-语法-rd-路径-–remove-123"><a href="#4-删除当前指定的目录-语法-rd-路径-–remove-123" class="headerlink" title="4. 删除当前指定的目录[语法:rd 路径]   –remove 123"></a>4. 删除当前指定的目录[语法:<code>rd 路径</code>]   –remove 123</h5><h5 id="5-创建文件-echo-a-gt-a-txt"><a href="#5-创建文件-echo-a-gt-a-txt" class="headerlink" title="5. 创建文件 echo a> a.txt"></a>5. 创建文件 <code>echo a&gt; a.txt</code></h5><h5 id="6-文件复制命令-语法-copy-源文件路径-目标文件路径"><a href="#6-文件复制命令-语法-copy-源文件路径-目标文件路径" class="headerlink" title="6. 文件复制命令[语法: copy 源文件路径 目标文件路径]"></a>6. 文件复制命令[语法: <code>copy 源文件路径 目标文件路径</code>]</h5><p>   <img src="/2020/05/17/sj/1_5.png" alt="1586912287262"></p>
 <p>   执行效果相同</p>
 <h5 id="7-显示文本文件内容命令-语法-type-文件名"><a href="#7-显示文本文件内容命令-语法-type-文件名" class="headerlink" title="7. 显示文本文件内容命令[语法: type 文件名]"></a>7. 显示文本文件内容命令[语法: <code>type 文件名</code>]</h5><h5 id="8-更改文件名命令-语法-ren-a-txt-a1-txt"><a href="#8-更改文件名命令-语法-ren-a-txt-a1-txt" class="headerlink" title="8. 更改文件名命令[语法: ren a.txt a1.txt]"></a>8. 更改文件名命令[语法: <code>ren a.txt a1.txt</code>]</h5><h5 id="9-删除文件命令-语法-del-a-txt-a1-txt-note-stuck-out-tongue-同时删除2个"><a href="#9-删除文件命令-语法-del-a-txt-a1-txt-note-stuck-out-tongue-同时删除2个" class="headerlink" title="9. 删除文件命令[语法: del a.txt a1.txt]  note :stuck_out_tongue:  同时删除2个"></a>9. 删除文件命令[语法: <code>del a.txt a1.txt</code>]  note :stuck_out_tongue:  同时删除2个</h5><h5 id="10-清除屏幕命令-cls"><a href="#10-清除屏幕命令-cls" class="headerlink" title="10. 清除屏幕命令 cls"></a>10. 清除屏幕命令 <code>cls</code></h5><h5 id="11-改变当前盘符命令d"><a href="#11-改变当前盘符命令d" class="headerlink" title="11. 改变当前盘符命令d:"></a>11. 改变当前盘符命令d:</h5><h5 id="12-查看环境变量path-or-echo-path"><a href="#12-查看环境变量path-or-echo-path" class="headerlink" title="12. 查看环境变量path  or  echo %path%"></a>12. 查看环境变量<code>path</code>  or  echo %path%</h5><h3 id="3-Java-开发环境的准备"><a href="#3-Java-开发环境的准备" class="headerlink" title="3.Java 开发环境的准备"></a>3.Java 开发环境的准备</h3><h4 id="1-Java语言发展史"><a href="#1-Java语言发展史" class="headerlink" title="1. Java语言发展史"></a>1. Java语言发展史</h4><ul>
 <li>詹姆斯.高斯林(James Gosling) 1977年获得了加拿大卡尔加里大学计算机科学学士学位，1983年获得 了<code>美国卡内基梅隆大学</code>计算机科学博士学位，毕业后到IBM工作，设计IBM第一代工作站NeWS系统， 但不受重视。后来转至Sun公司，1990年， 与Patrick, Naughton和Mike Sheridan等人合作“绿色计划”，后来发展一套语言叫做“Oak” ，后改名为Java。</li>
@@ -206,9 +285,9 @@
 <h4 id="2-Java语言版本"><a href="#2-Java语言版本" class="headerlink" title="2. Java语言版本"></a>2. Java语言版本</h4><p>   <img src="/2020/05/17/sj/1_6.png" alt="1586911661427"></p>
 <p>老版本稳定，追求稳定</p>
 <h4 id="3-Java语言特点"><a href="#3-Java语言特点" class="headerlink" title="3. Java语言特点"></a>3. Java语言特点</h4><pre><code>简单性、解释性、`面向对象`、`高性能`、分布式处理、多线程、健壮性、动态性、`安全性`、`跨平台`、移植性</code></pre><p>注:这是一道笔记题，需要记住</p>
-<h4 id="4-Java语言跨平台原理"><a href="#4-Java语言跨平台原理" class="headerlink" title="4. Java语言跨平台原理"></a>4. Java语言跨平台原理</h4><h5 id="4-1-什么是跨平台性"><a href="#4-1-什么是跨平台性" class="headerlink" title="4.1 什么是跨平台性"></a>4.1 什么是跨平台性</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开发的软件在任何操作系统(mac&#x2F;window&#x2F;linux)上都能安装并运行</span><br></pre></td></tr></table></figure>
+<h4 id="4-Java语言跨平台原理"><a href="#4-Java语言跨平台原理" class="headerlink" title="4. Java语言跨平台原理"></a>4. Java语言跨平台原理</h4><h5 id="4-1-什么是跨平台性"><a href="#4-1-什么是跨平台性" class="headerlink" title="4.1 什么是跨平台性"></a>4.1 什么是跨平台性</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开发的软件在任何操作系统(mac/window/linux)上都能安装并运行</span><br></pre></td></tr></tbody></table></figure>
 
-<h5 id="4-2-Java语言跨平台原理"><a href="#4-2-Java语言跨平台原理" class="headerlink" title="4.2 Java语言跨平台原理"></a>4.2 Java语言跨平台原理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只要在需要运行java应用程序的操作系统上，先安装一个Java虚拟机(JVM Java Virtual Machine) 即可。由JVM来负责Java程序在该系统中的运行。</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-Java语言跨平台原理"><a href="#4-2-Java语言跨平台原理" class="headerlink" title="4.2 Java语言跨平台原理"></a>4.2 Java语言跨平台原理</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只要在需要运行java应用程序的操作系统上，先安装一个Java虚拟机(JVM Java Virtual Machine) 即可。由JVM来负责Java程序在该系统中的运行。</span><br></pre></td></tr></tbody></table></figure>
 
 <h5 id="4-3-Java语言跨平台图解"><a href="#4-3-Java语言跨平台图解" class="headerlink" title="4.3 Java语言跨平台图解"></a>4.3 Java语言跨平台图解</h5><p><img src="/2020/05/17/sj/1_7.png" alt="1586911661427"></p>
 <h5 id="4-4-write-once-，run-anywhere-一处编译-到处运行"><a href="#4-4-write-once-，run-anywhere-一处编译-到处运行" class="headerlink" title="4.4 write once ，run anywhere!(一处编译,到处运行)"></a>4.4 write once ，run anywhere!(一处编译,到处运行)</h5><h4 id="5-JRE和JDK的概述"><a href="#5-JRE和JDK的概述" class="headerlink" title="5. JRE和JDK的概述"></a>5. JRE和JDK的概述</h4><h5 id="5-1-什么是JRE-Java-Runtime-Environment"><a href="#5-1-什么是JRE-Java-Runtime-Environment" class="headerlink" title="5.1 什么是JRE (Java Runtime Environment)"></a>5.1 什么是JRE (Java Runtime Environment)</h5><ul>
@@ -327,114 +406,148 @@
 </ul>
 <h4 id="4-项目的导入和删除"><a href="#4-项目的导入和删除" class="headerlink" title="4.项目的导入和删除"></a>4.项目的导入和删除</h4><p>Project Explorer 下 选择 import -&gt;General-&gt;Existing Projects into Workspace</p>
 <p>注释 ctrl+shift+/<br>ctrl+/</p>
-<h4 id><a href="#" class="headerlink" title></a></h4>
-      
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/17/sj/" data-id="ckaa7l6i100008ocydgqp7g60" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
     
-<nav id="article-nav">
-  
-  
-    <a href="/2020/05/16/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
 </article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2020/05/18/java-ji-chu-zi-fu/" class="pre-post btn btn-default" title='java 基础 字符'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            java 基础 字符</span>
+    </a>
+    
+    
+    <a href="/2020/05/16/hello-world/" class="next-post btn btn-default" title='Hello World'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Hello World</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
 
-</section>
-        
-          <aside id="sidebar">
-  
+<div id="comments">
     
 
-  
-    
+<div id="vcomments" class="valine"></div>
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh_CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li></ul>
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1认识Java"><span class="toc-text">1认识Java+</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Java在公司里是用于干啥的-主要1和3"><span class="toc-text">1. Java在公司里是用于干啥的?(主要1和3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Java的招聘需求及薪资"><span class="toc-text">2. Java的招聘需求及薪资</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Java的职业规划发展方向"><span class="toc-text">3. Java的职业规划发展方向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Java的就业前景和形势"><span class="toc-text">4. Java的就业前景和形势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Java的学习方法和建议"><span class="toc-text">5.  Java的学习方法和建议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-学习前要谨记一些心态"><span class="toc-text">6.  学习前要谨记一些心态</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-计算机基础-amp-DOS"><span class="toc-text">2.计算机基础&amp;DOS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-计算机简介"><span class="toc-text">1. 计算机简介:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-计算机的操作系统"><span class="toc-text">2. 计算机的操作系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-计算机软件概念"><span class="toc-text">3. 计算机软件概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-软件开发的概念"><span class="toc-text">4. 软件开发的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#什么是软件开发"><span class="toc-text">什么是软件开发</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#什么是计算机语言"><span class="toc-text">什么是计算机语言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#计算机语言的分类"><span class="toc-text">计算机语言的分类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-DOS命令"><span class="toc-text">5. DOS命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-查看目录内容命令dir"><span class="toc-text">1. 查看目录内容命令dir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-打开指定目录命令-语法-cd路径"><span class="toc-text">2. 打开指定目录命令[语法: cd路径]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-创建目录命令-语法-md-文件夹名字-—mkdir-dir"><span class="toc-text">3. 创建目录命令[语法:md 文件夹名字]  —mkdir dir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-删除当前指定的目录-语法-rd-路径-–remove-123"><span class="toc-text">4. 删除当前指定的目录[语法:rd 路径]   –remove 123</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-创建文件-echo-a-gt-a-txt"><span class="toc-text">5. 创建文件 echo a&gt; a.txt</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-文件复制命令-语法-copy-源文件路径-目标文件路径"><span class="toc-text">6. 文件复制命令[语法: copy 源文件路径 目标文件路径]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-显示文本文件内容命令-语法-type-文件名"><span class="toc-text">7. 显示文本文件内容命令[语法: type 文件名]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-更改文件名命令-语法-ren-a-txt-a1-txt"><span class="toc-text">8. 更改文件名命令[语法: ren a.txt a1.txt]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-删除文件命令-语法-del-a-txt-a1-txt-note-stuck-out-tongue-同时删除2个"><span class="toc-text">9. 删除文件命令[语法: del a.txt a1.txt]  note :stuck_out_tongue:  同时删除2个</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-清除屏幕命令-cls"><span class="toc-text">10. 清除屏幕命令 cls</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11-改变当前盘符命令d"><span class="toc-text">11. 改变当前盘符命令d:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12-查看环境变量path-or-echo-path"><span class="toc-text">12. 查看环境变量path  or  echo %path%</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Java-开发环境的准备"><span class="toc-text">3.Java 开发环境的准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Java语言发展史"><span class="toc-text">1. Java语言发展史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Java语言版本"><span class="toc-text">2. Java语言版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Java语言特点"><span class="toc-text">3. Java语言特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Java语言跨平台原理"><span class="toc-text">4. Java语言跨平台原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-什么是跨平台性"><span class="toc-text">4.1 什么是跨平台性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-Java语言跨平台原理"><span class="toc-text">4.2 Java语言跨平台原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-Java语言跨平台图解"><span class="toc-text">4.3 Java语言跨平台图解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-4-write-once-，run-anywhere-一处编译-到处运行"><span class="toc-text">4.4 write once ，run anywhere!(一处编译,到处运行)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-JRE和JDK的概述"><span class="toc-text">5. JRE和JDK的概述</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-什么是JRE-Java-Runtime-Environment"><span class="toc-text">5.1 什么是JRE (Java Runtime Environment)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-什么是JDK-Java-Development-Kit"><span class="toc-text">5.2 什么是JDK (Java Development Kit)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-JDK-JRE-JVM的作用和关系"><span class="toc-text">5.3 JDK, JRE, JVM的作用和关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-4-能运行class而没有编译的功能，最后用张网络图片总结下"><span class="toc-text">5.4 能运行class而没有编译的功能，最后用张网络图片总结下</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-JDK的下载和安装过程图解"><span class="toc-text">6. JDK的下载和安装过程图解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#6-1-JDK的下载地址"><span class="toc-text">6.1 JDK的下载地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-2-JDK的安装"><span class="toc-text">6.2 JDK的安装</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-JDK的删除和自定义安装路径"><span class="toc-text">7. JDK的删除和自定义安装路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-JDK安装路径下的目录解释"><span class="toc-text">8. JDK安装路径下的目录解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-第一个Java程序，-Hel-loWord案例的编写与编译-命令行方式"><span class="toc-text">9.第一个Java程序， Hel loWord案例的编写与编译(命令行方式)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-Javac-amp-Java命令执行的路径"><span class="toc-text">10. Javac&amp;Java命令执行的路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-Java环境变量Path配置"><span class="toc-text">11. Java环境变量Path配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-CLASSPATH变量配置"><span class="toc-text">12. CLASSPATH变量配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Java开发工具Eclipse"><span class="toc-text">4. Java开发工具Eclipse</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-常用的Java-IDE开发工具"><span class="toc-text">1. 常用的Java IDE开发工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Eclipse历史版本-Neon"><span class="toc-text">2. Eclipse历史版本  Neon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Eclipse的下载与安装"><span class="toc-text">3. Eclipse的下载与安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Eclipse的区域与字体调整"><span class="toc-text">3. Eclipse的区域与字体调整</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-项目的导入和删除"><span class="toc-text">4.项目的导入和删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol></li></ol>
+        
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/05/17/sj/">认识Java</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/16/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/17/java1/">认识Java</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
 </aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
     </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
     
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+<script src="/js/app.js?rev=@@hash.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
