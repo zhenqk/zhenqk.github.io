@@ -78,6 +78,60 @@
   </entry>
   
   <entry>
+    <title>面向对象(下)补1</title>
+    <link href="http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/"/>
+    <id>http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/</id>
+    <published>2016-06-29T03:17:18.000Z</published>
+    <updated>2020-05-19T11:37:31.081Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;shk-20200425-基础-15-面向对象-下&quot;&gt;&lt;a href=&quot;#shk-20200425-基础-15-面向对象-下&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象(下)</title>
+    <link href="http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia/"/>
+    <id>http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia/</id>
+    <published>2016-06-28T23:27:18.000Z</published>
+    <updated>2020-05-19T11:38:55.921Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1. 每日一考&quot;&gt;&lt;/a&gt;1. 每日一考&lt;/h2&gt;&lt;p&gt;向上转型就是多态&lt;br&gt;1.如何实现向下转型?需要注意什么问题?如何解决此问题?&lt;br&gt;Person
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>面向对象(中)补2</title>
     <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/"/>
     <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/</id>
