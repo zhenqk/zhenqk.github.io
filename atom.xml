@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenqk.github.io/"/>
-  <updated>2020-05-17T16:39:13.213Z</updated>
+  <updated>2020-05-19T09:13:25.011Z</updated>
   <id>http://zhenqk.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>java 基础 字符</title>
-    <link href="http://zhenqk.github.io/2020/05/18/java-ji-chu-zi-fu/"/>
-    <id>http://zhenqk.github.io/2020/05/18/java-ji-chu-zi-fu/</id>
-    <published>2020-05-17T16:36:08.000Z</published>
-    <updated>2020-05-17T16:39:13.213Z</updated>
+    <title>Ubuntu1810下安装MySQL</title>
+    <link href="http://zhenqk.github.io/2018/12/02/2018-12-02-ubuntu1810-xia-an-zhuang-mysql/"/>
+    <id>http://zhenqk.github.io/2018/12/02/2018-12-02-ubuntu1810-xia-an-zhuang-mysql/</id>
+    <published>2018-12-02T08:33:33.000Z</published>
+    <updated>2020-05-19T09:13:25.011Z</updated>
     
     <summary type="html">
     
@@ -29,24 +29,31 @@
       
         
         
-          &lt;h3 id=&quot;1-Java-语言基础-基本数据类型&quot;&gt;&lt;a href=&quot;#1-Java-语言基础-基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;1. Java 语言基础-基本数据类型&quot;&gt;&lt;/a&gt;1. Java 语言基础-基本数据类型&lt;/h3&gt;&lt;h4
+          &lt;p&gt;版本:Ubuntu 1810&lt;br&gt;1.切换为root,下载并安装SQL服务器&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
         
       
     
     </summary>
     
     
+      <category term="安装" scheme="http://zhenqk.github.io/categories/%E5%AE%89%E8%A3%85/"/>
     
-      <category term="java" scheme="http://zhenqk.github.io/tags/java/"/>
+      <category term="Linux" scheme="http://zhenqk.github.io/categories/%E5%AE%89%E8%A3%85/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://zhenqk.github.io/tags/Linux/"/>
+    
+      <category term="MySQL" scheme="http://zhenqk.github.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
-    <title>认识Java</title>
-    <link href="http://zhenqk.github.io/2020/05/17/sj/"/>
-    <id>http://zhenqk.github.io/2020/05/17/sj/</id>
-    <published>2020-05-16T16:53:33.000Z</published>
-    <updated>2020-05-16T22:38:14.846Z</updated>
+    <title>CentOS 7(18.10)搭建个人网盘和博客</title>
+    <link href="http://zhenqk.github.io/2018/12/01/2018-12-01-centos-7-18-10-da-jian-si-ren-wang-pan-he-bo-ke/"/>
+    <id>http://zhenqk.github.io/2018/12/01/2018-12-01-centos-7-18-10-da-jian-si-ren-wang-pan-he-bo-ke/</id>
+    <published>2018-12-01T02:01:01.000Z</published>
+    <updated>2020-05-19T09:13:46.890Z</updated>
     
     <summary type="html">
     
@@ -54,22 +61,53 @@
       
         
         
-          &lt;h3 id=&quot;1认识Java&quot;&gt;&lt;a href=&quot;#1认识Java&quot; class=&quot;headerlink&quot; title=&quot;1认识Java+&quot;&gt;&lt;/a&gt;1认识Java+&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2020/05/17/sj/banner.jpg&quot;
+          &lt;h4 id=&quot;1-java环境-jdk-8u231-linux-x64-tar-gz-由于原先有jdk7版本-故移除更换&quot;&gt;&lt;a href=&quot;#1-java环境-jdk-8u231-linux-x64-tar-gz-由于原先有jdk7版本-故移除更换&quot;
         
       
     
     </summary>
     
+    
+      <category term="Linux" scheme="http://zhenqk.github.io/categories/Linux/"/>
+    
+    
+      <category term="blueBall" scheme="http://zhenqk.github.io/tags/blueBall/"/>
+    
+      <category term="Linux下JDK的安装" scheme="http://zhenqk.github.io/tags/Linux%E4%B8%8BJDK%E7%9A%84%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象(上)补2</title>
+    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/"/>
+    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/</id>
+    <published>2016-06-27T23:25:46.000Z</published>
+    <updated>2020-05-19T10:29:54.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每天一问&quot;&gt;&lt;a href=&quot;#1-每天一问&quot; class=&quot;headerlink&quot; title=&quot;1. 每天一问&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://zhenqk.github.io/2020/05/16/hello-world/"/>
-    <id>http://zhenqk.github.io/2020/05/16/hello-world/</id>
-    <published>2020-05-16T14:56:26.102Z</published>
-    <updated>2020-05-16T14:56:26.103Z</updated>
+    <title>面向对象(上)补1</title>
+    <link href="http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang-bu-1/"/>
+    <id>http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang-bu-1/</id>
+    <published>2016-06-27T02:57:13.000Z</published>
+    <updated>2020-05-19T10:06:38.689Z</updated>
     
     <summary type="html">
     
@@ -77,45 +115,26 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;h2 id=&quot;1-2-每天一问&quot;&gt;&lt;a href=&quot;#1-2-每天一问&quot; class=&quot;headerlink&quot; title=&quot;1-2. 每天一问&quot;&gt;&lt;/a&gt;1-2.
         
       
     
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>认识Java</title>
-    <link href="http://zhenqk.github.io/2019/05/17/java1/"/>
-    <id>http://zhenqk.github.io/2019/05/17/java1/</id>
-    <published>2019-05-16T16:53:33.000Z</published>
-    <updated>2020-05-16T22:28:12.408Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;1认识Java&quot;&gt;&lt;a href=&quot;#1认识Java&quot; class=&quot;headerlink&quot; title=&quot;1认识Java+&quot;&gt;&lt;/a&gt;1认识Java+&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2019/05/17/java1/banner.jpg&quot;
-        
-      
-    
-    </summary>
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
     
     
+      <category term="面向对象" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     
   </entry>
   
   <entry>
     <title>面向对象(上)</title>
-    <link href="http://zhenqk.github.io/2016/05/18/2016-06-10-mian-xiang-dui-xiang-shang/"/>
-    <id>http://zhenqk.github.io/2016/05/18/2016-06-10-mian-xiang-dui-xiang-shang/</id>
-    <published>2016-05-17T21:49:32.000Z</published>
-    <updated>2020-05-17T21:52:18.349Z</updated>
+    <link href="http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang/"/>
+    <id>http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang/</id>
+    <published>2016-06-26T22:49:32.000Z</published>
+    <updated>2020-05-19T10:06:55.736Z</updated>
     
     <summary type="html">
     
@@ -130,8 +149,85 @@
     </summary>
     
     
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
     
       <category term="面向对象" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基本数据类型</title>
+    <link href="http://zhenqk.github.io/2016/06/24/2016-06-24-ji-ben-shu-ju-lei-xing/"/>
+    <id>http://zhenqk.github.io/2016/06/24/2016-06-24-ji-ben-shu-ju-lei-xing/</id>
+    <published>2016-06-24T12:08:07.000Z</published>
+    <updated>2020-05-19T10:19:52.766Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-Java-语言基础-基本数据类型&quot;&gt;&lt;a href=&quot;#1-Java-语言基础-基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;1. Java 语言基础-基本数据类型&quot;&gt;&lt;/a&gt;1. Java 语言基础-基本数据类型&lt;/h3&gt;&lt;h4
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>引言:为什么学习Java以及怎么学习Java</title>
+    <link href="http://zhenqk.github.io/2016/06/24/2016-06-24-wei-shi-me-xue-xi-java-yi-ji-zen-me-xue-xi-java/"/>
+    <id>http://zhenqk.github.io/2016/06/24/2016-06-24-wei-shi-me-xue-xi-java-yi-ji-zen-me-xue-xi-java/</id>
+    <published>2016-06-24T10:11:03.000Z</published>
+    <updated>2020-05-19T10:16:22.947Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1认识Java&quot;&gt;&lt;a href=&quot;#1认识Java&quot; class=&quot;headerlink&quot; title=&quot;1认识Java+&quot;&gt;&lt;/a&gt;1认识Java+&lt;/h3&gt;&lt;h4 id=&quot;1-Java在公司里是用于干啥的-主要1和3&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="DOS命令" scheme="http://zhenqk.github.io/tags/DOS%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://zhenqk.github.io/2016/06/24/hello-world/"/>
+    <id>http://zhenqk.github.io/2016/06/24/hello-world/</id>
+    <published>2016-06-23T21:06:24.000Z</published>
+    <updated>2020-05-19T10:24:00.560Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
     
   </entry>
   

@@ -29,17 +29,35 @@
 html {
   color: #505050;
   line-height: 1.75em;
-  background: #ebebeb;
+background: #ebebeb;
+background: hsla(242, 30%, 5%, 1);   
+background: #8cc7b5;
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+ background:transparent;
 }
 body {
   color: #505050;
   line-height: 1.75em;
-  background: #ebebeb;
+  /* background: #ebebeb;*/
+/ * background: #3A96DD; */
+/*  background: #04ee11"; */
+
+
+
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+  
+
+     background: hsla(242, 30%, 5%, 1);   
+     background:transparent;
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
 }
+ canvas {
+            width: 100%;
+        }
 h1,
 h2,
 h3,
@@ -241,9 +259,11 @@ pre {
   line-height: 0;
   height: 180px;
   width: 100%;
+height: 100%
   background: #fff url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg);
   background-repeat: repeat;
   overflow: hidden;
+
 }
 .main-header .banneriframe {
   width: 100%;
@@ -294,13 +314,15 @@ pre {
   -webkit-background-size: cover;
   background-size: cover;
 }
-/* main-navigation */
+
+/* main-navigation   导航条 */
 .main-navigation {
   text-align: center;
   background: #fff;
   border-top: 1px solid #ebebeb;
   margin-bottom: 20px;
   border-bottom: 2px solid #e1e1e1;
+background: #19caad;
 }
 .main-navigation .navbar-collapse {
   border-top: 1px solid #ebebeb;
@@ -390,18 +412,22 @@ pre {
   background: #fff;
   padding: 10px 0;
   margin-bottom: 10px;
+
 }
 .main-content .breadcrumb {
   padding-left: 20px;
   font-size: 16px;
   line-height: 2em;
 }
+/*  文档的颜色 */
 .post {
   padding: 20px;
   background: #fff;
   margin-bottom: 15px;
   position: relative;
   overflow: hidden;
+
+
 }
 .post .featured {
   position: absolute;
@@ -522,6 +548,7 @@ pre {
 .post-content {
   font: 400 16px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
   color: #333;
+  
 }
 .post-content h1 {
   font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", "SimSun", sans-serif;
@@ -933,6 +960,7 @@ pre {
   background-color: #e67e22;
   border: 1px solid #e67e22;
   text-decoration: none;
+ 
 }
 .widget .social a {
   display: inline-block;

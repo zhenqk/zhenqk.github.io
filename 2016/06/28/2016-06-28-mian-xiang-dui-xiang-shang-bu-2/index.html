@@ -1,0 +1,628 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="1. 每天一问
+什么是方法的重载?两同一不同”:同一个类、相同方法名;参数列表不同如何调用确定的方法:方法名→参数列表。
+说明Java方法中的参数传递机制的具体体现?基本数据类型:数据值+引用数..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    面向对象(上)补2 |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="面向对象(上)补2">
+            
+            面向对象(上)补2
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2016/06/28</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-每天一问"><a href="#1-每天一问" class="headerlink" title="1. 每天一问"></a>1. 每天一问</h2><ol>
+<li>什么是方法的重载?<br>两同一不同”:同一个类、相同方法名;参数列表不同<br>如何调用确定的方法:方法名→参数列表。</li>
+<li>说明Java方法中的参数传递机制的具体体现?<br>基本数据类型:数据值+<br>引用数据类型:地址值(含变量的数据类型)。<br>Person p1 = new Person( );<br>eat();age+<br>User u1 = p1;//编译错误<br>(逆向思维、反证法)<br>u1. eat()<br>u1.age</li>
+<li>成员变量和局部变量在声明的位置上、是否有默认初始化值上、是否能有权限修饰符修饰上、内存分配的位置上有何不同?</li>
+<li>谈谈return关键字的使用。<br>①结束方法<br>②针对于有返回值的方法，return +返回数据。</li>
+<li>提供如下代码的内存解析。<ol>
+<li>内存结构:栈(局部变量)、堆(new出来的结构:对象(非static成员变量)、数组)<br>2.变量:成员变量vs局部变量(方法内、方法形参、构造器内、构造器形参、代码块内) </li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="1-2-复习-重载"><a href="#1-2-复习-重载" class="headerlink" title="1-2. 复习 重载"></a>1-2. 复习 重载</h2><ol>
+<li>匿名对象:我们创建的对象，没显式的赋给一个变量名。即为匿名对象<br>特点:匿名对象只能调用一次。<br>举例:<br>new Phone() . sendEmail();<br>new Phone( ) . playGame();<br>new Phone() .price = 1999;<br>new Phone() . showPrice();//0.0<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_01.png" alt="应用场景"></li>
+<li>万事万物皆对象<br>3.方法的重载概念<br>定义:在同一个类中，允许存在一个以上的同名方法，只要它们的参数个数或者参<br>数类型不同即可。<br>总结: “两同一不同”:同一个类、相同方法名；参数列表不同:参数个数不同，参数类型不同</li>
+<li>构成重载的举例:<br>举例一: Arrays类中 重载的sort() / binarySearch(); PrintStream中 的println()<br>举例<br>/ /如下的4个方法构成了重载<br>public void getSum(int i,int j){<br>System. out. println(“1”);<br>public void getSum( double d1, double d2){<br>System . out . print1n(“2”);<br>}<br>public void getSum(String s， int i){<br>System. out . println(“3”);<br>}<br>public void getSum(int i,String s){<br>System. out . println(“4”);<br>}</li>
+</ol>
+<p>不构成重载的举例:<br>//如下的3个方法不能与上述4个方法构成重载<br>// public int getSum(int i,int j){<br>//<br>return 0;<br>// }<br>// public void getSum(int m,int n){<br>//<br>// }<br>I<br>// private void getSum(int i,int j){<br>//<br>// }<br>5.如何判断是否构成方法的重载?<br>严格按照定义判断:两同一不同。<br>跟方法的权限修饰符、返回值类型、形参变量名、方法体都没关系!<br>6.如何确定类中某-一个方法的调用:<br>方法名—&gt;参数列表<br>面试题:方法的重载与重写的区别<br>throws \throw<br>String\StringBuffer\StringBuilder<br>Collection\Collections<br>final \finally\finalize</p>
+<p>抽象类、接口<br>sleep()/wait( )</p>
+<p>7.可变个数形参的方法</p>
+<ul>
+<li><p>使用说明</p>
+<ul>
+<li>1.jdk 5.0新增的内容</li>
+<li>2.具体使用:<ul>
+<li>2.1 可变个数形参的格式:数据类型… 变量名</li>
+<li>2.2当调用可变个数形参的方法时，传入的参数个数可以是: 0个，1个,2个，</li>
+<li>2.3可变个数形参的方法与本类中方法名相同，形参不同的方法之间构成重载</li>
+<li>2.4 可变个数形参的方法与本类中方法名相同，形参类型也相同的数组之间不构成重载。换句话说，二者不能共存。</li>
+<li>2.5可变个数形参在方法的形参中，必须声明在末尾</li>
+<li>2.6 可变个数形参在方法的形参中,最多只能声明一个可变形参。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>举例说明</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_02.png" alt="举例说明"></p>
+</li>
+</ul>
+<p>调用时</p>
+<p>test. show( “he1lo”);<br>test. show( “hello”, “world”);<br>test. show();<br>test. show(new String[ ]{“AA”, “BB”, “CC”});</p>
+<h2 id="3-值传递和递归方法"><a href="#3-值传递和递归方法" class="headerlink" title="3.值传递和递归方法"></a>3.值传递和递归方法</h2><ul>
+<li>针对于方法内变量的赋值举例<br>规则 :<br>如果变量是基本数据类型，此时赋值的是变量所保存的数据值。<br>如果变量是引用数据类型，此时赋值的是变量所保存的数据的地址值。</li>
+<li>针对于方法的参数概念<ul>
+<li>形参:方法定义时，声明的小括号内的参数<ul>
+<li>实参:方法调用时，实际传递给形参的数据|</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>java中参数传递机制:   值传递<br>规则:<br>如果参数是基本数据类型，此时实参赋给形参的是实参真实存储的数据值。<br>如果参数是引用数据类型，此时实参赋给形参的是实参存储数据的地址值。<br>推广:<br>如果变量是基本数据类型，此时赋值的是变量所保存的数据值。<br>如果变量是引用数据类型，此时赋值的是变量所保存的数据的地址值。</li>
+</ul>
+<p>String 只想常量方法区<br>  <img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_03.png" alt="关于string说明"><br>引用数据类型<br> <img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_04.png" alt="参数类型为引用数据类型"></p>
+<ul>
+<li>递归方法</li>
+<li>定义<br>递归方法:一个方法体内调用它自身。</li>
+<li>如何理解递归方法</li>
+<li>方法递归包含了一种隐式的循环，它会重复执行某段代码，但这种重复执行无须<br>循环控制。<pre><code>- 递归一定要向己知方向递归，否则这种递归就变成了无穷递归，类似于死循环。</code></pre></li>
+<li>举例<br>//例1: 计算1-n之间所有自然数的和<br>public int getSum(int n) {//<br>if (n==1) {<br>return 1;<br>}else{<br>return n + getSum(n - 1);<br>}<br>}<br>面试题 <img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_05.png" alt="面试题"><br>面试题 <img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_06.png" alt="图解"></li>
+</ul>
+<hr>
+<h2 id="4-封装性的引入"><a href="#4-封装性的引入" class="headerlink" title="4.封装性的引入"></a>4.封装性的引入</h2><p>IO  验证 和使用面向对象的过程，后面加深理解</p>
+<p>面向对象特征之一: 封装与隐藏</p>
+<ul>
+<li>为什么需要封装？封装的作用和含义？<ul>
+<li>我要用洗衣机，只需要按一下开关和洗涤模式就可以了。有必要了解洗衣机内<br>部的结构吗？有必要碰电动机吗？</li>
+<li>我要开车， …</li>
+</ul>
+</li>
+<li>我们程序设计追求“高内聚，低耦合”。<ul>
+<li>高内聚 ：类的内部数据操作细节自己完成，不允许外部干涉；</li>
+<li>低耦合 ： 仅对外暴露少量的方法用于使用。</li>
+</ul>
+</li>
+<li>隐藏对象内部的复杂性，只对外公开简单的接口。便于外界调用，从而提高系统的可扩展性、可维护性。通俗的说， <code>把该隐藏的隐藏起来，该暴露的暴露出来。 这就是封装性的设计思想。</code> </li>
+</ul>
+<p>代码<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_07.png" alt="封装性介绍"></p>
+<p>若a.legs=-4  不符合常理</p>
+<p>加入条件如下:<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_08.png" alt="封装性介绍加入条件"></p>
+<p>让a.leg 不能被调用  private int leg；</p>
+<h3 id="一、问题的引入："><a href="#一、问题的引入：" class="headerlink" title="一、问题的引入："></a>一、问题的引入：</h3><p>当我们创建一个类的对象以后，我们可以通过”对象.属性”的方式，对对象的属性进行赋值。这里，赋值操作要受到属性的数据类型和存储范围的制约。除此之外，没有其他制约条件。但是，在实际问题中，我们往往需要给属性赋值,加入额外的限制条件。这个条件就不能在属性声明时体现，我们只能通过方法进行限制条件的添加。（比如：setLegs()）<br>同时，我们需要避免用户再使用”对象.属性”的方式对属性进行赋值。则需要将属性声明为私有的(private). –&gt;此时，针对于属性就体现了封装性。</p>
+<h3 id="二、封装性的体现："><a href="#二、封装性的体现：" class="headerlink" title="二、封装性的体现："></a>二、封装性的体现：</h3><p> 我们将类的属性xxx私有化(private),同时，提供公共的(public)方法来获取(getXxx)和设置(setXxx)此属性的值</p>
+<p> 拓展：封装性的体现：① 如上  ② 不对外暴露的私有的方法  ③ 单例模式（构造器私有）   …</p>
+<h3 id="三、封装性的体现，需要权限修饰符来配合。"><a href="#三、封装性的体现，需要权限修饰符来配合。" class="headerlink" title="三、封装性的体现，需要权限修饰符来配合。"></a>三、封装性的体现，需要权限修饰符来配合。</h3><p>1.Java规定的4种权限（从小到大排列）：private、缺省、protected 、public<br>2.4种权限可以用来修饰类及类的内部结构：属性、方法、构造器、内部类<br>3.具体的，4种权限都可以用来修饰类的内部结构：属性、方法、构造器、内部类<br>修饰类的话，只能使用：缺省、public<br>总结封装性：Java提供了4种权限修饰符来修饰类及类的内部结构，体现类及类的内部结构在被调用时的可见性的大小。<br> 封装性的提现<br> public int getAge(){<br>        return age;<br>    }</p>
+<h2 id="5-封装性的提现"><a href="#5-封装性的提现" class="headerlink" title="5.封装性的提现"></a>5.封装性的提现</h2><h2 id="6-四种权限修饰的理解"><a href="#6-四种权限修饰的理解" class="headerlink" title="6.四种权限修饰的理解"></a>6.四种权限修饰的理解</h2><ul>
+<li>Java权限修饰符public、 protected、 (缺省)、 private置于类的成员定义前，<br>用来限定对象对该类成员的访问权限。<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_09.png" alt="4种权限修饰符"></li>
+<li>对于class的权限修饰只可以用public和default(缺省)。<ul>
+<li>public类可以在任意地方被访问。</li>
+<li>default类只可以被同一个包内部的类访问。</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-四种权限修饰符的测试"><a href="#7-四种权限修饰符的测试" class="headerlink" title="7.四种权限修饰符的测试"></a>7.四种权限修饰符的测试</h2><p>权限的大小 打比方公司的秘密</p>
+<h2 id="8-封装类的练习"><a href="#8-封装类的练习" class="headerlink" title="8.封装类的练习"></a>8.封装类的练习</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_10.png" alt="类图"></p>
+<p>- 表示私有 </p>
+<p>+ 表示public</p>
+<h2 id="9-类的成员"><a href="#9-类的成员" class="headerlink" title="9.类的成员"></a>9.类的成员</h2><h3 id="类的成员之三：构造器-或构造方法"><a href="#类的成员之三：构造器-或构造方法" class="headerlink" title="类的成员之三：构造器(或构造方法)"></a>类的成员之三：构造器(或构造方法)</h3><ul>
+<li>构造器的特征 <ul>
+<li>它具有与类相同的名称</li>
+<li>它不声明返回值类型。（与声明为void不同）</li>
+<li>不能被static、 final、 synchronized、 abstract、 native修饰，不能有<br>return语句返回值 </li>
+</ul>
+</li>
+<li>构造器的作用： <code>创建对象；给对象进行初始化</code><ul>
+<li>如： Order o = new Order(); Person p = new Person(“Peter”,15);</li>
+<li>如同我们规定每个“人”一出生就必须先洗澡，我们就可以在“人” 的<br>构造器中加入完成“洗澡”的程序代码，于是每个“人”一出生就会自<br>动完成“洗澡”，程序就不必再在每个人刚出生时一个一个地告诉他们<br>要“洗澡”了</li>
+</ul>
+</li>
+<li>语法格式：<br>修饰符 类名 (参数列表) {<br>初始化语句；<br>}</li>
+<li>举例说明:<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_11.png" alt="构造器举例说明"></li>
+<li>根据参数不同，构造器可以分为如下两类：<ul>
+<li>隐式无参构造器（系统默认提供）</li>
+<li>显式定义一个或多个构造器（无参、有参）</li>
+</ul>
+</li>
+<li>注 意：<br>Java语言中，每个类都至少有一个构造器<br>默认构造器的修饰符与所属类的修饰符一致<br>一旦显式定义了构造器， 则系统不再提供默认构造器<br>一个类可以创建多个重载的构造器<br>父类的构造器不可被子类继承</li>
+</ul>
+<hr>
+<p>构造器</p>
+<p> construct：建设、建造。  construction:CCB    constructor:建设者</p>
+<p>一、构造器的作用：<br> 1.创建对象   / /创建类的对象:new +构造器      构造器是一种独立的结构<br> 2.初始化对象的信息  —————</p>
+<p>二、说明：<br> 1.如果没有显式的定义类的构造器的话，则系统默认提供一个空参的构造器<br> 2.定义构造器的格式：权限修饰符  类名(形参列表){}<br> 3.一个类中定义的多个构造器，彼此构成重载<br> 4.一旦我们显式的定义了类的构造器之后，系统就不再提供默认的空参构造器(一旦结婚了，就不给饭吃了 )<br> 5.一个类中，至少会有一个构造器。</p>
+<h2 id="10-构造器使用的细节说明"><a href="#10-构造器使用的细节说明" class="headerlink" title="10.构造器使用的细节说明"></a>10.构造器使用的细节说明</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_12.png" alt="构造器重载说明"></p>
+<h2 id="11-12-构造器的练习-三角形的练习"><a href="#11-12-构造器的练习-三角形的练习" class="headerlink" title="11-12 .构造器的练习   三角形的练习"></a>11-12 .构造器的练习   三角形的练习</h2><h2 id="13-总结属性赋值的过程"><a href="#13-总结属性赋值的过程" class="headerlink" title="13 总结属性赋值的过程"></a>13 总结属性赋值的过程</h2><p>截止到目前，我们讲到了很多位置都可以对类的属性赋值。现总结这几个位<br>置，并指明赋值的先后顺序。</p>
+<ul>
+<li>赋值的位置:<br>①默认初始化 0.0<br>②显式初始化 1.0<br>③构造器中初始化       123 是一次性的<br>④通过“对象.属性“或“对象.方法”的方式赋值</li>
+<li>赋值的先后顺序:<br>①.②-③-④</li>
+</ul>
+<h2 id="14-JavaBean的使用"><a href="#14-JavaBean的使用" class="headerlink" title="14. JavaBean的使用"></a>14. JavaBean的使用</h2><ul>
+<li>JavaBean是一种Java语言写成的可重用组件。</li>
+<li>所谓javaBean，是指符合如下标准的Java类：<ul>
+<li>类是公共的</li>
+<li>有一个无参的公共的构造器</li>
+<li>有属性，且有对应的get、 set方法</li>
+<li>用户可以使用JavaBean将功能、处理、值、数据库访问和其他任何可以<br>用Java代码创造的对象进行打包，并且其他的开发者可以通过内部的JSP<br>页面、 Servlet、其他JavaBean、 applet程序或者应用来使用这些对象。用<br>户可以认为JavaBean提供了一种随时随地的复制和粘贴的功能，而不用关<br>心任何改变。    一个类就是一个jAVABean<br>—&gt;反射造对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="15-UML类图"><a href="#15-UML类图" class="headerlink" title="15. UML类图"></a>15. UML类图</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_13.png" alt="UML说明"></p>
+<h2 id="16-this调用属性和方法"><a href="#16-this调用属性和方法" class="headerlink" title="16. this调用属性和方法"></a>16. this调用属性和方法</h2><h3 id="this是什么？"><a href="#this是什么？" class="headerlink" title="this是什么？"></a>this是什么？</h3><ul>
+<li>在Java中， this关键字比较难理解，它的作用和其词义很接近。<ul>
+<li>它在方法内部使用，即这个方法所属对象的引用；</li>
+<li>它在构造器内部使用，表示该构造器正在初始化的对象。</li>
+</ul>
+</li>
+<li>this 可以调用类的属性、方法和构造器</li>
+<li>什么时候使用this关键字呢？<ul>
+<li>当在方法内需要用到调用该方法的对象时，就用this。<br>具体的：我们可以用this来区分<code>属性</code>和<code>局部变量</code>。<br>比如： this.name = name;</li>
+</ul>
+</li>
+<li>使用this，调用属性、方法<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_14.png" alt="this 举例说明1"></li>
+<li>说明<ul>
+<li><ol>
+<li>在任意方法或构造器内，如果使用当前类的成员变量或成员方法可以在其前面添this，增强程序的阅读性。不过，通常我们都习惯省略this。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>当形参与成员变量同名时，如果在方法内或构造器内需要使用成员变量，必须添加this来表明该变量是类的成员变量</li>
+</ol>
+</li>
+<li>3.使用this访问属性和方法时，如果在本类中未找到，会从父类中查找</li>
+<li>4.this可以作为一个类中构造器相互调用的特殊格式<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_15.png" alt="this 举例说明2"></li>
+</ul>
+</li>
+<li>使用this调用本类的构造器<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_16.png" alt="this 举例说明3 this可以作为一个类中构造器相互调用的特殊格式 "></li>
+<li>注意</li>
+</ul>
+<ol>
+<li>可以在类的构造器中使用”this(形参列表)”的方式，调用本类中重载的其他的构造器！</li>
+<li>明确：构造器中不能通过”this(形参列表)”的方式调用自身构造器</li>
+<li>如果一个类中声明了n个构造器，则最多有 n - 1个构造器中使用了”this(形参列表)”</li>
+<li>“this(形参列表)”必须声明在类的构造器的首行！</li>
+<li>在类的一个构造器中，最多只能声明一个”this(形参列表)</li>
+</ol>
+<hr>
+<p>www    what(是什么) why(为什么要用) how.</p>
+<p>代码中</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_17" alt="1587564642445"></p>
+<h3 id="this关键字的使用"><a href="#this关键字的使用" class="headerlink" title="this关键字的使用"></a>this关键字的使用</h3><ol>
+<li>this可以用来修饰、调用：属性、方法、构造器</li>
+<li>this修饰属性和方法：<br>this理解为：当前对象  或 当前正在创建的对象 （构造器）<ul>
+<li>在类的方法中，我们可以使用”this.属性”或”this.方法”的方式，调用当前对象属性或方法。但是，通常情况下，我们都选择省略”this.”。特殊情况下，如果方法的形参和类的属性同名时，我们必须显式的使用”this.变量”的方式，表明此变量是属性，而非形参。</li>
+<li>在类的构造器中，我们可以使用”this.属性”或”this.方法”的方式，调用当前正在创建的对象属性或方法。但是，通常情况下，我们都选择省略”this.”。特殊情况下，如果构造器的形参和类的属性同名时，我们必须显式的使用”this.变量”的方式，表明此变量是属性，而非形参。</li>
+</ul>
+</li>
+<li>this调用构造器<br>① 我们在类的构造器中，可以显式的使用”this(形参列表)”方式，调用本类中指定的其他构造器<br>② 构造器中不能通过”this(形参列表)”方式调用自己<br> ③ 如果一个类中有n个构造器，则最多有 n - 1构造器中使用了”this(形参列表)”<br>④ 规定：”this(形参列表)”必须声明在当前构造器的首行<br>  ⑤ 构造器内部，最多只能声明一个”this(形参列表)”，用来调用其他的构造器</li>
+</ol>
+<h2 id="17-this调用构造器–减少冗余了"><a href="#17-this调用构造器–减少冗余了" class="headerlink" title="17.this调用构造器–减少冗余了"></a>17.this调用构造器–减少冗余了</h2><p>构造器里面调用构造器</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_17.png" alt="this调用构造器"></p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_18.png" alt="1587564642445"></p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_19.png" alt="比较两个对象的大小"></p>
+<h2 id="18-练习boyand-girl"><a href="#18-练习boyand-girl" class="headerlink" title="18 练习boyand girl"></a>18 练习boyand girl</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.exer2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boy</span> </span>{</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Boy</span><span class="params">()</span> </span>{</span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Boy</span><span class="params">(String name)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Boy</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">marry</span><span class="params">(Girl girl)</span></span>{</span><br><span class="line">		System.out.println(<span class="string">"我想娶"</span> + girl.getName());</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shout</span><span class="params">()</span></span>{</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.age &gt;= <span class="number">22</span>){</span><br><span class="line">			System.out.println(<span class="string">"你可以去合法登记结婚了！"</span>);</span><br><span class="line">		}<span class="keyword">else</span>{</span><br><span class="line">			System.out.println(<span class="string">"先多谈谈恋爱~~"</span>);</span><br><span class="line">		}</span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">*-*-----------------</span><br><span class="line">    <span class="keyword">package</span> com.atguigu.exer2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Girl</span> </span>{</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Girl</span><span class="params">()</span> </span>{</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Girl</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">marry</span><span class="params">(Boy boy)</span></span>{</span><br><span class="line">		System.out.println(<span class="string">"我想嫁给"</span> + boy.getName());</span><br><span class="line">		boy.marry(<span class="keyword">this</span>);</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@Description</span> 比较两个对象的大小</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@author</span> shkstart</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@date</span> 2019年1月18日下午4:02:09</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> girl</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span>  正数：当前对象大；  负数：当前对象小  ； 0：当前对象与形参对象相等</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Girl girl)</span></span>{</span><br><span class="line"><span class="comment">//		if(this.age &gt; girl.age){</span></span><br><span class="line"><span class="comment">//			return 1;</span></span><br><span class="line"><span class="comment">//		}else if(this.age &lt; girl.age){</span></span><br><span class="line"><span class="comment">//			return -1;</span></span><br><span class="line"><span class="comment">//		}else{</span></span><br><span class="line"><span class="comment">//			return 0;</span></span><br><span class="line"><span class="comment">//		}</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.age - girl.age;</span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">}</span><br><span class="line">-------------</span><br><span class="line">  <span class="keyword">package</span> com.atguigu.exer2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BoyGirlTest</span> </span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		</span><br><span class="line">		Boy boy = <span class="keyword">new</span> Boy(<span class="string">"罗密欧"</span>, <span class="number">21</span>);</span><br><span class="line">		boy.shout();</span><br><span class="line">		</span><br><span class="line">		Girl girl = <span class="keyword">new</span> Girl(<span class="string">"朱丽叶"</span>, <span class="number">18</span>);</span><br><span class="line">		girl.marry(boy);</span><br><span class="line">		</span><br><span class="line">		Girl girl1 = <span class="keyword">new</span> Girl(<span class="string">"祝英台"</span>,<span class="number">19</span>);</span><br><span class="line">		<span class="keyword">int</span> compare = girl.compare(girl1);</span><br><span class="line">		<span class="keyword">if</span>(compare &gt; <span class="number">0</span>){</span><br><span class="line">			System.out.println(girl.getName() + <span class="string">"大"</span>);</span><br><span class="line">		}<span class="keyword">else</span> <span class="keyword">if</span>(compare &lt; <span class="number">0</span>){</span><br><span class="line">			System.out.println(girl1.getName() + <span class="string">"大"</span>);</span><br><span class="line">		}<span class="keyword">else</span>{</span><br><span class="line">			System.out.println(<span class="string">"一样大"</span>);</span><br><span class="line">		}</span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="19-练习Account"><a href="#19-练习Account" class="headerlink" title="19. 练习Account"></a>19. 练习Account</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.exer3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>{</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;<span class="comment">//账号</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> balance;<span class="comment">//余额</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> annualInterestRate;<span class="comment">//年利率</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Account</span> <span class="params">(<span class="keyword">int</span> id, <span class="keyword">double</span> balance, <span class="keyword">double</span> annualInterestRate )</span></span>{</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">		<span class="keyword">this</span>.balance = balance;</span><br><span class="line">		<span class="keyword">this</span>.annualInterestRate = annualInterestRate;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> balance;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBalance</span><span class="params">(<span class="keyword">double</span> balance)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.balance = balance;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getAnnualInterestRate</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> annualInterestRate;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAnnualInterestRate</span><span class="params">(<span class="keyword">double</span> annualInterestRate)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.annualInterestRate = annualInterestRate;</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">//在提款方法withdraw中，需要判断用户余额是否能够满足提款数额的要求，如果不能，应给出提示。</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span> <span class="params">(<span class="keyword">double</span> amount)</span></span>{<span class="comment">//取钱</span></span><br><span class="line">		<span class="keyword">if</span>(balance &lt; amount){</span><br><span class="line">			System.out.println(<span class="string">"余额不足，取款失败"</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		}</span><br><span class="line">		balance -= amount;</span><br><span class="line">		System.out.println(<span class="string">"成功取出："</span> + amount);</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span> <span class="params">(<span class="keyword">double</span> amount)</span></span>{<span class="comment">//存钱</span></span><br><span class="line">		<span class="keyword">if</span>(amount &gt; <span class="number">0</span>){</span><br><span class="line">			balance += amount;</span><br><span class="line">			System.out.println(<span class="string">"成功存入："</span> + amount);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">----------</span><br><span class="line"><span class="keyword">package</span> com.atguigu.exer3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>{</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String firstName;</span><br><span class="line">	<span class="keyword">private</span> String lastName;</span><br><span class="line">	<span class="keyword">private</span> Account account;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(String f,String l)</span></span>{</span><br><span class="line">		<span class="keyword">this</span>.firstName = f;</span><br><span class="line">		<span class="keyword">this</span>.lastName = l;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Account <span class="title">getAccount</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> account;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAccount</span><span class="params">(Account account)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.account = account;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> firstName;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> lastName;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">----------</span><br><span class="line"><span class="keyword">package</span> com.atguigu.exer3;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 写一个测试程序。</span></span><br><span class="line"><span class="comment">（1）	创建一个Customer ，名字叫 Jane Smith, </span></span><br><span class="line"><span class="comment">他有一个账号为1000，余额为2000元，年利率为 1.23％ 的账户。</span></span><br><span class="line"><span class="comment">（2）	对Jane Smith操作。</span></span><br><span class="line"><span class="comment">存入 100 元，再取出960元。再取出2000元。</span></span><br><span class="line"><span class="comment">打印出Jane Smith 的基本信息</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">成功存入 ：100.0</span></span><br><span class="line"><span class="comment">成功取出：960.0</span></span><br><span class="line"><span class="comment">余额不足，取款失败</span></span><br><span class="line"><span class="comment">Customer [Smith, Jane] has a account: id is 1000, </span></span><br><span class="line"><span class="comment">annualInterestRate is 1.23％, balance is 1140.0</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerTest</span> </span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		Customer cust = <span class="keyword">new</span> Customer(<span class="string">"Jane"</span>, <span class="string">"Smith"</span>);</span><br><span class="line">		</span><br><span class="line">		Account acct = <span class="keyword">new</span> Account(<span class="number">1000</span>, <span class="number">2000</span>, <span class="number">0.0123</span>);</span><br><span class="line">		</span><br><span class="line">		cust.setAccount(acct);</span><br><span class="line">		</span><br><span class="line">		cust.getAccount().deposit(<span class="number">100</span>);</span><br><span class="line">		cust.getAccount().withdraw(<span class="number">960</span>);</span><br><span class="line">		cust.getAccount().withdraw(<span class="number">2000</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"Customer["</span> + cust.getLastName() + <span class="string">","</span> + cust.getFirstName() + </span><br><span class="line">				<span class="string">"] has a account: id is "</span> + cust.getAccount().getId() + <span class="string">",annualInterestRate is "</span>+</span><br><span class="line">		cust.getAccount().getAnnualInterestRate() * <span class="number">100</span> + <span class="string">"% ,balance is "</span> + cust.getAccount().getBalance());</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="20-练习对象数组"><a href="#20-练习对象数组" class="headerlink" title="20. 练习对象数组"></a>20. 练习对象数组</h2><p>每加顾客+1<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_20.png" alt="每加顾客+1"><br>或customers [ numberOfCustomers++] = cust;<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_21.png" alt="别忘记初始化"></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.exer4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>{</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Account</span><span class="params">(<span class="keyword">double</span> init_balance)</span></span>{</span><br><span class="line">		<span class="keyword">this</span>.balance = init_balance;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span></span>{</span><br><span class="line">		<span class="keyword">return</span> balance;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//存钱操作</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deposit</span><span class="params">(<span class="keyword">double</span> amt)</span></span>{</span><br><span class="line">		<span class="keyword">if</span>(amt &gt; <span class="number">0</span>){</span><br><span class="line">			balance += amt;</span><br><span class="line">			System.out.println(<span class="string">"存钱成功"</span>);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">//取钱操作</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> amt)</span></span>{</span><br><span class="line">		<span class="keyword">if</span>(balance &gt;= amt){</span><br><span class="line">			balance -= amt;</span><br><span class="line">			System.out.println(<span class="string">"取钱成功"</span>);</span><br><span class="line">		}<span class="keyword">else</span>{</span><br><span class="line">			System.out.println(<span class="string">"余额不足"</span>);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="keyword">package</span> com.atguigu.exer4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>{</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String firstName;</span><br><span class="line">	<span class="keyword">private</span> String lastName;</span><br><span class="line">	<span class="keyword">private</span> Account account;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(String f, String l)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.firstName = f;</span><br><span class="line">		<span class="keyword">this</span>.lastName = l;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Account <span class="title">getAccount</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> account;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAccount</span><span class="params">(Account account)</span> </span>{</span><br><span class="line">		<span class="keyword">this</span>.account = account;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getFirstName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> firstName;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getLastName</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> lastName;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">}</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.atguigu.exer4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bank</span> </span>{</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> Customer[] customers;<span class="comment">// 存放多个客户的数组</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> numberOfCustomers;<span class="comment">// 记录客户的个数</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Bank</span><span class="params">()</span> </span>{</span><br><span class="line">		customers = <span class="keyword">new</span> Customer[<span class="number">10</span>];</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 添加客户</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCustomer</span><span class="params">(String f, String l)</span> </span>{</span><br><span class="line">		Customer cust = <span class="keyword">new</span> Customer(f, l);</span><br><span class="line">		<span class="comment">// customers[numberOfCustomers] = cust;</span></span><br><span class="line">		<span class="comment">// numberOfCustomers++;</span></span><br><span class="line">		<span class="comment">// 或</span></span><br><span class="line">		customers[numberOfCustomers++] = cust;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 获取客户的个数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumOfCustomers</span><span class="params">()</span> </span>{</span><br><span class="line">		<span class="keyword">return</span> numberOfCustomers;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 获取指定位置上的客户</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Customer <span class="title">getCustomer</span><span class="params">(<span class="keyword">int</span> index)</span> </span>{</span><br><span class="line">		<span class="comment">// return customers[index];//可能报异常</span></span><br><span class="line">		<span class="keyword">if</span> (index &gt;= <span class="number">0</span> &amp;&amp; index &lt; numberOfCustomers) {</span><br><span class="line">			<span class="keyword">return</span> customers[index];</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">+-++++++</span><br><span class="line"><span class="keyword">package</span> com.atguigu.exer4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BankTest</span> </span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		</span><br><span class="line">		Bank bank = <span class="keyword">new</span> Bank();</span><br><span class="line">		</span><br><span class="line">		bank.addCustomer(<span class="string">"Jane"</span>, <span class="string">"Smith"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//连续操作</span></span><br><span class="line">		bank.getCustomer(<span class="number">0</span>).setAccount(<span class="keyword">new</span> Account(<span class="number">2000</span>));</span><br><span class="line">		</span><br><span class="line">		bank.getCustomer(<span class="number">0</span>).getAccount().withdraw(<span class="number">500</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">double</span> balance = bank.getCustomer(<span class="number">0</span>).getAccount().getBalance();</span><br><span class="line">		System.out.println(<span class="string">"客户："</span> + bank.getCustomer(<span class="number">0</span>).getFirstName() + <span class="string">"的账户余额为："</span> + balance);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"***********************"</span>);</span><br><span class="line">		bank.addCustomer(<span class="string">"万里"</span>, <span class="string">"杨"</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"银行客户的个数为："</span> + bank.getNumOfCustomers());</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line">-------</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="21-package关键字的使用"><a href="#21-package关键字的使用" class="headerlink" title="21.package关键字的使用"></a>21.package关键字的使用</h2><ul>
+<li><p>package语句作为Java源文件的第一条语句，指明该文件中定义的类所在<br>的包。 (若缺省该语句，则指定为无名包)。它的格式为：<br>package 顶层包名.子包名</p>
+</li>
+<li><p>包对应于文件系统的目录， package语句中，用 “.” 来指明包(目录)的层次；</p>
+</li>
+<li><p>包通常用小写单词标识。通常使用所在公司域名的倒置： com.atguigu.xxx</p>
+</li>
+<li><p>包的作用：</p>
+<ul>
+<li>包帮助管理大型软件系统： 将功能相近的类划分到同一个包中。 比如： MVC的设计模式</li>
+<li>包可以包含类和子包， 划分项目层次， 便于管理</li>
+<li>解决类命名冲突的问题</li>
+<li>控制访问权限</li>
+</ul>
+<hr>
+</li>
+</ul>
+<h4 id="一、package关键字的使用"><a href="#一、package关键字的使用" class="headerlink" title="一、package关键字的使用"></a>一、package关键字的使用</h4><p>1.为了更好的实现项目中类的管理，提供包的概念<br>2.使用package声明类或接口所属的包，声明在源文件的首行<br>3.包，属于标识符，遵循标识符的命名规则、规范(xxxyyyzzz)、“见名知意”<br>4.每”.”一次，就代表一层文件目录。<br> 补充：同一个包下，不能命名同名的接口、类。<br>     不同的包下，可以命名同名的接口、类。<br>JDK中主要的包介绍<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_22.png" alt="JDK中主要的包介绍"></p>
+<h2 id="22-MVC设计模式的理解"><a href="#22-MVC设计模式的理解" class="headerlink" title="22.MVC设计模式的理解"></a>22.MVC设计模式的理解</h2><p>​      MVC是常用的设计模式之一，将整个程序分为三个层次： <code>视图模型层，控制器层，与数据模型层</code>。 这种将程序输入输出、数据处理，以及数据的展示分离开来的设计模式使程序结构变的灵活而且清晰，同时也描述了程序各个对象间的通信方式，降低了程序的耦合性 </p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_23.png" alt="MVC 设计模式"></p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/10_24.png" alt="MVC 设计模式图解"></p>
+<h2 id="23-import-关键字的使用"><a href="#23-import-关键字的使用" class="headerlink" title="23 import 关键字的使用"></a>23 import 关键字的使用</h2><h4 id="二、import关键字的使用"><a href="#二、import关键字的使用" class="headerlink" title="二、import关键字的使用"></a>二、import关键字的使用</h4><p>import:导入</p>
+<ol>
+<li><p>在源文件中显式的使用import结构导入指定包下的类、接口</p>
+</li>
+<li><p>声明在包的声明和类的声明之间</p>
+</li>
+<li><p>如果需要导入多个结构，则并列写出即可</p>
+</li>
+<li><p>可以使用”xxx.*”的方式，表示可以导入xxx包下的所有结构</p>
+</li>
+<li><p>如果使用的类或接口是java.lang包下定义的，则可以省略import结构</p>
+</li>
+<li><p>如果使用的类或接口是本包下定义的，则可以省略import结构</p>
+</li>
+<li><p>如果在源文件中，使用了不同包下的同名的类，则必须至少有一个类需要以全类名的方式显示。————<strong><strong><strong><strong>*****</strong></strong></strong></strong></p>
+</li>
+<li><p>使用”xxx.*”方式表明可以调用xxx包下的所有结构。但是如果使用的是xxx子包下的结构，则仍需要显式导入    * 不代表子包</p>
+</li>
+<li><p>import static:导入指定类或接口中的静态结构:属性或方法。 </p>
+<p>eg import static java.lang.System.*；</p>
+<p>out.print(“121”)</p>
+</li>
+</ol>
+<hr>
+<ul>
+<li>为使用定义在不同包中的Java类，需用import语句来引入指定包层次下所需要的类<br>或全部类(.*)。 import语句告诉编译器到哪里去寻找类。</li>
+<li>语法格式：<br>import 包名. 类名;</li>
+<li>应用举例：<br>import pack1.pack2.Test; //import pack1.pack2.*;表示引入pack1.pack2包中的所有结构</li>
+<li>注意：</li>
+</ul>
+<ol>
+<li><p>在源文件中使用import显式的导入指定包下的类或接口</p>
+</li>
+<li><p>声明在包的声明和类的声明之间。</p>
+</li>
+<li><p>如果需要导入多个类或接口，那么就并列显式多个import语句即可</p>
+</li>
+<li><p>举例：可以使用java.util.*的方式，一次性导入util包下所有的类或接口。</p>
+</li>
+<li><p>如果导入的类或接口是java.lang包下的，或者是当前包下的，则可以省略此import语句。</p>
+</li>
+<li><p>如果在代码中使用不同包下的同名的类。那么就需要使用类的全类名的方式指明调用的<br>是哪个类。</p>
+</li>
+<li><p>如果已经导入java.a包下的类。那么如果需要使用a包的子包下的类的话，仍然需要导入。</p>
+</li>
+<li><p>import static组合的使用：调用指定类或接口下的静态的属性或方法</p>
+<p>两个date</p>
+<p>#</p>
+</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2018/12/01/2018-12-01-centos-7-18-10-da-jian-si-ren-wang-pan-he-bo-ke/" class="pre-post btn btn-default" title='CentOS 7(18.10)搭建个人网盘和博客'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            CentOS 7(18.10)搭建个人网盘和博客</span>
+    </a>
+    
+    
+    <a href="/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang-bu-1/" class="next-post btn btn-default" title='面向对象(上)补1'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            面向对象(上)补1</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1966422"></script>
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-每天一问"><span class="toc-text">1. 每天一问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-复习-重载"><span class="toc-text">1-2. 复习 重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-值传递和递归方法"><span class="toc-text">3.值传递和递归方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-封装性的引入"><span class="toc-text">4.封装性的引入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、问题的引入："><span class="toc-text">一、问题的引入：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、封装性的体现："><span class="toc-text">二、封装性的体现：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、封装性的体现，需要权限修饰符来配合。"><span class="toc-text">三、封装性的体现，需要权限修饰符来配合。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-封装性的提现"><span class="toc-text">5.封装性的提现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-四种权限修饰的理解"><span class="toc-text">6.四种权限修饰的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-四种权限修饰符的测试"><span class="toc-text">7.四种权限修饰符的测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-封装类的练习"><span class="toc-text">8.封装类的练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-类的成员"><span class="toc-text">9.类的成员</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类的成员之三：构造器-或构造方法"><span class="toc-text">类的成员之三：构造器(或构造方法)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-构造器使用的细节说明"><span class="toc-text">10.构造器使用的细节说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-12-构造器的练习-三角形的练习"><span class="toc-text">11-12 .构造器的练习   三角形的练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-总结属性赋值的过程"><span class="toc-text">13 总结属性赋值的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-JavaBean的使用"><span class="toc-text">14. JavaBean的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-UML类图"><span class="toc-text">15. UML类图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-this调用属性和方法"><span class="toc-text">16. this调用属性和方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#this是什么？"><span class="toc-text">this是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this关键字的使用"><span class="toc-text">this关键字的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-this调用构造器–减少冗余了"><span class="toc-text">17.this调用构造器–减少冗余了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-练习boyand-girl"><span class="toc-text">18 练习boyand girl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-练习Account"><span class="toc-text">19. 练习Account</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-练习对象数组"><span class="toc-text">20. 练习对象数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-package关键字的使用"><span class="toc-text">21.package关键字的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、package关键字的使用"><span class="toc-text">一、package关键字的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-MVC设计模式的理解"><span class="toc-text">22.MVC设计模式的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-import-关键字的使用"><span class="toc-text">23 import 关键字的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二、import关键字的使用"><span class="toc-text">二、import关键字的使用</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: true || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+
+
+
+
+
+
+</body>
+</html>
