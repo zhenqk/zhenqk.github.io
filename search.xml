@@ -119,6 +119,522 @@
       </tags>
   </entry>
   <entry>
+    <title>2016-06-28-面向对象(中)补2</title>
+    <url>/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/</url>
+    <content><![CDATA[<h2 id="1-每日一问"><a href="#1-每日一问" class="headerlink" title="1.每日一问"></a>1.每日一问</h2><p>1.什么是多态性?什么是虚拟方法调用?<br>对象的多态性:父类的引用指向子类的对象。<br>Person p = new Man();<br>p.eat();<br>调用方法时，编译时看左边，运行时看右边。<br>先会写代码，后面慢慢来</p>
+<p>2.一个类可以有几个直接父类?(一个 )一个父类可有多少个子类?子类能获取直接父类的父类中的结构吗?(可以)子类能否获取父类中private 权限的属性或方法?。(可以   getset 方法) 封装解决的能不能调的问题，继承性是能不能获取的问题<br>Ais B 是不是true  可继承</p>
+<p>3.方法的重写(override/overwrite)的具体规则有哪些。(非static方法)<br>方法名，形参列表相同。<br>权限修饰符。<br>返回值w<br>抛出的异常</p>
+<p>4.super调用构造器，有哪些具体的注意点<br>this(形参列表):本类重载的其它的构造器。<br>super(形参列表):调用父类中指定的构造器。<br>n n-11</p>
+<p>5.在下面的代码结构中:使用关键字: this,super;方法的重 写;继承;<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_01.png" alt="题"></p>
+<h2 id="2-重写与super"><a href="#2-重写与super" class="headerlink" title="2.重写与super"></a>2.重写与super</h2><h3 id="debug-调试"><a href="#debug-调试" class="headerlink" title="debug 调试"></a>debug 调试</h3><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_02.png" alt="debug 调试"></p>
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>1.什么是方法的重写(override或overwrite)?  (父类的方法不适合子类)<br>子类继承父类以后，可以对父类中同名同参数的方法，进行覆盖操作。<br>2.应用:</p>
+<p>重写以后，当创建子类对象以后，通过子类对象调用子父类中的同名同参数的方法时，实际<br>执行的是子类重写父类的方法。</p>
+<p>3.举例:<br>cylinder</p>
+<p>4.重写的规则:<br>方法的声明:权限修饰符 返回值类型 方法名 (形参列表) throws 异常的类型{<br>//方法体<br>约定俗称:子类中的叫重写的方法，父类中的叫被重写的方法<br>②子类重写的方法的方法名和形参列表与父类被重写的方法的方法名和形参列表相同<br>2子类重写的方法的权限修饰符不小于父类被重写的方法的权限修饰符<br>事</p>
+<blockquote>
+<p>特殊情况:子类不能重写父类中声明为private权限的方法<br>③返回值类型:<br>父类被重写的方法的返回值类型是void,则子类重写的方法的返回值类型只能是void<br>父类被重写的方法的返回值类型是A类型，则子类重写的方法的返回值类型可以是A类或A类的子类<br>父类被重写的方法的返回值类型是基本数据类型(比如: double)， 则子类重写的方法的返回值类型必须是相<br>同的基本数据类型(必须也是double)<br>日子类重写的方法抛出的异常类型不大于父类被重写的方法抛出的异常类型(具体放到异常处理时候讲)<br>子类和父类中的同名同参数的方法要么都声明为非static的(考虑重写，要么都声明为static的(不是重写).</p>
+</blockquote>
+<p>5.面试题:<br>区分方法的重写和重载?<br>重载  ，可以在同一个类中可以使用相同方法名和形参列表不同相同相同方法，彼此之间构成重载，<br>构造器可以重载<br>动态绑定</p>
+<p>答:<br>①二者的概念:<br>②重载和重写的具体规则<br>③重载:不表现为多 态性。<br>重写:表现为多态性。<br>重载，是指允许存在多个同名方法，而这些方法的参数不同。编译器根据方法不同的参数表，对同名方法的名称做修饰。对于编译器而言，这些同名方法就成了不同的方法。它石的调用地址在编译期就绑定了。Java的重载是可以包括父类和子类的，即子类可以重载父类的同名不同參数的方法。<br>所以:对于重载而言，在方法调用之前，编译器就已经确定了所要调用的方法，这称为早绑定或静态绑定”;而对于多态，只等到方法调用的那一刻，解释运行器才会确定所要调用的具体方法，这称为“晚绑定或动态绑定”。引用一句Bruce Eckel的话:“不要犯傻，如果它不是晚绑定，它就不是多态。”</p>
+<h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><p>1.super关键字可以理解为: 父类的<br>2.可以用来调用的结构:<br>属性、方法、构造器</p>
+<p>3.super调用属性、方法:<br>3.1我们可以在子类的方法或构造器中。通过使用”super展性”或“super .方法”的方式，显式的调用父类中声明的属性或方法。但是，通常情况下，我们习惯省略”superA”<br>3.2特殊情况:当子类和父类中定义了同名的属性时，我们要想在子类中调用父类中声明的属性，则必须显式的使用”super.属性”的方式，表明调用的是父类中声明的属性。<br>3.3特殊情况:当子类重写了父类中的方法以后，我们想在子类的方法中调用父类中被重写的方法时，则必须显式的使用”super.方法”的方式，表明调用的是父类中被重写的方法。</p>
+<p>4.super调用构造器:</p>
+<p>4.1我们可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器<br>4.2 “super(形参 列表)”的使用，必须声明在子类构造器的首行!<br>4.3我们在类的构造器中，针对于”this(形参列表)”或” super(形参列表)”只能二一，不能同时出现<br>4.4在构造器的首行，没显式的声明”this(形参列表)”或”super(形参列表)”，则默认调用的是父类中空参的<br>in构造器: super()<br>4.5在类的多个构造器中，至少-一个类的构造器中使用了”super(形参列表)”， 调用父类中的构造器</p>
+<p>渐渐领悟</p>
+<h2 id="3-子类对象实例化过程及多态性"><a href="#3-子类对象实例化过程及多态性" class="headerlink" title="3.子类对象实例化过程及多态性"></a>3.子类对象实例化过程及多态性</h2><p>1.从结果上看:继承性</p>
+<blockquote>
+<p>子类继承父类以后，就获取了父类中声明的属性或方法。<br>创建子类的对象，在堆空间中，就会加载所父类中声明的属性。</p>
+</blockquote>
+<p>2.从过程上看:<br>当我们通过子类的构造器创建子类对象时，我们一定会直接或间接的调用其父类的构造器，<br>进而调用父类的父类的构造器，… 直到调用了java. lang . object类中空参的构造器为止。<br>正因为加载过所的父类的结构，所以才可以看到内存中父类中的结构，子类对象才可以考虑<br>进行调用。<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_03.png" alt="从过程上看"></p>
+<p>3.强调说明<br>为什么super(… )或this(..)调用语句只能作为构造器中的第- - -句出现?</p>
+<p>无论通过哪个构造器创建子类对象，需要保证先初始化父类。<br>目的:当子类继承父类后，“继承”父类中所有的属性和方法，因此子类有必要知道父类如何为对象进行初始化。</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_04.png" alt="强调说明"></p>
+<h3 id="多调性的理解"><a href="#多调性的理解" class="headerlink" title="多调性的理解"></a>多调性的理解</h3><p>1.多态性的理解:<br>可以理解为一个事物的多种形态。</p>
+<p>2.何为多态性:<br>对象的多态性:父类的引用指向子类的对象(或子类的对象赋给父类的引用)<br>举例:<br>Person p = new Man();<br>objlect obj = new Date();<br>3.多态性的使用: 虚拟方法调用<br>有了对象的多态性以后，我们在编译期，只能调用父类中声明的方法，但在运行期，我们实际<br>执行的是子类重写父类的方法。<br>总结:编译，看左边;运行，看右边。<br>4.多态性的使用前提:<br>①类的继承关系②方法的重写<br>5.多态性的应用举例:<br>猫<br>狗<br>6.多态性使用的注意点:<br>对象的多态性，只适用于方法，不适用于属性(编译和运行都看左边</p>
+<h2 id="4-向下转型的使用"><a href="#4-向下转型的使用" class="headerlink" title="4. 向下转型的使用"></a>4. 向下转型的使用</h2><p>/ /不能调用子类所特有的方法、属性:编译时，p2是Person类型。<br>p2. earnMoney();<br>//有了对象的多态性以后，内存中实际上是加载了子类特有的属性和方法的，但是由于变量声明为父类类型，导致<br>/ /编译时，只能调用父类中声明的属性和方法。子类特有的属性和方法不能调用。</p>
+<p>/ /如何才能调用子类特有的属性和方法?<br>/ /向下转型:使用强制类型转换符。<br>Man m1 = (Man)p2;<br>m1. earnMoney(); |<br>m1. isSmoking = true;</p>
+<p>有可能转不成功<br>Woman w1=(Woman)p2;<br>w1. goShopping();<br>p2是男的  你把他误以为女的</p>
+<p>/ /使用强转时，可能出现ClassCast Exception的异常。<br>Woman W1 = (Woman)p2;<br>w1. goShopping();</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_05.png" alt="向下转型图解"><br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_06.png" alt="向下转型图解"></p>
+<h2 id="5-instanceof-关键字的使用"><a href="#5-instanceof-关键字的使用" class="headerlink" title="5.instanceof 关键字的使用"></a>5.instanceof 关键字的使用</h2><h3 id="instanceof关键字的使用"><a href="#instanceof关键字的使用" class="headerlink" title="instanceof关键字的使用"></a>instanceof关键字的使用</h3><ul>
+<li>a instanceof A:判断对象a是否是类A的实例。如果是，返回true；如果不是，返回false</li>
+<li>使用情境：为了避免在向下转型时出现ClassCastException的异常，我们在向下转型之前，先 进行instanceof的判断，一旦返回true，就进行向下转型。如果返回false，不进行向下转型。</li>
+<li>如果 a instanceof A返回true,则 a instanceof B也返回true.   父类放着也对<br>其中，类B是类A的父类。</li>
+</ul>
+<p>Person p2=new Man();</p>
+<ul>
+<li><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_07.png" alt="instanceof 使用"></li>
+</ul>
+<h2 id="6-向下转型的几个常用问题"><a href="#6-向下转型的几个常用问题" class="headerlink" title="6.向下转型的几个常用问题"></a>6.向下转型的几个常用问题</h2><p>//练习:<br>, /问题一:编译时通过，运行时不通过<br>//举例一:<br>Person p3 = new Woman( ) ;<br>Man m3 = (Man)p3;<br>/ /举例二:<br>Person p4 = new Person( ) ;<br>Man m4<br>= (Man)p4;<br>/ /问题二:编译通过，运行时也通过<br>object obj = new Woman( );<br>Person p = (Person)obj;<br>/ /问题三:编译不通过<br>Man m5 = new Woman();<br>String str = new Date();<br>开发中向下转型用的比较少</p>
+<h2 id="7-多态练习—调用属性和方法"><a href="#7-多态练习—调用属性和方法" class="headerlink" title="7.多态练习—调用属性和方法"></a>7.多态练习—调用属性和方法</h2><p>引用类型是地址值</p>
+<ul>
+<li><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_08.png" alt="instanceof 使用"></li>
+</ul>
+<p>开发中不要定义同名的</p>
+<p>1.若子类重写了父类方法，就意味着子类里定义的方法彻底覆盖了父类里的同名方法，<br>系统将不可能把父类里的方法转移到子类中。编译看左边 运行看右边<br>2.对于实例变量则不存在这样的现象，即使子类里定义了与父类完全相同的实例变量，<br>这个实例变量依然不可能覆盖父类中定义的实例变量，编译运行都看左边</p>
+<h2 id="8-9-基本操作–多态性"><a href="#8-9-基本操作–多态性" class="headerlink" title="8-9.基本操作–多态性"></a>8-9.基本操作–多态性</h2><p>各种图形的面积  可以利用多态来实现   求面积</p>
+<p>重写父类中的面积公式</p>
+<p>sub-1</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_09.png" alt="instanceof 使用"></p>
+<p>认为是重写   sub_1</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_10.png" alt="instanceof 使用"></p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_11.png" alt="instanceof 使用"></p>
+<p>确定的优先调用</p>
+<h2 id="11-object-类的使用"><a href="#11-object-类的使用" class="headerlink" title="11 object 类的使用"></a>11 object 类的使用</h2><p>5.7 object 类的使用</p>
+<ul>
+<li><p>Object类是所有Java类的根父类</p>
+<p>Order order = new Order( ) ;<br>System. out . println(order .getClass() . getSuperclass());</p>
+</li>
+<li><p>如果在类的声明中未使用extends关键字指明其父类，则默认父类<br>为java.lang.Object类<br>public class Person {<br>}<br>等价于:<br>public class Person extends Object {<br>}</p>
+</li>
+<li><p>例: method(Object obj){.. } /可以接收任何类作为其参数<br>Person o=new Person();<br>method(0);</p>
+</li>
+</ul>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_12.png" alt="object的方法"></p>
+<p>java.lang.Object类<br>  1.Object类是所有Java类的根父类<br>  2.如果在类的声明中未使用extends关键字指明其父类，则默认父类为java.lang.Object类<br>  3.Object类中的功能(属性、方法)就具有通用性。<br>      属性：无<br>   方法：equals() / toString() / getClass() /hashCode() / clone() / finalize()<br>      wait() 、 notify()、notifyAll()</p>
+<ol start="4">
+<li>Object类只声明了一个空参的构造器</li>
+</ol>
+<p>clone 复制对象   </p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_13.png" alt="clone的使用"></p>
+<p>finalize()  垃圾回收期</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_14.png" alt="垃圾回收器的使用"></p>
+<p>  面试题：<br>  final、finally、finalize的区别？</p>
+<p>关键字前面2个</p>
+<p>finalize 方法名</p>
+<h2 id="12-运算符的回顾"><a href="#12-运算符的回顾" class="headerlink" title="12. ==运算符的回顾"></a>12. ==运算符的回顾</h2><h2 id="面试题-和equals-的区别"><a href="#面试题-和equals-的区别" class="headerlink" title="面试题:==和equals()的区别"></a>面试题:==和equals()的区别</h2><p>一、回顾 == 的使用：<br>  == ：运算符</p>
+<ol>
+<li>可以使用在基本数据类型变量和引用数据类型变量中    10=10.0   char c=10 10=10</li>
+<li>如果比较的是基本数据类型变量：比较两个变量保存的数据是否相等。（不一定类型要相同） 自动类型提升<br>如果比较的是引用数据类型变量：比较两个对象的地址值是否相同.即两个引用是否指向同一个对象实体</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">补充： == 符号使用时，必须保证符号左右两边的变量类型一致。</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  二、equals()方法的使用：</p>
+<ol>
+<li>是一个方法，而非运算符</li>
+<li>只能适用于引用数据类型</li>
+<li>Object类中equals()的定义：<br>public boolean equals(Object obj) {<pre><code>return (this == obj);</code></pre>  }<br>说明：Object类中定义的equals()和==的作用是相同的：比较两个对象的地址值是否相同.即两个引用是否指向同一个对象实体</li>
+<li>像String、Date、File、包装类等都重写了Object类中的equals()方法。重写以后，比较的不是<br>两个引用的地址是否相同，而是比较两个对象的”实体内容”是否相同。</li>
+<li>通常情况下，我们自定义的类如果使用equals()的话，也通常是比较两个对象的”实体内容”是否相同。那么，我们<br>就需要对Object类中的equals()进行重写.<br>重写的原则：比较两个对象的实体内容是否相同.</li>
+</ol>
+<p>—-ppt</p>
+<ul>
+<li>==:<ul>
+<li>基本类型比较值:只要两个变量的值相等，即为true。<br>int a=5; if(a==6)..}</li>
+<li>引用类型比较引用(是否指向同一个对象):只有指向同一个对象时，==才<br>返回true。<br>Person p1 =new Person();<br>Person p2=new Person();<br>if (p1==p2)…}<ul>
+<li>用“==”进行比较时，符号两边的数据类型必须兼容(可自动转换的基本<br>数据类型除外)，否则编译出错</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>equals();所有类都继承了Object,也就获得了equals()方法。还可以重写。<br>➢只能比较引用类型，其作用与“卜=”相同,比较是否指向同一个对象。<br>➢格式:obj1.equals(obj2)</li>
+<li>特例:当用equals()方法进行比较时，对类File、String、 Date 及包装类.<br>(Wrapper Class)来说，是比较类型及内容而不考虑引用的是否是同一个对<br>象;<br>➢原因:在这些类中重写了Object类的equals()方法。</li>
+<li>当自定义使用equals()时，可以重写。用于比较两个对象的“内容”是否都<br>相等</li>
+</ul>
+<h3 id="重写equals-方法的原则"><a href="#重写equals-方法的原则" class="headerlink" title="重写equals()方法的原则."></a>重写equals()方法的原则.</h3><ul>
+<li>对称性:如果x.equals(y)返回是“true” ，那么y.equals(x)也应该返回是“true”</li>
+<li>自反性: x.equals(x)必须返回是“true</li>
+<li>传递性:如果x.equals(y)返回是“true”，而且y.equals(z)返回是“true”<br>那么z.equals(x)也应该返回是“true”。</li>
+<li>一 致性:如果x.equals(y)返回是“true” ，只要x和y内容一直不变， 不管你<br>重复x.equals(y)多少次，返回都是“true” 。</li>
+<li>任何情况下，x.equal(null)， 永远返回是“false<br>x.equals(和x不同类型的对象)永远返回是“false<br>”</li>
+<li>从我面试的反馈，85%的求职者“理直气壮”的回答错误…<br>1.==既可以比较基本类型也可以比较引用类型。对于基本类型就是比较值，对于引用类型<br>就是比较内存地址<br>2.equals的话， 它是属于java.lang.Object类里面的方法，如果该方法没有被重写过默认也<br>是==;我们可以看到String等类的equals方法是被重写过的，而且String类在日常开发中<br>用的比较多，久而久之，形成了equals是比较值的错误观点。<br>3.具体要看自定义类里有没有重写Object的equals方法来判断。<br>4通常情况下，重写equals方法， 会比较类中的相应属性是否都相等。</li>
+</ul>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_15.png" alt="字符串比较地址值"></p>
+<h2 id="13-equals-的使用"><a href="#13-equals-的使用" class="headerlink" title="13.equals()的使用"></a>13.equals()的使用</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_16.png" alt="string 进行过重写"><br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_17.png" alt="date进行过重写"></p>
+<h2 id="14-重写equals-方法"><a href="#14-重写equals-方法" class="headerlink" title="14.重写equals() 方法"></a>14.重写equals() 方法</h2><p>找例子   String 重写equals  源代码</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_18.png" alt="自定义equals()"></p>
+<p>字符串等引用类型   equals()</p>
+<p>方法2</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_19.png" alt="自定义equals()"></p>
+<h3 id="自动生成-General-代码自动生成"><a href="#自动生成-General-代码自动生成" class="headerlink" title="自动生成   General  代码自动生成"></a>自动生成   General  代码自动生成</h3><p>逻辑性更强</p>
+<h2 id="15-总结-与equals"><a href="#15-总结-与equals" class="headerlink" title="15. 总结==与equals()"></a>15. 总结==与equals()</h2><h2 id="16-equals-方法的练习"><a href="#16-equals-方法的练习" class="headerlink" title="16.equals 方法的练习"></a>16.equals 方法的练习</h2><p>对象之间不能用 ==  因为new的会改变地址  ，==比较的是地址</p>
+<blockquote>
+<p>自定义的类也要重写equals ，当在子类中需要的时候</p>
+</blockquote>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_20.png" alt="重写equals()注意"></p>
+<h2 id="17-toString-的使用"><a href="#17-toString-的使用" class="headerlink" title="17.toString()的使用"></a>17.toString()的使用</h2><p>  Object类中toString()的使用：<br>  1.当我们输出一个对象的引用时，实际上就是调用当前对象的toString()<br>  2.Object类中toString()的定义：<br>    public String toString() {<br>        return getClass().getName() + “@” + Integer.toHexString(hashCode());<br>     }<br>  3.像String、Date、File、包装类等都重写了Object类中的toString()方法。<br>     使得在调用对象的toString()时，返回”实体内容”信息</p>
+<p>  4.自定义类也可以重写toString()方法，当调用此方法时，返回对象的”实体内容”</p>
+<p>自定义 手动<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_21.png" alt="重写equals()注意"></p>
+<p>系统生成</p>
+<h2 id="19-objetc类的练习"><a href="#19-objetc类的练习" class="headerlink" title="19 objetc类的练习"></a>19 objetc类的练习</h2><p>if(obj instanceof Circcle){</p>
+<p>Circle c=(Circle)obj;</p>
+<p>return this.radius==c.radius;</p>
+<p>}</p>
+<h2 id="20-单元测试方法的使用"><a href="#20-单元测试方法的使用" class="headerlink" title="20.单元测试方法的使用"></a>20.单元测试方法的使用</h2><p>新建类 JUnitTest.java</p>
+<p>选中当前工程-&gt;右键build Path-&gt;add libraries-&gt;JUnit-&gt;finish</p>
+<p> Java中的JUnit单元测试</p>
+<p>  步骤：<br>  1.选中当前工程 - 右键选择：build path - add libraries - JUnit 4 - 下一步<br>  2.创建Java类，进行单元测试。<br>    此时的Java类要求：① 此类是public的  ②此类提供公共的无参的构造器<br>  3.此类中声明单元测试方法。<br>    此时的单元测试方法：方法的权限是public,没有返回值，没有形参</p>
+<p>  4.此单元测试方法上需要声明注解：@Test,并在单元测试类中导入：import org.junit.Test;</p>
+<p>  5.声明好单元测试方法以后，就可以在方法体内测试相关的代码。<br>  6.写完代码以后，左键双击单元测试方法名，右键：run as -&gt; JUnit Test</p>
+<p>  说明：<br>  1.如果执行结果没有任何异常：绿条<br>  2.如果执行结果出现异常：红条</p>
+<p>把测试方法当成静态的了</p>
+<p>真正开发</p>
+<p>@test 导包就可以</p>
+<h2 id="21-包装类的理解"><a href="#21-包装类的理解" class="headerlink" title="21.包装类的理解"></a>21.包装类的理解</h2><p>5.8 包装类的使用</p>
+<ul>
+<li>针对八种基本数据类型定义相应的引用类型一包装类(封装类)</li>
+<li>有了类的特点，就可以调用类中的方法，Java才是真正的面向对象<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_22.png" alt="包装类"></li>
+<li>基本数据类型包装成包装类的实例__装箱<ul>
+<li>通过包装类的构造器实现:<br>int i= 500; Integer t = new Integer();</li>
+<li>还可以通过字符串参数构造包装类对象:<br>Float f= new Float(“4. 56”);<br>Long I = new Long(“asdf” ); //NumberFormatException</li>
+</ul>
+</li>
+<li>获得包装类对象中包装的基本类型变量–拆箱<br>-调用包装类的.xxxValue()方法:<br>boolean b = bObj .booleanValue();</li>
+<li>JDK1.5之后，支持自动裝箱，自动拆箱。但类型必须匹配。</li>
+<li>字符串转换成基本数据类型<ul>
+<li>通过包装类的构造器实现:<br>int i = new Integer(“12”);</li>
+<li>通过包装类的parseXxx(String s)静态方法:<br>Float f= Float.parseFloat(“12.1”);</li>
+</ul>
+</li>
+<li>基本数据类型转换成字符串<ul>
+<li>调用字符串重载的valueOf()方法: .<br>String fstr = String.valueOf(2.34f);</li>
+<li>更直接的方式:<br>String intStr= 5 +“”</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_23.png" alt="包装类"></p>
+<h2 id="22-基本数据类型转化为包装类"><a href="#22-基本数据类型转化为包装类" class="headerlink" title="22.基本数据类型转化为包装类"></a>22.基本数据类型转化为包装类</h2><p>包装类的使用<br>  1.java提供了8种基本数据类型对应的包装类，使得基本数据类型的变量具有类的特征<br>  2.掌握的：基本数据类型、包装类、String三者之间的相互转换</p>
+<p>//基本数据类型 —&gt;包装类：调用包装类的构造器</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_24.png" alt="包装类"></p>
+<p>boolean isMale;</p>
+<p>Boolean isFemale;  是个类</p>
+<h2 id="23-包装类转化基本数据类型"><a href="#23-包装类转化基本数据类型" class="headerlink" title="23.包装类转化基本数据类型"></a>23.包装类转化基本数据类型</h2><p>​    //包装类—&gt;基本数据类型:调用包装类Xxx的xxxValue()</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">@Test</span><br><span class="line">	public void test2(){</span><br><span class="line">		Integer in1 = new Integer(12);</span><br><span class="line">		</span><br><span class="line">		int i1 = in1.intValue();</span><br><span class="line">		System.out.println(i1 + 1);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		Float f1 = new Float(12.3);</span><br><span class="line">		float f2 = f1.floatValue();</span><br><span class="line">		System.out.println(f2 + 1);</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="24-自动装箱和拆箱"><a href="#24-自动装箱和拆箱" class="headerlink" title="24.自动装箱和拆箱"></a>24.自动装箱和拆箱</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">	<span class="comment">//  JDK 5.0 新特性：自动装箱 与自动拆箱</span></span><br><span class="line">	 /</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>{</span><br><span class="line"><span class="comment">//		int num1 = 10;</span></span><br><span class="line"><span class="comment">//		//基本数据类型--&gt;包装类的对象</span></span><br><span class="line"><span class="comment">//		method(num1);</span></span><br><span class="line"><span class="comment">//上面独立	</span></span><br><span class="line">		<span class="comment">//自动装箱：基本数据类型 ---&gt;包装类</span></span><br><span class="line">		<span class="keyword">int</span> num2 = <span class="number">10</span>;</span><br><span class="line">		Integer in1 = num2;<span class="comment">//自动装箱</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">boolean</span> b1 = <span class="keyword">true</span>;</span><br><span class="line">		Boolean b2 = b1;<span class="comment">//自动装箱</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//自动拆箱：包装类---&gt;基本数据类型</span></span><br><span class="line">		System.out.println(in1.toString());</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> num3 = in1;<span class="comment">//自动拆箱</span></span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(Object obj)</span></span>{</span><br><span class="line">		System.out.println(obj);</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="25-基本数据类型、包装类与String间的相互转化"><a href="#25-基本数据类型、包装类与String间的相互转化" class="headerlink" title="25.基本数据类型、包装类与String间的相互转化"></a>25.基本数据类型、包装类与String间的相互转化</h2><p>//基本数据类型、包装类—&gt;String类型：调用String重载的valueOf(Xxx xxx)<br>    @Test</p>
+<p>​        </p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">	<span class="comment">//方式1：连接运算</span></span><br><span class="line">	String str1 = num1 + <span class="string">""</span>;</span><br><span class="line">	<span class="comment">//方式2：调用String的valueOf(Xxx xxx)</span></span><br><span class="line">	<span class="keyword">float</span> f1 = <span class="number">12.3f</span>;</span><br><span class="line">	String str2 = String.valueOf(f1);<span class="comment">//"12.3"</span></span><br><span class="line">	</span><br><span class="line">	Double d1 = <span class="keyword">new</span> Double(<span class="number">12.4</span>);</span><br><span class="line">	String str3 = String.valueOf(d1);</span><br><span class="line">	System.out.println(str2);</span><br><span class="line">	System.out.println(str3);<span class="comment">//"12.4"</span></span><br><span class="line">	</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>// //String类型 —&gt;基本数据类型、包装类：调用包装类的parseXxx(String s)</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test5</span><span class="params">()</span></span>{</span><br><span class="line">		String str1 = <span class="string">"123"</span>;</span><br><span class="line">		<span class="comment">//错误的情况：</span></span><br><span class="line"><span class="comment">//		int num1 = (int)str1;</span></span><br><span class="line"><span class="comment">//		Integer in1 = (Integer)str1;</span></span><br><span class="line">		<span class="comment">//可能会报NumberFormatException</span></span><br><span class="line">		<span class="keyword">int</span> num2 = Integer.parseInt(str1);</span><br><span class="line">		System.out.println(num2 + <span class="number">1</span>);</span><br><span class="line">		</span><br><span class="line">		String str2 = <span class="string">"true1"</span>;  不是标准的<span class="keyword">true</span>  都是<span class="keyword">false</span></span><br><span class="line">		<span class="keyword">boolean</span> b1 = Boolean.parseBoolean(str2);</span><br><span class="line">		System.out.println(b1);</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="26-包装类常见面试题"><a href="#26-包装类常见面试题" class="headerlink" title="26.包装类常见面试题"></a>26.包装类常见面试题</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_26.png" alt="包装类1-2"></p>
+<p>第一题  1.0  由于类型提升，要求统一类型</p>
+<p>第二题:  1   没有要求统一类型</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_25.png" alt="包装类面试题3"></p>
+<p> false   地址</p>
+<p>true</p>
+<p>false  有个缓存数组 1-127   new 的</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_27.png" alt="包装类面试3 解答"></p>
+<h2 id="27-包装类的练习"><a href="#27-包装类的练习" class="headerlink" title="27 包装类的练习"></a>27 包装类的练习</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_28.png" alt="包装类面试3 解答"></p>
+<p>想放多少放多少</p>
+<p>先写思路</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.exer4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line"> 练习</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  利用Vector代替数组处理：从键盘读入学生成绩（以负数代表输入结束），找出最高分，并输出学生成绩等级。</span></span><br><span class="line"><span class="comment">	提示：数组一旦创建，长度就固定不变，所以在创建数组前就需要知道它的长度。</span></span><br><span class="line"><span class="comment">	而向量类java.util.Vector可以根据需要动态伸缩。</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	创建Vector对象：Vector v=new Vector();</span></span><br><span class="line"><span class="comment">	给向量添加元素：v.addElement(Object obj);   //obj必须是对象</span></span><br><span class="line"><span class="comment">	取出向量中的元素：Object  obj=v.elementAt(0);</span></span><br><span class="line"><span class="comment">	注意第一个元素的下标是0，返回值是Object类型的。</span></span><br><span class="line"><span class="comment">	计算向量的长度：v.size();</span></span><br><span class="line"><span class="comment">	若与最高分相差10分内：A等；20分内：B等；</span></span><br><span class="line"><span class="comment">	      30分内：C等；其它：D等</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScoreTest</span> </span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		<span class="comment">//1.实例化Scanner，用于从键盘获取学生成绩</span></span><br><span class="line">		Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.创建Vector对象：Vector v=new Vector();相当于原来的数组</span></span><br><span class="line">		Vector v = <span class="keyword">new</span> Vector();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3.通过for(;;)或while(true)方式，给Vector中添加数组</span></span><br><span class="line">		<span class="keyword">int</span> maxScore = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(;;){</span><br><span class="line">			System.out.println(<span class="string">"请输入学生成绩（以负数代表输入结束）"</span>);</span><br><span class="line">			<span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">			<span class="comment">//3.2 当输入是负数时，跳出循环</span></span><br><span class="line">			<span class="keyword">if</span>(score &lt; <span class="number">0</span>){</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			}</span><br><span class="line">			<span class="keyword">if</span>(score &gt; <span class="number">100</span>){</span><br><span class="line">				System.out.println(<span class="string">"输入的数据非法，请重新输入"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			}</span><br><span class="line">			<span class="comment">//3.1 添加操作：：v.addElement(Object obj)</span></span><br><span class="line">			<span class="comment">//jdk5.0之前：</span></span><br><span class="line"><span class="comment">//			Integer inScore = new Integer(score);</span></span><br><span class="line"><span class="comment">//			v.addElement(inScore);//多态</span></span><br><span class="line">			<span class="comment">//jdk5.0之后：</span></span><br><span class="line">			v.addElement(score);<span class="comment">//自动装箱</span></span><br><span class="line">			<span class="comment">//4.获取学生成绩的最大值</span></span><br><span class="line">			<span class="keyword">if</span>(maxScore &lt; score){</span><br><span class="line">				maxScore = score;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//5.遍历Vector，得到每个学生的成绩，并与最大成绩比较，得到每个学生的等级。</span></span><br><span class="line">		<span class="keyword">char</span> level;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; v.size();i++){</span><br><span class="line">			Object obj = v.elementAt(i);</span><br><span class="line">			<span class="comment">//jdk 5.0之前：</span></span><br><span class="line"><span class="comment">//			Integer inScore = (Integer)obj;</span></span><br><span class="line"><span class="comment">//			int score = inScore.intValue();</span></span><br><span class="line">			<span class="comment">//jdk 5.0之后：</span></span><br><span class="line">			<span class="keyword">int</span> score = (<span class="keyword">int</span>)obj;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(maxScore - score &lt;= <span class="number">10</span>){</span><br><span class="line">				level = <span class="string">'A'</span>;</span><br><span class="line">			}<span class="keyword">else</span> <span class="keyword">if</span>(maxScore - score &lt;= <span class="number">20</span>){</span><br><span class="line">				level = <span class="string">'B'</span>;</span><br><span class="line">			}<span class="keyword">else</span> <span class="keyword">if</span>(maxScore - score &lt;= <span class="number">30</span>){</span><br><span class="line">				level = <span class="string">'C'</span>;</span><br><span class="line">			}<span class="keyword">else</span>{</span><br><span class="line">				level = <span class="string">'D'</span>;</span><br><span class="line">			}</span><br><span class="line">			</span><br><span class="line">			System.out.println(<span class="string">"student-"</span> + i + <span class="string">" score is "</span> + score + <span class="string">",level is "</span> + level);</span><br><span class="line">			</span><br><span class="line">		}</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>面向对象概述</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2016-06-28-面向对象(中)补1</title>
+    <url>/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/</url>
+    <content><![CDATA[<h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1. 每日一考"></a>1. 每日一考</h2><p>Arraylist 替换数组   可扩展长度—</p>
+<h2 id="2-复习"><a href="#2-复习" class="headerlink" title="2.复习"></a>2.复习</h2><p>项目要求<br>1.看着一边写  一边理解，<br>2.自己去写  试着自己去完成，写不动看文档修饰  看源码  试着独立完成<br>全屏看，看完这个类以后 ，收起来，自己去写，写的时候写不动  看文档提示，再去写，<br>在写不动， 看源码  ，指导咋写 在手些   手写来，在接着写<br>3.</p>
+<ol>
+<li>至少独立完成一遍以 上的项目代码</li>
+<li>积累完成项目的过程中常见的bug的调试<br>方式一‘<br>“硬”看，必要时，添加输出语句。<br>方式二：<br>Debug       逻辑  业务 </li>
+<li>捋顺思路,强化逻辑</li>
+<li>对象、数组等内存结构的解析</li>
+<li>遵守编码的规范,标识符的命名规范等</li>
+<li>在类前，方法前，方法内具体逻辑的实现步骤等添加必要的注释.<br>文档注释<br>逻辑步骤： 单行和多行注释</li>
+</ol>
+<h2 id="3-继承性"><a href="#3-继承性" class="headerlink" title="3.继承性"></a>3.继承性</h2><ol>
+<li>为什么要有类的继承性? (继承性的好处)<br>①减少了代码的冗余，提高代码复用性<br>②便于功能的扩展<br>③为之后多态性的使用，提供了前提<br>图示:<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_01.png" alt="继承性复习"></li>
+<li>继承性的格式:</li>
+</ol>
+<p>class A extends B{ }<br>A:子类、派生类、subclass .<br>B:父类、超类、基类、superclass</p>
+<ol start="3">
+<li>子类继承父类以后有哪些不同?</li>
+</ol>
+<p>3.1体现: 一旦子类A继承父类B以后，子类A中就获取了父类B中声明的所有的属性和方法。<br>*特别的， 父类中声明为private的属性或方法，子类继承父类以后，仍然认为获取了父类中私的结构。只因为封装性的影响，使得子类不能直接调用父类的结构而已。<br>3.2子类继承父类以后，还可以声明自己特有的属性或方法:实现功能的拓展。<br>子类和父类的关系，不同于子集和集合的关系。<br>extends:延展、扩展</p>
+<ol start="4">
+<li>Java中继承性的说明</li>
+</ol>
+<p>1.一个类可以被多个子类继承。<br>2.Java中类的单继承性:一个类只能有一个父类<br>3.子父类是相对的概念。<br>4.子类直接继承的父类，称为:直接父类。间接继承的父类称为:间接父类<br>5.子类继承父类以后，就获取了直接父类以及所间接父类中声明的属性和方法</p>
+<p>图示:<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_02.png" alt="继承性的说明"></p>
+<ol start="5">
+<li>java. lang . object类的理解<br>1.如果我们没显式的声明一个类的父类的话，则此类继承于java.1ang . object类<br>2.所的java类(除java.1ang. object类之外都直接或间接的继承于java. lang. object类<br>3.意味着，所的java类具有java. lang. object类声明的功能。</li>
+</ol>
+<h2 id="4-5-继承性的练习，基本操作（练习）"><a href="#4-5-继承性的练习，基本操作（练习）" class="headerlink" title="4-5. 继承性的练习，基本操作（练习）"></a>4-5. 继承性的练习，基本操作（练习）</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_03.png" alt="练习"><br>紫色的箭头表示继承</p>
+<h2 id="6-7Eclipse-Debug的使用"><a href="#6-7Eclipse-Debug的使用" class="headerlink" title="6-7Eclipse Debug的使用"></a>6-7Eclipse Debug的使用</h2><ol>
+<li><h3 id="System-out-println-适合小项目"><a href="#System-out-println-适合小项目" class="headerlink" title="System.out.println(). 适合小项目"></a>System.out.println(). 适合小项目</h3></li>
+</ol>
+<h3 id="Eclipse-Debug调试"><a href="#Eclipse-Debug调试" class="headerlink" title="Eclipse - Debug调试"></a>Eclipse - Debug调试</h3><p> 1.设置断点   关卡<br> 2.debug as–》 java application<br> 3.操 做   –》进入透视图</p>
+<p>f6   一行代i码 一行代码走—&gt;执行<br> f5  函数方法里面    到方法实现哪一行用<br>F7 跳出方法<br>resume  到下一个断点<br>进入t<br>drop into  方法的初始部分<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_04.png" alt="F5的说明"></p>
+<h2 id="8-解决Debug中step-into功能失灵问题"><a href="#8-解决Debug中step-into功能失灵问题" class="headerlink" title="8.解决Debug中step into功能失灵问题"></a>8.解决Debug中step into功能失灵问题</h2><p>配置debug Configuration<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_05.png" alt="配置debug Configuration"><br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_06.png" alt="配置debug Configuration2"></p>
+<h2 id="9-方法重写的理解"><a href="#9-方法重写的理解" class="headerlink" title="9.方法重写的理解"></a>9.方法重写的理解</h2><h3 id="override-overwrite"><a href="#override-overwrite" class="headerlink" title="override/overwrite"></a>override/overwrite</h3><ul>
+<li>定义：在子类中可以根据需要对从父继承来的方法进行改造， 在程序执行时，子类的方法将覆盖父。 在程序执行时，子类的方法将覆盖父。</li>
+<li>要求:<ul>
+<li>子类重写的方法 必须 和父类被重写的方法 具有相同的 方法名称、 参数 列表</li>
+<li>子类重写的方法返回值型 不能大于 父类被重写的方法返回值型</li>
+<li>子类重写的方法使用访问权限 不能小于 父类被重写的方法访问权限<br>子类不能重写父中声明为 private 权限的方法</li>
+<li>子类方法抛出的异常不能大于父被重写方法的异常</li>
+</ul>
+</li>
+<li>注意<br>子类与父类中同名同参数的方法必须同时声明为非static的(即为重写)，或者同时声明为<br>static的(不是重写)。因为static方法是属于类的，子类无法覆盖父类的方法。</li>
+</ul>
+<hr>
+<h3 id="1-重写：子类继承父类以后，可以对父类中同名同参数的方法，进行覆盖操作"><a href="#1-重写：子类继承父类以后，可以对父类中同名同参数的方法，进行覆盖操作" class="headerlink" title="1.重写：子类继承父类以后，可以对父类中同名同参数的方法，进行覆盖操作"></a>1.重写：子类继承父类以后，可以对父类中同名同参数的方法，进行覆盖操作</h3><h3 id="2-应用：重写以后，当创建子类对象以后，通过子类对象调用子父类中的同名同参数的方法时，实际执行的是子类重写父类的方法。"><a href="#2-应用：重写以后，当创建子类对象以后，通过子类对象调用子父类中的同名同参数的方法时，实际执行的是子类重写父类的方法。" class="headerlink" title="2.应用：重写以后，当创建子类对象以后，通过子类对象调用子父类中的同名同参数的方法时，实际执行的是子类重写父类的方法。"></a>2.应用：重写以后，当创建子类对象以后，通过子类对象调用子父类中的同名同参数的方法时，实际执行的是子类重写父类的方法。</h3><h2 id="10-方法重写的细节"><a href="#10-方法重写的细节" class="headerlink" title="10. 方法重写的细节"></a>10. 方法重写的细节</h2><h3 id="3-重写的规定："><a href="#3-重写的规定：" class="headerlink" title="3.重写的规定："></a>3.重写的规定：</h3><p>方法的声明： 权限修饰符  返回值类型  方法名(形参列表) throws 异常的类型{<br>                //方法体<br>                      }<br>  约定俗称：子类中的叫重写的方法，父类中的叫被重写的方法<br>① 子类重写的方法的方法名和形参列表与父类被重写的方法的方法名和形参列表相同<br>② 子类重写的方法的权限修饰符不小于父类被重写的方法的权限修饰符   —-摊煎饼</p>
+<h4 id="特殊情况：子类不能重写父类中声明为private权限的方法"><a href="#特殊情况：子类不能重写父类中声明为private权限的方法" class="headerlink" title="特殊情况：子类不能重写父类中声明为private权限的方法"></a>特殊情况：子类不能重写父类中声明为private权限的方法</h4><p>权限修饰  除了 private 都是重写<br>③ 返回值类型：<br>     &gt;父类被重写的方法的返回值类型是void，则子类重写的方法的返回值类型只能是void<br>       &gt;父类被重写的方法的返回值类型是A类型，则子类重写的方法的返回值类型可以是A类或A类的子类</p>
+<blockquote>
+<p>父类被重写的方法的返回值类型是基本数据类型(比如：double)，则子类重写的方法的返回值类型必须是相同的基本数据类型(必须也是double)<br>④ 子类重写的方法抛出的异常类型不大于父类被重写的方法抛出的异常类型（具体放到异常处理时候讲）<br>子类和父类中的同名同参数的方法要么都声明为非static的（考虑重写），要么都声明为static的（不是重写）  静态方法不能被重写，随着类的加载而加载<br>— 开发中直接粘贴就可以了—重写<br>wal+ alt+/</p>
+</blockquote>
+<h2 id="11-f方法重写的练习"><a href="#11-f方法重写的练习" class="headerlink" title="11 f方法重写的练习"></a>11 f方法重写的练习</h2><h2 id="12-测试4种不同的权限修饰"><a href="#12-测试4种不同的权限修饰" class="headerlink" title="12. 测试4种不同的权限修饰"></a>12. 测试4种不同的权限修饰</h2><p>/ /同一个包中的其他类，不可以调用Order类中私有的属性、方法<br>order.orderPrivate = 4;<br>order . methodPrivate( ) ;</p>
+<p>//在不同包的子类中，不能调用Order类中声明为private和缺省权限的属性、方法<br>orderDefault = 3;<br>orderPrivate = 4;</p>
+<p>//不同包下的普通类(非子类)要使用Order类，不可以调用声明为private、缺省、protected权限的属性、方法<br>order. orderPrivate = 2;<br>order. orderDefault = 3;<br>order. orderProtected = 4;</p>
+<p>对于class的权限修饰只可以用public利和Idefault(缺省)。<br>public类可以在任意地方被访问。<br>default类只可以被同一个包内部的类访问。<br>用的最多是public   private</p>
+<h2 id="13-super调用属性和方法"><a href="#13-super调用属性和方法" class="headerlink" title="13.super调用属性和方法"></a>13.super调用属性和方法</h2><h3 id="关键字super"><a href="#关键字super" class="headerlink" title="关键字super"></a>关键字super</h3><p>用父类被重写的属性和方法</p>
+<p> 1.super理解为：父类的<br> 2.super可以用来调用：属性、方法、构造器<br> 3.super的使用：调用属性和方法<br>3.1 我们可以在子类的方法或构造器中。通过使用”super.属性”或”super.方法”的方式，显式的调用 父类中声明的属性或方法。但是，通常情况下，我们习惯省略”super.”   –子类没有<br>3.2 特殊情况：当子类和父类中定义了同名的属性时，我们要想在子类中调用父类中声明的属性，则必须显式的 使用”super.属性”的方式，表明调用的是父类中声明的属性。   往上找<br>3.3 特殊情况：当子类重写了父类中的方法以后，我们想在子类的方法中调用父类中被重写的方法时，则必须显式的 使用”super.方法”的方式，表明调用的是父类中被重写的方法。<br>4.super调用构造器<br> 4.1  我们可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器<br> 4.2 “super(形参列表)”的使用，必须声明在子类构造器的首行！<br> 4.3 我们在类的构造器中，针对于”this(形参列表)”或”super(形参列表)”只能二选一，不能同时出现<br> 4.4 在构造器的首行，没有显式的声明”this(形参列表)”或”super(形参列表)”，则默认调用的是父类中空参的构造器：super()<br> 4.5 在类的多个构造器中，至少有一个类的构造器中使用了”super(形参列表)”，调用父类中的构造器</p>
+<p>输出结果是一样的<br>由于子类中没有age ，只有父类有<br>System. out . println(“name = “ + this.name + “，age = “ + super.age);</p>
+<h2 id="14-super调用构造器"><a href="#14-super调用构造器" class="headerlink" title="14. super调用构造器"></a>14. super调用构造器</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_07.png" alt="super 生成构造器"><br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_08.png" alt="super 调用构造器"></p>
+<h2 id="15-子类对象实例化的全过程"><a href="#15-子类对象实例化的全过程" class="headerlink" title="15.子类对象实例化的全过程"></a>15.子类对象实例化的全过程</h2><h4 id="5-5子类对象实例化的过程-为什么能用？"><a href="#5-5子类对象实例化的过程-为什么能用？" class="headerlink" title="5.5子类对象实例化的过程   为什么能用？"></a>5.5子类对象实例化的过程   为什么能用？</h4><ol>
+<li>从结果上来看：（继承性）<br>子类继承父类以后，就获取了父类中声明的属性或方法。<br> 创建子类的对象，在堆空间中，就会加载所有父类中声明的属性。</li>
+<li>从过程上来看：</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">		当我们通过子类的构造器创建子类对象时，我们一定会直接或间接的调用其父类的构造器，进而调用父类的父类的构造器，...</span><br><span class="line"> 直到调用了java.lang.Object类中空参的构造器为止。正因为加载过所有的父类的结构，所以才可以看到内存中有父类中的结构，子类对象才可以考虑进行调用。</span><br><span class="line">明确：虽然创建子类对象时，调用了父类的构造器，但是自始至终就创建过一个对象，即为new的子类对象。</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_09.png" alt="子类对象实例化的过程"><br>子类 间接或直接调用父类构造器</p>
+<h2 id="16-继承和super练习"><a href="#16-继承和super练习" class="headerlink" title="16 继承和super练习"></a>16 继承和super练习</h2><p>银行</p>
+<h2 id="17-多态性的使用"><a href="#17-多态性的使用" class="headerlink" title="17.多态性的使用"></a>17.多态性的使用</h2><ul>
+<li>多态性，是面向对象中最重要的概念 ，在Java 中的体现:<br>对象 的多态性：父类的引用指向子对象 <ul>
+<li>可以 直接应用在抽象类和接口上</li>
+</ul>
+</li>
+<li>Java引用变量有两个类型:<code>编译时类型和运行时类型</code>。编译时类型由声明<br>该变量时使用的类型决定，运行时类型由实际赋给该变量的对象决定。简<br>称: <code>编译时，看左边;运行时，看右边</code>。<ul>
+<li>若编译时类型和运行时类型不一致，就出现了对象的多态性(Polymorphi sm)</li>
+<li>多态情况下，“看左边”:看的是父类的引用(父类中不具备子类特有的方法)<br>“看右边”:看的是子类的对象(实际运行的是子类重写父类的方法)</li>
+</ul>
+</li>
+<li>对象的多态一 - —-在Java中,子类的对象可以替代父类的对象使用<ul>
+<li>一个变量只能有一种确定的数据类型</li>
+<li>一个引用类型变量可能指向(引用)侈种不同类型的对象<br>Person p = new Student();<br>Object 0 = new Person();//Object类型的变量o，指向Person类型的对象<br>o = new Student(); //Object类型的变量o，指向Student类型的对象</li>
+<li>子类可看做是特殊的父类，所以父类类型的引用可以指向子类的对象:向上转型(upcasting)。</li>
+</ul>
+</li>
+</ul>
+<p>一个引用类型变量如果声明为父类的类型，但实际引用的是子类对象，那么该变量就不能再访问子类中添加的属性和方法:<br>Student m = new Student();<br>m.school =“pku”;  //合法,Student类有school成员变量<br>Person e = new Student();<br>e.school =“pku”; //非法,Person类没 有school成员变量<br>属性是在编译时确定的，编译时e为Person类型，没有school成员变量，因而编<br>译错误。</p>
+<hr>
+<p>1.理解多态性：可以理解为一个事物的多种形态。<br>2.何为多态性：<br>    对象的多态性：父类的引用指向子类的对象（或子类的对象赋给父类的引用）</p>
+<ol start="3">
+<li>多态的使用：虚拟方法调用<br>有了对象的多态性以后，我们在编译期，只能调用父类中声明的方法，但在运行期，我们实际执行的是子类重写父类的方法。<br>总结：编译，看左边；运行，看右边。</li>
+</ol>
+<p>4.多态性的使用前提：  ① 类的继承关系  ② 方法的重写</p>
+<p>5.对象的多态性，只适用于方法，不适用于属性（编译和运行都看左边）</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_10.png" alt="父类"><br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_11.png" alt="Man子类"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_12.png" alt="WoMan子类"></h2><p> 多态性的使用<br>  <img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_13.png" alt="test"></p>
+<p>秘书给我找个人，他能吃东西，结果她找的是男人，</p>
+<p>p2.earnMony();  不能使用 ，父类没有什么这个方法</p>
+<p>编译生成什么类型就能点出什么类型，p2只调用person里面有的方法 </p>
+<p>执行的时候是子类重写的  </p>
+<p>p2.eat()  点到父类了</p>
+<p>p2 是个person</p>
+<h2 id="18-多态性的使用举例"><a href="#18-多态性的使用举例" class="headerlink" title="18.多态性的使用举例"></a>18.多态性的使用举例</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_14.png" alt="没有多态性的缺点"></p>
+<p>有了多态性</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_15.png" alt="没有多态性的缺点"></p>
+<p>没有多态性   会造成很多重载的方法</p>
+<p>equals （子类类型）</p>
+<p>举例</p>
+<p>Driver  先建立连接 </p>
+<p>三种数据库的连接</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_16.png" alt="重写的举例"></p>
+<h2 id="19-多态性不适合于属性"><a href="#19-多态性不适合于属性" class="headerlink" title="19.多态性不适合于属性"></a>19.多态性不适合于属性</h2><h2 id="20-虚拟方法调用的再理解"><a href="#20-虚拟方法调用的再理解" class="headerlink" title="20 虚拟方法调用的再理解"></a>20 虚拟方法调用的再理解</h2><h3 id="虚拟方法调用-Virtual-Method-Invocation"><a href="#虚拟方法调用-Virtual-Method-Invocation" class="headerlink" title="虚拟方法调用(Virtual Method Invocation)"></a>虚拟方法调用(Virtual Method Invocation)</h3><ul>
+<li><p>正常的方法调用<br>Person e = new Person();<br>e.getInfo();<br>Student e = new Student();<br>e.getlInfo();</p>
+<ul>
+<li>虚拟方法调用(多态情况下)<br>子类中定义了与父类同名同参数的方法，在多态情况下，将此时父类的方法称为虚拟方法，父<br>类根据赋给它的不同子类对象，动态调用属于子类的该方法。这样的方法调用在编译期是无法<br>确定的。<br>Person e = new Student();<br>e.getInfo();调 用Student类的getInfo()方法</li>
+</ul>
+</li>
+<li><p>编译时类型和运行时类型<br>编译时e为Person类型，而方法的调用是在运行时确定的，所以调用的是Student类<br>的getlnfo()方法。一-动态绑定</p>
+</li>
+</ul>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题:"></a>面试题:</h2><p>多态是编译时行为还是<code>运行时行为</code> 若随机呢?</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.atguigu.java5;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="comment">//面试题：多态是编译时行为还是运行时行为？</span></span><br><span class="line"><span class="comment">//证明如下：</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>  </span>{</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{</span><br><span class="line">		System.out.println(<span class="string">"animal eat food"</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>  <span class="keyword">extends</span> <span class="title">Animal</span>  </span>{</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{</span><br><span class="line">		System.out.println(<span class="string">"cat eat fish"</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>  <span class="keyword">extends</span> <span class="title">Animal</span>  </span>{</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{</span><br><span class="line">		System.out.println(<span class="string">"Dog eat bone"</span>);</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sheep</span>  <span class="keyword">extends</span> <span class="title">Animal</span>  </span>{</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{</span><br><span class="line">		System.out.println(<span class="string">"Sheep eat grass"</span>);</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InterviewTest</span> </span>{</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Animal  <span class="title">getInstance</span><span class="params">(<span class="keyword">int</span> key)</span> </span>{</span><br><span class="line">		<span class="keyword">switch</span> (key) {</span><br><span class="line">		<span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Cat ();</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Dog ();</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Sheep ();</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		<span class="keyword">int</span> key = <span class="keyword">new</span> Random().nextInt(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">		System.out.println(key);</span><br><span class="line"></span><br><span class="line">		Animal  animal = getInstance(key);</span><br><span class="line">		</span><br><span class="line">		animal.eat();</span><br><span class="line">		 </span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p> <img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_17.png" alt="虚拟方法调用的理解"></p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_18.png" alt="重载和重写的区别"></p>
+<h3 id="多态小结"><a href="#多态小结" class="headerlink" title="多态小结"></a>多态小结</h3><ul>
+<li>多态作用:<br>提高了代码的通用性，常称作接口重用</li>
+<li>前提:<br>需要存在继承或者实现关系<br>有方法的重写</li>
+<li>成员方法:<br>编译时:要查看引用变量所声明的类中是否有所调用的方法。<br>运行时:调用实际new的对象所属的类中的重写方法。</li>
+<li>成员变量:<br>不具备多态性，只看引用变量所声明的类。</li>
+</ul>
+<hr>
+<p>代码</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">animal</span></span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{</span><br><span class="line">		System.out.println(<span class="string">"吃饭"</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">dog</span> <span class="keyword">extends</span> <span class="title">animal</span></span>{</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="comment">//4.吃骨头</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{</span><br><span class="line">		System.out.println(<span class="string">"吃骨头"</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">cat</span> <span class="keyword">extends</span> <span class="title">animal</span></span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{</span><br><span class="line">		System.out.println(<span class="string">"吃老鼠"</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">duotai</span> </span>{</span><br><span class="line">	<span class="comment">//3.调用子类的相应方法 ,如传入new dog()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">(animal d)</span> </span>{</span><br><span class="line">	d.eat();</span><br><span class="line">}</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		<span class="comment">//1.类的实体化</span></span><br><span class="line">		duotai dt=<span class="keyword">new</span> duotai();</span><br><span class="line">		<span class="comment">//2.调dt里面的方法，传入子类 new 对象，调谁用谁</span></span><br><span class="line">		dt.func(<span class="keyword">new</span> dog());</span><br><span class="line">		dt.func(<span class="keyword">new</span> cat());</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="可以实现不同子类间的相同方法"><a href="#可以实现不同子类间的相同方法" class="headerlink" title="可以实现不同子类间的相同方法"></a>可以实现不同子类间的相同方法</h3><p>图解<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/12_19" alt=""></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>面向对象概述</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面向对象(中)</title>
+    <url>/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/</url>
+    <content><![CDATA[<h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1. 每日一考"></a>1. 每日一考</h2><h3 id="1-构造器的作用是什么-使用中有哪些注意点-gt-3条"><a href="#1-构造器的作用是什么-使用中有哪些注意点-gt-3条" class="headerlink" title="1.构造器的作用是什么?使用中有哪些注意点(>=3条)"></a>1.构造器的作用是什么?使用中有哪些注意点(&gt;=3条)</h3><p>①创建对象②初始化对象结构</p>
+<h3 id="2-关于类的属性的赋值，有几种赋值的方式。谈谈赋值的先后顺序，"><a href="#2-关于类的属性的赋值，有几种赋值的方式。谈谈赋值的先后顺序，" class="headerlink" title="2.关于类的属性的赋值，有几种赋值的方式。谈谈赋值的先后顺序，"></a>2.关于类的属性的赋值，有几种赋值的方式。谈谈赋值的先后顺序，</h3><p>默认初始化显式初始化构造器中初始化-对象方法或对象属性给属性赋值+</p>
+<h3 id="3-this-关键字可以用来调用哪些结构，简单说明一下其使用。"><a href="#3-this-关键字可以用来调用哪些结构，简单说明一下其使用。" class="headerlink" title="3. this 关键字可以用来调用哪些结构，简单说明一下其使用。"></a>3. this 关键字可以用来调用哪些结构，简单说明一下其使用。</h3><p>this:属性、方法、构造器。<br>this:理解为当前对象，当前正在创建的对象。</p>
+<h3 id="4-Java中目前学习涉及到的四种权限修饰符都有什么-并说明各自的权限范围。"><a href="#4-Java中目前学习涉及到的四种权限修饰符都有什么-并说明各自的权限范围。" class="headerlink" title="4. Java中目前学习涉及到的四种权限修饰符都有什么?并说明各自的权限范围。"></a>4. Java中目前学习涉及到的四种权限修饰符都有什么?并说明各自的权限范围。</h3><p>public protect 缺省 private</p>
+<h3 id="5-创建Circle类，提供私有的radius属性，提供相应的get和set方法，提供求圆面积的方法。"><a href="#5-创建Circle类，提供私有的radius属性，提供相应的get和set方法，提供求圆面积的方法。" class="headerlink" title="5. 创建Circle类，提供私有的radius属性，提供相应的get和set方法，提供求圆面积的方法。"></a>5. 创建Circle类，提供私有的radius属性，提供相应的get和set方法，提供求圆面积的方法。</h3><h2 id="2-复习-封装性和构造器"><a href="#2-复习-封装性和构造器" class="headerlink" title="2.复习:封装性和构造器"></a>2.复习:封装性和构造器</h2><h3 id="封装性"><a href="#封装性" class="headerlink" title="封装性"></a>封装性</h3><ol>
+<li>为什么要引入封装性?<br>我们程序设计追求“高内聚，低耦合”</li>
+</ol>
+<ul>
+<li>高内聚:类的内部数据操作细节自己完成，不允许外部干涉;</li>
+<li>低耦合:仅对外暴露少量的方法用于使用。</li>
+<li>隐藏对象内部的复杂性，只对外公开简单的接口。便于外界调用，从而提高系统的可扩展性、可维护性。通俗的说，把该隐藏的隐藏起来，该暴露的暴露出来。这就是封装性的设计思想。</li>
+</ul>
+<ol start="2">
+<li>问题引入:<br>当我们创建一一个类的对 象以后，我们可以通过”对象.属性”的方式，对对象的属性进行赋值。这里，赋值操作要受到属性的数据类型和存储范围的制约。除此之外，没其他制约条件。但是，在实际问题中，我们往往需要给属性赋值加入额外的限制条件。这个条件就不能在属性声明时体现，我们只能通过方法进行限制条件的添加。 (比如: setLegs()同时， 我们需要避免用户再使用”对象.属性”的方式对属性进行赋值。则需要将属性声明为私有的(private).<br>–&gt;此时，针对于属性就体现了封装性。|</li>
+<li>封装性思想具体的代码体现:<br>体现一-:<br>体现一:将类的属性xxx私化(private),同时，提供公共的(public)方法来获取<br>(getXxx)和设置(setXxx)此属性的值<br>体现二:不对外暴露的私有的方法<br>体现三:单例模式(将构造器私有化)<br>体现四:如果不希望类在包外被调用，可以将类设置为缺省的。</li>
+<li>Java规定的四种权限修饰符<br>4.1权限从小到大顺序为:<br>4.2具体的修饰范围:</li>
+</ol>
+<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><ol>
+<li>构造器(或构造方法) : Constructor<br>构造器的作用:1.创建对象 2.初始化对象的信息</li>
+<li>使用说明:<br>1.如果没显式的定义类的构造器的话，则系统默认提供一个空参的构造器<br>2.定义构造器的格式:权限修饰符类名(形参 列表){}]|<br>3.一个类中定义的多个构造器，彼此构成重载<br>4.-旦我们显式的定义了类的构造器之后，系统就不再提供默认的空参构造器<br>5.一个类中，至少会有一个构造器。</li>
+</ol>
+<p>3.举例: </p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_01.png" alt="应用场景"></p>
+<h3 id="属性赋值顺序"><a href="#属性赋值顺序" class="headerlink" title="属性赋值顺序"></a>属性赋值顺序</h3><p>默认初始化 赋值初始化 显性赋值初始化 |||| 构造器赋值  对象.方法</p>
+<h3 id="JAVABean"><a href="#JAVABean" class="headerlink" title="JAVABean"></a>JAVABean</h3><p>所谓JavaBean，是指符合如下标准的Java类:</p>
+<p>类是公共的</p>
+<p>一个无参的公共的构造器</p>
+<p>属性，且对应的get、set方法</p>
+<h2 id="3-复习-关键字-this-package-import"><a href="#3-复习-关键字-this-package-import" class="headerlink" title="3.复习  关键字 this package import"></a>3.复习  关键字 this package import</h2><h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p>1.可以调用的结构:<br>属性、方法:构造器</p>
+<ol start="2">
+<li>this调用属性、方法:<br>this理解为:前对象<br>或当前正在创建的对象<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_02.png" alt="说明"></li>
+<li>this调用构造器:</li>
+</ol>
+<p>①我们在类的构造器中，可以显式的使用”this(形参列表)”方式，调用本类中指定的其他构造器<br>②构造器中不能通过”this(形参列表)”方式调用自己<br>③如果一个类中有n个构造器，则最多有n - 1构造器中使用了”this(形参列表)”<br>④规定: “this(形参列表)”必须声明在当前构造器的首行<br>⑤构造器内部，最多只能声明一一个”this(形参列表)”， 用来调用其他的构造器</p>
+<h3 id="package的使用"><a href="#package的使用" class="headerlink" title="package的使用"></a>package的使用</h3><p>1使用说明:<br>*1.为了更好的实现项目中类的管理，提供包的概念.<br>*2.使用package声 明类或接口所属的包，声明在源文件的首行<br>*3.包，属于标识符，遵循标识符的命名规则、规范(xxyyyzzz)、 “见名知意”<br>*<br>4.每”.”一次，就代表一层文件目录。<br>1.2 举例:<br>航运系统<br>MVC<br>1.3JDK中的主要包介绍:.</p>
+<p>java都是写网页   写客户端很少用</p>
+<h3 id="import-关键紫的使用"><a href="#import-关键紫的使用" class="headerlink" title="import 关键紫的使用"></a>import 关键紫的使用</h3><p>import:导入<br> 1.在源文件中显式的使用import结构导入指定包下的类、接口<br> 2.声明在包的声明和类的声明之间<br>3.如果需要导入多个结构，则并列写出即可<br> 4.可以使用”xxx. *”的方式，表示可以导入xxx包下的所结构<br>5.如果使用的类或接口是java.lang包下定义的，则可以省略import结构<br> 6.如果使用的类或接口是本包下定义的，则可以省略import结构<br> 7.如果在源文件中，使用了不同包下的同名的类，则必须至少一个类需要以全类名的方式显示。<br> 8.使用”xxx.*”方式表明可以调用Xxxx包下的所结构。但是如果使用的是xxx子包下的结构，则仍需要显式导入</p>
+<ol start="9">
+<li>import static:导入指定类或接口中的静态结构:属性或方法。</li>
+</ol>
+<h2 id="4-6-Eclispe-常用快捷键"><a href="#4-6-Eclispe-常用快捷键" class="headerlink" title="4-6 Eclispe 常用快捷键"></a>4-6 Eclispe 常用快捷键</h2><p>Eclipse中的快捷键：<br>  1.补全代码的声明：alt + /<br>  <img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_02.png" alt="修改为都是提示的"><br>  abcdefg-z*<br>  2.快速修复: ctrl + 1<br>  3.批量导包：ctrl + shift + o<br>  4.使用单行注释：ctrl + /<br>  5.使用多行注释： ctrl + shift + /<br>  6.取消多行注释：ctrl + shift + <br>  修改快捷键    Prefer –keys<br>  7.复制指定行的代码：ctrl + alt + down 或 ctrl + alt + up<br>  8.删除指定行的代码：ctrl + d<br>  9.上下移动代码：alt + up  或 alt + down<br>  10.切换到下一行代码空位：shift + enter<br>  11.切换到上一行代码空位：ctrl + shift + enter<br>  12.如何查看源码：ctrl + 选中指定的结构   或  ctrl + shift + t<br>  13.退回到前一个编辑的页面：alt + left<br>  14.进入到下一个编辑的页面(针对于上面那条来说的)：alt + right<br>  15.光标选中指定的类，查看继承树结构：ctrl + t    —–<br>  16.复制代码： ctrl + c<br>  17.撤销： ctrl + z<br>  18.反撤销： ctrl + y<br>  19.剪切：ctrl + x<br>  20.粘贴：ctrl + v<br>  21.保存： ctrl + s<br>  22.全选：ctrl + a<br>  23.格式化代码： ctrl + shift + f<br>  24.选中数行，整体往后移动：tab<br>  25.选中数行，整体往前移动：shift + tab<br>  26.在当前类中，显示类结构，并支持搜索指定的方法、属性等：ctrl + o<br>  27.批量修改指定的变量名、方法名、类名等：alt + shift + r<br>  28.选中的结构的大小写的切换：变成大写： ctrl + shift + x<br>  29.选中的结构的大小写的切换：变成小写：ctrl + shift + y<br>  30.调出生成getter/setter/构造器等结构： alt + shift + s<br>  31.显示当前选择资源(工程 or 文件)的属性：alt + enter<br>  32.快速查找：参照选中的Word快速定位到下一个 ：ctrl + k</p>
+<hr>
+<p>用的少<br>  33.关闭当前窗口：ctrl + w<br>  34.关闭所有的窗口：ctrl + shift + w<br>  35.查看指定的结构使用过的地方：ctrl + alt + g<br>  36.查找与替换：ctrl + f<br>  37.最大化当前的View：ctrl + m<br>  38.直接定位到当前行的首位：home<br>  39.直接定位到当前行的末位：end</p>
+<h2 id="7-bank-练习的难点"><a href="#7-bank-练习的难点" class="headerlink" title="7. bank 练习的难点"></a>7. bank 练习的难点</h2><p>  Accout</p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_04.png" alt="属性声明自定义类型">  </p>
+<p>关联关系<br>类型数组<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_05.png" alt="类型数组"><br>链式结构</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">private Customer[] customers;// 存放多个客户的数组</span><br><span class="line">private int numberOfCustomers;// 记录客户的个数</span><br><span class="line"></span><br><span class="line">public Bank() {</span><br><span class="line">	customers = new Customer[10];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// 添加客户</span><br><span class="line">public void addCustomer(String f, String l) {</span><br><span class="line">	Customer cust = new Customer(f, l);</span><br><span class="line">	// customers[numberOfCustomers] = cust;</span><br><span class="line">	// numberOfCustomers++;</span><br><span class="line">	// 或</span><br><span class="line">	customers[numberOfCustomers++] = cust;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// 获取客户的个数</span><br><span class="line">public int getNumOfCustomers() {</span><br><span class="line">	return numberOfCustomers;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// 获取指定位置上的客户</span><br><span class="line">public Customer getCustomer(int index) {</span><br><span class="line">	// return customers[index];//可能报异常</span><br><span class="line">	if (index &gt;= 0 &amp;&amp; index &lt; numberOfCustomers) {</span><br><span class="line">		return customers[index];</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	return null;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="8-项目二-客户信息管理软件-功能演示"><a href="#8-项目二-客户信息管理软件-功能演示" class="headerlink" title="8..项目二 客户信息管理软件  功能演示"></a>8..项目二 客户信息管理软件  功能演示</h2><p>●模拟实现一个基于文本界面的《客户信息管理软件》<br>●进一步掌握编程技巧和调试技巧，熟悉面向对象编程;<br>●主要涉及以下知识点:<br>➢类结构的使用:属性、方法及构造器<br>➢对象的创建与使用<br>➢类的封装性<br>➢声明和使用数组<br>➢数组的插入、删除和替换<br>➢关键字的使用: this<br>结构.<br>com.atguigu.p2<br>CMUtilityjava<br>Customerjava<br>CustomerLstjava<br>CustomerViewjava</p>
+<h2 id="9-软件架构设计"><a href="#9-软件架构设计" class="headerlink" title="9. 软件架构设计"></a>9. 软件架构设计</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_06.png" alt="软件架构设计">  </p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_07.png" alt="软件架构设计"></p>
+<h2 id="10-CMUtility工具类的介绍"><a href="#10-CMUtility工具类的介绍" class="headerlink" title="10.CMUtility工具类的介绍"></a>10.CMUtility工具类的介绍</h2><p>可用来方便地实现键盘访问</p>
+<ul>
+<li>public static char readMenuSelection()<br>用途：该方法读取键盘，如果用户键入’1’-’5’中的任意字符，则方法返回。返回值为用户键入字符。</li>
+<li>public static char readChar() 和 public static char readChar(char defaultValue)<br>用途：这两个方法功能相同，均从键盘读取一个字符，并将其作为方法的返回值。<br>参数： defaultValue — 如果用户不输入字符而直接回车，方法将以defaultValue 作为返回值。（提示：此方法可在修改客户时调用）</li>
+<li>public static int readInt() 和public static int readInt(int defaultValue)<br>用途：这两个方法功能相同，均从键盘读取一个长度不超过2位的   整数，并将其作为方法的返回值。<br>参数： defaultValue — 如果用户不输入字符而直接回车，方法将以defaultValue 作为返回值。</li>
+<li>public static String readString(int limit)  和<br>public static String readString(int limit, String defaultValue)<br>用途：这两个方法功能相同，均从键盘读取一个长度不超过limit的字符串，并将其作为方法的返回值。<br>参数：limit — 指定字符串的最大长度 <pre><code>defaultValue — 如果用户不输入字符而直接回车，方法将以defaultValue 作为返回值。</code></pre></li>
+<li>public static char readConfirmSelection()<br>用途：从键盘读取‘Y’或’N’，并将其作为方法的返回值</li>
+</ul>
+<h2 id="11-Customer类的设计"><a href="#11-Customer类的设计" class="headerlink" title="11.Customer类的设计"></a>11.Customer类的设计</h2><p>2 .3 w行</p>
+<h2 id="12-CustomerList类的设计"><a href="#12-CustomerList类的设计" class="headerlink" title="12.CustomerList类的设计"></a>12.CustomerList类的设计</h2><p>操作数组之前一定要初始化   在结构体里面<br>代码要有注释<br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_08.png" alt="addCustomer"><br><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_09.png" alt="注释"></p>
+<h2 id="13-CustomerView的整体设计的构建"><a href="#13-CustomerView的整体设计的构建" class="headerlink" title="13.CustomerView的整体设计的构建"></a>13.CustomerView的整体设计的构建</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_10.png" alt="输入逻辑"></p>
+<p>char a=‘1’；</p>
+<h2 id="14-CustomerView-退出功能的实现"><a href="#14-CustomerView-退出功能的实现" class="headerlink" title="14.CustomerView 退出功能的实现"></a>14.CustomerView 退出功能的实现</h2><h2 id="15-CustomerView-客户列表的实现"><a href="#15-CustomerView-客户列表的实现" class="headerlink" title="15.CustomerView 客户列表的实现"></a>15.CustomerView 客户列表的实现</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_11.png" alt=" 客户列表的实现"></p>
+<p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_12.png" alt="客户列表的实现"></p>
+<h2 id="16-CustomerView-添加客户的实现"><a href="#16-CustomerView-添加客户的实现" class="headerlink" title="16.CustomerView 添加客户的实现"></a>16.CustomerView 添加客户的实现</h2><p>控制读取字符的长度  </p>
+<h2 id="17-CustomerView-修改客户的实现"><a href="#17-CustomerView-修改客户的实现" class="headerlink" title="17.CustomerView 修改客户的实现"></a>17.CustomerView 修改客户的实现</h2><p><img src="/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/11_13.png" alt=" 客户列表的实现"></p>
+<p>找不到返回主页面</p>
+<p>局部变量</p>
+<h2 id="18-CustomerView-删除客户的实现"><a href="#18-CustomerView-删除客户的实现" class="headerlink" title="18.CustomerView 删除客户的实现"></a>18.CustomerView 删除客户的实现</h2><h2 id="19-独立写一下-收获很大-总结"><a href="#19-独立写一下-收获很大-总结" class="headerlink" title="19.独立写一下  收获很大   总结"></a>19.独立写一下  收获很大   总结</h2><p>认知能力</p>
+<p>别停   听了一个月就死了   去写 去熟悉</p>
+<p>写多就会了</p>
+<h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><h2 id="20-继承性的理解"><a href="#20-继承性的理解" class="headerlink" title="20.继承性的理解"></a>20.继承性的理解</h2><h3 id="一、继承性的好处-why"><a href="#一、继承性的好处-why" class="headerlink" title="一、继承性的好处  why"></a>一、继承性的好处  why</h3><p>①减少了代码的冗余，提高代码的复用性<br>②便于功能的扩展<br>③为之后多态性的使用，提供了前提</p>
+<h2 id="21-继承性的使用"><a href="#21-继承性的使用" class="headerlink" title="21.继承性的使用"></a>21.继承性的使用</h2><h3 id="二、继承性的格式："><a href="#二、继承性的格式：" class="headerlink" title="二、继承性的格式："></a>二、继承性的格式：</h3><p> class A extends B{}<br>  A:子类、派生类、subclass<br>  B:父类、超类、基类、superclass</p>
+<p> 2.1体现：一旦子类A继承父类B以后，子类A中就获取了父类B中声明的所有的属性和方法。<br>       特别的，父类中声明为private的属性或方法，子类继承父类以后，仍然认为获取了父类中私有的结构。不可以直接调<br>   只有因为封装性的影响，使得子类不能直接调用父类的结构而已。<br>2.2 子类继承父类以后，还可以声明自己特有的属性或方法：实现功能的拓展。  —-自类更强大<br>  子类和父类的关系，不同于子集和集合的关系。<br>  extends：延展、扩展</p>
+<h2 id="21-继承性的再说明"><a href="#21-继承性的再说明" class="headerlink" title="21.继承性的再说明"></a>21.继承性的再说明</h2><h3 id="三、Java中关于继承性的规定："><a href="#三、Java中关于继承性的规定：" class="headerlink" title="三、Java中关于继承性的规定："></a>三、Java中关于继承性的规定：</h3><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">1.一个类可以被多个子类继承。</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  2.Java中类的单继承性：一个类只能有一个父类<br>  3.子父类是相对的概念。<br>  4.子类直接继承的父类，称为：直接父类。间接继承的父类称为：间接父类<br>  5.子类继承父类以后，就获取了直接父类以及所有间接父类中声明的属性和方法</p>
+<h2 id="23-Object类的理解"><a href="#23-Object类的理解" class="headerlink" title="23 Object类的理解"></a>23 Object类的理解</h2><h3 id="四"><a href="#四" class="headerlink" title="四"></a>四</h3><ol>
+<li>如果我们没有显式的声明一个类的父类的话，则此类继承于java.lang.Object类</li>
+</ol>
+<ul>
+<li><ol start="2">
+<li>所有的java类（除java.lang.Object类之外）都直接或间接的继承于java.lang.Object类</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>意味着，所有的java类具有java.lang.Object类声明的功能。</li>
+</ol>
+</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>面向对象概述</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>面向对象(上)补2</title>
     <url>/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/</url>
     <content><![CDATA[<h2 id="1-每天一问"><a href="#1-每天一问" class="headerlink" title="1. 每天一问"></a>1. 每天一问</h2><ol>
@@ -413,6 +929,9 @@
       <categories>
         <category>Java 基础</category>
       </categories>
+      <tags>
+        <tag>面向对象概述</tag>
+      </tags>
   </entry>
   <entry>
     <title>面向对象(上)补1</title>
@@ -559,7 +1078,7 @@
         <category>Java 基础</category>
       </categories>
       <tags>
-        <tag>面向对象</tag>
+        <tag>面向对象概述</tag>
       </tags>
   </entry>
   <entry>
@@ -723,7 +1242,7 @@
         <category>Java 基础</category>
       </categories>
       <tags>
-        <tag>面向对象</tag>
+        <tag>面向对象概述</tag>
       </tags>
   </entry>
   <entry>

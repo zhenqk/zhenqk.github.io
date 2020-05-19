@@ -78,11 +78,93 @@
   </entry>
   
   <entry>
+    <title>2016-06-28-面向对象(中)补2</title>
+    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/"/>
+    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/</id>
+    <published>2016-06-28T07:02:45.000Z</published>
+    <updated>2020-05-19T11:06:07.513Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一问&quot;&gt;&lt;a href=&quot;#1-每日一问&quot; class=&quot;headerlink&quot; title=&quot;1.每日一问&quot;&gt;&lt;/a&gt;1.每日一问&lt;/h2&gt;&lt;p&gt;1.什么是多态性?什么是虚拟方法调用?&lt;br&gt;对象的多态性:父类的引用指向子类的对象。&lt;br&gt;Person
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2016-06-28-面向对象(中)补1</title>
+    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/"/>
+    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/</id>
+    <published>2016-06-28T03:55:22.000Z</published>
+    <updated>2020-05-19T10:57:44.827Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1. 每日一考&quot;&gt;&lt;/a&gt;1. 每日一考&lt;/h2&gt;&lt;p&gt;Arraylist 替换数组   可扩展长度—&lt;/p&gt;
+&lt;h2 id=&quot;2-复习&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象(中)</title>
+    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/"/>
+    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/</id>
+    <published>2016-06-28T01:17:34.000Z</published>
+    <updated>2020-05-19T10:53:22.475Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1. 每日一考&quot;&gt;&lt;/a&gt;1. 每日一考&lt;/h2&gt;&lt;h3 id=&quot;1-构造器的作用是什么-使用中有哪些注意点-gt-3条&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>面向对象(上)补2</title>
     <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/"/>
     <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/</id>
     <published>2016-06-27T23:25:46.000Z</published>
-    <updated>2020-05-19T10:29:54.606Z</updated>
+    <updated>2020-05-19T10:53:44.814Z</updated>
     
     <summary type="html">
     
@@ -100,6 +182,8 @@
       <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
     
     
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
+    
   </entry>
   
   <entry>
@@ -107,7 +191,7 @@
     <link href="http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang-bu-1/"/>
     <id>http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang-bu-1/</id>
     <published>2016-06-27T02:57:13.000Z</published>
-    <updated>2020-05-19T10:06:38.689Z</updated>
+    <updated>2020-05-19T10:54:04.464Z</updated>
     
     <summary type="html">
     
@@ -125,7 +209,7 @@
       <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="面向对象" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
     
   </entry>
   
@@ -134,7 +218,7 @@
     <link href="http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang/"/>
     <id>http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang/</id>
     <published>2016-06-26T22:49:32.000Z</published>
-    <updated>2020-05-19T10:06:55.736Z</updated>
+    <updated>2020-05-19T10:54:19.286Z</updated>
     
     <summary type="html">
     
@@ -152,7 +236,7 @@
       <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="面向对象" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
     
   </entry>
   
