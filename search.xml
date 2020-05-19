@@ -119,7 +119,7 @@
       </tags>
   </entry>
   <entry>
-    <title>2016-06-28-面向对象(中)补2</title>
+    <title>面向对象(中)补2</title>
     <url>/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/</url>
     <content><![CDATA[<h2 id="1-每日一问"><a href="#1-每日一问" class="headerlink" title="1.每日一问"></a>1.每日一问</h2><p>1.什么是多态性?什么是虚拟方法调用?<br>对象的多态性:父类的引用指向子类的对象。<br>Person p = new Man();<br>p.eat();<br>调用方法时，编译时看左边，运行时看右边。<br>先会写代码，后面慢慢来</p>
 <p>2.一个类可以有几个直接父类?(一个 )一个父类可有多少个子类?子类能获取直接父类的父类中的结构吗?(可以)子类能否获取父类中private 权限的属性或方法?。(可以   getset 方法) 封装解决的能不能调的问题，继承性是能不能获取的问题<br>Ais B 是不是true  可继承</p>
@@ -352,7 +352,7 @@
       </tags>
   </entry>
   <entry>
-    <title>2016-06-28-面向对象(中)补1</title>
+    <title>面向对象(中)补1</title>
     <url>/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/</url>
     <content><![CDATA[<h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1. 每日一考"></a>1. 每日一考</h2><p>Arraylist 替换数组   可扩展长度—</p>
 <h2 id="2-复习"><a href="#2-复习" class="headerlink" title="2.复习"></a>2.复习</h2><p>项目要求<br>1.看着一边写  一边理解，<br>2.自己去写  试着自己去完成，写不动看文档修饰  看源码  试着独立完成<br>全屏看，看完这个类以后 ，收起来，自己去写，写的时候写不动  看文档提示，再去写，<br>在写不动， 看源码  ，指导咋写 在手些   手写来，在接着写<br>3.</p>
