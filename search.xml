@@ -4,6 +4,8 @@
     <title>引言:为什么学习Java以及怎么学习Java</title>
     <url>/2016/06/24/2016-06-24-wei-shi-me-xue-xi-java-yi-ji-zen-me-xue-xi-java/</url>
     <content><![CDATA[<h3 id="1认识Java"><a href="#1认识Java" class="headerlink" title="1认识Java+"></a>1认识Java+</h3><h4 id="1-Java在公司里是用于干啥的-主要1和3"><a href="#1-Java在公司里是用于干啥的-主要1和3" class="headerlink" title="1. Java在公司里是用于干啥的?(主要1和3)"></a>1. Java在公司里是用于干啥的?(主要1和3)</h4><p>①Java web: 银行系统&amp;银行网站&amp;酒店系统&amp;N多后台管理系统   主要<br>②App: android是 用java写的，今年出了新的kotlin语言<br>③接口:为android、i0S等App提供数据访问接口    主要<br>④大数据(马云说过“大”是计算的意思)<br>⑤桌面应用(比较少开发桌面应用)<br>⑥….</p>
+<a id="more"></a>
+
 <h4 id="2-Java的招聘需求及薪资"><a href="#2-Java的招聘需求及薪资" class="headerlink" title="2. Java的招聘需求及薪资"></a>2. Java的招聘需求及薪资</h4><p> 拉钩</p>
 <img src="/2016/06/24/2016-06-24-wei-shi-me-xue-xi-java-yi-ji-zen-me-xue-xi-java/1_1.png" class="" title="This is an example image">
 
@@ -18,8 +20,6 @@
 <li>创业:与其他好友同事创业，开自己的公司，接外包或者做自己的产品</li>
 <li>赚得一-定财富后，回老家开小店过小日子   (年薪20万    要有副业)</li>
 </ol>
-<a id="more"></a>
-
 <h4 id="4-Java的就业前景和形势"><a href="#4-Java的就业前景和形势" class="headerlink" title="4. Java的就业前景和形势"></a>4. Java的就业前景和形势</h4><ol>
 <li>领域非常广<br>Java技术具有卓越的通用性、高效性、平台移植性和安全性，广泛应用于PC、数据中心、游戏控制台、科学超级计算机、移动电话和互联网，所以说Java的应用领域非常广，同时拥有全球最大的开发者专业社群</li>
 <li>需求量大<br>Java是全球最流行的开发语言，我国的软件开发人才极为缺乏，其中java人才缺口最大，对java软件工程师的需求达到全部需求量的60% -70%，Java又 是安卓开发的基础，所以人才的需求又增加一大波。</li>
@@ -370,6 +370,669 @@
       <tags>
         <tag>blueBall</tag>
         <tag>Linux下JDK的安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集合(补1)</title>
+    <url>/2016/07/06/2016-07-06-ji-he-bu-1/</url>
+    <content><![CDATA[<h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><p>1.集合Collection中存储的如果是自定义类的对象，需要自定义类重写哪个方法？为什么？</p>
+<p>equals()方法。  contains() /remove()/retainsAll() ….</p>
+<p>List：equals()方法</p>
+<p>Set：(HashSet、LinkedHashSet为例)：equals()、hashCode()</p>
+<p>  (TreeSet为例)：Comparable：compareTo(Object obj)</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">Comparator：compare(Object o1,Object o2)</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="2">
+<li>ArrayList,LinkedList,Vector三者的相同点与不同点？【面试题】</li>
+</ol>
+<p>List  Map(多)  Set (用的少、禁飞名单 人员)<br>都实现了List接口   底层都是数组<br>查找快<br>实现方式</p>
+<p>3.List 接口的常用方法有哪些？(增、删、改、查、插、长度、遍历)</p>
+<p>add(Object obj)</p>
+<p>remove(Object obj)/remove(int index)</p>
+<p>set(int index,Object obj)</p>
+<p>get(int index)</p>
+<p>add(int index,Object obj)</p>
+<p>size()    实际长度</p>
+<p>使用Iterator;foreach;普通的for<br>4.如何使用Iterator和增强for循环遍历List。举例说明<br>5.Set存储数据的特点是什么？常见的实现类有什么？说明一下彼此的特点。<br>无需不可重复的</p>
+<p>HashSet  LinkedHashSet  TreeSet</p>
+<p>HashMap    LinkedHashMap   TreeMap</p>
+<h2 id="2-复习-Collection及Collection的遍历"><a href="#2-复习-Collection及Collection的遍历" class="headerlink" title="2.复习:Collection及Collection的遍历"></a>2.复习:Collection及Collection的遍历</h2><p>2.Collection接口常用方法:</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_01" alt="1588293364258"></p>
+<p>3.Collection集合与数组间的转换</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_02" alt="1588232608177"> String 不用加new String 就可以</p>
+<p>4.使用Collection集合存储对象，要求对象所属的类满足:</p>
+<p>向Collection接口的实现类的对象中添加数据obj时，要求obj所在类要重 写equals(). </p>
+<p>5.本章节对大家的要求:</p>
+<p>层次一:选择合适的集合类去实现数据的保存，调用其内部的相关方法。<br>层次二:不同的集合类底层的数据结构为何?如何实现数据的操作的:增删改查等，|</p>
+<h4 id="Collection接口与-foreach遍历"><a href="#Collection接口与-foreach遍历" class="headerlink" title="Collection接口与 foreach遍历"></a>Collection接口与 foreach遍历</h4><p>1.遍历collection的两种方式:<br>①使用迭代器Iterator<br>② foreach循环(或增强for循环)</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_03" alt="1588293947305"></p>
+<p>2.java.utils包下定义的迭代器接口: Iterator<br>2.1说明:</p>
+<p>●lteratr对象称为迭代器(设计模式的一种), 主要用于遍历Cllction集合中的元素。<br>●GOF给迭代器模式的定义为:提供-种方法访问一一个容器(container)对象中各个元素， 而又不需暴露该对<br>象的内部细节。迭代器模式，就是为容器而生。</p>
+<p>2.2作用:遍历集合元素  Collection元素<br>2.3如何获取实例:   coll.iterator()返回一个迭代器实例<br>2.4遍历的代码实现:</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_04" alt="1588294090220"></p>
+<p>2.5图示说明:</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_05" alt="1588233312775"></p>
+<p>2.6 remove()的使用:</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/23_23" alt="1588233352886"></p>
+<p>3.jdk5. 0新特性–增强for循环: (foreach循环)<br>1.遍历集合举例:<br><img src="/2016/07/06/2016-07-06-ji-he-bu-1/23_26" alt="1588235758885"></p>
+<p>说明:<br>内部依然调用迭代器</p>
+<p>2.遍历数组举例:<img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_06" alt="1588294337913"></p>
+<h2 id="3-复习-List接口"><a href="#3-复习-List接口" class="headerlink" title="3.复习:List接口"></a>3.复习:List接口</h2><p>1.存储的数据特点:<br>|—-Collection接口：单列集合，用来存储一个一个的对象<br>|—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组,替换原有的数组<br>    |—-ArrayList：作为List接口的<code>主要实现类</code>；线程不安全的，效率高；底层使用Object[] elementData存储<br>    |—-LinkedList：对于频繁的插入、删除操作，使用此类效率比ArrayList高；底层使用双向链表存储  —》 铁链子 内部   打比方 传话<br>    |—-Vector：作为List接口的<code>古老实现类</code>；线程安全的，效率低；底层使用Object[] elementData存储      打比方  不怎么用，   皇帝与旧臣</p>
+<p>2.常用方法: (记住)<br>增：add(Object obj)<br>删：remove(int index) / remove(Object obj)<br>改：set(int index, Object ele)<br>查：get(int index)<br>插：add(int index, Object ele)<br>长度：size()<br>遍历：① Iterator迭代器方式<br>② 增强for循环<br>③ 普通的循环</p>
+<p>3.常用实现类:<br>|—-Collection接口：单列集合，用来存储一个一个的对象<br>|—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组,替换原有的数组<br>    |—-ArrayList：作为List接口的<code>主要实现类</code>；线程不安全的，效率高；底层使用Object[] elementData存储<br>    |—-LinkedList：对于频繁的插入、删除操作，使用此类效率比ArrayList高；底层使用双向链表存储  —》 铁链子 内部   打比方 传话<br>    |—-Vector：作为List接口的<code>古老实现类</code>；线程安全的，效率低；底层使用Object[] elementData存储      打比方  不怎么用，   皇帝与旧臣</p>
+<p>4.源码分析(难点)</p>
+<ol>
+<li><p>ArrayList的源码分析：<br>2.1 jdk 7情况下<br> ArrayList list = new ArrayList();//底层创建了长度是10的Object[]数组elementData<br> list.add(123);//elementData[0] = new Integer(123);<br> …<br> list.add(11);//如果此次的添加导致底层elementData数组容量不够，则扩容。<br> 默认情况下，扩容为原来的容量的1.5倍，同时需要将原有数组中的数据复制到新的数组中。<br>*<br> <strong><strong><strong>**</strong></strong></strong>结论：建议开发中使用带参的构造器：ArrayList list = new ArrayList(int capacity)；<br>*</p>
+<p>2.2 jdk 8中ArrayList的变化：<br>ArrayList list = new ArrayList();//底层Object[] elementData初始化为{}.并没有创建长度为10的数组</p>
+</li>
+</ol>
+<p>*<br>list.add(123);//第一次调用add()时，底层才创建了长度10的数组，并将数据123添加到elementData[0]<br>…<br>后续的添加和扩容操作与jdk 7 无异。<br> 2.3 小结：jdk7中的ArrayList的对象的创建类似于单例的饿汉式，而jdk8中的ArrayList的对象<br>     的创建类似于单例的懒汉式，–&gt;延迟了数组的创建，节省内存。</p>
+<p>4.2 LinkedList的源码分析：<br>   LinkedList list = new LinkedList(); 内部声明了Node类型的first和last属性，默认值为null<br>    list.add(123);//将123封装到Node中，创建了Node对象。<br>    *<br>    其中，Node定义为：体现了LinkedList的双向链表的说法<br>    private static class Node<e> {<br>     E item;<br>     Node<e> next;<br>     Node<e> prev;</e></e></e></p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"> Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {</span><br><span class="line"> this.item = element;</span><br><span class="line"> this.next = next;</span><br><span class="line"> this.prev = prev;</span><br><span class="line"> }</span><br><span class="line">}</span><br><span class="line">*</span><br></pre></td></tr></tbody></table></figure>
+
+<p>4.3 Vector的源码分析：jdk7和jdk8中通过Vector()构造器创建对象时，底层都创建了长度为10的数组。<br>   在扩容方面，默认扩容为原来的数组长度的2倍。  stack</p>
+<p>left right  二叉树</p>
+<p>5.存储的元素的要求:<br>添加的对象:所在的类要重写equals()方法|</p>
+<p>[面试题]</p>
+<p>面试题：ArrayList、LinkedList、Vector三者的异同？<br>同：三个类都是实现了List接口，存储数据的特点相同：存储有序的、可重复的数据<br>不同：见上</p>
+<h2 id="4-复习"><a href="#4-复习" class="headerlink" title="4.复习"></a>4.复习</h2><p>1.存储的数据特点:无序的、不可重复的元素</p>
+<p>具体的:<br>以HashSet为例说明:</p>
+<ol>
+<li>无序性：不等于随机性。存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的哈希值决定的。</li>
+<li>不可重复性：保证添加的元素按照equals()判断时，不能返回true.即：相同的元素只能添加一个。<br>2.元素添加过程: ( 以HashSet为例)<br> 我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，<br> 此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断<br>  数组此位置上是否已经有元素：<br>   如果此位置上没有其他元素，则元素a添加成功。 —&gt;情况1<br>   如果此位置上有其他元素b(或以链表形式存在的多个元素），则比较元素a与元素b的hash值：<pre><code>        如果hash值不相同，则元素a添加成功。---&gt;情况2
+        如果hash值相同，进而需要调用元素a所在类的equals()方法：
+               equals()返回true,元素a添加失败
+               equals()返回false,则元素a添加成功。---&gt;情况2
+对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。
+jdk 7 :元素a放到数组中，指向原来的元素。
+jdk 8 :原来的元素在数组中，指向元素a
+总结：七上八下</code></pre></li>
+</ol>
+<p>HashSet底层：数组+链表的结构。（前提jdk7）</p>
+<p>3.常用方法<br>Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。</p>
+<p>4.常用实现类:<br>|—-Collection接口：单列集合，用来存储一个一个的对象<br>     |—-Set接口：存储无序的、不可重复的数据   –&gt;高中讲的“集合”<br>         |—-HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值<br>             |—-LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历<br>|在添加数据的同时，每个数据还维护J两个引用，记录此数据前一一个数据和后一个数据。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">                        对于频繁的遍历操作，LinkedHashSet效率高于HashSet.</span><br><span class="line">|----TreeSet：可以按照添加对象的指定属性，进行排序。  红黑树</span><br></pre></td></tr></tbody></table></figure>
+
+<p>5.存储对象所在类的要求:<br>HashSet/LinkedHashSet:<br>要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals()<br>要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码<br> 重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。</p>
+<p>TreeSet:<br>1.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals().<br>2.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().</p>
+<ol start="6">
+<li>TreeSet的使用<br>6.1使用说明:<br>1.向TreeSet中添加的数据，要求是相同类的对象。<br>2.两种排序方式：自然排序（实现Comparable接口） 和 定制排序（Comparator）<br>6.2常用的排序方式:<br><img src="/2016/07/06/2016-07-06-ji-he-bu-1/23_57" alt="自然排序"><br><img src="/2016/07/06/2016-07-06-ji-he-bu-1/23_61" alt="定制排序"></li>
+</ol>
+<h2 id="5-TreeSet的课后练习"><a href="#5-TreeSet的课后练习" class="headerlink" title="5.TreeSet的课后练习"></a>5.TreeSet的课后练习</h2><p>1.定义一个Employee类。<br>该类包含:private 成员变量name,age,birthday，其中birthday 为MyDate类的对象;并为每-一个属性定义getter, setter方法;并重写toString方法输出name, age, birthday</p>
+<p>MyDate类包含:private成员变量year,month,day;并为每一个属性定 义getter, setter<br>方法;</p>
+<p>创建该类的5个对象，并把这些对象放入TreeSet 集合中(下一章:TreeSet需使用泛型来定义)<br>分别按以下两种方式对集合中的元素进行排序，并遍历输出:<br>1).使Employee实现Comparable 接口，并按name排序<br>2).创建TreeSet 时传入Comparator 对象，按生日日期的先后排序。</p>
+<p>MyDate m1=new MyDate(2020,11,31);<br>Employee e2=new  Employee(“jim”,17,new MyDate(2001,11,26));</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_07" alt="1588299061194"></p>
+<p>方式二在MyDate 实现Com  的接口</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_08" alt="1588299129432"></p>
+<h2 id="6-Set-课后2道面试题"><a href="#6-Set-课后2道面试题" class="headerlink" title="6. Set 课后2道面试题"></a>6. Set 课后2道面试题</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/23_59" alt="1588258563702"><br>删除先去找hash值</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_09" alt="1588299877584"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/23_60" alt="1588258589496"></p>
+<p>位置hashCode 没错；然后    报错了，没有equals</p>
+<h2 id="7-Map接口及其多个实现类的对比"><a href="#7-Map接口及其多个实现类的对比" class="headerlink" title="7.Map接口及其多个实现类的对比"></a>7.Map接口及其多个实现类的对比</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_10" alt="1588300201403"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_11" alt="1588300302969"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_12" alt="1588300324391"></p>
+<p>一、Map的实现类的结构：<br> |—-Map:双列数据，存储key-value对的数据   —类似于高中的函数：y = f(x)<br>        |—-HashMap:作为Map的主要实现类；线程不安全的，效率高；存储null的key和value<br>             |—-LinkedHashMap:保证在遍历map元素时，可以按照添加的顺序实现遍历。<br>                     原因：在原有的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。<br>                     对于频繁的遍历操作，此类执行效率高于HashMap。<br>        |—-TreeMap:保证按照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序<br>                     底层使用红黑树<br>        |—-Hashtable:作为古老的实现类；线程安全的，效率低；不能存储null的key和value<br>             |—-Properties:常用来处理配置文件。key和value都是String类型<br>     HashMap的底层：数组+链表  （jdk7及之前）<br>                   数组+链表+红黑树 （jdk 8）<br> *<br> *<br> 面试题：</p>
+<ol>
+<li>HashMap的底层实现原理？</li>
+<li>HashMap 和 Hashtable的异同？</li>
+<li>CurrentHashMap 与 Hashtable的异同？（暂时不讲）<br>*</li>
+</ol>
+<h2 id="8-Map中存储的key-value的特点"><a href="#8-Map中存储的key-value的特点" class="headerlink" title="8.Map中存储的key-value的特点"></a>8.Map中存储的key-value的特点</h2><p>二、Map结构的理解：<br>      Map中的key:无序的、不可重复的，使用Set存储所有的key  —&gt; key所在的类要重写equals()和hashCode() （以HashMap为例）<br>      Map中的value:无序的、可重复的，使用Collection存储所有的value —&gt;value所在的类要重写equals()<br>      一个键值对：key-value构成了一个Entry对象。<br>      Map中的entry:无序的、不可重复的，使用Set存储所有的entry</p>
+<h2 id="9-HashMap在JDK7中的底层实现原理"><a href="#9-HashMap在JDK7中的底层实现原理" class="headerlink" title="9.HashMap在JDK7中的底层实现原理"></a>9.HashMap在JDK7中的底层实现原理</h2><p> 三、HashMap的底层实现原理？以jdk7为例说明：<br>     HashMap map = new HashMap():<br>     在实例化以后，底层创建了长度是16的一维数组Entry[] table。<br>     …可能已经执行过多次put…<br>     map.put(key1,value1):<br>     首先，调用key1所在类的hashCode()计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。<br>     如果此位置上的数据为空，此时的key1-value1添加成功。 —-情况1<br>     如果此位置上的数据不为空，(意味着此位置上存在一个或多个数据(以链表形式存在)),比较key1和已经存在的一个或多个数据<br>     的哈希值：<br>             如果key1的哈希值与已经存在的数据的哈希值都不相同，此时key1-value1添加成功。—-情况2<br>             如果key1的哈希值和已经存在的某一个数据(key2-value2)的哈希值相同，继续比较：调用key1所在类的equals(key2)方法，比较：<br>                     如果equals()返回false:此时key1-value1添加成功。—-情况3<br>                     如果equals()返回true:使用value1替换value2。<br> *<br>      补充：关于情况2和情况3：此时key1-value1和原来的数据以链表的方式存储。<br> *<br>     在不断的添加过程中，会涉及到扩容问题，当超出临界值(且要存放的位置非空)时，扩容。默认的扩容方式：扩容为原来容量的2倍，并将原有的数据复制过来。</p>
+<h2 id="10-HashMap在JDK8中的底层实现原理"><a href="#10-HashMap在JDK8中的底层实现原理" class="headerlink" title="10.HashMap在JDK8中的底层实现原理"></a>10.HashMap在JDK8中的底层实现原理</h2><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">jdk8 相较于jdk7在底层实现方面的不同：</span><br><span class="line">1. new HashMap():底层没有创建一个长度为16的数组</span><br><span class="line">2. jdk 8底层的数组是：Node[],而非Entry[]</span><br><span class="line">3. 首次调用put()方法时，底层创建长度为16的数组</span><br><span class="line">4. jdk7底层结构只有：数组+链表。jdk8中底层结构：数组+链表+红黑树。</span><br><span class="line">   4.1 形成链表时，七上八下（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）</span><br><span class="line">      4.2 当数组的某一个索引位置上的元素以链表形式存在的数据个数 &gt; 8 且当前数组的长度 &gt; 64时，此时此索引位置上的所数据改为使用红黑树存储。</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="11-HashMap在JDK7中的源码分析"><a href="#11-HashMap在JDK7中的源码分析" class="headerlink" title="11.HashMap在JDK7中的源码分析."></a>11.HashMap在JDK7中的源码分析.</h2><h2 id="12-HashMap在JDK8中的源码分析"><a href="#12-HashMap在JDK8中的源码分析" class="headerlink" title="12.HashMap在JDK8中的源码分析."></a>12.HashMap在JDK8中的源码分析.</h2><p> 在第12个  如果存储的是null  不扩容<br>     DEFAULT_INITIAL_CAPACITY : HashMap的默认容量，16<br>     DEFAULT_LOAD_FACTOR：HashMap的默认加载因子：0.75<br>     threshold：扩容的临界值，=容量<em>填充因子：16\</em>0.75 =&gt; 12<br>     TREEIFY_THRESHOLD：Bucket中链表长度大于该默认值，转化为红黑树:8<br>     MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量:64<br> *</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_13" alt="1588305937157"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_14" alt="1588305963226"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_15" alt="1588305984564"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_16" alt="1588306013458"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_17" alt="1588306051967"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_18" alt="1588306080705"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_19" alt="1588306114766"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_20" alt="1588306139611"></p>
+<p> <img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_21" alt="1588306157975"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_22" alt="1588306176088"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_23" alt="1588306192670"></p>
+<p>出现链表的情况少</p>
+<h2 id="13-LinkedHashMap的底层实现原理"><a href="#13-LinkedHashMap的底层实现原理" class="headerlink" title="13.LinkedHashMap的底层实现原理"></a>13.LinkedHashMap的底层实现原理</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_24" alt="1588306320593"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_25" alt="1588306337685"></p>
+<p>四、LinkedHashMap的底层实现原理（了解）<br>     源码中：<br>     static class Entry&lt;K,V&gt; extends HashMap.Node&lt;K,V&gt; {<br>             Entry&lt;K,V&gt; before, after;//能够记录添加的元素的先后顺序<br>             Entry(int hash, K key, V value, Node&lt;K,V&gt; next) {<br>                super(hash, key, value, next);<br>             }<br>         }<br> *Present=new Object</p>
+<h2 id="14-Map中的常用方法"><a href="#14-Map中的常用方法" class="headerlink" title="14. Map中的常用方法"></a>14. Map中的常用方法</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_26" alt="1588306693853"></p>
+<p>​    <img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_27" alt="1588306714103"></p>
+<p>  五、Map中定义的方法：<br> 添加、删除、修改操作：<br> Object put(Object key,Object value)：将指定key-value添加到(或修改)当前map对象中</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_28" alt="1588306821736"></p>
+<p> void putAll(Map m):将m中的所有key-value对存放到当前map中<br> Object remove(Object key)：移除指定key的key-value对，并返回value</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_29" alt="1588306909088"></p>
+<p> 不存在null</p>
+<p>void clear()：清空当前map中的所有数据</p>
+<p>{}  size:0</p>
+<p> 元素查询的操作：</p>
+<p>   Object get(Object key)：获取指定key对应的value</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_30" alt="1588307047376"></p>
+<p> boolean containsKey(Object key)：是否包含指定的key<br> boolean containsValue(Object value)：是否包含指定的value<br> int size()：返回map中key-value对的个数</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_31" alt="1588307157255"></p>
+<p> boolean isEmpty()：判断当前map是否为空   new的·对象依然存在</p>
+<p> boolean equals(Object obj)：判断当前map和参数对象obj是否相等</p>
+<h2 id="15-Map中的常用方法2"><a href="#15-Map中的常用方法2" class="headerlink" title="15.Map中的常用方法2"></a>15.Map中的常用方法2</h2><p> 元视图操作的方法：<br> Set keySet()：返回所有key构成的Set集合<br> Collection values()：返回所有value构成的Collection集合<br> Set entrySet()：返回所有key-value对构成的Set集合</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_32" alt="1588311167816"></p>
+<p> 总结：常用方法：<br>添加：put(Object key,Object value)<br>删除：remove(Object key)<br>修改：put(Object key,Object value)<br>查询：get(Object key)<br>长度：size()<br>遍历：keySet() / values() / entrySet()</p>
+<h2 id="16-TreeMap两种添加方式的使用"><a href="#16-TreeMap两种添加方式的使用" class="headerlink" title="16.TreeMap两种添加方式的使用"></a>16.TreeMap两种添加方式的使用</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_33" alt="1588311543622"></p>
+<p>向TreeMap中添加key-value，要求key必须是由同一个类创建的对象<br>因为要按照key进行排序：自然排序 、定制排序<br>自然排序</p>
+<p>person  implements Compable </p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_34" alt="1588311960563"></p>
+<p>定制排序:</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_35" alt="1588312030825"></p>
+<p>不能按照 value 排序</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_36" alt="1588312121291"></p>
+<h2 id="17-Properties处理属性文件"><a href="#17-Properties处理属性文件" class="headerlink" title="17.Properties处理属性文件"></a>17.Properties处理属性文件</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_37" alt="1588312158878"></p>
+<p>​    //Properties:常用来处理配置文件。key和value都是String类型   ，文件读到内存当中</p>
+<p>workspace-&gt;</p>
+<p>new -&gt; Resource  Bundle-&gt;jdbc-&gt;ok</p>
+<p>name=tom</p>
+<p>password=abc123</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_38" alt="1588312564631"></p>
+<p>File Encodings-Transparent-native&gt;打钩 </p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_39" alt="1588312710514"></p>
+<h2 id="18-Collections工具类常用方法的测试"><a href="#18-Collections工具类常用方法的测试" class="headerlink" title="18.Collections工具类常用方法的测试"></a>18.Collections工具类常用方法的测试</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_40" alt="1588312942185"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_41" alt="1588312989372"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_42" alt="1588313045587"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_43" alt="1588313074625"> 不用了听一下就可以</p>
+<p> 面试题：Collection 和 Collections的区别？</p>
+<p>reverse(List)：反转 List 中元素的顺序<br>shuffle(List)：对 List 集合元素进行随机排序<br>sort(List)：根据元素的自然顺序对指定 List 集合元素按升序排序<br>sort(List，Comparator)：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序<br>swap(List，int， int)：将指定 list 集合中的 i 处元素和 j 处元素进行交换</p>
+<p>Object max(Collection)：根据元素的自然顺序，返回给定集合中的最大元素<br>Object max(Collection，Comparator)：根据 Comparator 指定的顺序，返回给定集合中的最大元素<br>Object min(Collection)<br>Object min(Collection，Comparator)<br>int frequency(Collection，Object)：返回指定集合中指定元素的出现次数</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_47" alt="1588313901489"></p>
+<p>void copy(List dest,List src)：将src中的内容复制到dest中</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_48" alt="1588314164802"></p>
+<p>boolean replaceAll(List list，Object oldVal，Object newVal)：使用新值替换 List 对象的所有旧值</p>
+<p>返回线程安全的</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_49" alt="1588314240465"></p>
+<h2 id="19-集合课后几道练习题说明"><a href="#19-集合课后几道练习题说明" class="headerlink" title="19. 集合课后几道练习题说明."></a>19. 集合课后几道练习题说明.</h2><p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_44" alt="1588313104484"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_45" alt="1588313136326"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_50" alt="1588314515984"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he-bu-1/24_46" alt="1588313155704"></p>
+<p>hashSet</p>
+<h2 id="20-java数据结构的简述"><a href="#20-java数据结构的简述" class="headerlink" title="20.java数据结构的简述"></a>20.java数据结构的简述</h2><p>战术与策略 ： 数据结构</p>
+<p>研究数据结构的目的是:加快程序执行速度，减少内存占有空间</p>
+<p>算法是为了解决实际问题而设计的,数据结构是算法需要处理的问题载体。</p>
+<p>数据结构与算法分析Java语言描述(第2版) [美] 卡拉罗(Carrano,FM.)<br>著金名，等译</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集合</title>
+    <url>/2016/07/06/2016-07-06-ji-he/</url>
+    <content><![CDATA[<h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><p>1.什么是枚举类？枚举类的对象声明的修饰符都有哪些？</p>
+<p>枚举类：类中的对象的个数是确定的，有限个。</p>
+<p>private final (No)</p>
+<p>public static final (Yes)</p>
+<p>2.什么是元注解？说说Retention和Target元注解的作用</p>
+<p>元注解：对现有的注解进行解释说明的注解。</p>
+<p>Retention：指明所修饰的注解的生命周期。SOURCE CLASS RUNTIME</p>
+<ol start="3">
+<li>说说你所理解的集合框架都有哪些接口，存储数据的特点是什么</li>
+</ol>
+<ol start="4">
+<li>比较throw 和 throws 的异同</li>
+</ol>
+<p>同：</p>
+<p>throw:生成一个异常对象，并抛出。使用在方法内部 &lt;-&gt; 自动抛出异常对象</p>
+<p>throws:处理异常的方式。使用在方法声明处的末尾&lt;-&gt;try-catch-finally</p>
+<p>“上游排污，下游治污”</p>
+<ol start="5">
+<li>谈谈你对同步代码块中同步监视器和共享数据的理解及各自要求。<br>同步监视器：俗称锁。①任何一个类的对象都可以充当锁。② 多个线程共用同一把锁。<br>共享数据：多个线程共同操作的数据，即为共享数据。<br>需要使用同步机制将操作共享数据的代码包起来。不能包多了，也不能包少了。<h2 id="2-复习枚举类"><a href="#2-复习枚举类" class="headerlink" title="2.复习枚举类"></a>2.复习枚举类</h2></li>
+<li>枚举类的说明:</li>
+</ol>
+<p>1.枚举类的理解：类的对象只有有限个，确定的。我们称此类为枚举类<br>2.当需要定义一组常量时，强烈建议使用枚举类<br>3.如果枚举类中只有一个对象，则可以作为单例模式的实现方式。</p>
+<p>2.如何自定义枚举类?步骤:<br><img src="/2016/07/06/2016-07-06-ji-he/22_03" alt="自定义枚举类"></p>
+<ol start="3">
+<li>jdk 5.0新增使用enum定义枚举类。步骤:<br><img src="/2016/07/06/2016-07-06-ji-he/22_04.png" alt="自定义枚举类"></li>
+<li>使用enum定 义枚举类之后，枚举类常用方法: (继承于java. lang. Enum类)<br><img src="/2016/07/06/2016-07-06-ji-he/22_09.png" alt="enum类的常用方法"></li>
+</ol>
+<p>5.使用enum定义枚举类之后，如何让枚举类对象分别实现接口:</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/22_10.png" alt="枚举类对象分别实现接口"></p>
+<h2 id="3-复习-注解"><a href="#3-复习-注解" class="headerlink" title="3.复习:注解"></a>3.复习:注解</h2><p>1.注解的理解<br>① jdk 5.0 新增的功能<br>② Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用 Annotation,<br>程序员可以在不改变原有逻辑的情况下, 在源文件中嵌入一些补充信息。<br>③在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE/Android中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替JavaEE旧版中所遗留的繁冗代码和XML配置等。<br>框架=注解+反射机制+设计模式</p>
+<p>2.注解的使用示例<br>示例一：生成文档相关的注解<br>示例二：在编译时进行格式检查(JDK内置的三个基本注解)<br>  @Override: 限定重写父类方法, 该注解只能用于方法;;加上注解编译的时候校验,不加在运行时校验<br>  @Deprecated: 用于表示所修饰的元素(类, 方法等)已过时。通常是因为所修饰的结构危险或存在更好的选择(向下兼容)<br>  @SuppressWarnings: 抑制编译器警告<br>示例:跟踪代码依赖性,实现替代配置文件功能</p>
+<p>3.如何自定义注解</p>
+<p>如何自定义注解：参照@SuppressWarnings定义<br>     ① 注解声明为：@interface<br>     ② 内部定义成员，通常使用value表示<br>     ③ 可以指定成员的默认值，使用default定义<br>     ④ 如果自定义注解没有成员，表明是一个标识作用。override<br>说明:<br>仿照这些<br>如果注解有成员，在使用注解时，需要指明成员的值。<br> 自定义注解必须配上注解的信息处理流程(使用反射)才有意义。<br> 自定义注解通过都会指明两个元注解：Retention、Target<br>代码举例:<br>@Inherited<br>@Repeatable(MyAnnotations . class)<br>@Retention( RetentionPolicy.RUNTIME)<br>@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_ ,VARIABLE , TYPE_ PARAMETER,<br>TYPE_ USE})<br>public @interface MyAnnotation {<br>String value() default “hello”;<br>}<br>4.元注解:对现有的注解进行解释说明的注解。<br>.jdk 提供的4种元注解<br>Retention：指定所修饰的 Annotation 的生命周期：SOURCE javac 不保留注解  \CLASS（默认行为） 运行时不保留注解 不会加载内存 \RUNTIME(运行时候需要调  反射)只有声明为RUNTIME生命周期的注解，才能通过反射获取。<br>Target:用于指定被修饰的 Annotation 能用于修饰哪些程序元素<br>     <strong>***</strong>出现的频率较低<strong>***</strong><br>Documented:表示所修饰的注解在被javadoc解析时，保留下来。<br>Inherited:被它修饰的 Annotation 将具有继承性。<br>String name 都是他的元数据<br>—&gt;类比:元数据的概念: String name = “Tom” ;<br>5.如何获取注解信息: 通过反射来进行获取、调用<br>前提:<br>前提:要求此注解的元注解Retention中声明的生命周期状态为: RUNTIME.<br>6. JDK8中注解的新特性:可重复注解、类型注解<br> 6.1 可重复注解：<br>   ① 在MyAnnotation上声明@Repeatable，成员值为MyAnnotations.class  两个注解关联在一起<br>   ② MyAnnotation的Target和Retention等元注解与MyAnnotations相同。<br> 6.2 类型注解：<br>    ElementType.TYPE_PARAMETER 表示该注解能写在类型变量的声明语句中（如：泛型声明）。<br>    ElementType.TYPE_USE 表示该注解能写在使用类型的任何语句中。</p>
+<h2 id="4-复习集合"><a href="#4-复习集合" class="headerlink" title="4. 复习集合"></a>4. 复习集合</h2><p>1.集合与数组存储数据概述:</p>
+<p>集合、数组都是对多个数据进行存储操作的结构，简称Java容器。<br> 说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中）</p>
+<p>2.数组存储的特点:</p>
+<blockquote>
+<p>一旦初始化以后，其长度就确定了。<br>数组一旦定义好，其元素的类型也就确定了。我们也就只能操作指定类型的数据了。<br>   比如：String[] arr;int[] arr1;Object[] arr2;</p>
+</blockquote>
+<p>3.数组存储的弊端:</p>
+<blockquote>
+<p>一旦初始化以后，其长度就不可修改。<br>数组中提供的方法非常有限，对于添加、删除、插入数据等操作，非常不便，同时效率不高。<br>获取数组中实际元素的个数的需求，数组没有现成的属性或方法可用<br>数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。</p>
+</blockquote>
+<p>4.集合存储的优点:</p>
+<p>解决数组存储数据方面的弊端</p>
+<h4 id="集合接口"><a href="#集合接口" class="headerlink" title="集合接口"></a>集合接口</h4><p>1.单列集合框架结构</p>
+<blockquote>
+<p>  |—-Collection接口：单列集合，用来存储一个一个的对象<br>        |—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组<br>            |—-ArrayList、LinkedList、Vector<br>  *<br>        |—-Set接口：存储无序的、不可重复的数据   –&gt;高中讲的“集合”<br>            |—-HashSet、LinkedHashSet、TreeSet<br>  *<br>    |—-Map接口：双列集合，用来存储一对(key - value)一对的数据   –&gt;高中函数：y = f(x)<br>            |—-HashMap、LinkedHashMap、TreeMap、Hashtable、Properties</p>
+</blockquote>
+<p>对应图示: <img src="/2016/07/06/2016-07-06-ji-he/23_04.png" alt="集合框架与数组的对比"></p>
+<p>2.Collection接口常用方法:</p>
+<p>3.Collection集合与数组间的转换<br>4.使用Collection集合存储对象，要求对象所属的类满足:<br>5.本章节对大家的要求:<br>层次一:选择合适的集合类去实现数据的保存，调用其内部的相关方法。</p>
+<p>1.Java集合框架概述<br>2.Collection接口方法–</p>
+<h2 id="1-1集合框架与数组的对比及概述"><a href="#1-1集合框架与数组的对比及概述" class="headerlink" title="1.1集合框架与数组的对比及概述"></a>1.1集合框架与数组的对比及概述</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_01.png" alt="集合框架与数组的对比"></p>
+<p>一、集合框架的概述<br> *<br>1.集合、数组都是对多个数据进行存储操作的结构，简称Java容器。<br> 说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中）<br> *<br>2.1 数组在存储多个数据方面的特点：<br>     &gt; 一旦初始化以后，其长度就确定了。<br>     &gt; 数组一旦定义好，其元素的类型也就确定了。我们也就只能操作指定类型的数据了。<br>      比如：String[] arr;int[] arr1;Object[] arr2;<br>2.2 数组在存储多个数据方面的缺点：<br>     &gt; 一旦初始化以后，其长度就不可修改。<br>     &gt; 数组中提供的方法非常有限，对于添加、删除、插入数据等操作，非常不便，同时效率不高。<br>     &gt; 获取数组中实际元素的个数的需求，数组没有现成的属性或方法可用<br>     &gt; 数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。<br> *<br>二、集合框架<br>     |—-Collection接口：单列集合，用来存储一个一个的对象<br>         |—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组<br>             |—-ArrayList、LinkedList、Vector<br> *<br>         |—-Set接口：存储无序的、不可重复的数据   –&gt;高中讲的“集合”<br>             |—-HashSet、LinkedHashSet、TreeSet<br> *<br>     |—-Map接口：双列集合，用来存储一对(key - value)一对的数据   –&gt;高中函数：y = f(x)<br>             |—-HashMap、LinkedHashMap、TreeMap、Hashtable、Properties<br> *<br> *<br>三、Collection接口中的方法的使用</p>
+<p>使用场景应用:</p>
+<p>外卖、</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_02.png" alt="集合框架与数组的对比"></p>
+<h2 id="1-2-集合框架涉及到API"><a href="#1-2-集合框架涉及到API" class="headerlink" title="1.2 集合框架涉及到API"></a>1.2 集合框架涉及到API</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_03.png" alt="集合框架与数组的对比"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_04.png" alt="集合框架与数组的对比"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_05.png" alt="集合框架与数组的对比"></p>
+<h2 id="1-3接口中的常用方法1"><a href="#1-3接口中的常用方法1" class="headerlink" title="1.3接口中的常用方法1"></a>1.3接口中的常用方法1</h2><p>什么容器干什么事</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_06.png" alt="集合框架与数组的对比"></p>
+<h2 id="5-7-接口中的常用方法2-4"><a href="#5-7-接口中的常用方法2-4" class="headerlink" title="5-7.接口中的常用方法2-4"></a>5-7.接口中的常用方法2-4</h2><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">结论：* 向Collection接口的实现类的对象中添加数据obj时，要求obj所在类要重写equals().</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_07.png" alt="集合框架与数组的对比"><br><img src="/2016/07/06/2016-07-06-ji-he/23_08.png" alt="集合框架与数组的对比"><br><img src="/2016/07/06/2016-07-06-ji-he/23_09.png" alt="集合框架与数组的对比"></p>
+<p>先学会用  ，里面怎么用，</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_11" alt="1588230154121"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_12" alt="1588230537727"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_13" alt="1588230434174"></p>
+<p>在判断的时候回调用obj对象所在类的equals方法，</p>
+<p>向Collection接口的实现类的对象中添加数据obj时，要求obj所在类要重写equals().</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_14" alt="containerAll"></p>
+<p>需要中需要删除一个数据  boolean值，</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_15" alt="1588231122638"></p>
+<p>交集</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_16" alt="1588231454011"></p>
+<p>比较两个集合元素相等，下面是不相等的，由于456的123位置，ArrayList是有序的<br><img src="/2016/07/06/2016-07-06-ji-he/23_17" alt="1588231530970"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_18" alt="hashcode"></p>
+<p>``8.集合与数组之间的转换</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_19" alt="1588232608177"></p>
+<h4 id="11-3-Iterator迭代器接口"><a href="#11-3-Iterator迭代器接口" class="headerlink" title="11.3.Iterator迭代器接口"></a>11.3.Iterator迭代器接口</h4><h2 id="8-使用Iterator遍历Collection"><a href="#8-使用Iterator遍历Collection" class="headerlink" title="8.使用Iterator遍历Collection"></a>8.使用Iterator遍历Collection</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_20" alt="1588233247542"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_21" alt="1588233287913"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_22" alt="1588233312775"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_23" alt="1588233352886"></p>
+<p>Iterator it=coll.iterator();</p>
+<p>iterator.next() 取数据   走悬崖 在next 就输了</p>
+<p>iterator.hasNext() 取数据时判断有没有下一个</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_10" alt="1588233835930"></p>
+<p>集合元素的遍历操作，使用迭代器Iterator接口<br>1.内部的方法：hasNext() 和  next()<br>2.集合对象每次调用iterator()方法都得到一个全新的迭代器对象，<br>默认游标都在集合的第一个元素之前。<br>3.内部定义了remove(),可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用remove()</p>
+<h2 id="9-迭代器的执行原理"><a href="#9-迭代器的执行原理" class="headerlink" title="9.迭代器的执行原理"></a>9.迭代器的执行原理</h2><p>next 下移了</p>
+<h2 id="10-Iterator遍历集合的两种错误写法"><a href="#10-Iterator遍历集合的两种错误写法" class="headerlink" title="10.Iterator遍历集合的两种错误写法"></a>10.Iterator遍历集合的两种错误写法</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">   <span class="comment">//错误方式一：</span></span><br><span class="line"><span class="comment">//        Iterator iterator = coll.iterator();</span></span><br><span class="line"><span class="comment">//        while((iterator.next()) != null){</span></span><br><span class="line"><span class="comment">//            System.out.println(iterator.next());</span></span><br><span class="line"><span class="comment">//        }</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//错误方式二： 死循环</span></span><br><span class="line">        <span class="comment">//集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</span></span><br><span class="line">        <span class="keyword">while</span> (coll.iterator().hasNext()){</span><br><span class="line">            System.out.println(coll.iterator().next());</span><br><span class="line">        }</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="11-Iterator跌代器remove-的使用"><a href="#11-Iterator跌代器remove-的使用" class="headerlink" title="11.Iterator跌代器remove()的使用"></a>11.Iterator跌代器remove()的使用</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_24" alt="1588235037160"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_25" alt="1588235187171"></p>
+<p>迭代器只适用于 Collection 不适合Map</p>
+<h2 id="12-使用foreach循环遍历集合或数组"><a href="#12-使用foreach循环遍历集合或数组" class="headerlink" title="12.使用foreach循环遍历集合或数组"></a>12.使用foreach循环遍历集合或数组</h2><p><strong><img src="/2016/07/06/2016-07-06-ji-he/..%5CstudyNote_Pic%5Csgg%5Cday12%5C1588235499265.png" alt="1588235499265"></strong></p>
+<p>jdk 5.0 新增了foreach循环，用于遍历集合、数组</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_26" alt="1588235758885"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/F:%5Cdocument%5CstudyNote_Pic%5Csgg%5Cday24%5C24_06" alt="1588294337913"></p>
+<p>4.Collection子接口一: List</p>
+<h2 id="13-List接口常用实现类的对比"><a href="#13-List接口常用实现类的对比" class="headerlink" title="13. List接口常用实现类的对比"></a>13. List接口常用实现类的对比</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_27" alt="1588238240273"></p>
+<p>动态数组</p>
+<blockquote>
+<ol>
+<li>List接口框架</li>
+</ol>
+<p>*<br>|—-Collection接口：单列集合，用来存储一个一个的对象<br>   |—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组,替换原有的数组<br>       |—-ArrayList：作为List接口的<code>主要实现类</code>；线程不安全的，效率高；底层使用Object[] elementData存储<br>       |—-LinkedList：对于频繁的插入、删除操作，使用此类效率比ArrayList高；底层使用双向链表存储  —》 铁链子 内部   打比方 传话<br>       |—-Vector：作为List接口的<code>古老实现类</code>；线程安全的，效率低；底层使用Object[] elementData存储      打比方  不怎么用，   皇帝与旧臣<br>*<br>*</p>
+<ol start="2">
+<li><p>ArrayList的源码分析：<br>2.1 jdk 7情况下<br>ArrayList list = new ArrayList();//底层创建了长度是10的Object[]数组elementData<br>list.add(123);//elementData[0] = new Integer(123);<br>…<br>list.add(11);//如果此次的添加导致底层elementData数组容量不够，则扩容。<br>默认情况下，扩容为原来的容量的1.5倍，同时需要将原有数组中的数据复制到新的数组中。</p>
+<pre><code>*</code></pre><p><strong><strong><strong>**</strong></strong></strong>结论：建议开发中使用带参的构造器：ArrayList list = new ArrayList(int capacity)；</p>
+<pre><code>*</code></pre><p>2.2 jdk 8中ArrayList的变化：<br>ArrayList list = new ArrayList();//底层Object[] elementData初始化为{}.并没有创建长度为10的数组<br>*<br>list.add(123);//第一次调用add()时，底层才创建了长度10的数组，并将数据123添加到elementData[0]<br>…<br>后续的添加和扩容操作与jdk 7 无异。<br>2.3 小结：jdk7中的ArrayList的对象的创建类似于单例的饿汉式，而jdk8中的ArrayList的对象<br>的创建类似于单例的懒汉式，–&gt;延迟了数组的创建，节省内存。<br>*</p>
+<ol start="3">
+<li><p>LinkedList的源码分析：<br>LinkedList list = new LinkedList(); 内部声明了Node类型的first和last属性，默认值为null<br>list.add(123);//将123封装到Node中，创建了Node对象。<br> *<br>其中，Node定义为：体现了LinkedList的双向链表的说法<br>private static class Node<e> {<br>E item;<br>Node<e> next;<br>Node<e> prev;</e></e></e></p>
+<p>Node(Node<e> prev, E element, Node<e> next) {<br>this.item = element;<br>this.next = next;<br>this.prev = prev;<br>}<br> }<br> *</e></e></p>
+</li>
+</ol>
+</li>
+<li><p>Vector的源码分析：jdk7和jdk8中通过Vector()构造器创建对象时，底层都创建了长度为10的数组。<br>在扩容方面，默认扩容为原来的数组长度的2倍。</p>
+<pre><code>*</code></pre></li>
+<li><p>面试题：ArrayList、LinkedList、Vector三者的异同？<br>   同：三个类都是实现了List接口，存储数据的特点相同：存储有序的、可重复的数据<br>   不同：见上<br>   *<br>   *<br>   *</p>
+</li>
+<li><p>List接口中的常用方法</p>
+<pre><code>*
+@author shkstart
+@create 2019 上午 11:39</code></pre><p>*/<br>public class ListTest {</p>
+</li>
+</ol>
+<p>/*<br>void add(int index, Object ele):在index位置插入ele元素<br>boolean addAll(int index, Collection eles):从index位置开始将el中的所有元素添加进来<br>Object get(int index):获取指定index位置的元素<br>int indexOf(Object obj):返回obj在集合中首次出现的位置<br>int lastIndexOf(Object obj):返回obj在当前集合中末次出现的位置<br>Object remove(int index):移除指定index位置的元素，并返回此元素<br>Object set(int index, Object ele):设置指定index位置的元素为ele<br>List subList(int fromIndex, int toIndex):返回从fromIndex到toIndex位置的子集合</p>
+<p>总结：常用方法<br>增：add(Object obj)<br>删：remove(int index) / remove(Object obj)<br>改：set(int index, Object ele)<br>查：get(int index)<br>插：add(int index, Object ele)<br>长度：size()<br>遍历：① Iterator迭代器方式<br>② 增强for循环<br>③ 普通的循环</p>
+</blockquote>
+<h2 id="14-ArrayList的源码分析"><a href="#14-ArrayList的源码分析" class="headerlink" title="14.ArrayList的源码分析."></a>14.ArrayList的源码分析.</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_28" alt="1588248406497"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_29" alt="1588248456802"></p>
+<p>1 2   删除对象的2  new Integer(2);</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_30" alt="1588249313814"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_31" alt="1588249357520"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_32" alt="1588250168534"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_33" alt="1588250191038"></p>
+<h2 id="17-List接口中的常用方法测试"><a href="#17-List接口中的常用方法测试" class="headerlink" title="17.List接口中的常用方法测试"></a>17.List接口中的常用方法测试</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_34" alt="1588250685082"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_35" alt="1588250811845"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_36" alt="1588250919730"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_37" alt="1588250995382"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_38" alt="1588251488259"></p>
+<h2 id="18-List遍历及方法总结，"><a href="#18-List遍历及方法总结，" class="headerlink" title="18.List遍历及方法总结，"></a>18.List遍历及方法总结，</h2><h2 id="19-List一个面试小题"><a href="#19-List一个面试小题" class="headerlink" title="19.List一个面试小题"></a>19.List一个面试小题</h2><p>new Integer(123)  编程对象</p>
+<p>5.Collection子接口二: Set</p>
+<h2 id="20-Set接口实现类的对比"><a href="#20-Set接口实现类的对比" class="headerlink" title="20.Set接口实现类的对比"></a>20.Set接口实现类的对比</h2><ol>
+<li><p>Set接口的框架：<br>*<br>|—-Collection接口：单列集合，用来存储一个一个的对象</p>
+<pre><code>|----Set接口：存储无序的、不可重复的数据   --&gt;高中讲的“集合”
+    |----HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
+        |----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历
+                            对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
+    |----TreeSet：可以按照添加对象的指定属性，进行排序。  红黑树</code></pre><ol>
+<li><p>Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。</p>
+</li>
+<li><p>要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals()<br>要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码<br>重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="21-Set的无序性与不可重复性的理解-开发使用set-相对较少"><a href="#21-Set的无序性与不可重复性的理解-开发使用set-相对较少" class="headerlink" title="21.Set的无序性与不可重复性的理解(开发使用set 相对较少)"></a>21.Set的无序性与不可重复性的理解(开发使用set 相对较少)</h2><p>一、Set：存储无序的、不可重复的数据<br>    以HashSet为例说明：</p>
+<pre><code>1. 无序性：不等于随机性。存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的哈希值决定的。
+2. 不可重复性：保证添加的元素按照equals()判断时，不能返回true.即：相同的元素只能添加一个。</code></pre><p><img src="/2016/07/06/2016-07-06-ji-he/23_44" alt="1588255431446"></p>
+<h2 id="22-HashSet中元素的添加过程"><a href="#22-HashSet中元素的添加过程" class="headerlink" title="22.HashSet中元素的添加过程"></a>22.HashSet中元素的添加过程</h2><p>二、添加元素的过程：以HashSet为例：</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_45" alt="1588255855277"></p>
+<p>7上⑧下  equal是true 才真一样，，首先比较code</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_46" alt="1588256082550"></p>
+<p> 我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，<br>  此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断<br>     数组此位置上是否已经有元素：<br>      如果此位置上没有其他元素，则元素a添加成功。 —&gt;情况1<br>      如果此位置上有其他元素b(或以链表形式存在的多个元素），则比较元素a与元素b的hash值：<br>                如果hash值不相同，则元素a添加成功。—&gt;情况2<br>                如果hash值相同，进而需要调用元素a所在类的equals()方法：<br>                       equals()返回true,元素a添加失败<br>                       equals()返回false,则元素a添加成功。—&gt;情况2<br>        对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。<br>        jdk 7 :元素a放到数组中，指向原来的元素。<br>        jdk 8 :原来的元素在数组中，指向元素a<br>        总结：七上八下</p>
+<p>HashSet底层：数组+链表的结构。</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_39" alt="1588254051229"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_40" alt="1588254073703"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_41" alt="1588254100816"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_42" alt="1588254130148"></p>
+<h2 id="23-关于hashCode0和equals0的重写"><a href="#23-关于hashCode0和equals0的重写" class="headerlink" title="23.关于hashCode0和equals0的重写"></a>23.关于hashCode0和equals0的重写</h2><p>object hashcode 是随机算一个数</p>
+<p>简单   return name.hashCode()+age    *31  相撞的概率降低</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_43" alt="1588254149292"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_47" alt="1588257098672"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_48" alt="1588257121779"></p>
+<h2 id="24-LinkedHashSet的使用"><a href="#24-LinkedHashSet的使用" class="headerlink" title="24.LinkedHashSet的使用"></a>24.LinkedHashSet的使用</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_49" alt="1588257382531"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_50" alt="1588257404377"></p>
+<pre><code>//LinkedHashSet的使用
+//LinkedHashSet作为HashSet的子类，在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个
+//数据和后一个数据。
+//优点：对于频繁的遍历操作，LinkedHashSet效率高于HashSet</code></pre><h2 id="25-TreeSet的自然排序"><a href="#25-TreeSet的自然排序" class="headerlink" title="25.TreeSet的自然排序"></a>25.TreeSet的自然排序</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_51" alt="1588257765196"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_52" alt="1588257797735"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/..%5CstudyNote_Pic%5Csgg%5Cday12%5C1588257833503.png" alt="1588257833503"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_53" alt="1588257928340"></p>
+<p> 1.向TreeSet中添加的数据，要求是相同类的对象。</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_54" alt="1588257974316"></p>
+<pre><code>2.两种排序方式：自然排序（实现Comparable接口） 和 定制排序（Comparator）
+
+
+3.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals().
+4.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().</code></pre><p>自然排序 <img src="/2016/07/06/2016-07-06-ji-he/..%5CstudyNote_Pic%5Csgg%5Cday12%5C1588258133647.png" alt="1588258133647"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_55" alt="1588258169601"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_56" alt="1588258224022"></p>
+<p>compareTo 为0，他就认为是一样的</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_57" alt="1588258371921"></p>
+<p>二叉排序树</p>
+<h2 id="26-TreeSet的定制排序"><a href="#26-TreeSet的定制排序" class="headerlink" title="26.TreeSet的定制排序"></a>26.TreeSet的定制排序</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_58" alt="1588258533624"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_59" alt="1588258563702"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_60" alt="1588258589496"></p>
+<p>(com) 定制排序，没写按照默认排序</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_61" alt="1588258673989"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>枚举类与注解</title>
+    <url>/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/</url>
+    <content><![CDATA[<h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><ol>
+<li>将字符串”2017-08-16”转换为对应的java.sql.Date类的对象。</li>
+</ol>
+<p>（使用JDK8之前或JDK8中的API皆可）</p>
+<p>SimpleDateFormat  sdf = new SimpleDateFormat(“yyyy-MM-dd”);</p>
+<p>解析：java.util.Date date = sdf.parse(“2017-08-16”);</p>
+<p>DateTimeFormatter dtf= DateTimeFormatter.ofPattern(“yyyy-MM-dd”); </p>
+<p>new + 构造器</p>
+<p>单例、Calendar.getInstance()</p>
+<ol start="2">
+<li>解释何为编码？解码？ 何为日期时间的格式化？解析？</li>
+</ol>
+<p>编码：字符串 -&gt;字节</p>
+<p>解码：字节 -&gt;字符串</p>
+<p>格式化：日期 -&gt;字符串 format</p>
+<p>解析：字符串 -&gt;日期  parse </p>
+<ol start="3">
+<li>自定义Person类如下，如何实现自然排序（按姓名从小到大排序），代码说明</li>
+</ol>
+<p>class Person implements Comparable{</p>
+<p>​       private String name;</p>
+<p>​       private int age;</p>
+<p>​       public int compareTo(Object obj){</p>
+<p>​              //…  this.name.compareTo(s.name);</p>
+<p>}</p>
+<p>}</p>
+<ol start="4">
+<li>提供定制排序涉及到的接口的实现类对象，并按Person类的年龄从大到小排序</li>
+</ol>
+<p>Comparator com = new Comparator(){</p>
+<p>​       public int compare(Object obj1,Object obj2){</p>
+<p>​              if(){</p>
+<p>}</p>
+<p>}</p>
+<p>};</p>
+<ol start="5">
+<li>JDK 8之前和JDK8中日期、时间相关的类分别有哪些？</li>
+</ol>
+<p>java.util.Date 和 java.sql.Date  -&gt; Instant</p>
+<p>SimpleDateFormat  -&gt;DateTimeFormatter</p>
+<p>Calendar  -&gt; LocalDate、LocalTime、LocalDateTime</p>
+<h2 id="2-复习-日期时间API"><a href="#2-复习-日期时间API" class="headerlink" title="2.复习 日期时间API"></a>2.复习 日期时间API</h2><p>痛苦才有所变化</p>
+<ol start="3">
+<li>java . text. SimpleDataFormat类<br>SimpleDateFormat对日期Date类的格式化和解析<br>1.两个操作:<br>1.1 格式化:日期—&gt;字符串<br>1.2解析:格式化的逆过程，字符串—&gt; 日期<br>2.SimpleDateFormat的实例化:new +构造器</li>
+</ol>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_18.png" alt="##SimpleDateFormat"></p>
+<p>小练习:</p>
+<p>练习一：字符串”2020-09-08”转换为java.sql.Date</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line">   String birth = <span class="string">"2020-09-08"</span>;</span><br><span class="line">  SimpleDateFormat sdf1 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">  Date date = sdf1.parse(birth);</span><br><span class="line"><span class="comment">// System.out.println(date);</span></span><br><span class="line">java.sql.Date birthDate = <span class="keyword">new</span> java.sql.Date(date.getTime());</span><br><span class="line">System.out.println(birthDate);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>练习二：”三天打渔两天晒网”   1990-01-01  xxxx-xx-xx 打渔？晒网？<br>    举例：2020-09-08 ？ 总天数</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">总天数 % 5 == 1,2,3 : 打渔</span><br><span class="line">总天数 % 5 == 4,0 : 晒网</span><br><span class="line"></span><br><span class="line">总天数的计算？</span><br><span class="line">方式一：( date2.getTime() - date1.getTime()) / (1000606024) + 1（小数）=...天</span><br><span class="line">方式二：1990-01-01  --&gt; 2019-12-31  +  2020-01-01 --&gt;2020-09-08</span><br></pre></td></tr></tbody></table></figure>
+
+<p>4.Calendar类： 日历类，抽象类</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_20" alt="calendar的使用"></p>
+<h4 id="JDK8新日期时间API"><a href="#JDK8新日期时间API" class="headerlink" title="JDK8新日期时间API"></a>JDK8新日期时间API</h4><p>1.日期时间API的迭代:<br>第一代: jdk1.0Date类<br>第二代: jdk 1.1 Calendar类，一定程度 上替换Date类<br>第三代: jdk 1.8提出了新的一套API</p>
+<p>2.前两代存在的问题举例:<br>可变性:像日期和时间这样的类应该是不可变的。<br>偏移性: Date中的年份是从1900开始的，而月份都从0开始。<br>格式化:格式化只对Date用，Calendar则不行。<br>此外，它们也不是线程安全的;不能处理闰秒等。</p>
+<p>3.java 8中新的日期时间API涉及到的包</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_24.png" alt="calendar的使用"></p>
+<p>4.本地日期、本地时间、本地日期时间的使用: LocalDate / LocalTime / LocalDateTime</p>
+<p>4.1说明:</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_25.png" alt="calendar的使用"></p>
+<p>说明：<br>        1.LocalDateTime相较于LocalDate、LocalTime，使用频率要高<br>        2.类似于Calendar</p>
+<p>4.2常用方法:</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_26.png" alt="calendar的使用"></p>
+<p>5.时间点: Instant<br>5.1说明:</p>
+<p>①时间线上的一个瞬时点。概念上讲， 它只是简单的表示自1970年1月1日0时0分0秒(UTC开始的秒数。)<br>②类似于java.util.Date类</p>
+<p>5.2常用方法:</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_30.png" alt="Instant"></p>
+<p>6.日期时间格式化类: DateTimeFormatter<br>6.1说明:</p>
+<p>6.日期时间格式化类: DateTimeFormatter<br>6.1说明:</p>
+<p>①格式化或解析日期、时间<br>②类似于SimpleDateFormat</p>
+<p>6.2常用方法:</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_32.png" alt="Instant"></p>
+<p>特别的:自定义的格式。如: ofPattern(“””yy-MM-dd h:mmss”);方式三</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_33" alt="1588165071299"></p>
+<p>7.其它API的使用(不讲)</p>
+<h2 id="3-复习-Java比较器"><a href="#3-复习-Java比较器" class="headerlink" title="3.复习 Java比较器"></a>3.复习 Java比较器</h2><p>1.Java比较器的使用背景:.</p>
+<p>Java中的对象，正常情况下，只能进行比较:==或!=。不能使用〉或&lt;的<br>但是在开发场景中，我们需要对多个对象进行排序，言外之意，就需要比较对象的大小。如何实现?使用两个接口中的任何-一个: Comparable 或Comparator</p>
+<p>2.自然排序:使用Comparable接口<br>2.1说明</p>
+<p>1.像String、包装类等实现了Comparable接口，重写了compareTo(obj)方法，给出了比较两个对象大小的方式。<br>2.像String、包装类重写compareTo()方法以后，进行了从小到大的排列</p>
+<p>3.重写compareTo(obj)的规则：<br>       如果当前对象this大于形参对象obj，则返回正整数，<br>       如果当前对象this小于形参对象obj，则返回负整数，<br>       如果当前对象this等于形参对象obj，则返回零。<br>4.对于自定义类来说，如果需要排序，我们可以让自定义类实现Comparable接口，重写compareTo(obj)方法。<br>       在compareTo(obj)方法中指明如何排序</p>
+<p>2.2自定义类代码举例:</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_48.png" alt="1588165488963"></p>
+<p>3.定制排序:使用Comparator接口</p>
+<p>3.1 说明</p>
+<p> 1.背景：<br>    当元素的类型没有实现java.lang.Comparable接口而又不方便修改代码，<br>    或者实现了java.lang.Comparable接口的排序规则不适合当前的操作，<br>    那么可以考虑使用 Comparator 的对象来排序<br>    2.重写compare(Object o1,Object o2)方法，比较o1和o2的大小：<br>    如果方法返回正整数，则表示o1大于o2；<br>    如果返回0，表示相等；<br>    返回负整数，表示o1小于o2。</p>
+<p>3.2代码举例:</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_52.png" alt="1588165488963"></p>
+<p>使用:</p>
+<p>Arrays.sort(goods,com);</p>
+<p>Collections.sort(coll,com);</p>
+<p>new TreeSet(com)</p>
+<p>4.两种排序方式对比</p>
+<p>   Comparable接口的方式一旦一定，保证Comparable接口实现类的对象在任何位置都可以比较大小。(一劳永逸)<br>   Comparator接口属于临时性的比较。(临时工)</p>
+<h4 id="其他类"><a href="#其他类" class="headerlink" title="其他类"></a>其他类</h4><p>1.System类<img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_54.png" alt="System类"></p>
+<p>native long currentTimeMillis()<br>void exitint status)<br>void gc()<br>String getProperty(String key)</p>
+<p>2.Math类</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_57.png" alt="Math类"></p>
+<p>3.BigInteger类、BigDecimal类<br>说明:</p>
+<p>①java. math包的BigInteger可以表示不可变的任意精度的整数。<br>❷要求数字精度比较高，用到java.math.BigDecimal类</p>
+<p>代码举例:</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_61.png" alt="BigDecimal类"></p>
+<h4 id="10-1枚举类的使用"><a href="#10-1枚举类的使用" class="headerlink" title="10.1枚举类的使用"></a>10.1枚举类的使用</h4><p>如何使用关键字enum定义枚举类<br>Enum类的主要方法</p>
+<h2 id="4-枚举类的理解"><a href="#4-枚举类的理解" class="headerlink" title="4.枚举类的理解"></a>4.枚举类的理解</h2><p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_01.png" alt="BigDecimal类"></p>
+<p>列全</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_02.png" alt="BigDecimal类"></p>
+<p>一、枚举类的使用<br>1.枚举类的理解：类的对象只有有限个，确定的。我们称此类为枚举类<br>2.当需要定义一组常量时，强烈建议使用枚举类<br>3.如果枚举类中只有一个对象，则可以作为单例模式的实现方式。<br> *<br>二、如何定义枚举类<br>方式一：jdk5.0之前，自定义枚举类<br>方式二：jdk5.0，可以使用enum关键字定义枚举类<br> *<br>三、Enum类中的常用方法：<br>   values()方法：返回枚举类型的对象数组。该方法可以很方便地遍历所有的枚举值。<br>   valueOf(String str)：可以把一个字符串转为对应的枚举类对象。要求字符串必须是枚举类对象的“名字”。如不是，会有运行时异常：IllegalArgumentException。<br>   toString()：返回当前枚举类对象常量的名称<br> *<br>四、使用enum关键字定义的枚举类实现接口的情况<br>  情况一：实现接口，在enum类中实现抽象方法<br>  情况二：让枚举类的对象分别实现接口中的抽象方法</p>
+<h2 id="5-自定义枚举类"><a href="#5-自定义枚举类" class="headerlink" title="5.自定义枚举类"></a>5.自定义枚举类</h2><p>5.0  自动装箱 拆箱 ，stringbuilder，注解</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_03" alt="自定义枚举类"></p>
+<h2 id="6-使用enum关键字定义枚举类"><a href="#6-使用enum关键字定义枚举类" class="headerlink" title="6.使用enum关键字定义枚举类"></a>6.使用enum关键字定义枚举类</h2><p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_04.png" alt="自定义枚举类"></p>
+<p>​                                        public String getSeasonDesc(){ return seasonDesc }</p>
+<p>不用重写toString      ‘’‘’ System.out.println(Season1.class.getSuperclass());</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_05.png" alt="自定义枚举类"></p>
+<h2 id="7-enum类的常用方法"><a href="#7-enum类的常用方法" class="headerlink" title="7.enum类的常用方法"></a>7.enum类的常用方法</h2><p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_06.png" alt="自定义枚举类"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_07.png" alt="自定义枚举类"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_08.png" alt="自定义枚举类"></p>
+<p>单个枚举值用 ，隔开</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_09.png" alt="enum类的常用方法"></p>
+<h2 id="8-使用enum关键字定义的枚举类实现接口"><a href="#8-使用enum关键字定义的枚举类实现接口" class="headerlink" title="8.使用enum关键字定义的枚举类实现接口"></a>8.使用enum关键字定义的枚举类实现接口</h2><p> 情况一：实现接口，在enum类中实现抽象方法</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">interface Info{    void show();}</span><br></pre></td></tr></tbody></table></figure>
+
+<p> enum Season1 implements Info{</p>
+<p>重写方法</p>
+<p>public void show() {<br>System. out. println(“这是- -个季节”);<br>}4</p>
+<p>}</p>
+<p>主方法:</p>
+<p>winter. show();|</p>
+<p>情况二：让枚举类的对象分别实现接口中的抽象方法</p>
+<p>希望每个对象调用方法展示不同内容，由于情况一都是“ 这是- -个季节”</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_10.png" alt="枚举类对象分别实现接口"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_11.png" alt="自定义枚举类"></p>
+<h2 id="9-修改status-为enum的定义"><a href="#9-修改status-为enum的定义" class="headerlink" title="9.修改status 为enum的定义"></a>9.修改status 为enum的定义</h2><p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_12.png" alt="自定义枚举类"></p>
+<p>把myproject03放置module中，</p>
+<p>setting-&gt;module-&gt;加号</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_13" alt="1588209226627"></p>
+<p>两个字的名字  可以中间整空格</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_14" alt="1588209371076"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_15.png" alt="1588209371076"></p>
+<p>switch 可以实现</p>
+<h4 id="10-2注解的使用"><a href="#10-2注解的使用" class="headerlink" title="10.2注解的使用"></a>10.2注解的使用</h4><h2 id="10-注解的理解"><a href="#10-注解的理解" class="headerlink" title="10.注解的理解"></a>10.注解的理解</h2><p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_16.png" alt="1588209371076"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_17.png" alt="1588209371076"></p>
+<p>放射  读取操作注解</p>
+<h2 id="11-Annotation的使用实例"><a href="#11-Annotation的使用实例" class="headerlink" title="11.Annotation的使用实例"></a>11.Annotation的使用实例</h2><p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_18.png" alt="1588209371076"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_19.png" alt="1588209371076"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_20.png" alt="1588209371076"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_21.png" alt="1588209371076"></p>
+<p>下面的替换掉</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_22.png" alt="1588209371076"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_23.png" alt="1588209371076"></p>
+<ol>
+<li>理解Annotation:<br>① jdk 5.0 新增的功能<br>② Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用 Annotation,<br>程序员可以在不改变原有逻辑的情况下, 在源文件中嵌入一些补充信息。<br>③在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE/Android中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替JavaEE旧版中所遗留的繁冗代码和XML配置等。</li>
+</ol>
+<h3 id="12-JDK内置的三个基本注解"><a href="#12-JDK内置的三个基本注解" class="headerlink" title="12.JDK内置的三个基本注解"></a>12.JDK内置的三个基本注解</h3><ol start="2">
+<li><p>Annocation的使用示例<br>示例一：生成文档相关的注解<br>示例二：在编译时进行格式检查(JDK内置的三个基本注解)<br>  @Override: 限定重写父类方法, 该注解只能用于方法;;加上注解编译的时候校验,不加在运行时校验<br>  @Deprecated: 用于表示所修饰的元素(类, 方法等)已过时。通常是因为所修饰的结构危险或存在更好的选择(向下兼容)<br>  @SuppressWarnings: 抑制编译器警告</p>
+<p>示例:跟踪代码依赖性,实现替代配置文件功能</p>
+</li>
+</ol>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_24.png" alt="1588209371076"></p>
+<p> 示例三：跟踪代码依赖性，实现替代配置文件功能</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_25" alt="1588211605579"></p>
+<p>rawtypes 泛型警告</p>
+<p>3.如何自定义注解：参照@SuppressWarnings定义<br>     ① 注解声明为：@interface<br>     ② 内部定义成员，通常使用value表示<br>     ③ 可以指定成员的默认值，使用default定义<br>     ④ 如果自定义注解没有成员，表明是一个标识作用。override</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">如果注解有成员，在使用注解时，需要指明成员的值。</span><br><span class="line">自定义注解必须配上注解的信息处理流程(使用反射)才有意义。</span><br><span class="line">自定义注解通过都会指明两个元注解：Retention、Target</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_26.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_27" alt="1588212033250"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_28.png" alt="1588212033250"></p>
+<p>指定默认值<img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_29.png" alt="1588212033250"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_30.png" alt="1588211605579"></p>
+<p>回头用反射读取注解值，看想做什么</p>
+<h2 id="14-15-jdk中4个基本的元注解的使用"><a href="#14-15-jdk中4个基本的元注解的使用" class="headerlink" title="14-15.jdk中4个基本的元注解的使用"></a>14-15.jdk中4个基本的元注解的使用</h2><p>4.jdk 提供的4种元注解<br>         元注解：对现有的注解进行解释说明的注解</p>
+<p>Retention：指定所修饰的 Annotation 的生命周期：SOURCE javac 不保留注解  \CLASS（默认行为） 运行时不保留注解 不会加载内存 \RUNTIME(运行时候需要调  反射)只有声明为RUNTIME生命周期的注解，才能通过反射获取。<br>Target:用于指定被修饰的 Annotation 能用于修饰哪些程序元素<br>     <strong>***</strong>出现的频率较低<strong>***</strong><br>     Documented:表示所修饰的注解在被javadoc解析时，保留下来。<br>     Inherited:被它修饰的 Annotation 将具有继承性。</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_31.png" alt="1588211605579"><br><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_32.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_33.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_34" alt="1588213206634"><br>注解继承演示  具有继承性 在注解上加<br><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_35.png" alt="1588211605579"><br>5.通过反射获取注解信息 —到反射内容时系统讲解<br><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_36.png" alt="1588211605579"></p>
+<h2 id="16-jdk-8-中注解的新特性"><a href="#16-jdk-8-中注解的新特性" class="headerlink" title="16.jdk 8 中注解的新特性"></a>16.jdk 8 中注解的新特性</h2><p>6.jdk 8 中注解的新特性：可重复注解、类型注解<br>  6.1 可重复注解：<br>   ① 在MyAnnotation上声明@Repeatable，成员值为MyAnnotations.class  两个注解关联在一起<br>   ② MyAnnotation的Target和Retention等元注解与MyAnnotations相同。<br>    <img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_37.png" alt="1588211605579"></p>
+<p>   <img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_38.png" alt="1588211605579"><br>    上面是jdk8 之前</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_39.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_40.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_41.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_42.png" alt="1588211605579"></p>
+<h2 id="17-类型注解"><a href="#17-类型注解" class="headerlink" title="17 类型注解"></a>17 类型注解</h2><p>  6.2 类型注解：<br>     ElementType.TYPE_PARAMETER 表示该注解能写在类型变量的声明语句中（如：泛型声明）。<br>     ElementType.TYPE_USE 表示该注解能写在使用类型的任何语句中。</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_43.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_44.png" alt="1588211605579"></p>
+<p>注解可以修饰参数</p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_45.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_46.png" alt="1588211605579"></p>
+<p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_47.png" alt="1588211605579"></p>
+<h2 id="18-可重复注解中元注解不一致的问题解决"><a href="#18-可重复注解中元注解不一致的问题解决" class="headerlink" title="18.可重复注解中元注解不一致的问题解决"></a>18.可重复注解中元注解不一致的问题解决</h2><p><img src="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_48" alt="1588215653288"></p>
+<p>元注解 解释哈哈哈</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java 基础</category>
+      </categories>
+      <tags>
+        <tag>枚举</tag>
+        <tag>注解</tag>
       </tags>
   </entry>
   <entry>
@@ -851,69 +1514,69 @@ public String[] getMaxSameSubString1(String str1, String str2) {
 <p>线程的优先级:<br>1.<br>MAX_ PRIORITY: 10<br>MIN_ PRIORITY: 1<br>NORM PRIORITY: 5 –&gt;默认优先级<br>2.如何获取和设置当前线程的优先级:<br>getPriority():获取线程的优先级<br>setPriority(int p): 设置线程的优先级<br>说明:高优先级的线程要抢占低优先级线程cpu的执行权。但是只是从概率上讲,高优先级的线程高概率的情况下被执行。并不意味着只当高优先级的线程执行完以后，低优先级的线程才执行。</p>
 <p>线程通信: wait() / notify() / notifyAll() ::此三个方法定义在0bject类中的。</p>
 <p>进程可以细化为多个线程，<br>每个线程，拥有自己独立的:栈、程序计数器<br>多个线程，共享同一个进程中的结构:方法区、堆</p>
-<p>补充线程分类:<br><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_01.png" alt="线程分类"></p>
+<p>补充线程分类:<br><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_01.png" alt="线程分类"></p>
 <p>主线程  就是用户线程‘</p>
 <p>守护线程:gc垃圾回收线程</p>
 <p>守护线程依赖主线程</p>
 <p>用户线程死了   守护线程就没用了</p>
 <p>同步机制</p>
-<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><h3 id="8-3-线程的生命周期"><a href="#8-3-线程的生命周期" class="headerlink" title="8-3 线程的生命周期"></a>8-3 线程的生命周期</h3><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_02.png" alt="线程分类"></p>
+<h2 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h2><h3 id="8-3-线程的生命周期"><a href="#8-3-线程的生命周期" class="headerlink" title="8-3 线程的生命周期"></a>8-3 线程的生命周期</h3><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_02.png" alt="线程分类"></p>
 <p>五种状态的转换</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_03.png" alt="五种状态的转换"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_04.png" alt="五种状态的转换"></p>
-<h3 id="8-4-线程的同步-难点-安全"><a href="#8-4-线程的同步-难点-安全" class="headerlink" title="8-4 线程的同步(难点) 安全"></a>8-4 线程的同步(难点) 安全</h3><h2 id="5-理解线程安全问题"><a href="#5-理解线程安全问题" class="headerlink" title="5.理解线程安全问题"></a>5.理解线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_05.png" alt="理解线程安全问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_03.png" alt="五种状态的转换"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_04.png" alt="五种状态的转换"></p>
+<h3 id="8-4-线程的同步-难点-安全"><a href="#8-4-线程的同步-难点-安全" class="headerlink" title="8-4 线程的同步(难点) 安全"></a>8-4 线程的同步(难点) 安全</h3><h2 id="5-理解线程安全问题"><a href="#5-理解线程安全问题" class="headerlink" title="5.理解线程安全问题"></a>5.理解线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_05.png" alt="理解线程安全问题"></p>
 <h2 id="6-理解线程安全问题举例和解决措施"><a href="#6-理解线程安全问题举例和解决措施" class="headerlink" title="6..理解线程安全问题举例和解决措施"></a>6..理解线程安全问题举例和解决措施</h2><p>例子：创建三个窗口卖票，总票数为100张.使用实现Runnable接口的方式<br>1.问题：卖票过程中，出现了重票、错票 –&gt;出现了线程的安全问题<br>2.问题出现的原因：当某个线程操作车票的过程中，尚未操作完成时，其他线程参与进来，也操作车票。<br>3.如何解决：当一个线程a在操作ticket的时候，其他线程不能参与进来。直到线程a操作完ticket时，其他线程才可以开始操作ticket。这种情况即使线程a出现了阻塞，也不能被改变。   打比方–&gt;厕所<br>4.在Java中，我们通过同步机制，来解决线程的安全问题。</p>
 <p> 5.同步的方式，解决了线程的安全问题。—好处<br>   操作同步代码时，只能有一个线程参与，其他线程等待。相当于是一个单线程的过程，效率低。 —局限性</p>
 <p> 方式一：同步代码块<br>  synchronized(同步监视器){<br>     //需要被同步的代码<br>  }<br> 说明：1.操作共享数据的代码，即为需要被同步的代码。  –&gt;不能包含代码多了，也不能包含代码少了。<br>      2.共享数据：多个线程共同操作的变量。比如：ticket就是共享数据。<br>      3.同步监视器，俗称：锁。任何一个类的对象，都可以充当锁。任意<br>         要求：多个线程必须要共用同一把锁。<br>  补充：在实现Runnable接口创建多线程的方式中，我们可以考虑使用this充当同步监视器。</p>
-<h2 id="7-同步代码块处理实现Runnable的线程安全问题"><a href="#7-同步代码块处理实现Runnable的线程安全问题" class="headerlink" title="7.同步代码块处理实现Runnable的线程安全问题"></a>7.同步代码块处理实现Runnable的线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_06.png" alt="理解线程安全问题"></p>
+<h2 id="7-同步代码块处理实现Runnable的线程安全问题"><a href="#7-同步代码块处理实现Runnable的线程安全问题" class="headerlink" title="7.同步代码块处理实现Runnable的线程安全问题"></a>7.同步代码块处理实现Runnable的线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_06.png" alt="理解线程安全问题"></p>
 <p>方式二 ：可把obj 改成this </p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_07.png" alt="理解线程安全问题"></p>
-<h2 id="8-同步代码块处理继承Thread类的线程安全问题-—注意用同一把锁"><a href="#8-同步代码块处理继承Thread类的线程安全问题-—注意用同一把锁" class="headerlink" title="8.同步代码块处理继承Thread类的线程安全问题 —注意用同一把锁"></a>8.同步代码块处理继承Thread类的线程安全问题 —注意用同一把锁</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_08.png" alt="理解线程安全问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_07.png" alt="理解线程安全问题"></p>
+<h2 id="8-同步代码块处理继承Thread类的线程安全问题-—注意用同一把锁"><a href="#8-同步代码块处理继承Thread类的线程安全问题-—注意用同一把锁" class="headerlink" title="8.同步代码块处理继承Thread类的线程安全问题 —注意用同一把锁"></a>8.同步代码块处理继承Thread类的线程安全问题 —注意用同一把锁</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_08.png" alt="理解线程安全问题"></p>
 <p>上面的不能解决</p>
 <p>下图解决   对象加个static 就可以了</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_09.png" alt="理解线程安全问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_09.png" alt="理解线程安全问题"></p>
 <p>第二手段  把obj改成Windows2.class，因为Windows2.class只会加载一次</p>
 <p>错误this 代表着t1，t2，t3三个对象</p>
 <p>补充:在继承Thread类创建多线程的方式中，慎用this充当同步监视器，考虑使用当前类充当同步监视器。</p>
 <h2 id="9-同步方法处理实现Runnable的线程安全问题"><a href="#9-同步方法处理实现Runnable的线程安全问题" class="headerlink" title="9. 同步方法处理实现Runnable的线程安全问题."></a>9. 同步方法处理实现Runnable的线程安全问题.</h2><p>方式二：同步方法。<br>    如果操作共享数据的代码完整的声明在一个方法中，我们不妨将此方法声明同步的。</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_10.png" alt="理解线程安全问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_10.png" alt="理解线程安全问题"></p>
 <p>同步监视器就是this</p>
-<h2 id="10-同步方法处理继承Thread类的线程安全问题"><a href="#10-同步方法处理继承Thread类的线程安全问题" class="headerlink" title="10.同步方法处理继承Thread类的线程安全问题"></a>10.同步方法处理继承Thread类的线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_11.png" alt="理解线程安全问题"></p>
+<h2 id="10-同步方法处理继承Thread类的线程安全问题"><a href="#10-同步方法处理继承Thread类的线程安全问题" class="headerlink" title="10.同步方法处理继承Thread类的线程安全问题"></a>10.同步方法处理继承Thread类的线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_11.png" alt="理解线程安全问题"></p>
 <p>同步方法的总结:</p>
 <ol>
 <li>同步方法仍然涉及到同步监视器，只是不需要我们显式的声明。</li>
 <li>非静态的同步方法，同步监视器是：this静态的同步方法，同步监视器是：当前类本身</li>
 </ol>
 <p>理解下，自己把它写一下</p>
-<h2 id="11-线程安全的单例模式之懒汉式"><a href="#11-线程安全的单例模式之懒汉式" class="headerlink" title="11.线程安全的单例模式之懒汉式"></a>11.线程安全的单例模式之懒汉式</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_12.png" alt="理解线程安全问题"></p>
+<h2 id="11-线程安全的单例模式之懒汉式"><a href="#11-线程安全的单例模式之懒汉式" class="headerlink" title="11.线程安全的单例模式之懒汉式"></a>11.线程安全的单例模式之懒汉式</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_12.png" alt="理解线程安全问题"></p>
 <p>问题:</p>
 <p>修改如下:</p>
-<p>方式一<img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_13.png" alt="理解线程安全问题"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_14.png" alt="理解线程安全问题"></p>
+<p>方式一<img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_13.png" alt="理解线程安全问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_14.png" alt="理解线程安全问题"></p>
 <p>上面的效率差</p>
 <p>打比方:  抢苹果手机</p>
 <p>效率超高</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_15.png" alt="理解线程安全问题"></p>
-<h2 id="12-死锁的问题"><a href="#12-死锁的问题" class="headerlink" title="12.死锁的问题"></a>12.死锁的问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_16.png" alt="死锁的问题"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_17.png" alt="死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_15.png" alt="理解线程安全问题"></p>
+<h2 id="12-死锁的问题"><a href="#12-死锁的问题" class="headerlink" title="12.死锁的问题"></a>12.死锁的问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_16.png" alt="死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_17.png" alt="死锁的问题"></p>
 <p>}.start();</p>
 <p>new Thread（code ).start();</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_18.png" alt="死锁的问题"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_19.png" alt="制造 加sleep 死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_18.png" alt="死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_19.png" alt="制造 加sleep 死锁的问题"></p>
 <p>1.死锁的理解：不同的线程分别占用对方需要的同步资源不放弃，<br>都在等待对方放弃自己需要的同步资源，就形成了线程的死锁<br>2.说明：<br>1）出现死锁后，不会出现异常，不会出现提示，只是所有的线程都处于阻塞状态，无法继续<br>2）我们使用同步时，要避免出现死锁。</p>
 <p>修改线程名字</p>
 <p>Thread.currentThread().setName(“线程名字”)</p>
-<h2 id="13-Lock方式解决线程安全问题"><a href="#13-Lock方式解决线程安全问题" class="headerlink" title="13.Lock方式解决线程安全问题"></a>13.Lock方式解决线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_20.png" alt="制造 加sleep 死锁的问题"></p>
+<h2 id="13-Lock方式解决线程安全问题"><a href="#13-Lock方式解决线程安全问题" class="headerlink" title="13.Lock方式解决线程安全问题"></a>13.Lock方式解决线程安全问题</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_20.png" alt="制造 加sleep 死锁的问题"></p>
 <p>解决线程安全问题的方式三：Lock锁  — JDK5.0新增<br> *</p>
 <ol>
 <li>面试题：synchronized 与 Lock的异同？<br> 相同：二者都可以解决线程安全问题<br> 不同：synchronized机制在执行完相应的同步代码以后，自动的释放同步监视器<br> Lock需要手动的启动同步（lock()），同时结束同步也需要手动的实现（unlock()）</li>
 </ol>
 <p>2.使用的优先顺序：    synchronized使用多<br>Lock -&gt; 同步代码块（已经进入了方法体，分配了相应资源） -&gt;同步方法（在方法体之外）</p>
 <p>面试题:如何解决线程安全问题?有几种方式</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_21.png" alt="制造 加sleep 死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_21.png" alt="制造 加sleep 死锁的问题"></p>
 <p>公平是先进先出的 括号里面true</p>
 <p>默认是false 抢占式</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_22.png" alt="制造 加sleep 死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_22.png" alt="制造 加sleep 死锁的问题"></p>
 <p>2-3之间类似单线程的</p>
 <h2 id="14-同步机制的课后练习"><a href="#14-同步机制的课后练习" class="headerlink" title="14.同步机制的课后练习"></a>14.同步机制的课后练习</h2><p>有两个储户分别向同一个账户存3000元，每次存1000，存3次。每次存完打印账户余额。</p>
 <pre><code>分析：</code></pre><p> 1.是否是多线程问题？ 是，两个储户线程<br> 2.是否有共享数据？ 有，账户（或账户余额）<br> 3.是否有线程安全问题？有<br> 4.需要考虑如何解决线程安全问题？同步机制：有三种方式。</p>
@@ -922,16 +1585,16 @@ public String[] getMaxSameSubString1(String str1, String str2) {
 <p>写  extends，lock 要生成静态的，，在这里是使用了this</p>
 <h2 id="15-线程通讯的例题"><a href="#15-线程通讯的例题" class="headerlink" title="15.线程通讯的例题"></a>15.线程通讯的例题</h2><h3 id="8-5-线程的通信"><a href="#8-5-线程的通信" class="headerlink" title="8-5 线程的通信"></a>8-5 线程的通信</h3><p>两个线程之间并行  有交流</p>
 <p>例题: 使用两个线程打印1-100。线程1,线程2交替打印</p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_23.png" alt="制造 加sleep 死锁的问题"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_24.png" alt="制造 加sleep 死锁的问题"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_25.png" alt="制造 加sleep 死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_23.png" alt="制造 加sleep 死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_24.png" alt="制造 加sleep 死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_25.png" alt="制造 加sleep 死锁的问题"></p>
 <p>一旦执行wait  就会释放锁</p>
 <ul>
 <li><p>涉及到的三个方法：<br>wait():一旦执行此方法，当前线程就进入阻塞状态，并释放同步监视器。<br>notify():一旦执行此方法，就会唤醒被wait的一个线程。如果有多个线程被wait，就唤醒优先级高的那个。<br>notifyAll():一旦执行此方法，就会唤醒所有被wait的线程。</p>
 </li>
 <li><p>说明：<br>1.wait()，notify()，notifyAll()三个方法必须使用在同步代码块或同步方法中。<br>2.wait()，notify()，notifyAll()三个方法的调用者必须是同步代码块或同步方法中的同步监视器。否则，会出现IllegalMonitorStateException异常  外面生成一个object 要是同一把锁 </p>
 </li>
-<li><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_26.png" alt="制造 加sleep 死锁的问题"></p>
+<li><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_26.png" alt="制造 加sleep 死锁的问题"></p>
 </li>
 <li><p>3.wait()，notify()，notifyAll()三个方法是定义在java.lang.Object类中。</p>
 <h2 id="16-sleep-和-wait-的异同"><a href="#16-sleep-和-wait-的异同" class="headerlink" title="16.sleep() 和 wait()的异同"></a>16.sleep() 和 wait()的异同</h2></li>
@@ -943,24 +1606,24 @@ public String[] getMaxSameSubString1(String str1, String str2) {
 </ul>
 </li>
 </ul>
-<h2 id="17-线程通讯-生产消费者例子"><a href="#17-线程通讯-生产消费者例子" class="headerlink" title="17.线程通讯  生产消费者例子"></a>17.线程通讯  生产消费者例子</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_27.png" alt="制造 加sleep 死锁的问题"></p>
+<h2 id="17-线程通讯-生产消费者例子"><a href="#17-线程通讯-生产消费者例子" class="headerlink" title="17.线程通讯  生产消费者例子"></a>17.线程通讯  生产消费者例子</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_27.png" alt="制造 加sleep 死锁的问题"></p>
 <p>线程通信的应用:经典例题:生产者/消费者问题<br>生产者(Productor)将产品交给店员(Clerk),而消费者(Customer)从店员处取走产品，<br>店员一次只能持有固定数量的产品(比如:20)，如果生产者试图生产更多的产品，店员<br>会叫生产者停-下,如果店中有空位放产品了再通知生产者继续生产;如果店中没有产品<br>了,店员会告诉消费者等一下， 如果店中有产品了再通知消费者来取走产品。<br>分析:<br>1.是否是多线程问题?是，生产者线程，消费者线程<br>2.是否有共享数据?是，店员(或产品)<br>3.如何解决线程的安全问题?同步机制,有三种方法<br>4.是否涉及线程的通信?是</p>
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Clerk</span></span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> productCount = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//生产产品</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">produceProduct</span><span class="params">()</span> </span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(productCount &lt; <span class="number">20</span>){</span><br><span class="line">            productCount++;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">":开始生产第"</span> + productCount + <span class="string">"个产品"</span>);</span><br><span class="line"></span><br><span class="line">            notify();</span><br><span class="line"></span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="comment">//等待</span></span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                wait();</span><br><span class="line">            } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//消费产品</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">consumeProduct</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">if</span>(productCount &gt; <span class="number">0</span>){</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">":开始消费第"</span> + productCount + <span class="string">"个产品"</span>);</span><br><span class="line">            productCount--;</span><br><span class="line"></span><br><span class="line">            notify();</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="comment">//等待</span></span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                wait();</span><br><span class="line">            } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Producer</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>{<span class="comment">//生产者</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Clerk clerk;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Producer</span><span class="params">(Clerk clerk)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.clerk = clerk;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(getName() + <span class="string">":开始生产产品....."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>){</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                Thread.sleep(<span class="number">10</span>);</span><br><span class="line">            } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            clerk.produceProduct();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>{<span class="comment">//消费者</span></span><br><span class="line">    <span class="keyword">private</span> Clerk clerk;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Consumer</span><span class="params">(Clerk clerk)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.clerk = clerk;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(getName() + <span class="string">":开始消费产品....."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>){</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">                Thread.sleep(<span class="number">20</span>);</span><br><span class="line">            } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            clerk.consumeProduct();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductTest</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Clerk clerk = <span class="keyword">new</span> Clerk();</span><br><span class="line"></span><br><span class="line">        Producer p1 = <span class="keyword">new</span> Producer(clerk);</span><br><span class="line">        p1.setName(<span class="string">"生产者1"</span>);</span><br><span class="line"></span><br><span class="line">        Consumer c1 = <span class="keyword">new</span> Consumer(clerk);</span><br><span class="line">        c1.setName(<span class="string">"消费者1"</span>);</span><br><span class="line">        Consumer c2 = <span class="keyword">new</span> Consumer(clerk);</span><br><span class="line">        c2.setName(<span class="string">"消费者2"</span>);</span><br><span class="line"></span><br><span class="line">        p1.start();</span><br><span class="line">        c1.start();</span><br><span class="line">        c2.start();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="18-创建多线程的方式三-实现Callable接口"><a href="#18-创建多线程的方式三-实现Callable接口" class="headerlink" title="18.创建多线程的方式三:实现Callable接口"></a>18.创建多线程的方式三:实现Callable接口</h2><h3 id="8-6-JDK5-0新增线程创建方式"><a href="#8-6-JDK5-0新增线程创建方式" class="headerlink" title="8-6 JDK5.0新增线程创建方式"></a>8-6 JDK5.0新增线程创建方式</h3><p>真正开发用线程池<br><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_28.png" alt="制造 加sleep 死锁的问题"><br><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_29.png" alt="制造 加sleep 死锁的问题"></p>
-<p> <img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_30.png" alt="制造 加sleep 死锁的问题"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_31.png" alt="制造 加sleep 死锁的问题"></p>
+<h2 id="18-创建多线程的方式三-实现Callable接口"><a href="#18-创建多线程的方式三-实现Callable接口" class="headerlink" title="18.创建多线程的方式三:实现Callable接口"></a>18.创建多线程的方式三:实现Callable接口</h2><h3 id="8-6-JDK5-0新增线程创建方式"><a href="#8-6-JDK5-0新增线程创建方式" class="headerlink" title="8-6 JDK5.0新增线程创建方式"></a>8-6 JDK5.0新增线程创建方式</h3><p>真正开发用线程池<br><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_28.png" alt="制造 加sleep 死锁的问题"><br><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_29.png" alt="制造 加sleep 死锁的问题"></p>
+<p> <img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_30.png" alt="制造 加sleep 死锁的问题"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_31.png" alt="制造 加sleep 死锁的问题"></p>
 <p>如何理解实现Callable接口的方式创建多线程比实现Runnable接口创建多线程方式强大？</p>
 <ol>
 <li>call()可以有返回值的。</li>
 <li>call()可以抛出异常，被外面的操作捕获，获取异常的信息</li>
 <li>Callable是支持泛型的</li>
 </ol>
-<h2 id="19-使用线程池的好处"><a href="#19-使用线程池的好处" class="headerlink" title="19.使用线程池的好处"></a>19.使用线程池的好处</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_32.png" alt="线程池"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_33.png" alt="线程池2"></p>
+<h2 id="19-使用线程池的好处"><a href="#19-使用线程池的好处" class="headerlink" title="19.使用线程池的好处"></a>19.使用线程池的好处</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_32.png" alt="线程池"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_33.png" alt="线程池2"></p>
 <h3 id="重复利用"><a href="#重复利用" class="headerlink" title="重复利用"></a>重复利用</h3><p>坐车去北京天安门</p>
-<h2 id="20-创建多线程的方式四-使用线程池"><a href="#20-创建多线程的方式四-使用线程池" class="headerlink" title="20.创建多线程的方式四:使用线程池"></a>20.创建多线程的方式四:使用线程池</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_34.png" alt="线程池2"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_35.png" alt="线程池2"></p>
-<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/..%5CstudyNote_Pic%5Csgg%5Cday19%5C19_36.png" alt="线程池2"></p>
+<h2 id="20-创建多线程的方式四-使用线程池"><a href="#20-创建多线程的方式四-使用线程池" class="headerlink" title="20.创建多线程的方式四:使用线程池"></a>20.创建多线程的方式四:使用线程池</h2><p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_34.png" alt="线程池2"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_35.png" alt="线程池2"></p>
+<p><img src="/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/19_36.png" alt="线程池2"></p>
 <p>很多时候用框架就实现了</p>
 <p>面试题：创建多线程有几种方式？四种！</p>
 <script>

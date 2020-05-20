@@ -510,12 +510,21 @@ new Valine({
 <a id="back-to-top" class="icon-btn hide">
     <i class="fa fa-chevron-up"></i>
 </a>
-<script type="text/javascript" src="/js/love_mouse.js"></script>
 
+
+<script type="text/javascript" src="/js/love_mouse.js"></script>
 <canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
  <script type="text/javascript" src="/js/jscartoon2.js"></script>  
-
-
+<script type="text/javascript" src="/js/code/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/js/code/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/js/code/codeCopy.js"></script>
+<script type="text/javascript" src="/js/code/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/js/code/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
     <div class="copyright">
     <div class="container">
@@ -569,7 +578,7 @@ var tagOption = {
     maxSpeed: 0.03,
     reverse: true || '', // 是否反向触发
     fadeIn: 500, // 进入动画时间
-    wheelZoom: true || '' // 是否启用鼠标滚轮
+    wheelZoom: false || '' // 是否启用鼠标滚轮
 }
 TagCanvas.Start('tag-cloud-3d', '', tagOption);
 </script>

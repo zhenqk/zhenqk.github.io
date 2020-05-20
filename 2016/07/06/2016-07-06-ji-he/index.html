@@ -1,0 +1,596 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="集合" />
+
+
+<meta name="description" content="1.每日一考1.什么是枚举类？枚举类的对象声明的修饰符都有哪些？
+枚举类：类中的对象的个数是确定的，有限个。
+private final (No)
+public static final (Ye..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    集合 |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="集合">
+            
+            集合
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2016/07/06</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><p>1.什么是枚举类？枚举类的对象声明的修饰符都有哪些？</p>
+<p>枚举类：类中的对象的个数是确定的，有限个。</p>
+<p>private final (No)</p>
+<p>public static final (Yes)</p>
+<p>2.什么是元注解？说说Retention和Target元注解的作用</p>
+<p>元注解：对现有的注解进行解释说明的注解。</p>
+<p>Retention：指明所修饰的注解的生命周期。SOURCE CLASS RUNTIME</p>
+<ol start="3">
+<li>说说你所理解的集合框架都有哪些接口，存储数据的特点是什么</li>
+</ol>
+<ol start="4">
+<li>比较throw 和 throws 的异同</li>
+</ol>
+<p>同：</p>
+<p>throw:生成一个异常对象，并抛出。使用在方法内部 &lt;-&gt; 自动抛出异常对象</p>
+<p>throws:处理异常的方式。使用在方法声明处的末尾&lt;-&gt;try-catch-finally</p>
+<p>“上游排污，下游治污”</p>
+<ol start="5">
+<li>谈谈你对同步代码块中同步监视器和共享数据的理解及各自要求。<br>同步监视器：俗称锁。①任何一个类的对象都可以充当锁。② 多个线程共用同一把锁。<br>共享数据：多个线程共同操作的数据，即为共享数据。<br>需要使用同步机制将操作共享数据的代码包起来。不能包多了，也不能包少了。<h2 id="2-复习枚举类"><a href="#2-复习枚举类" class="headerlink" title="2.复习枚举类"></a>2.复习枚举类</h2></li>
+<li>枚举类的说明:</li>
+</ol>
+<p>1.枚举类的理解：类的对象只有有限个，确定的。我们称此类为枚举类<br>2.当需要定义一组常量时，强烈建议使用枚举类<br>3.如果枚举类中只有一个对象，则可以作为单例模式的实现方式。</p>
+<p>2.如何自定义枚举类?步骤:<br><img src="/2016/07/06/2016-07-06-ji-he/22_03" alt="自定义枚举类"></p>
+<ol start="3">
+<li>jdk 5.0新增使用enum定义枚举类。步骤:<br><img src="/2016/07/06/2016-07-06-ji-he/22_04.png" alt="自定义枚举类"></li>
+<li>使用enum定 义枚举类之后，枚举类常用方法: (继承于java. lang. Enum类)<br><img src="/2016/07/06/2016-07-06-ji-he/22_09.png" alt="enum类的常用方法"></li>
+</ol>
+<p>5.使用enum定义枚举类之后，如何让枚举类对象分别实现接口:</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/22_10.png" alt="枚举类对象分别实现接口"></p>
+<h2 id="3-复习-注解"><a href="#3-复习-注解" class="headerlink" title="3.复习:注解"></a>3.复习:注解</h2><p>1.注解的理解<br>① jdk 5.0 新增的功能<br>② Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用 Annotation,<br>程序员可以在不改变原有逻辑的情况下, 在源文件中嵌入一些补充信息。<br>③在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE/Android中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替JavaEE旧版中所遗留的繁冗代码和XML配置等。<br>框架=注解+反射机制+设计模式</p>
+<p>2.注解的使用示例<br>示例一：生成文档相关的注解<br>示例二：在编译时进行格式检查(JDK内置的三个基本注解)<br>  @Override: 限定重写父类方法, 该注解只能用于方法;;加上注解编译的时候校验,不加在运行时校验<br>  @Deprecated: 用于表示所修饰的元素(类, 方法等)已过时。通常是因为所修饰的结构危险或存在更好的选择(向下兼容)<br>  @SuppressWarnings: 抑制编译器警告<br>示例:跟踪代码依赖性,实现替代配置文件功能</p>
+<p>3.如何自定义注解</p>
+<p>如何自定义注解：参照@SuppressWarnings定义<br>     ① 注解声明为：@interface<br>     ② 内部定义成员，通常使用value表示<br>     ③ 可以指定成员的默认值，使用default定义<br>     ④ 如果自定义注解没有成员，表明是一个标识作用。override<br>说明:<br>仿照这些<br>如果注解有成员，在使用注解时，需要指明成员的值。<br> 自定义注解必须配上注解的信息处理流程(使用反射)才有意义。<br> 自定义注解通过都会指明两个元注解：Retention、Target<br>代码举例:<br>@Inherited<br>@Repeatable(MyAnnotations . class)<br>@Retention( RetentionPolicy.RUNTIME)<br>@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_ ,VARIABLE , TYPE_ PARAMETER,<br>TYPE_ USE})<br>public @interface MyAnnotation {<br>String value() default “hello”;<br>}<br>4.元注解:对现有的注解进行解释说明的注解。<br>.jdk 提供的4种元注解<br>Retention：指定所修饰的 Annotation 的生命周期：SOURCE javac 不保留注解  \CLASS（默认行为） 运行时不保留注解 不会加载内存 \RUNTIME(运行时候需要调  反射)只有声明为RUNTIME生命周期的注解，才能通过反射获取。<br>Target:用于指定被修饰的 Annotation 能用于修饰哪些程序元素<br>     <strong>***</strong>出现的频率较低<strong>***</strong><br>Documented:表示所修饰的注解在被javadoc解析时，保留下来。<br>Inherited:被它修饰的 Annotation 将具有继承性。<br>String name 都是他的元数据<br>—&gt;类比:元数据的概念: String name = “Tom” ;<br>5.如何获取注解信息: 通过反射来进行获取、调用<br>前提:<br>前提:要求此注解的元注解Retention中声明的生命周期状态为: RUNTIME.<br>6. JDK8中注解的新特性:可重复注解、类型注解<br> 6.1 可重复注解：<br>   ① 在MyAnnotation上声明@Repeatable，成员值为MyAnnotations.class  两个注解关联在一起<br>   ② MyAnnotation的Target和Retention等元注解与MyAnnotations相同。<br> 6.2 类型注解：<br>    ElementType.TYPE_PARAMETER 表示该注解能写在类型变量的声明语句中（如：泛型声明）。<br>    ElementType.TYPE_USE 表示该注解能写在使用类型的任何语句中。</p>
+<h2 id="4-复习集合"><a href="#4-复习集合" class="headerlink" title="4. 复习集合"></a>4. 复习集合</h2><p>1.集合与数组存储数据概述:</p>
+<p>集合、数组都是对多个数据进行存储操作的结构，简称Java容器。<br> 说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中）</p>
+<p>2.数组存储的特点:</p>
+<blockquote>
+<p>一旦初始化以后，其长度就确定了。<br>数组一旦定义好，其元素的类型也就确定了。我们也就只能操作指定类型的数据了。<br>   比如：String[] arr;int[] arr1;Object[] arr2;</p>
+</blockquote>
+<p>3.数组存储的弊端:</p>
+<blockquote>
+<p>一旦初始化以后，其长度就不可修改。<br>数组中提供的方法非常有限，对于添加、删除、插入数据等操作，非常不便，同时效率不高。<br>获取数组中实际元素的个数的需求，数组没有现成的属性或方法可用<br>数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。</p>
+</blockquote>
+<p>4.集合存储的优点:</p>
+<p>解决数组存储数据方面的弊端</p>
+<h4 id="集合接口"><a href="#集合接口" class="headerlink" title="集合接口"></a>集合接口</h4><p>1.单列集合框架结构</p>
+<blockquote>
+<p>  |—-Collection接口：单列集合，用来存储一个一个的对象<br>        |—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组<br>            |—-ArrayList、LinkedList、Vector<br>  *<br>        |—-Set接口：存储无序的、不可重复的数据   –&gt;高中讲的“集合”<br>            |—-HashSet、LinkedHashSet、TreeSet<br>  *<br>    |—-Map接口：双列集合，用来存储一对(key - value)一对的数据   –&gt;高中函数：y = f(x)<br>            |—-HashMap、LinkedHashMap、TreeMap、Hashtable、Properties</p>
+</blockquote>
+<p>对应图示: <img src="/2016/07/06/2016-07-06-ji-he/23_04.png" alt="集合框架与数组的对比"></p>
+<p>2.Collection接口常用方法:</p>
+<p>3.Collection集合与数组间的转换<br>4.使用Collection集合存储对象，要求对象所属的类满足:<br>5.本章节对大家的要求:<br>层次一:选择合适的集合类去实现数据的保存，调用其内部的相关方法。</p>
+<p>1.Java集合框架概述<br>2.Collection接口方法–</p>
+<h2 id="1-1集合框架与数组的对比及概述"><a href="#1-1集合框架与数组的对比及概述" class="headerlink" title="1.1集合框架与数组的对比及概述"></a>1.1集合框架与数组的对比及概述</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_01.png" alt="集合框架与数组的对比"></p>
+<p>一、集合框架的概述<br> *<br>1.集合、数组都是对多个数据进行存储操作的结构，简称Java容器。<br> 说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中）<br> *<br>2.1 数组在存储多个数据方面的特点：<br>     &gt; 一旦初始化以后，其长度就确定了。<br>     &gt; 数组一旦定义好，其元素的类型也就确定了。我们也就只能操作指定类型的数据了。<br>      比如：String[] arr;int[] arr1;Object[] arr2;<br>2.2 数组在存储多个数据方面的缺点：<br>     &gt; 一旦初始化以后，其长度就不可修改。<br>     &gt; 数组中提供的方法非常有限，对于添加、删除、插入数据等操作，非常不便，同时效率不高。<br>     &gt; 获取数组中实际元素的个数的需求，数组没有现成的属性或方法可用<br>     &gt; 数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。<br> *<br>二、集合框架<br>     |—-Collection接口：单列集合，用来存储一个一个的对象<br>         |—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组<br>             |—-ArrayList、LinkedList、Vector<br> *<br>         |—-Set接口：存储无序的、不可重复的数据   –&gt;高中讲的“集合”<br>             |—-HashSet、LinkedHashSet、TreeSet<br> *<br>     |—-Map接口：双列集合，用来存储一对(key - value)一对的数据   –&gt;高中函数：y = f(x)<br>             |—-HashMap、LinkedHashMap、TreeMap、Hashtable、Properties<br> *<br> *<br>三、Collection接口中的方法的使用</p>
+<p>使用场景应用:</p>
+<p>外卖、</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_02.png" alt="集合框架与数组的对比"></p>
+<h2 id="1-2-集合框架涉及到API"><a href="#1-2-集合框架涉及到API" class="headerlink" title="1.2 集合框架涉及到API"></a>1.2 集合框架涉及到API</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_03.png" alt="集合框架与数组的对比"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_04.png" alt="集合框架与数组的对比"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_05.png" alt="集合框架与数组的对比"></p>
+<h2 id="1-3接口中的常用方法1"><a href="#1-3接口中的常用方法1" class="headerlink" title="1.3接口中的常用方法1"></a>1.3接口中的常用方法1</h2><p>什么容器干什么事</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_06.png" alt="集合框架与数组的对比"></p>
+<h2 id="5-7-接口中的常用方法2-4"><a href="#5-7-接口中的常用方法2-4" class="headerlink" title="5-7.接口中的常用方法2-4"></a>5-7.接口中的常用方法2-4</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">结论：* 向Collection接口的实现类的对象中添加数据obj时，要求obj所在类要重写equals().</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_07.png" alt="集合框架与数组的对比"><br><img src="/2016/07/06/2016-07-06-ji-he/23_08.png" alt="集合框架与数组的对比"><br><img src="/2016/07/06/2016-07-06-ji-he/23_09.png" alt="集合框架与数组的对比"></p>
+<p>先学会用  ，里面怎么用，</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_11" alt="1588230154121"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_12" alt="1588230537727"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_13" alt="1588230434174"></p>
+<p>在判断的时候回调用obj对象所在类的equals方法，</p>
+<p>向Collection接口的实现类的对象中添加数据obj时，要求obj所在类要重写equals().</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_14" alt="containerAll"></p>
+<p>需要中需要删除一个数据  boolean值，</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_15" alt="1588231122638"></p>
+<p>交集</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_16" alt="1588231454011"></p>
+<p>比较两个集合元素相等，下面是不相等的，由于456的123位置，ArrayList是有序的<br><img src="/2016/07/06/2016-07-06-ji-he/23_17" alt="1588231530970"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_18" alt="hashcode"></p>
+<p>``8.集合与数组之间的转换</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_19" alt="1588232608177"></p>
+<h4 id="11-3-Iterator迭代器接口"><a href="#11-3-Iterator迭代器接口" class="headerlink" title="11.3.Iterator迭代器接口"></a>11.3.Iterator迭代器接口</h4><h2 id="8-使用Iterator遍历Collection"><a href="#8-使用Iterator遍历Collection" class="headerlink" title="8.使用Iterator遍历Collection"></a>8.使用Iterator遍历Collection</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_20" alt="1588233247542"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_21" alt="1588233287913"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_22" alt="1588233312775"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_23" alt="1588233352886"></p>
+<p>Iterator it=coll.iterator();</p>
+<p>iterator.next() 取数据   走悬崖 在next 就输了</p>
+<p>iterator.hasNext() 取数据时判断有没有下一个</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_10" alt="1588233835930"></p>
+<p>集合元素的遍历操作，使用迭代器Iterator接口<br>1.内部的方法：hasNext() 和  next()<br>2.集合对象每次调用iterator()方法都得到一个全新的迭代器对象，<br>默认游标都在集合的第一个元素之前。<br>3.内部定义了remove(),可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用remove()</p>
+<h2 id="9-迭代器的执行原理"><a href="#9-迭代器的执行原理" class="headerlink" title="9.迭代器的执行原理"></a>9.迭代器的执行原理</h2><p>next 下移了</p>
+<h2 id="10-Iterator遍历集合的两种错误写法"><a href="#10-Iterator遍历集合的两种错误写法" class="headerlink" title="10.Iterator遍历集合的两种错误写法"></a>10.Iterator遍历集合的两种错误写法</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//错误方式一：</span></span><br><span class="line"><span class="comment">//        Iterator iterator = coll.iterator();</span></span><br><span class="line"><span class="comment">//        while((iterator.next()) != null){</span></span><br><span class="line"><span class="comment">//            System.out.println(iterator.next());</span></span><br><span class="line"><span class="comment">//        }</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//错误方式二： 死循环</span></span><br><span class="line">        <span class="comment">//集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</span></span><br><span class="line">        <span class="keyword">while</span> (coll.iterator().hasNext()){</span><br><span class="line">            System.out.println(coll.iterator().next());</span><br><span class="line">        }</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="11-Iterator跌代器remove-的使用"><a href="#11-Iterator跌代器remove-的使用" class="headerlink" title="11.Iterator跌代器remove()的使用"></a>11.Iterator跌代器remove()的使用</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_24" alt="1588235037160"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_25" alt="1588235187171"></p>
+<p>迭代器只适用于 Collection 不适合Map</p>
+<h2 id="12-使用foreach循环遍历集合或数组"><a href="#12-使用foreach循环遍历集合或数组" class="headerlink" title="12.使用foreach循环遍历集合或数组"></a>12.使用foreach循环遍历集合或数组</h2><p><strong><img src="/2016/07/06/2016-07-06-ji-he/..%5CstudyNote_Pic%5Csgg%5Cday12%5C1588235499265.png" alt="1588235499265"></strong></p>
+<p>jdk 5.0 新增了foreach循环，用于遍历集合、数组</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_26" alt="1588235758885"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/F:%5Cdocument%5CstudyNote_Pic%5Csgg%5Cday24%5C24_06" alt="1588294337913"></p>
+<p>4.Collection子接口一: List</p>
+<h2 id="13-List接口常用实现类的对比"><a href="#13-List接口常用实现类的对比" class="headerlink" title="13. List接口常用实现类的对比"></a>13. List接口常用实现类的对比</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_27" alt="1588238240273"></p>
+<p>动态数组</p>
+<blockquote>
+<ol>
+<li>List接口框架</li>
+</ol>
+<p>*<br>|—-Collection接口：单列集合，用来存储一个一个的对象<br>   |—-List接口：存储有序的、可重复的数据。  –&gt;“动态”数组,替换原有的数组<br>       |—-ArrayList：作为List接口的<code>主要实现类</code>；线程不安全的，效率高；底层使用Object[] elementData存储<br>       |—-LinkedList：对于频繁的插入、删除操作，使用此类效率比ArrayList高；底层使用双向链表存储  —》 铁链子 内部   打比方 传话<br>       |—-Vector：作为List接口的<code>古老实现类</code>；线程安全的，效率低；底层使用Object[] elementData存储      打比方  不怎么用，   皇帝与旧臣<br>*<br>*</p>
+<ol start="2">
+<li><p>ArrayList的源码分析：<br>2.1 jdk 7情况下<br>ArrayList list = new ArrayList();//底层创建了长度是10的Object[]数组elementData<br>list.add(123);//elementData[0] = new Integer(123);<br>…<br>list.add(11);//如果此次的添加导致底层elementData数组容量不够，则扩容。<br>默认情况下，扩容为原来的容量的1.5倍，同时需要将原有数组中的数据复制到新的数组中。</p>
+<pre><code>*</code></pre><p><strong><strong><strong>**</strong></strong></strong>结论：建议开发中使用带参的构造器：ArrayList list = new ArrayList(int capacity)；</p>
+<pre><code>*</code></pre><p>2.2 jdk 8中ArrayList的变化：<br>ArrayList list = new ArrayList();//底层Object[] elementData初始化为{}.并没有创建长度为10的数组<br>*<br>list.add(123);//第一次调用add()时，底层才创建了长度10的数组，并将数据123添加到elementData[0]<br>…<br>后续的添加和扩容操作与jdk 7 无异。<br>2.3 小结：jdk7中的ArrayList的对象的创建类似于单例的饿汉式，而jdk8中的ArrayList的对象<br>的创建类似于单例的懒汉式，–&gt;延迟了数组的创建，节省内存。<br>*</p>
+<ol start="3">
+<li><p>LinkedList的源码分析：<br>LinkedList list = new LinkedList(); 内部声明了Node类型的first和last属性，默认值为null<br>list.add(123);//将123封装到Node中，创建了Node对象。<br> *<br>其中，Node定义为：体现了LinkedList的双向链表的说法<br>private static class Node<e> {<br>E item;<br>Node<e> next;<br>Node<e> prev;</e></e></e></p>
+<p>Node(Node<e> prev, E element, Node<e> next) {<br>this.item = element;<br>this.next = next;<br>this.prev = prev;<br>}<br> }<br> *</e></e></p>
+</li>
+</ol>
+</li>
+<li><p>Vector的源码分析：jdk7和jdk8中通过Vector()构造器创建对象时，底层都创建了长度为10的数组。<br>在扩容方面，默认扩容为原来的数组长度的2倍。</p>
+<pre><code>*</code></pre></li>
+<li><p>面试题：ArrayList、LinkedList、Vector三者的异同？<br>   同：三个类都是实现了List接口，存储数据的特点相同：存储有序的、可重复的数据<br>   不同：见上<br>   *<br>   *<br>   *</p>
+</li>
+<li><p>List接口中的常用方法</p>
+<pre><code>*
+@author shkstart
+@create 2019 上午 11:39</code></pre><p>*/<br>public class ListTest {</p>
+</li>
+</ol>
+<p>/*<br>void add(int index, Object ele):在index位置插入ele元素<br>boolean addAll(int index, Collection eles):从index位置开始将el中的所有元素添加进来<br>Object get(int index):获取指定index位置的元素<br>int indexOf(Object obj):返回obj在集合中首次出现的位置<br>int lastIndexOf(Object obj):返回obj在当前集合中末次出现的位置<br>Object remove(int index):移除指定index位置的元素，并返回此元素<br>Object set(int index, Object ele):设置指定index位置的元素为ele<br>List subList(int fromIndex, int toIndex):返回从fromIndex到toIndex位置的子集合</p>
+<p>总结：常用方法<br>增：add(Object obj)<br>删：remove(int index) / remove(Object obj)<br>改：set(int index, Object ele)<br>查：get(int index)<br>插：add(int index, Object ele)<br>长度：size()<br>遍历：① Iterator迭代器方式<br>② 增强for循环<br>③ 普通的循环</p>
+</blockquote>
+<h2 id="14-ArrayList的源码分析"><a href="#14-ArrayList的源码分析" class="headerlink" title="14.ArrayList的源码分析."></a>14.ArrayList的源码分析.</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_28" alt="1588248406497"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_29" alt="1588248456802"></p>
+<p>1 2   删除对象的2  new Integer(2);</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_30" alt="1588249313814"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_31" alt="1588249357520"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_32" alt="1588250168534"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_33" alt="1588250191038"></p>
+<h2 id="17-List接口中的常用方法测试"><a href="#17-List接口中的常用方法测试" class="headerlink" title="17.List接口中的常用方法测试"></a>17.List接口中的常用方法测试</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_34" alt="1588250685082"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_35" alt="1588250811845"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_36" alt="1588250919730"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_37" alt="1588250995382"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_38" alt="1588251488259"></p>
+<h2 id="18-List遍历及方法总结，"><a href="#18-List遍历及方法总结，" class="headerlink" title="18.List遍历及方法总结，"></a>18.List遍历及方法总结，</h2><h2 id="19-List一个面试小题"><a href="#19-List一个面试小题" class="headerlink" title="19.List一个面试小题"></a>19.List一个面试小题</h2><p>new Integer(123)  编程对象</p>
+<p>5.Collection子接口二: Set</p>
+<h2 id="20-Set接口实现类的对比"><a href="#20-Set接口实现类的对比" class="headerlink" title="20.Set接口实现类的对比"></a>20.Set接口实现类的对比</h2><ol>
+<li><p>Set接口的框架：<br>*<br>|—-Collection接口：单列集合，用来存储一个一个的对象</p>
+<pre><code>|----Set接口：存储无序的、不可重复的数据   --&gt;高中讲的“集合”
+    |----HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
+        |----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历
+                            对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
+    |----TreeSet：可以按照添加对象的指定属性，进行排序。  红黑树</code></pre><ol>
+<li><p>Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。</p>
+</li>
+<li><p>要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals()<br>要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码<br>重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="21-Set的无序性与不可重复性的理解-开发使用set-相对较少"><a href="#21-Set的无序性与不可重复性的理解-开发使用set-相对较少" class="headerlink" title="21.Set的无序性与不可重复性的理解(开发使用set 相对较少)"></a>21.Set的无序性与不可重复性的理解(开发使用set 相对较少)</h2><p>一、Set：存储无序的、不可重复的数据<br>    以HashSet为例说明：</p>
+<pre><code>1. 无序性：不等于随机性。存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的哈希值决定的。
+2. 不可重复性：保证添加的元素按照equals()判断时，不能返回true.即：相同的元素只能添加一个。</code></pre><p><img src="/2016/07/06/2016-07-06-ji-he/23_44" alt="1588255431446"></p>
+<h2 id="22-HashSet中元素的添加过程"><a href="#22-HashSet中元素的添加过程" class="headerlink" title="22.HashSet中元素的添加过程"></a>22.HashSet中元素的添加过程</h2><p>二、添加元素的过程：以HashSet为例：</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_45" alt="1588255855277"></p>
+<p>7上⑧下  equal是true 才真一样，，首先比较code</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_46" alt="1588256082550"></p>
+<p> 我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，<br>  此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断<br>     数组此位置上是否已经有元素：<br>      如果此位置上没有其他元素，则元素a添加成功。 —&gt;情况1<br>      如果此位置上有其他元素b(或以链表形式存在的多个元素），则比较元素a与元素b的hash值：<br>                如果hash值不相同，则元素a添加成功。—&gt;情况2<br>                如果hash值相同，进而需要调用元素a所在类的equals()方法：<br>                       equals()返回true,元素a添加失败<br>                       equals()返回false,则元素a添加成功。—&gt;情况2<br>        对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。<br>        jdk 7 :元素a放到数组中，指向原来的元素。<br>        jdk 8 :原来的元素在数组中，指向元素a<br>        总结：七上八下</p>
+<p>HashSet底层：数组+链表的结构。</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_39" alt="1588254051229"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_40" alt="1588254073703"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_41" alt="1588254100816"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_42" alt="1588254130148"></p>
+<h2 id="23-关于hashCode0和equals0的重写"><a href="#23-关于hashCode0和equals0的重写" class="headerlink" title="23.关于hashCode0和equals0的重写"></a>23.关于hashCode0和equals0的重写</h2><p>object hashcode 是随机算一个数</p>
+<p>简单   return name.hashCode()+age    *31  相撞的概率降低</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_43" alt="1588254149292"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_47" alt="1588257098672"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_48" alt="1588257121779"></p>
+<h2 id="24-LinkedHashSet的使用"><a href="#24-LinkedHashSet的使用" class="headerlink" title="24.LinkedHashSet的使用"></a>24.LinkedHashSet的使用</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_49" alt="1588257382531"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_50" alt="1588257404377"></p>
+<pre><code>//LinkedHashSet的使用
+//LinkedHashSet作为HashSet的子类，在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个
+//数据和后一个数据。
+//优点：对于频繁的遍历操作，LinkedHashSet效率高于HashSet</code></pre><h2 id="25-TreeSet的自然排序"><a href="#25-TreeSet的自然排序" class="headerlink" title="25.TreeSet的自然排序"></a>25.TreeSet的自然排序</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_51" alt="1588257765196"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_52" alt="1588257797735"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/..%5CstudyNote_Pic%5Csgg%5Cday12%5C1588257833503.png" alt="1588257833503"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_53" alt="1588257928340"></p>
+<p> 1.向TreeSet中添加的数据，要求是相同类的对象。</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_54" alt="1588257974316"></p>
+<pre><code>2.两种排序方式：自然排序（实现Comparable接口） 和 定制排序（Comparator）
+
+
+3.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals().
+4.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().</code></pre><p>自然排序 <img src="/2016/07/06/2016-07-06-ji-he/..%5CstudyNote_Pic%5Csgg%5Cday12%5C1588258133647.png" alt="1588258133647"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_55" alt="1588258169601"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_56" alt="1588258224022"></p>
+<p>compareTo 为0，他就认为是一样的</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_57" alt="1588258371921"></p>
+<p>二叉排序树</p>
+<h2 id="26-TreeSet的定制排序"><a href="#26-TreeSet的定制排序" class="headerlink" title="26.TreeSet的定制排序"></a>26.TreeSet的定制排序</h2><p><img src="/2016/07/06/2016-07-06-ji-he/23_58" alt="1588258533624"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_59" alt="1588258563702"></p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_60" alt="1588258589496"></p>
+<p>(com) 定制排序，没写按照默认排序</p>
+<p><img src="/2016/07/06/2016-07-06-ji-he/23_61" alt="1588258673989"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2016/07/06/2016-07-06-ji-he-bu-1/" class="pre-post btn btn-default" title='集合(补1)'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            集合(补1)</span>
+    </a>
+    
+    
+    <a href="/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/" class="next-post btn btn-default" title='枚举类与注解'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            枚举类与注解</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'LWmP4tvyNOjV0hDcXSzBxE6c-gzGzoHsz',
+    appKey: 'R7xHtkFCXCFDHvyOSB5h4YjG',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '5',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-每日一考"><span class="toc-text">1.每日一考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-复习枚举类"><span class="toc-text">2.复习枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-复习-注解"><span class="toc-text">3.复习:注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-复习集合"><span class="toc-text">4. 复习集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#集合接口"><span class="toc-text">集合接口</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1集合框架与数组的对比及概述"><span class="toc-text">1.1集合框架与数组的对比及概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-集合框架涉及到API"><span class="toc-text">1.2 集合框架涉及到API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3接口中的常用方法1"><span class="toc-text">1.3接口中的常用方法1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-接口中的常用方法2-4"><span class="toc-text">5-7.接口中的常用方法2-4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11-3-Iterator迭代器接口"><span class="toc-text">11.3.Iterator迭代器接口</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-使用Iterator遍历Collection"><span class="toc-text">8.使用Iterator遍历Collection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-迭代器的执行原理"><span class="toc-text">9.迭代器的执行原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Iterator遍历集合的两种错误写法"><span class="toc-text">10.Iterator遍历集合的两种错误写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Iterator跌代器remove-的使用"><span class="toc-text">11.Iterator跌代器remove()的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-使用foreach循环遍历集合或数组"><span class="toc-text">12.使用foreach循环遍历集合或数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-List接口常用实现类的对比"><span class="toc-text">13. List接口常用实现类的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-ArrayList的源码分析"><span class="toc-text">14.ArrayList的源码分析.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-List接口中的常用方法测试"><span class="toc-text">17.List接口中的常用方法测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-List遍历及方法总结，"><span class="toc-text">18.List遍历及方法总结，</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-List一个面试小题"><span class="toc-text">19.List一个面试小题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-Set接口实现类的对比"><span class="toc-text">20.Set接口实现类的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-Set的无序性与不可重复性的理解-开发使用set-相对较少"><span class="toc-text">21.Set的无序性与不可重复性的理解(开发使用set 相对较少)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-HashSet中元素的添加过程"><span class="toc-text">22.HashSet中元素的添加过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-关于hashCode0和equals0的重写"><span class="toc-text">23.关于hashCode0和equals0的重写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-LinkedHashSet的使用"><span class="toc-text">24.LinkedHashSet的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-TreeSet的自然排序"><span class="toc-text">25.TreeSet的自然排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-TreeSet的定制排序"><span class="toc-text">26.TreeSet的定制排序</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+
+<script type="text/javascript" src="/js/love_mouse.js"></script>
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+<script type="text/javascript" src="/js/code/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/js/code/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/js/code/codeCopy.js"></script>
+<script type="text/javascript" src="/js/code/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/js/code/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
