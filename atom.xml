@@ -78,11 +78,11 @@
   </entry>
   
   <entry>
-    <title>面向对象(下)补1</title>
-    <link href="http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/"/>
-    <id>http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/</id>
-    <published>2016-06-29T03:17:18.000Z</published>
-    <updated>2020-05-19T11:37:31.081Z</updated>
+    <title>常用类Date</title>
+    <link href="http://zhenqk.github.io/2016/07/04/2016-07-04-chang-yong-lei-date/"/>
+    <id>http://zhenqk.github.io/2016/07/04/2016-07-04-chang-yong-lei-date/</id>
+    <published>2016-07-03T23:20:57.000Z</published>
+    <updated>2020-05-20T02:26:00.051Z</updated>
     
     <summary type="html">
     
@@ -90,7 +90,152 @@
       
         
         
-          &lt;h1 id=&quot;shk-20200425-基础-15-面向对象-下&quot;&gt;&lt;a href=&quot;#shk-20200425-基础-15-面向对象-下&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;Java高级编程   使用层面&lt;/p&gt;
+&lt;p&gt;理解是可以长久保存的，别死记硬背&lt;/p&gt;
+&lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="常用类" scheme="http://zhenqk.github.io/tags/%E5%B8%B8%E7%94%A8%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用类String</title>
+    <link href="http://zhenqk.github.io/2016/07/02/2016-07-02-chang-yong-lei-string/"/>
+    <id>http://zhenqk.github.io/2016/07/02/2016-07-02-chang-yong-lei-string/</id>
+    <published>2016-07-02T07:24:09.000Z</published>
+    <updated>2020-05-20T02:28:14.470Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Java高级编程   使用层面&lt;/p&gt;
+&lt;p&gt;理解是可以长久保存的，别死记硬背&lt;/p&gt;
+&lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="常用类" scheme="http://zhenqk.github.io/tags/%E5%B8%B8%E7%94%A8%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多线程（补1）多</title>
+    <link href="http://zhenqk.github.io/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/"/>
+    <id>http://zhenqk.github.io/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/</id>
+    <published>2016-07-01T02:10:40.000Z</published>
+    <updated>2020-05-20T02:14:28.424Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1.每日一考&quot;&gt;&lt;/a&gt;1.每日一考&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;1.谈谈你对程序、进程、线程的理解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;说出来 
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="多线程" scheme="http://zhenqk.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA学习与多线程</title>
+    <link href="http://zhenqk.github.io/2016/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/"/>
+    <id>http://zhenqk.github.io/2016/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/</id>
+    <published>2016-06-30T03:30:13.000Z</published>
+    <updated>2020-05-20T02:11:53.276Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-java语言高级概述&quot;&gt;&lt;a href=&quot;#1-java语言高级概述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="多线程" scheme="http://zhenqk.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="IDEA" scheme="http://zhenqk.github.io/tags/IDEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>异常处理</title>
+    <link href="http://zhenqk.github.io/2016/06/30/2016-06-30-yi-chang-chu-li/"/>
+    <id>http://zhenqk.github.io/2016/06/30/2016-06-30-yi-chang-chu-li/</id>
+    <published>2016-06-29T22:58:49.000Z</published>
+    <updated>2020-05-20T02:01:00.768Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1.每日一考&quot;&gt;&lt;/a&gt;1.每日一考&lt;/h2&gt;&lt;p&gt;抽象和接口是中心&lt;/p&gt;
+&lt;p&gt;1.abstract 能修饰哪些结构?修饰以后，
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="异常处理" scheme="http://zhenqk.github.io/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象(下)补1</title>
+    <link href="http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/"/>
+    <id>http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/</id>
+    <published>2016-06-29T03:17:18.000Z</published>
+    <updated>2020-05-20T01:59:16.056Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1. 每日一考&quot;&gt;&lt;/a&gt;1. 每日一考&lt;/h2&gt;&lt;h3 id=&quot;1-static修饰的属性，相较于实例变量，有哪些特别之处-gt-3点&quot;&gt;&lt;a
         
       
     

@@ -1,0 +1,585 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="常用类" />
+
+
+<meta name="description" content="Java高级编程   使用层面
+理解是可以长久保存的，别死记硬背
+1.每日一考1.画出如下几行代码的内容结构:。String s1 = “hello”;String s2 = “hell’”;,..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    常用类Date |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="常用类Date">
+            
+            常用类Date
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E5%B8%B8%E7%94%A8%E7%B1%BB/" rel="tag">常用类</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2016/07/04</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Java高级编程   使用层面</p>
+<p>理解是可以长久保存的，别死记硬背</p>
+<h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><p>1.画出如下几行代码的内容结构:。<br>String s1 = “hello”;<br>String s2 = “hell’”;,<br>String s3 = new String(“hello”);<br>s1 += “world”;</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_01.png" alt="StringBuffer中的常用方法"></p>
+<p>s1还是在堆里面，，</p>
+<p>2.如何理解String类的不可变性。</p>
+<p>数据不能做任何修改，s1该了  s2不能改变 </p>
+<p>现有字符串的操作，必须新造</p>
+<p>3.String 类是否可以被继承?为什么? </p>
+<p>Strings = new Stringl”hello”);在内存中创建了几个对象?请说明</p>
+<p>不能被继承， final 了</p>
+<p>4.String, StringBuffer, StringBuilder 三者的对比</p>
+<p>char[]</p>
+<p>5.String的常用方法有哪些? (至少 7个) 4</p>
+<p>length  substring equal startwith endwith  contains</p>
+<p>CharAt</p>
+<h2 id="2-复习-String类"><a href="#2-复习-String类" class="headerlink" title="2.复习 String类"></a>2.复习 String类</h2><p>java .lang .String类的使用<br>1.概述</p>
+<p>String:字符串，使用一对””引起来表示。</p>
+<ul>
+<li>1.String声明为final的，不可被继承</li>
+<li>2.String实现了Serializable接口：表示字符串是支持序列化的。<pre><code>实现了Comparable接口：表示String可以比较大     </code></pre></li>
+<li>3.String内部定义了final char[] value用于存储字符串数据</li>
+<li>4.通过字面量的方式（区别于new）给一个字符串赋值，此时的字符串值声明在字符串常量池中。</li>
+<li>5.字符串常量池中是不会存储相同内容（使用String类的equals()比较，返回true）的字符串的。</li>
+</ul>
+<p>2.String的不可变性<br>2.1说明</p>
+<p>1.当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值。<br>2.当对现有的字符串进行连接操作时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。<br>3.当调用String的replace()方法修改指定字符或字符串时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。</p>
+<p>2.2代码举例</p>
+<p>2.3图示<br><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_02.png" alt="StringBuffer中的常用方法"></p>
+<p>3.String实例化的不同方式<br>3.1方式说明</p>
+<p>方式一:通过字面量定义的方式<br>方式二:通过new+构造器的方式</p>
+<p>3.2 代码举例</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/20_10.png" alt="String实例化方式"></p>
+<p>3.3 面试题</p>
+<p>面试题: string s = new String(“abc”);方式创建对象，在内存中创建了几个对象?<br>两个:一个是堆空间中new结构，另一个是char[ ]对应的常量池中的数据: “abc “</p>
+<p>3.4 图示</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_03.png" alt="StringBuffer中的常用方法"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_04.png" alt="StringBuffer中的常用方法"></p>
+<p>4.字符串拼接方式赋值的对比<br>4.1说明</p>
+<p>1.常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。<br>2.只要其中一个是变量，结果就在堆中。<br>3.如果拼接的结果调用intern()方法，返回值就在常量池中</p>
+<p>4.2代码举例</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/20_12.png" alt="String的特性"></p>
+<p>String s1 = “javaEEhadoop” ;<br>String s2 = “javaEE” ;<br>String s3 = s2 + “hadoop” ;<br>System. out.println(s1 == s3);//false<br>final String s4 = “javaEE” ;//s4:常量<br>String s5 = s4 + “hadoop” ;<br>System. out.println(s1 == s5);//true</p>
+<p>String s8=s5.intern();</p>
+<p>sout(s3==s8)；</p>
+<p>5.常用方法</p>
+<p>忘了去找  找</p>
+<p>重点-&gt;反反复复用<br>6. String与其它结构的转换<br>6.1与基本数据类型、包装类之间的转换<br>String str1=”123”</p>
+<p>int num=Integer.parseInt(str1)</p>
+<hr>
+<p>String.valueOf(num);</p>
+<p>或者   num+””      .concat</p>
+<p>6.2与字符数组之间的转换<br><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_05.png" alt="StringBuffer中的常用方法"></p>
+<p>6.3与字节数组之间的转换<br> 编码：String –&gt; byte[]:调用String的getBytes()<br>   解码：byte[] –&gt; String:调用String的构造器</p>
+<p>6.4与StringBuffer、 StringBuilder之 间的转换</p>
+<p>String –&gt;StringBuffer、 StringBuilder: 调用StringBuffer、StringBuilder构造器</p>
+<p>StringBuffer、StringBuilder –&gt;String调 ①用String构造器; ②StringBuffer、 StringBuilder的<br>toString()</p>
+<p>7.JVM中字符串常量池存放位置说明:<br>jdk 1.6 (jdk 6.0 ,java 6.0):字符串常量池存储在方法区(永久区)<br>jdk1.7:字符串常量池存储在堆空间<br>jdk 1.8:字符串常量池存储在方法区(元空间)</p>
+<p>8.常见算法题目的考查:</p>
+<h2 id="3-复习-string、StringBuffer、-StringBuilder"><a href="#3-复习-string、StringBuffer、-StringBuilder" class="headerlink" title="3.复习 string、StringBuffer、 StringBuilder"></a>3.复习 string、StringBuffer、 StringBuilder</h2><p>1.string、StringBuffer、 StringBuilder三者的对比<br>String:不可变的字符序列;底层使用char[]存储<br>StringBuffer:可变的字符序列;线程安全的，效率低;底层使用char[]存储<br>StringBuilder:可变的字符序列; jdk5. 8新增的，线程不安全的，效率高;底层使用char[]存储</p>
+<p>2.StringBuffer.与StringBuilder的内存解析<br>以StringBuffer为例:<br> 源码分析：<br>    String str = new String();//char[] value = new char[0];   length=0</p>
+<pre><code>String str1 = new String("abc");//char[] value = new char[]{'a','b','c'};
+StringBuffer sb1 = new StringBuffer();//char[] value = new char[16];底层创建了一个长度是16的数组。
+System.out.println(sb1.length());//
+sb1.append('a');//value[0] = 'a';
+sb1.append('b');//value[1] = 'b';
+
+StringBuffer sb2 = new StringBuffer("abc");//char[] value = new char["abc".length() + 16];</code></pre><p>问题1. System.out.println(sb2.length());//3<br>    //问题2. 扩容问题:如果要添加的数据底层数组盛不下了，那就需要扩容底层的数组。<br>     默认情况下，扩容为原来容量的2倍+2，同时将原有数组中的元素复制到新的数组中。<br>     指导意义：开发中建议大家使用：StringBuffer(int capacity) 或 StringBuilder(int capacity)</p>
+<p>应届生 学校好  底子扎实</p>
+<p>3.对比String、StringBuffer、 StringBuilder三者 的执行效率<br>从高到低排列：StringBuilder &gt; StringBuffer &gt; String<br>4.stringBuffer、StringBuilder中的常用方法</p>
+<pre><code>增：append(xxx)
+    删：delete(int start,int end)
+    改：setCharAt(int n ,char ch) / replace(int start, int end, String str)
+    查：charAt(int n )
+    插：insert(int offset, xxx)
+    长度：length();
+    *遍历：for() + charAt() / toString()</code></pre><h2 id="4-复习-日期时间的API"><a href="#4-复习-日期时间的API" class="headerlink" title="4.复习:日期时间的API"></a>4.复习:日期时间的API</h2><p>1.获取系统当前时间</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.System类中的currentTimeMillis()</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>{</span><br><span class="line">       <span class="keyword">long</span> time = System.currentTimeMillis();</span><br><span class="line">       <span class="comment">//返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差。</span></span><br><span class="line">       <span class="comment">//称为时间戳</span></span><br><span class="line">       System.out.println(time);</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2.java.util.Date类与java. sql .Date类<br>1.两个构造器的使用<br>    &gt;构造器一：Date()：创建一个对应当前时间的Date对象<br>    &gt;构造器二：创建指定毫秒数的Date对象<br>2.两个方法的使用<br>    &gt;toString():显示当前的年、月、日、时、分、秒<br>    &gt;getTime():获取当前Date对象对应的毫秒数。（时间戳）</p>
+<p>3.java.sql.Date对应着数据库中的日期类型的变量<br>    &gt;如何实例化<br>    &gt;如何将java.util.Date对象转换为java.sql.Date对象</p>
+<p>3.java. text .SimpleDataFormat类<br>4.Calendar类</p>
+<h2 id="5-8-课后算法题目"><a href="#5-8-课后算法题目" class="headerlink" title="5-8 课后算法题目"></a>5-8 课后算法题目</h2><p>11111111111111</p>
+<p>将一个字符串进行反转。将字符串中指定部分进行反转。比如“abcdefg”反转为”abfedcg”</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_06.png" alt="StringBuffer中的常用方法"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_07.png" alt="StringBuffer中的常用方法"></p>
+<p>方式二</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_09.png" alt="StringBuffer中的常用方法"></p>
+<p>方式三:</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_10.png" alt="StringBuffer中的常用方法"></p>
+<p>111111111111111</p>
+<p>2222222</p>
+<p>.获取一个字符串在另-一个字符串中出现的次数。<br>比如:获取“ab”在“abkkcadkabkebfkabkskab”中出现的次数</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_11.png" alt="StringBuffer中的常用方法"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_12.png" alt="改进"></p>
+<p>2222222</p>
+<p>33333333</p>
+<p>4.获取两个字符串中最大相同子串。比如:<br>str1 = “abcwerthelloyuiodef;str2 = “cvhellobnm’<br>提示:将短的那个串进行长度依次递减的子串与较长的串比较。</p>
+<p>前提是:两个字符串中只有一个最大相同子串</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_13.png" alt="改进"></p>
+<p>多个定义arraylist</p>
+<pre><code>// 如果存在多个长度相同的最大相同子串
+// 此时先返回String[]，后面可以用集合中的ArrayList替换，较方便
+public String[] getMaxSameSubString1(String str1, String str2) {
+    if (str1 != null &amp;&amp; str2 != null) {
+        StringBuffer sBuffer = new StringBuffer();
+        String maxString = (str1.length() &gt; str2.length()) ? str1 : str2;
+        String minString = (str1.length() &gt; str2.length()) ? str2 : str1;
+
+        int len = minString.length();
+        for (int i = 0; i &lt; len; i++) {
+            for (int x = 0, y = len - i; y &lt;= len; x++, y++) {
+                String subString = minString.substring(x, y);
+                if (maxString.contains(subString)) {
+                    sBuffer.append(subString + ",");
+                }
+            }
+            System.out.println(sBuffer);
+            if (sBuffer.length() != 0) {
+                break;
+            }
+        }
+        String[] split = sBuffer.toString().replaceAll(",$", "").split("\\,");
+        return split;
+    }
+
+    return null;
+}</code></pre><p>33333333</p>
+<h2 id="9-IDEA中Debug的调试"><a href="#9-IDEA中Debug的调试" class="headerlink" title="9.IDEA中Debug的调试"></a>9.IDEA中Debug的调试</h2><p>逻辑能力</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_14.png" alt="改进">  长度 </p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_15.png" alt="面试题"></p>
+<h2 id="10-simpleDateFormat的使用"><a href="#10-simpleDateFormat的使用" class="headerlink" title="10.simpleDateFormat的使用"></a>10.simpleDateFormat的使用</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_16.png" alt="面试题"></p>
+<p>1.两个操作：<br>    1.1 格式化：日期 —&gt;字符串<br>    1.2 解析：格式化的逆过程，字符串 —&gt; 日期</p>
+<p>2.SimpleDateFormat的实例化</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_17.png" alt="SimpleDateFormat"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_18.png" alt="##SimpleDateFormat"></p>
+<h2 id="11-12-SimpleDateFormat的课后练习1-2"><a href="#11-12-SimpleDateFormat的课后练习1-2" class="headerlink" title="11-12.SimpleDateFormat的课后练习1-2"></a>11-12.SimpleDateFormat的课后练习1-2</h2><p>练习一：字符串”2020-09-08”转换为java.sql.Date</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   String birth = <span class="string">"2020-09-08"</span>;</span><br><span class="line">  SimpleDateFormat sdf1 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">  Date date = sdf1.parse(birth);</span><br><span class="line"><span class="comment">// System.out.println(date);</span></span><br><span class="line">java.sql.Date birthDate = <span class="keyword">new</span> java.sql.Date(date.getTime());</span><br><span class="line">System.out.println(birthDate);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>练习二：”三天打渔两天晒网”   1990-01-01  xxxx-xx-xx 打渔？晒网？<br>    举例：2020-09-08 ？ 总天数</p>
+<pre><code>总天数 % 5 == 1,2,3 : 打渔
+总天数 % 5 == 4,0 : 晒网
+
+总天数的计算？
+方式一：( date2.getTime() - date1.getTime()) / (1000606024) + 1（小数）=...天
+方式二：1990-01-01  --&gt; 2019-12-31  +  2020-01-01 --&gt;2020-09-08</code></pre><h2 id="13-Calendar日历类的使用"><a href="#13-Calendar日历类的使用" class="headerlink" title="13.Calendar日历类的使用"></a>13.Calendar日历类的使用</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_19.png" alt="##SimpleDateFormat"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_20" alt="calendar的使用"></p>
+<h2 id="14-JDK8中新日期时间API的介绍"><a href="#14-JDK8中新日期时间API的介绍" class="headerlink" title="14.JDK8中新日期时间API的介绍"></a>14.JDK8中新日期时间API的介绍</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_21.png" alt="calendar的使用"></p>
+<h3 id="9-3-JDK8中新日期时间API"><a href="#9-3-JDK8中新日期时间API" class="headerlink" title="9.3 JDK8中新日期时间API"></a>9.3 JDK8中新日期时间API</h3><p>LocalDate、LocalTime、LocalDateTime、Instant、DateTimeFormatter、其他类</p>
+<p>偏移性:<img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_22.png" alt="calendar的使用"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_23.png" alt="calendar的使用"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_24.png" alt="calendar的使用"></p>
+<h2 id="15-LocalDate、LocalTime、LocalDateTime的使用"><a href="#15-LocalDate、LocalTime、LocalDateTime的使用" class="headerlink" title="15.LocalDate、LocalTime、LocalDateTime的使用"></a>15.LocalDate、LocalTime、LocalDateTime的使用</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_25.png" alt="calendar的使用"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_26.png" alt="calendar的使用"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_27.png" alt="calendar的使用"></p>
+<p>说明：<br>        1.LocalDateTime相较于LocalDate、LocalTime，使用频率要高<br>        2.类似于Calendar</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_28" alt=".LocalDateTime、LocalDate、LocalTime的使用"></p>
+<h2 id="16-Instant类的使用-date"><a href="#16-Instant类的使用-date" class="headerlink" title="16.Instant类的使用 ==date"></a>16.Instant类的使用 ==date</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_29.png" alt="Instant"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_30.png" alt="Instant"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_31.png" alt="Instant"></p>
+<h2 id="17-Date-TimeFormatter的使用"><a href="#17-Date-TimeFormatter的使用" class="headerlink" title="17.Date TimeFormatter的使用"></a>17.Date TimeFormatter的使用</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_32.png" alt="Instant"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_33" alt="1588165071299"></p>
+<h2 id="18-其他日期时间相关的API的使用"><a href="#18-其他日期时间相关的API的使用" class="headerlink" title="18.其他日期时间相关的API的使用"></a>18.其他日期时间相关的API的使用</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_34.png" alt="1588165071299"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_35" alt="1588165384561"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_36.png" alt="1588165384561"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_37" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_38.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_39.png" alt="1588165488963"></p>
+<h2 id="19-导入module-模块"><a href="#19-导入module-模块" class="headerlink" title="19.导入module 模块"></a>19.导入module 模块</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_40" alt="1588165711475"></p>
+<h2 id="20-java比较器的概述"><a href="#20-java比较器的概述" class="headerlink" title="20.java比较器的概述"></a>20.java比较器的概述</h2><h3 id="9-4-Java-比较器"><a href="#9-4-Java-比较器" class="headerlink" title="9.4 Java 比较器"></a>9.4 Java 比较器</h3><ul>
+<li>在Java中经常会涉及到对象数组的排序问题，那么就涉及到对象之间的比较问题。</li>
+<li>Java实现对象排序的方式有两种:<br>➢自然排序: java.lang.Comparable<br>➢定制排序: java.util.Comparator</li>
+</ul>
+<p>一、说明：Java中的对象，正常情况下，只能进行比较：==  或  != 。不能使用 &gt; 或 &lt; 的<br>       但是在开发场景中，我们需要对多个对象进行排序，言外之意，就需要比较对象的大小。<br>         如何实现？使用两个接口中的任何一个：Comparable 或 Comparator<br>二、Comparable接口与Comparator的使用的对比：<br>   Comparable接口的方式一旦一定，保证Comparable接口实现类的对象在任何位置都可以比较大小。(一劳永逸)<br>   Comparator接口属于临时性的比较。(临时工)</p>
+<h2 id="21-Comparable-自然排序举例"><a href="#21-Comparable-自然排序举例" class="headerlink" title="21.Comparable 自然排序举例:"></a>21.Comparable 自然排序举例:</h2><pre><code>Comparable接口的使用举例：  自然排序</code></pre><p>1.像String、包装类等实现了Comparable接口，重写了compareTo(obj)方法，给出了比较两个对象大小的方式。<br>2.像String、包装类重写compareTo()方法以后，进行了从小到大的排列</p>
+<p>3.重写compareTo(obj)的规则：<br>        如果当前对象this大于形参对象obj，则返回正整数，<br>        如果当前对象this小于形参对象obj，则返回负整数，<br>        如果当前对象this等于形参对象obj，则返回零。<br>4.对于自定义类来说，如果需要排序，我们可以让自定义类实现Comparable接口，重写compareTo(obj)方法。<br>       在compareTo(obj)方法中指明如何排序<br><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_41.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_42.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_43.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_44.png" alt="1588165488963"></p>
+<h2 id="22-自定义类实现Comparable自然排序"><a href="#22-自定义类实现Comparable自然排序" class="headerlink" title="22.自定义类实现Comparable自然排序"></a>22.自定义类实现Comparable自然排序</h2><p>public class Goods. implements  Comparable{</p>
+<p>}</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_45.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_46.png" alt="1588165488963"></p>
+<p>当价格相同时,按书名排序</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_47.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_48.png" alt="1588165488963"></p>
+<h2 id="23-使用Comparator实现定制排序"><a href="#23-使用Comparator实现定制排序" class="headerlink" title="23.使用Comparator实现定制排序"></a>23.使用Comparator实现定制排序</h2><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_49.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_50.png" alt="1588165488963"></p>
+<p>  Comparator接口的使用：定制排序<br>    1.背景：<br>    当元素的类型没有实现java.lang.Comparable接口而又不方便修改代码，<br>    或者实现了java.lang.Comparable接口的排序规则不适合当前的操作，<br>    那么可以考虑使用 Comparator 的对象来排序<br>    2.重写compare(Object o1,Object o2)方法，比较o1和o2的大小：<br>    如果方法返回正整数，则表示o1大于o2；<br>    如果返回0，表示相等；<br>    返回负整数，表示o1小于o2。</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_51.png" alt="1588165488963"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_52.png" alt="1588165488963"></p>
+<p>sout(Arrays.toString(arr));</p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_53.png" alt="商品的定制"></p>
+<p>用哪一种都可以</p>
+<h2 id="24-System、Math、BigInteger、BigDecimal的使用"><a href="#24-System、Math、BigInteger、BigDecimal的使用" class="headerlink" title="24.System、Math、BigInteger、BigDecimal的使用"></a>24.System、Math、BigInteger、BigDecimal的使用</h2><h3 id="9-5-System类"><a href="#9-5-System类" class="headerlink" title="9.5 System类"></a>9.5 System类</h3><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_54.png" alt="System类"><br><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_55.png" alt="System类"><br><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_56.png" alt="System类"></p>
+<h3 id="9-6-Math类"><a href="#9-6-Math类" class="headerlink" title="9.6 Math类"></a>9.6 Math类</h3><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_57.png" alt="Math类"></p>
+<h3 id="9-7-BigInteger和BigDecimal"><a href="#9-7-BigInteger和BigDecimal" class="headerlink" title="9.7 BigInteger和BigDecimal"></a>9.7 BigInteger和BigDecimal</h3><p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_58.png" alt="Math类"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_59.png" alt="Math类"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_60.png" alt="BigDecimal类"></p>
+<p><img src="/2016/07/04/2016-07-04-chang-yong-lei-date/21_61.png" alt="BigDecimal类"></p>
+<p>//  报错   由于没有除尽</p>
+<p>支持任意精度的小数位</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2018/12/01/2018-12-01-centos-7-18-10-da-jian-si-ren-wang-pan-he-bo-ke/" class="pre-post btn btn-default" title='CentOS 7(18.10)搭建个人网盘和博客'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            CentOS 7(18.10)搭建个人网盘和博客</span>
+    </a>
+    
+    
+    <a href="/2016/07/02/2016-07-02-chang-yong-lei-string/" class="next-post btn btn-default" title='常用类String'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            常用类String</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'LWmP4tvyNOjV0hDcXSzBxE6c-gzGzoHsz',
+    appKey: 'R7xHtkFCXCFDHvyOSB5h4YjG',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '5',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-每日一考"><span class="toc-text">1.每日一考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-复习-String类"><span class="toc-text">2.复习 String类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-复习-string、StringBuffer、-StringBuilder"><span class="toc-text">3.复习 string、StringBuffer、 StringBuilder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-复习-日期时间的API"><span class="toc-text">4.复习:日期时间的API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-课后算法题目"><span class="toc-text">5-8 课后算法题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-IDEA中Debug的调试"><span class="toc-text">9.IDEA中Debug的调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-simpleDateFormat的使用"><span class="toc-text">10.simpleDateFormat的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-12-SimpleDateFormat的课后练习1-2"><span class="toc-text">11-12.SimpleDateFormat的课后练习1-2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Calendar日历类的使用"><span class="toc-text">13.Calendar日历类的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-JDK8中新日期时间API的介绍"><span class="toc-text">14.JDK8中新日期时间API的介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-JDK8中新日期时间API"><span class="toc-text">9.3 JDK8中新日期时间API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-LocalDate、LocalTime、LocalDateTime的使用"><span class="toc-text">15.LocalDate、LocalTime、LocalDateTime的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-Instant类的使用-date"><span class="toc-text">16.Instant类的使用 &#x3D;&#x3D;date</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-Date-TimeFormatter的使用"><span class="toc-text">17.Date TimeFormatter的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-其他日期时间相关的API的使用"><span class="toc-text">18.其他日期时间相关的API的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-导入module-模块"><span class="toc-text">19.导入module 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-java比较器的概述"><span class="toc-text">20.java比较器的概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-Java-比较器"><span class="toc-text">9.4 Java 比较器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-Comparable-自然排序举例"><span class="toc-text">21.Comparable 自然排序举例:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-自定义类实现Comparable自然排序"><span class="toc-text">22.自定义类实现Comparable自然排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-使用Comparator实现定制排序"><span class="toc-text">23.使用Comparator实现定制排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-System、Math、BigInteger、BigDecimal的使用"><span class="toc-text">24.System、Math、BigInteger、BigDecimal的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-5-System类"><span class="toc-text">9.5 System类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-6-Math类"><span class="toc-text">9.6 Math类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-7-BigInteger和BigDecimal"><span class="toc-text">9.7 BigInteger和BigDecimal</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+<script type="text/javascript" src="/js/love_mouse.js"></script>
+
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: true || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
