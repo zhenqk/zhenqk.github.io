@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="多线程,IDEA" />
+
+
+<meta name="description" content="1.java语言高级概述完成具体功能该怎么做
+集合替换数组
+做 具体的事情 
+如何使用API
+2. idea卸载
+配置文件
+删除又是最新的
+system   缓存文件   索引
+使用contro..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    IDEA学习与多线程 |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="IDEA学习与多线程">
+            
+            IDEA学习与多线程
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/IDEA/" rel="tag">IDEA</a> <a class="tag-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2017/06/30</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-java语言高级概述"><a href="#1-java语言高级概述" class="headerlink" title="1.java语言高级概述"></a>1.java语言高级概述</h2><p>完成具体功能该怎么做</p>
+<p>集合替换数组</p>
+<p>做 具体的事情 </p>
+<p>如何使用API</p>
+<h2 id="2-idea卸载"><a href="#2-idea卸载" class="headerlink" title="2. idea卸载"></a>2. idea卸载</h2><p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_01.png" alt="代码"></p>
+<p>配置文件</p>
+<p>删除又是最新的</p>
+<p>system   缓存文件   索引</p>
+<p>使用control–&gt;卸载</p>
+<p>重装  建议重启电脑</p>
+<h2 id="3-idea的介绍"><a href="#3-idea的介绍" class="headerlink" title="3.idea的介绍"></a>3.idea的介绍</h2><p>STS</p>
+<p>2018.3.4</p>
+<p>学技术  必须先找官网</p>
+<h2 id="4-idea的安装"><a href="#4-idea的安装" class="headerlink" title="4.idea的安装"></a>4.idea的安装</h2><h2 id="5-启动IDEA-并实现helloWorld"><a href="#5-启动IDEA-并实现helloWorld" class="headerlink" title="5.启动IDEA 并实现helloWorld"></a>5.启动IDEA 并实现helloWorld</h2><p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_02.png" alt="代码"></p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_03.png" alt="代码"></p>
+<p>“hellow”.sout</p>
+<h2 id="6-module的理解和创建"><a href="#6-module的理解和创建" class="headerlink" title="6.module的理解和创建"></a>6.module的理解和创建</h2><p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_04.png" alt="代码"></p>
+<p>点击工程 new Module</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_05.png" alt="代码"></p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_06.png" alt="代码"></p>
+<p>每个功能建立模块</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_07.png" alt="代码"></p>
+<h2 id="7-idea-常用配置"><a href="#7-idea-常用配置" class="headerlink" title="7.idea 常用配置"></a>7.idea 常用配置</h2><p>五</p>
+<p>悬浮提示</p>
+<p>自动导报</p>
+<h2 id="8-快捷键的设置"><a href="#8-快捷键的设置" class="headerlink" title="8.快捷键的设置"></a>8.快捷键的设置</h2><h2 id="9-模板的使用和配置"><a href="#9-模板的使用和配置" class="headerlink" title="9.模板的使用和配置"></a>9.模板的使用和配置</h2><p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_08.png" alt="代码"></p>
+<p>live tem 是可以做修改和添加的</p>
+<p>psvm</p>
+<p>sout</p>
+<p>for i      iter   itar </p>
+<p>list.for    list.fori 普通  list.forr 逆序</p>
+<p>ifn   inn   xxx.nn  xxx.null</p>
+<p>prsf  单例  psf psfs psfi </p>
+<p>soutp形参   m方法名   v变量</p>
+<p>thr</p>
+<h2 id="10-程序进程线程的概念"><a href="#10-程序进程线程的概念" class="headerlink" title="10.程序进程线程的概念"></a>10.程序进程线程的概念</h2><h3 id="8-1-基本概念程序、进程、线程"><a href="#8-1-基本概念程序、进程、线程" class="headerlink" title="8-1 基本概念程序、进程、线程"></a>8-1 基本概念程序、进程、线程</h3><ul>
+<li><p>程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指<code>一段静态的代码</code>， 静态对象。</p>
+</li>
+<li><p>进程(process)是程序的一次执行过程，或是<code>正在运行的一个程序</code>。是-一个动态的过程:有它自身的产生、存在和消亡的过程.——–生 命周期<br>➢如:运行中的QQ，运行中的MP3播放器<br>➢程序是静态的，进程是动态的<br>➢进程作为资源分配的单位，系统在运行时会为每个进程分配不同的内存区域</p>
+</li>
+<li><p>线程(thread)，进程可进一步细化为线程， 是一个程序内部的一条执行路径。<br>➢若一个进程同一时间<code>并行</code>执行多个线程，就是支持多线程的<br>➢<code>线程作为调度和执行的单位，每个线程拥有独立的运行栈和程序计数器(pc)</code>，线程切换的开销小<br>➢一个进程中的多个线程共享相同的内存单元/内存地址空间≥它们从同一堆中分配对象，可以访问相同的变量和对象。这就使得线程间通信更简便、高效。但多个线程操作共享的系统资源可能就会带来<code>安全的隐患</code>。<br>同时在执行，需要解决线程同步的安全问题<br><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_11.png" alt="多线程 "></p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2></li>
+<li><p>单核CPU和多核CPU的理解</p>
+<ul>
+<li>单核CPU，其实是一种假的多线程，因为在-一个时间单元内，也只能执行一个线程的任务。例如:虽然有多车道，但是收费站只有一个工作人员在收费，只有收了费才能通过，那么CPU就好比收费人员。如果有某个人不想交钱，那么收费人员可以把他“挂起”(晾着他， 等他想通了，准备好了钱，再去收费)。但是因为CPU时间单元特别短，因此感觉不出来。</li>
+<li>如果是多核的话，才能更好的发挥多线程的效率。 (现在的服务器都是多核的)</li>
+<li>一个Java应用程序java.exe， 其实至少有三个线程: main()主线程， gc()<br>垃圾回收线程，异常处理线程。当然如果发生异常，会影响主线程。</li>
+</ul>
+</li>
+<li><p>并行与并发</p>
+<ul>
+<li><p>并行:多个CPU同时执行多个任务。比如:多个人同时做不同的事。 每个车道开自己的，篮球场</p>
+</li>
+<li><p>并发:一个CPU(采用时间片)同时执行多个任务。比如:秒杀、多个人做同一件事。    抢火车票</p>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><h4 id="使用-多线程的优点"><a href="#使用-多线程的优点" class="headerlink" title="使用 多线程的优点"></a>使用 多线程的优点</h4><p>背景:以单核CPU为例， 只使用单个线程先后完成多个任务(调用多个方<br>法)，肯定比用多个线程来完成用的时间更短，为何仍需多线程呢?<br>多线程程序的优点:</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>1.提高应用程序的响应。对图形化界面更有意义，可增强用户体验。<br>2.提高计算机系统CPU的利用率<br>3.改善程序结构。将既长又复杂的进程分为多个线程，独立运行，利于理解和<br>修改</p>
+<h4 id="何时需要多线程"><a href="#何时需要多线程" class="headerlink" title="何时需要多线程"></a>何时需要多线程</h4><ul>
+<li>程序需要同时执行两个或多个任务。</li>
+<li>程序需要实现一些需要等待的任务时，如用户输入、文件读写<br>操作、网络操作、搜索等。</li>
+<li>需要一些后台运行的程序时。  java gc<br>美团外卖往上划图片<h3 id="8-2-线程的创建和使用-重点"><a href="#8-2-线程的创建和使用-重点" class="headerlink" title="8-2 线程的创建和使用(重点)"></a>8-2 线程的创建和使用(重点)</h3><h2 id="13-创建多线程方式一-继承Thread类"><a href="#13-创建多线程方式一-继承Thread类" class="headerlink" title="13 创建多线程方式一 继承Thread类"></a>13 创建多线程方式一 继承Thread类</h2><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_12.png" alt="多线程 "></li>
+</ul>
+<p>看能不能那一条线划出来</p>
+<ul>
+<li>Java语言的JVM允许程序运行多个线程，它通过<code>java.lang.Thread</code><br>类来体现。</li>
+<li>Thread类的特性<br>➢ 每个线程都是通过某个特定Thread对象的run()方法来完成操作的，经常<br>把run()方法的主体称为线程体<br>➢ 通过该Thread对象的star()方法来启动这个线程，而非直接调用run()<h1 id="重写人家的看人家怎么生成"><a href="#重写人家的看人家怎么生成" class="headerlink" title="重写人家的看人家怎么生成"></a>重写人家的看人家怎么生成</h1>多线程的创建，方式一：继承于Thread类</li>
+</ul>
+<ol>
+<li>创建一个继承于Thread类的子类</li>
+<li>重写Thread类的run() –&gt; 将此线程执行的操作声明在run()中</li>
+<li>创建Thread类的子类的对象</li>
+<li>通过此对象调用start()<br><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_13.png" alt="多线程 "></li>
+</ol>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_14.png" alt="多线程 "></p>
+<p>3，4 主线程做  怀孕  </p>
+<p>run 独立去执行</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_15.png" alt="hello在哪执行不确定 "></p>
+<h2 id="14-创建过程中两个问题的说明"><a href="#14-创建过程中两个问题的说明" class="headerlink" title="14.创建过程中两个问题的说明"></a>14.创建过程中两个问题的说明</h2><p>4.通过此对象调用start():@启动当前线程②调用当前线程的run()|</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_16.png" alt="hello在哪执行不确定 "></p>
+<p>若只调t1.run()   不会开启线程    Thread.currentThread().getName()   获取当前线程名字</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_17.png" alt="问题 1 和 2 "></p>
+<h2 id="15-继承方式的课后练习"><a href="#15-继承方式的课后练习" class="headerlink" title="15.继承方式的课后练习"></a>15.继承方式的课后练习</h2><p>src下建立包</p>
+<p>练习:创建两个分线程，其中一一个线程遍历100 以内的偶数，另一个线程遍历100以内的奇数(两个线程做事不一样)</p>
+<p>创建2个子类对象，实现就可以了。提供各自的run</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_18.png" alt="第一种方法 "></p>
+<p>第二种方法  创建两个匿名子类</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_19.png" alt="方法二"></p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_20.png" alt="方法二"></p>
+<p>重写run方法，  new的是子类对象，Thread充当的</p>
+<h2 id="16-线程的常用方法"><a href="#16-线程的常用方法" class="headerlink" title="16.线程的常用方法"></a>16.线程的常用方法</h2><ul>
+<li>void start():启动线程，并执行对象的run()方法</li>
+<li>run():线程在被调度时执行的操作</li>
+<li>String getName():返回线程的名称</li>
+<li>void setName(String name):设置该线程名称</li>
+<li>static Thread currentThread():返回当前线程。在Thread子 类中就<br>是this，通常用于主线程和Runnable实现类<br><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_21.png" alt="有关方法"></li>
+</ul>
+<p>测试Thread中的常用方法：<br>1.start():启动当前线程；调用当前线程的run()<br>2.run(): 通常需要重写Thread类中的此方法，将创建的线程要执行的操作声明在此方法中<br>3.currentThread():静态方法，返回执行当前代码的线程<br>4.getName():获取当前线程的名字<br>5.setName():设置当前线程的名字<br><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_22.png" alt="有关方法"></p>
+<p>第二种 通过构造方法来修改</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_23.png" alt="有关方法"></p>
+<p>6.yield():释放当前cpu的执行权</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_24.png" alt="yield方法"></p>
+<p>this 可省略或改成  Thread.currentThread().getName()</p>
+<p>7.join():在线程a中调用线程b的join(),此时线程a就进入阻塞状态，直到线程b完全执行完以后，线程a才结束阻塞状态。 </p>
+<p>下图的线程a就是主线程</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_25.png" alt="join方法"></p>
+<p>h1执行完后才会执行主线程</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_26.png" alt="join方法的图解"></p>
+<p>应用 场景，一个正在执行线程需要另外一个线程的数据</p>
+<p>大比方，领导蹭饭</p>
+<p>8.stop():已过时。不推荐使用  当执行此方法时，强制结束当前线程。<br>9.sleep(long millitime):让当前线程“睡眠”指定的millitime毫秒。在指定的millitime毫秒时间内，当前线程是阻塞状态。</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_27.png" alt="sleep的图解"></p>
+<p>应用场景:倒计时  …. </p>
+<p>10.isAlive():判断当前线程是否存活</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_28.png" alt="isAlive的图解"></p>
+<h2 id="17-线程优先级的设置"><a href="#17-线程优先级的设置" class="headerlink" title="17.线程优先级的设置"></a>17.线程优先级的设置</h2><p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_29.png" alt="isAlive的图解"></p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_30.png" alt="isAlive的图解"></p>
+<p>抢占式 打比方   银行排队</p>
+<ul>
+<li>线程的优先级：<br>1.<br>MAX_PRIORITY：10<br>MIN _PRIORITY：1<br>NORM_PRIORITY：5  –&gt;默认优先级<br>2.如何获取和设置当前线程的优先级：<br>  getPriority():获取线程的优先级<br>  setPriority(int p):设置线程的优先级<br>  说明：高优先级的线程要抢占低优先级线程cpu的执行权。但是只是从概率上讲，高优先级的线程高概率的情况下被执行。并不意味着只有当高优先级的线程执行完以后，低优先级的线程才执行。<br><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_31.png" alt="获优先级取"></li>
+</ul>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_32.png" alt="设置优先级"></p>
+<h2 id="18-继承Thread方式-多窗口卖票"><a href="#18-继承Thread方式-多窗口卖票" class="headerlink" title="18.继承Thread方式,多窗口卖票"></a>18.继承Thread方式,多窗口卖票</h2><p>创建三个窗口卖票，总票数100张</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_33.png" alt="设置优先级"></p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_34.png" alt="设置优先级"></p>
+<p>方法一:</p>
+<p>private static int ticket=100  ；出现线程安全问题</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_35.png" alt="设置优先级"></p>
+<h2 id="19-创建多线程方式二，实现Runnable接口"><a href="#19-创建多线程方式二，实现Runnable接口" class="headerlink" title="19.创建多线程方式二，实现Runnable接口"></a>19.创建多线程方式二，实现Runnable接口</h2><p>创建多线程的方式二：实现Runnable接口</p>
+<ol>
+<li>创建一个实现了Runnable接口的类</li>
+<li>实现类去实现Runnable中的抽象方法：run()</li>
+<li>创建实现类的对象</li>
+<li>将此对象作为参数传递到Thread类的构造器中，创建Thread类的对象</li>
+<li>通过Thread类的对象调用start()</li>
+</ol>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_36.png" alt="1-2步"></p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_37.png" alt="3-5步   4步实多态 new Thread(多态) "></p>
+<p>调用了Runnable类型的target的run()</p>
+<p>代理模式</p>
+<h4 id="再次创建一个线程"><a href="#再次创建一个线程" class="headerlink" title="再次创建一个线程"></a>再次创建一个线程</h4><p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_38.png" alt="再次创建一个线程"></p>
+<p>只能这样写 获取进程名字</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_39.png" alt="再次创建一个线程"></p>
+<p>t1.setName(“线程1”)</p>
+<h2 id="20-实现Runnable方式-多窗口卖票"><a href="#20-实现Runnable方式-多窗口卖票" class="headerlink" title="20.实现Runnable方式,多窗口卖票"></a>20.实现Runnable方式,多窗口卖票</h2><p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_40.png" alt="实现窗口卖票"></p>
+<p>alt+enter</p>
+<p><img src="/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/18_41.png" alt="实现窗口卖票"></p>
+<p>也存在线程安全问题，100张票，因为制造了一个对象</p>
+<h2 id="21-两种创建方式的对比"><a href="#21-两种创建方式的对比" class="headerlink" title="21.两种创建方式的对比"></a>21.两种创建方式的对比</h2><p>比较创建线程的两种方式。<br>开发中：优先选择：实现Runnable接口的方式<br>原因：1. 实现的方式没有类的单继承性的局限性<br>     2. 实现的方式更适合来处理多个线程有共享数据的情况。<br>联系：public class Thread implements Runnable<br>相同点：两种方式都需要重写run(),将线程要执行的逻辑声明在run()中。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2017/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/" class="pre-post btn btn-default" title='多线程（补1）多'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            多线程（补1）多</span>
+    </a>
+    
+    
+    <a href="/2017/06/30/2016-06-30-yi-chang-chu-li/" class="next-post btn btn-default" title='异常处理'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            异常处理</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'LWmP4tvyNOjV0hDcXSzBxE6c-gzGzoHsz',
+    appKey: 'R7xHtkFCXCFDHvyOSB5h4YjG',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '5',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-java语言高级概述"><span class="toc-text">1.java语言高级概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-idea卸载"><span class="toc-text">2. idea卸载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-idea的介绍"><span class="toc-text">3.idea的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-idea的安装"><span class="toc-text">4.idea的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-启动IDEA-并实现helloWorld"><span class="toc-text">5.启动IDEA 并实现helloWorld</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-module的理解和创建"><span class="toc-text">6.module的理解和创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-idea-常用配置"><span class="toc-text">7.idea 常用配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-快捷键的设置"><span class="toc-text">8.快捷键的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-模板的使用和配置"><span class="toc-text">9.模板的使用和配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-程序进程线程的概念"><span class="toc-text">10.程序进程线程的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-基本概念程序、进程、线程"><span class="toc-text">8-1 基本概念程序、进程、线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11"><span class="toc-text">11</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12"><span class="toc-text">12</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-多线程的优点"><span class="toc-text">使用 多线程的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#何时需要多线程"><span class="toc-text">何时需要多线程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-线程的创建和使用-重点"><span class="toc-text">8-2 线程的创建和使用(重点)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-创建多线程方式一-继承Thread类"><span class="toc-text">13 创建多线程方式一 继承Thread类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重写人家的看人家怎么生成"><span class="toc-text">重写人家的看人家怎么生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#14-创建过程中两个问题的说明"><span class="toc-text">14.创建过程中两个问题的说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-继承方式的课后练习"><span class="toc-text">15.继承方式的课后练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-线程的常用方法"><span class="toc-text">16.线程的常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-线程优先级的设置"><span class="toc-text">17.线程优先级的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-继承Thread方式-多窗口卖票"><span class="toc-text">18.继承Thread方式,多窗口卖票</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-创建多线程方式二，实现Runnable接口"><span class="toc-text">19.创建多线程方式二，实现Runnable接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#再次创建一个线程"><span class="toc-text">再次创建一个线程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-实现Runnable方式-多窗口卖票"><span class="toc-text">20.实现Runnable方式,多窗口卖票</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-两种创建方式的对比"><span class="toc-text">21.两种创建方式的对比</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+
+<script type="text/javascript" src="/js/love_mouse.js"></script>
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+<script type="text/javascript" src="/js/code/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/js/code/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/js/code/codeCopy.js"></script>
+<script type="text/javascript" src="/js/code/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/js/code/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+
+
+
+</body>
+</html>

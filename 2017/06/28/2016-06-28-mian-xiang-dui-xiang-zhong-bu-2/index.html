@@ -1,0 +1,594 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="面向对象概述" />
+
+
+<meta name="description" content="1.每日一问1.什么是多态性?什么是虚拟方法调用?对象的多态性:父类的引用指向子类的对象。Person p = new Man();p.eat();调用方法时，编译时看左边，运行时看右边。先会写..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    面向对象(中)补2 |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="面向对象(中)补2">
+            
+            面向对象(中)补2
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/" rel="tag">面向对象概述</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2017/06/28</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-每日一问"><a href="#1-每日一问" class="headerlink" title="1.每日一问"></a>1.每日一问</h2><p>1.什么是多态性?什么是虚拟方法调用?<br>对象的多态性:父类的引用指向子类的对象。<br>Person p = new Man();<br>p.eat();<br>调用方法时，编译时看左边，运行时看右边。<br>先会写代码，后面慢慢来</p>
+<p>2.一个类可以有几个直接父类?(一个 )一个父类可有多少个子类?子类能获取直接父类的父类中的结构吗?(可以)子类能否获取父类中private 权限的属性或方法?。(可以   getset 方法) 封装解决的能不能调的问题，继承性是能不能获取的问题<br>Ais B 是不是true  可继承</p>
+<p>3.方法的重写(override/overwrite)的具体规则有哪些。(非static方法)<br>方法名，形参列表相同。<br>权限修饰符。<br>返回值w<br>抛出的异常</p>
+<p>4.super调用构造器，有哪些具体的注意点<br>this(形参列表):本类重载的其它的构造器。<br>super(形参列表):调用父类中指定的构造器。<br>n n-11</p>
+<p>5.在下面的代码结构中:使用关键字: this,super;方法的重 写;继承;<br><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_01.png" alt="题"></p>
+<h2 id="2-重写与super"><a href="#2-重写与super" class="headerlink" title="2.重写与super"></a>2.重写与super</h2><h3 id="debug-调试"><a href="#debug-调试" class="headerlink" title="debug 调试"></a>debug 调试</h3><p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_02.png" alt="debug 调试"></p>
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>1.什么是方法的重写(override或overwrite)?  (父类的方法不适合子类)<br>子类继承父类以后，可以对父类中同名同参数的方法，进行覆盖操作。<br>2.应用:</p>
+<p>重写以后，当创建子类对象以后，通过子类对象调用子父类中的同名同参数的方法时，实际<br>执行的是子类重写父类的方法。</p>
+<p>3.举例:<br>cylinder</p>
+<p>4.重写的规则:<br>方法的声明:权限修饰符 返回值类型 方法名 (形参列表) throws 异常的类型{<br>//方法体<br>约定俗称:子类中的叫重写的方法，父类中的叫被重写的方法<br>②子类重写的方法的方法名和形参列表与父类被重写的方法的方法名和形参列表相同<br>2子类重写的方法的权限修饰符不小于父类被重写的方法的权限修饰符<br>事</p>
+<blockquote>
+<p>特殊情况:子类不能重写父类中声明为private权限的方法<br>③返回值类型:<br>父类被重写的方法的返回值类型是void,则子类重写的方法的返回值类型只能是void<br>父类被重写的方法的返回值类型是A类型，则子类重写的方法的返回值类型可以是A类或A类的子类<br>父类被重写的方法的返回值类型是基本数据类型(比如: double)， 则子类重写的方法的返回值类型必须是相<br>同的基本数据类型(必须也是double)<br>日子类重写的方法抛出的异常类型不大于父类被重写的方法抛出的异常类型(具体放到异常处理时候讲)<br>子类和父类中的同名同参数的方法要么都声明为非static的(考虑重写，要么都声明为static的(不是重写).</p>
+</blockquote>
+<p>5.面试题:<br>区分方法的重写和重载?<br>重载  ，可以在同一个类中可以使用相同方法名和形参列表不同相同相同方法，彼此之间构成重载，<br>构造器可以重载<br>动态绑定</p>
+<p>答:<br>①二者的概念:<br>②重载和重写的具体规则<br>③重载:不表现为多 态性。<br>重写:表现为多态性。<br>重载，是指允许存在多个同名方法，而这些方法的参数不同。编译器根据方法不同的参数表，对同名方法的名称做修饰。对于编译器而言，这些同名方法就成了不同的方法。它石的调用地址在编译期就绑定了。Java的重载是可以包括父类和子类的，即子类可以重载父类的同名不同參数的方法。<br>所以:对于重载而言，在方法调用之前，编译器就已经确定了所要调用的方法，这称为早绑定或静态绑定”;而对于多态，只等到方法调用的那一刻，解释运行器才会确定所要调用的具体方法，这称为“晚绑定或动态绑定”。引用一句Bruce Eckel的话:“不要犯傻，如果它不是晚绑定，它就不是多态。”</p>
+<h3 id="super"><a href="#super" class="headerlink" title="super"></a>super</h3><p>1.super关键字可以理解为: 父类的<br>2.可以用来调用的结构:<br>属性、方法、构造器</p>
+<p>3.super调用属性、方法:<br>3.1我们可以在子类的方法或构造器中。通过使用”super展性”或“super .方法”的方式，显式的调用父类中声明的属性或方法。但是，通常情况下，我们习惯省略”superA”<br>3.2特殊情况:当子类和父类中定义了同名的属性时，我们要想在子类中调用父类中声明的属性，则必须显式的使用”super.属性”的方式，表明调用的是父类中声明的属性。<br>3.3特殊情况:当子类重写了父类中的方法以后，我们想在子类的方法中调用父类中被重写的方法时，则必须显式的使用”super.方法”的方式，表明调用的是父类中被重写的方法。</p>
+<p>4.super调用构造器:</p>
+<p>4.1我们可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器<br>4.2 “super(形参 列表)”的使用，必须声明在子类构造器的首行!<br>4.3我们在类的构造器中，针对于”this(形参列表)”或” super(形参列表)”只能二一，不能同时出现<br>4.4在构造器的首行，没显式的声明”this(形参列表)”或”super(形参列表)”，则默认调用的是父类中空参的<br>in构造器: super()<br>4.5在类的多个构造器中，至少-一个类的构造器中使用了”super(形参列表)”， 调用父类中的构造器</p>
+<p>渐渐领悟</p>
+<h2 id="3-子类对象实例化过程及多态性"><a href="#3-子类对象实例化过程及多态性" class="headerlink" title="3.子类对象实例化过程及多态性"></a>3.子类对象实例化过程及多态性</h2><p>1.从结果上看:继承性</p>
+<blockquote>
+<p>子类继承父类以后，就获取了父类中声明的属性或方法。<br>创建子类的对象，在堆空间中，就会加载所父类中声明的属性。</p>
+</blockquote>
+<p>2.从过程上看:<br>当我们通过子类的构造器创建子类对象时，我们一定会直接或间接的调用其父类的构造器，<br>进而调用父类的父类的构造器，… 直到调用了java. lang . object类中空参的构造器为止。<br>正因为加载过所的父类的结构，所以才可以看到内存中父类中的结构，子类对象才可以考虑<br>进行调用。<br><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_03.png" alt="从过程上看"></p>
+<p>3.强调说明<br>为什么super(… )或this(..)调用语句只能作为构造器中的第- - -句出现?</p>
+<p>无论通过哪个构造器创建子类对象，需要保证先初始化父类。<br>目的:当子类继承父类后，“继承”父类中所有的属性和方法，因此子类有必要知道父类如何为对象进行初始化。</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_04.png" alt="强调说明"></p>
+<h3 id="多调性的理解"><a href="#多调性的理解" class="headerlink" title="多调性的理解"></a>多调性的理解</h3><p>1.多态性的理解:<br>可以理解为一个事物的多种形态。</p>
+<p>2.何为多态性:<br>对象的多态性:父类的引用指向子类的对象(或子类的对象赋给父类的引用)<br>举例:<br>Person p = new Man();<br>objlect obj = new Date();<br>3.多态性的使用: 虚拟方法调用<br>有了对象的多态性以后，我们在编译期，只能调用父类中声明的方法，但在运行期，我们实际<br>执行的是子类重写父类的方法。<br>总结:编译，看左边;运行，看右边。<br>4.多态性的使用前提:<br>①类的继承关系②方法的重写<br>5.多态性的应用举例:<br>猫<br>狗<br>6.多态性使用的注意点:<br>对象的多态性，只适用于方法，不适用于属性(编译和运行都看左边</p>
+<h2 id="4-向下转型的使用"><a href="#4-向下转型的使用" class="headerlink" title="4. 向下转型的使用"></a>4. 向下转型的使用</h2><p>/ /不能调用子类所特有的方法、属性:编译时，p2是Person类型。<br>p2. earnMoney();<br>//有了对象的多态性以后，内存中实际上是加载了子类特有的属性和方法的，但是由于变量声明为父类类型，导致<br>/ /编译时，只能调用父类中声明的属性和方法。子类特有的属性和方法不能调用。</p>
+<p>/ /如何才能调用子类特有的属性和方法?<br>/ /向下转型:使用强制类型转换符。<br>Man m1 = (Man)p2;<br>m1. earnMoney(); |<br>m1. isSmoking = true;</p>
+<p>有可能转不成功<br>Woman w1=(Woman)p2;<br>w1. goShopping();<br>p2是男的  你把他误以为女的</p>
+<p>/ /使用强转时，可能出现ClassCast Exception的异常。<br>Woman W1 = (Woman)p2;<br>w1. goShopping();</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_05.png" alt="向下转型图解"><br><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_06.png" alt="向下转型图解"></p>
+<h2 id="5-instanceof-关键字的使用"><a href="#5-instanceof-关键字的使用" class="headerlink" title="5.instanceof 关键字的使用"></a>5.instanceof 关键字的使用</h2><h3 id="instanceof关键字的使用"><a href="#instanceof关键字的使用" class="headerlink" title="instanceof关键字的使用"></a>instanceof关键字的使用</h3><ul>
+<li>a instanceof A:判断对象a是否是类A的实例。如果是，返回true；如果不是，返回false</li>
+<li>使用情境：为了避免在向下转型时出现ClassCastException的异常，我们在向下转型之前，先 进行instanceof的判断，一旦返回true，就进行向下转型。如果返回false，不进行向下转型。</li>
+<li>如果 a instanceof A返回true,则 a instanceof B也返回true.   父类放着也对<br>其中，类B是类A的父类。</li>
+</ul>
+<p>Person p2=new Man();</p>
+<ul>
+<li><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_07.png" alt="instanceof 使用"></li>
+</ul>
+<h2 id="6-向下转型的几个常用问题"><a href="#6-向下转型的几个常用问题" class="headerlink" title="6.向下转型的几个常用问题"></a>6.向下转型的几个常用问题</h2><p>//练习:<br>, /问题一:编译时通过，运行时不通过<br>//举例一:<br>Person p3 = new Woman( ) ;<br>Man m3 = (Man)p3;<br>/ /举例二:<br>Person p4 = new Person( ) ;<br>Man m4<br>= (Man)p4;<br>/ /问题二:编译通过，运行时也通过<br>object obj = new Woman( );<br>Person p = (Person)obj;<br>/ /问题三:编译不通过<br>Man m5 = new Woman();<br>String str = new Date();<br>开发中向下转型用的比较少</p>
+<h2 id="7-多态练习—调用属性和方法"><a href="#7-多态练习—调用属性和方法" class="headerlink" title="7.多态练习—调用属性和方法"></a>7.多态练习—调用属性和方法</h2><p>引用类型是地址值</p>
+<ul>
+<li><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_08.png" alt="instanceof 使用"></li>
+</ul>
+<p>开发中不要定义同名的</p>
+<p>1.若子类重写了父类方法，就意味着子类里定义的方法彻底覆盖了父类里的同名方法，<br>系统将不可能把父类里的方法转移到子类中。编译看左边 运行看右边<br>2.对于实例变量则不存在这样的现象，即使子类里定义了与父类完全相同的实例变量，<br>这个实例变量依然不可能覆盖父类中定义的实例变量，编译运行都看左边</p>
+<h2 id="8-9-基本操作–多态性"><a href="#8-9-基本操作–多态性" class="headerlink" title="8-9.基本操作–多态性"></a>8-9.基本操作–多态性</h2><p>各种图形的面积  可以利用多态来实现   求面积</p>
+<p>重写父类中的面积公式</p>
+<p>sub-1</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_09.png" alt="instanceof 使用"></p>
+<p>认为是重写   sub_1</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_10.png" alt="instanceof 使用"></p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_11.png" alt="instanceof 使用"></p>
+<p>确定的优先调用</p>
+<h2 id="11-object-类的使用"><a href="#11-object-类的使用" class="headerlink" title="11 object 类的使用"></a>11 object 类的使用</h2><p>5.7 object 类的使用</p>
+<ul>
+<li><p>Object类是所有Java类的根父类</p>
+<p>Order order = new Order( ) ;<br>System. out . println(order .getClass() . getSuperclass());</p>
+</li>
+<li><p>如果在类的声明中未使用extends关键字指明其父类，则默认父类<br>为java.lang.Object类<br>public class Person {<br>}<br>等价于:<br>public class Person extends Object {<br>}</p>
+</li>
+<li><p>例: method(Object obj){.. } /可以接收任何类作为其参数<br>Person o=new Person();<br>method(0);</p>
+</li>
+</ul>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_12.png" alt="object的方法"></p>
+<p>java.lang.Object类<br>  1.Object类是所有Java类的根父类<br>  2.如果在类的声明中未使用extends关键字指明其父类，则默认父类为java.lang.Object类<br>  3.Object类中的功能(属性、方法)就具有通用性。<br>      属性：无<br>   方法：equals() / toString() / getClass() /hashCode() / clone() / finalize()<br>      wait() 、 notify()、notifyAll()</p>
+<ol start="4">
+<li>Object类只声明了一个空参的构造器</li>
+</ol>
+<p>clone 复制对象   </p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_13.png" alt="clone的使用"></p>
+<p>finalize()  垃圾回收期</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_14.png" alt="垃圾回收器的使用"></p>
+<p>  面试题：<br>  final、finally、finalize的区别？</p>
+<p>关键字前面2个</p>
+<p>finalize 方法名</p>
+<h2 id="12-运算符的回顾"><a href="#12-运算符的回顾" class="headerlink" title="12. ==运算符的回顾"></a>12. ==运算符的回顾</h2><h2 id="面试题-和equals-的区别"><a href="#面试题-和equals-的区别" class="headerlink" title="面试题:==和equals()的区别"></a>面试题:==和equals()的区别</h2><p>一、回顾 == 的使用：<br>  == ：运算符</p>
+<ol>
+<li>可以使用在基本数据类型变量和引用数据类型变量中    10=10.0   char c=10 10=10</li>
+<li>如果比较的是基本数据类型变量：比较两个变量保存的数据是否相等。（不一定类型要相同） 自动类型提升<br>如果比较的是引用数据类型变量：比较两个对象的地址值是否相同.即两个引用是否指向同一个对象实体</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">补充： == 符号使用时，必须保证符号左右两边的变量类型一致。</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  二、equals()方法的使用：</p>
+<ol>
+<li>是一个方法，而非运算符</li>
+<li>只能适用于引用数据类型</li>
+<li>Object类中equals()的定义：<br>public boolean equals(Object obj) {<pre><code>return (this == obj);</code></pre>  }<br>说明：Object类中定义的equals()和==的作用是相同的：比较两个对象的地址值是否相同.即两个引用是否指向同一个对象实体</li>
+<li>像String、Date、File、包装类等都重写了Object类中的equals()方法。重写以后，比较的不是<br>两个引用的地址是否相同，而是比较两个对象的”实体内容”是否相同。</li>
+<li>通常情况下，我们自定义的类如果使用equals()的话，也通常是比较两个对象的”实体内容”是否相同。那么，我们<br>就需要对Object类中的equals()进行重写.<br>重写的原则：比较两个对象的实体内容是否相同.</li>
+</ol>
+<p>—-ppt</p>
+<ul>
+<li>==:<ul>
+<li>基本类型比较值:只要两个变量的值相等，即为true。<br>int a=5; if(a==6)..}</li>
+<li>引用类型比较引用(是否指向同一个对象):只有指向同一个对象时，==才<br>返回true。<br>Person p1 =new Person();<br>Person p2=new Person();<br>if (p1==p2)…}<ul>
+<li>用“==”进行比较时，符号两边的数据类型必须兼容(可自动转换的基本<br>数据类型除外)，否则编译出错</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>equals();所有类都继承了Object,也就获得了equals()方法。还可以重写。<br>➢只能比较引用类型，其作用与“卜=”相同,比较是否指向同一个对象。<br>➢格式:obj1.equals(obj2)</li>
+<li>特例:当用equals()方法进行比较时，对类File、String、 Date 及包装类.<br>(Wrapper Class)来说，是比较类型及内容而不考虑引用的是否是同一个对<br>象;<br>➢原因:在这些类中重写了Object类的equals()方法。</li>
+<li>当自定义使用equals()时，可以重写。用于比较两个对象的“内容”是否都<br>相等</li>
+</ul>
+<h3 id="重写equals-方法的原则"><a href="#重写equals-方法的原则" class="headerlink" title="重写equals()方法的原则."></a>重写equals()方法的原则.</h3><ul>
+<li>对称性:如果x.equals(y)返回是“true” ，那么y.equals(x)也应该返回是“true”</li>
+<li>自反性: x.equals(x)必须返回是“true</li>
+<li>传递性:如果x.equals(y)返回是“true”，而且y.equals(z)返回是“true”<br>那么z.equals(x)也应该返回是“true”。</li>
+<li>一 致性:如果x.equals(y)返回是“true” ，只要x和y内容一直不变， 不管你<br>重复x.equals(y)多少次，返回都是“true” 。</li>
+<li>任何情况下，x.equal(null)， 永远返回是“false<br>x.equals(和x不同类型的对象)永远返回是“false<br>”</li>
+<li>从我面试的反馈，85%的求职者“理直气壮”的回答错误…<br>1.==既可以比较基本类型也可以比较引用类型。对于基本类型就是比较值，对于引用类型<br>就是比较内存地址<br>2.equals的话， 它是属于java.lang.Object类里面的方法，如果该方法没有被重写过默认也<br>是==;我们可以看到String等类的equals方法是被重写过的，而且String类在日常开发中<br>用的比较多，久而久之，形成了equals是比较值的错误观点。<br>3.具体要看自定义类里有没有重写Object的equals方法来判断。<br>4通常情况下，重写equals方法， 会比较类中的相应属性是否都相等。</li>
+</ul>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_15.png" alt="字符串比较地址值"></p>
+<h2 id="13-equals-的使用"><a href="#13-equals-的使用" class="headerlink" title="13.equals()的使用"></a>13.equals()的使用</h2><p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_16.png" alt="string 进行过重写"><br><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_17.png" alt="date进行过重写"></p>
+<h2 id="14-重写equals-方法"><a href="#14-重写equals-方法" class="headerlink" title="14.重写equals() 方法"></a>14.重写equals() 方法</h2><p>找例子   String 重写equals  源代码</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_18.png" alt="自定义equals()"></p>
+<p>字符串等引用类型   equals()</p>
+<p>方法2</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_19.png" alt="自定义equals()"></p>
+<h3 id="自动生成-General-代码自动生成"><a href="#自动生成-General-代码自动生成" class="headerlink" title="自动生成   General  代码自动生成"></a>自动生成   General  代码自动生成</h3><p>逻辑性更强</p>
+<h2 id="15-总结-与equals"><a href="#15-总结-与equals" class="headerlink" title="15. 总结==与equals()"></a>15. 总结==与equals()</h2><h2 id="16-equals-方法的练习"><a href="#16-equals-方法的练习" class="headerlink" title="16.equals 方法的练习"></a>16.equals 方法的练习</h2><p>对象之间不能用 ==  因为new的会改变地址  ，==比较的是地址</p>
+<blockquote>
+<p>自定义的类也要重写equals ，当在子类中需要的时候</p>
+</blockquote>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_20.png" alt="重写equals()注意"></p>
+<h2 id="17-toString-的使用"><a href="#17-toString-的使用" class="headerlink" title="17.toString()的使用"></a>17.toString()的使用</h2><p>  Object类中toString()的使用：<br>  1.当我们输出一个对象的引用时，实际上就是调用当前对象的toString()<br>  2.Object类中toString()的定义：<br>    public String toString() {<br>        return getClass().getName() + “@” + Integer.toHexString(hashCode());<br>     }<br>  3.像String、Date、File、包装类等都重写了Object类中的toString()方法。<br>     使得在调用对象的toString()时，返回”实体内容”信息</p>
+<p>  4.自定义类也可以重写toString()方法，当调用此方法时，返回对象的”实体内容”</p>
+<p>自定义 手动<br><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_21.png" alt="重写equals()注意"></p>
+<p>系统生成</p>
+<h2 id="19-objetc类的练习"><a href="#19-objetc类的练习" class="headerlink" title="19 objetc类的练习"></a>19 objetc类的练习</h2><p>if(obj instanceof Circcle){</p>
+<p>Circle c=(Circle)obj;</p>
+<p>return this.radius==c.radius;</p>
+<p>}</p>
+<h2 id="20-单元测试方法的使用"><a href="#20-单元测试方法的使用" class="headerlink" title="20.单元测试方法的使用"></a>20.单元测试方法的使用</h2><p>新建类 JUnitTest.java</p>
+<p>选中当前工程-&gt;右键build Path-&gt;add libraries-&gt;JUnit-&gt;finish</p>
+<p> Java中的JUnit单元测试</p>
+<p>  步骤：<br>  1.选中当前工程 - 右键选择：build path - add libraries - JUnit 4 - 下一步<br>  2.创建Java类，进行单元测试。<br>    此时的Java类要求：① 此类是public的  ②此类提供公共的无参的构造器<br>  3.此类中声明单元测试方法。<br>    此时的单元测试方法：方法的权限是public,没有返回值，没有形参</p>
+<p>  4.此单元测试方法上需要声明注解：@Test,并在单元测试类中导入：import org.junit.Test;</p>
+<p>  5.声明好单元测试方法以后，就可以在方法体内测试相关的代码。<br>  6.写完代码以后，左键双击单元测试方法名，右键：run as -&gt; JUnit Test</p>
+<p>  说明：<br>  1.如果执行结果没有任何异常：绿条<br>  2.如果执行结果出现异常：红条</p>
+<p>把测试方法当成静态的了</p>
+<p>真正开发</p>
+<p>@test 导包就可以</p>
+<h2 id="21-包装类的理解"><a href="#21-包装类的理解" class="headerlink" title="21.包装类的理解"></a>21.包装类的理解</h2><p>5.8 包装类的使用</p>
+<ul>
+<li>针对八种基本数据类型定义相应的引用类型一包装类(封装类)</li>
+<li>有了类的特点，就可以调用类中的方法，Java才是真正的面向对象<br><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_22.png" alt="包装类"></li>
+<li>基本数据类型包装成包装类的实例__装箱<ul>
+<li>通过包装类的构造器实现:<br>int i= 500; Integer t = new Integer();</li>
+<li>还可以通过字符串参数构造包装类对象:<br>Float f= new Float(“4. 56”);<br>Long I = new Long(“asdf” ); //NumberFormatException</li>
+</ul>
+</li>
+<li>获得包装类对象中包装的基本类型变量–拆箱<br>-调用包装类的.xxxValue()方法:<br>boolean b = bObj .booleanValue();</li>
+<li>JDK1.5之后，支持自动裝箱，自动拆箱。但类型必须匹配。</li>
+<li>字符串转换成基本数据类型<ul>
+<li>通过包装类的构造器实现:<br>int i = new Integer(“12”);</li>
+<li>通过包装类的parseXxx(String s)静态方法:<br>Float f= Float.parseFloat(“12.1”);</li>
+</ul>
+</li>
+<li>基本数据类型转换成字符串<ul>
+<li>调用字符串重载的valueOf()方法: .<br>String fstr = String.valueOf(2.34f);</li>
+<li>更直接的方式:<br>String intStr= 5 +“”</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_23.png" alt="包装类"></p>
+<h2 id="22-基本数据类型转化为包装类"><a href="#22-基本数据类型转化为包装类" class="headerlink" title="22.基本数据类型转化为包装类"></a>22.基本数据类型转化为包装类</h2><p>包装类的使用<br>  1.java提供了8种基本数据类型对应的包装类，使得基本数据类型的变量具有类的特征<br>  2.掌握的：基本数据类型、包装类、String三者之间的相互转换</p>
+<p>//基本数据类型 —&gt;包装类：调用包装类的构造器</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_24.png" alt="包装类"></p>
+<p>boolean isMale;</p>
+<p>Boolean isFemale;  是个类</p>
+<h2 id="23-包装类转化基本数据类型"><a href="#23-包装类转化基本数据类型" class="headerlink" title="23.包装类转化基本数据类型"></a>23.包装类转化基本数据类型</h2><p>​    //包装类—&gt;基本数据类型:调用包装类Xxx的xxxValue()</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">	public void test2(){</span><br><span class="line">		Integer in1 = new Integer(12);</span><br><span class="line">		</span><br><span class="line">		int i1 = in1.intValue();</span><br><span class="line">		System.out.println(i1 + 1);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		Float f1 = new Float(12.3);</span><br><span class="line">		float f2 = f1.floatValue();</span><br><span class="line">		System.out.println(f2 + 1);</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="24-自动装箱和拆箱"><a href="#24-自动装箱和拆箱" class="headerlink" title="24.自动装箱和拆箱"></a>24.自动装箱和拆箱</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//  JDK 5.0 新特性：自动装箱 与自动拆箱</span></span><br><span class="line">	 /</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>{</span><br><span class="line"><span class="comment">//		int num1 = 10;</span></span><br><span class="line"><span class="comment">//		//基本数据类型--&gt;包装类的对象</span></span><br><span class="line"><span class="comment">//		method(num1);</span></span><br><span class="line"><span class="comment">//上面独立	</span></span><br><span class="line">		<span class="comment">//自动装箱：基本数据类型 ---&gt;包装类</span></span><br><span class="line">		<span class="keyword">int</span> num2 = <span class="number">10</span>;</span><br><span class="line">		Integer in1 = num2;<span class="comment">//自动装箱</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">boolean</span> b1 = <span class="keyword">true</span>;</span><br><span class="line">		Boolean b2 = b1;<span class="comment">//自动装箱</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//自动拆箱：包装类---&gt;基本数据类型</span></span><br><span class="line">		System.out.println(in1.toString());</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> num3 = in1;<span class="comment">//自动拆箱</span></span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(Object obj)</span></span>{</span><br><span class="line">		System.out.println(obj);</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="25-基本数据类型、包装类与String间的相互转化"><a href="#25-基本数据类型、包装类与String间的相互转化" class="headerlink" title="25.基本数据类型、包装类与String间的相互转化"></a>25.基本数据类型、包装类与String间的相互转化</h2><p>//基本数据类型、包装类—&gt;String类型：调用String重载的valueOf(Xxx xxx)<br>    @Test</p>
+<p>​        </p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">	<span class="comment">//方式1：连接运算</span></span><br><span class="line">	String str1 = num1 + <span class="string">""</span>;</span><br><span class="line">	<span class="comment">//方式2：调用String的valueOf(Xxx xxx)</span></span><br><span class="line">	<span class="keyword">float</span> f1 = <span class="number">12.3f</span>;</span><br><span class="line">	String str2 = String.valueOf(f1);<span class="comment">//"12.3"</span></span><br><span class="line">	</span><br><span class="line">	Double d1 = <span class="keyword">new</span> Double(<span class="number">12.4</span>);</span><br><span class="line">	String str3 = String.valueOf(d1);</span><br><span class="line">	System.out.println(str2);</span><br><span class="line">	System.out.println(str3);<span class="comment">//"12.4"</span></span><br><span class="line">	</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>// //String类型 —&gt;基本数据类型、包装类：调用包装类的parseXxx(String s)</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test5</span><span class="params">()</span></span>{</span><br><span class="line">		String str1 = <span class="string">"123"</span>;</span><br><span class="line">		<span class="comment">//错误的情况：</span></span><br><span class="line"><span class="comment">//		int num1 = (int)str1;</span></span><br><span class="line"><span class="comment">//		Integer in1 = (Integer)str1;</span></span><br><span class="line">		<span class="comment">//可能会报NumberFormatException</span></span><br><span class="line">		<span class="keyword">int</span> num2 = Integer.parseInt(str1);</span><br><span class="line">		System.out.println(num2 + <span class="number">1</span>);</span><br><span class="line">		</span><br><span class="line">		String str2 = <span class="string">"true1"</span>;  不是标准的<span class="keyword">true</span>  都是<span class="keyword">false</span></span><br><span class="line">		<span class="keyword">boolean</span> b1 = Boolean.parseBoolean(str2);</span><br><span class="line">		System.out.println(b1);</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="26-包装类常见面试题"><a href="#26-包装类常见面试题" class="headerlink" title="26.包装类常见面试题"></a>26.包装类常见面试题</h2><p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_26.png" alt="包装类1-2"></p>
+<p>第一题  1.0  由于类型提升，要求统一类型</p>
+<p>第二题:  1   没有要求统一类型</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_25.png" alt="包装类面试题3"></p>
+<p> false   地址</p>
+<p>true</p>
+<p>false  有个缓存数组 1-127   new 的</p>
+<p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_27.png" alt="包装类面试3 解答"></p>
+<h2 id="27-包装类的练习"><a href="#27-包装类的练习" class="headerlink" title="27 包装类的练习"></a>27 包装类的练习</h2><p><img src="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/13_28.png" alt="包装类面试3 解答"></p>
+<p>想放多少放多少</p>
+<p>先写思路</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line"> 练习</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  利用Vector代替数组处理：从键盘读入学生成绩（以负数代表输入结束），找出最高分，并输出学生成绩等级。</span></span><br><span class="line"><span class="comment">	提示：数组一旦创建，长度就固定不变，所以在创建数组前就需要知道它的长度。</span></span><br><span class="line"><span class="comment">	而向量类java.util.Vector可以根据需要动态伸缩。</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	创建Vector对象：Vector v=new Vector();</span></span><br><span class="line"><span class="comment">	给向量添加元素：v.addElement(Object obj);   //obj必须是对象</span></span><br><span class="line"><span class="comment">	取出向量中的元素：Object  obj=v.elementAt(0);</span></span><br><span class="line"><span class="comment">	注意第一个元素的下标是0，返回值是Object类型的。</span></span><br><span class="line"><span class="comment">	计算向量的长度：v.size();</span></span><br><span class="line"><span class="comment">	若与最高分相差10分内：A等；20分内：B等；</span></span><br><span class="line"><span class="comment">	      30分内：C等；其它：D等</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScoreTest</span> </span>{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">		<span class="comment">//1.实例化Scanner，用于从键盘获取学生成绩</span></span><br><span class="line">		Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.创建Vector对象：Vector v=new Vector();相当于原来的数组</span></span><br><span class="line">		Vector v = <span class="keyword">new</span> Vector();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3.通过for(;;)或while(true)方式，给Vector中添加数组</span></span><br><span class="line">		<span class="keyword">int</span> maxScore = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(;;){</span><br><span class="line">			System.out.println(<span class="string">"请输入学生成绩（以负数代表输入结束）"</span>);</span><br><span class="line">			<span class="keyword">int</span> score = scan.nextInt();</span><br><span class="line">			<span class="comment">//3.2 当输入是负数时，跳出循环</span></span><br><span class="line">			<span class="keyword">if</span>(score &lt; <span class="number">0</span>){</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			}</span><br><span class="line">			<span class="keyword">if</span>(score &gt; <span class="number">100</span>){</span><br><span class="line">				System.out.println(<span class="string">"输入的数据非法，请重新输入"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			}</span><br><span class="line">			<span class="comment">//3.1 添加操作：：v.addElement(Object obj)</span></span><br><span class="line">			<span class="comment">//jdk5.0之前：</span></span><br><span class="line"><span class="comment">//			Integer inScore = new Integer(score);</span></span><br><span class="line"><span class="comment">//			v.addElement(inScore);//多态</span></span><br><span class="line">			<span class="comment">//jdk5.0之后：</span></span><br><span class="line">			v.addElement(score);<span class="comment">//自动装箱</span></span><br><span class="line">			<span class="comment">//4.获取学生成绩的最大值</span></span><br><span class="line">			<span class="keyword">if</span>(maxScore &lt; score){</span><br><span class="line">				maxScore = score;</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//5.遍历Vector，得到每个学生的成绩，并与最大成绩比较，得到每个学生的等级。</span></span><br><span class="line">		<span class="keyword">char</span> level;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; v.size();i++){</span><br><span class="line">			Object obj = v.elementAt(i);</span><br><span class="line">			<span class="comment">//jdk 5.0之前：</span></span><br><span class="line"><span class="comment">//			Integer inScore = (Integer)obj;</span></span><br><span class="line"><span class="comment">//			int score = inScore.intValue();</span></span><br><span class="line">			<span class="comment">//jdk 5.0之后：</span></span><br><span class="line">			<span class="keyword">int</span> score = (<span class="keyword">int</span>)obj;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(maxScore - score &lt;= <span class="number">10</span>){</span><br><span class="line">				level = <span class="string">'A'</span>;</span><br><span class="line">			}<span class="keyword">else</span> <span class="keyword">if</span>(maxScore - score &lt;= <span class="number">20</span>){</span><br><span class="line">				level = <span class="string">'B'</span>;</span><br><span class="line">			}<span class="keyword">else</span> <span class="keyword">if</span>(maxScore - score &lt;= <span class="number">30</span>){</span><br><span class="line">				level = <span class="string">'C'</span>;</span><br><span class="line">			}<span class="keyword">else</span>{</span><br><span class="line">				level = <span class="string">'D'</span>;</span><br><span class="line">			}</span><br><span class="line">			</span><br><span class="line">			System.out.println(<span class="string">"student-"</span> + i + <span class="string">" score is "</span> + score + <span class="string">",level is "</span> + level);</span><br><span class="line">			</span><br><span class="line">		}</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2017/06/29/2016-06-29-mian-xiang-dui-xiang-xia/" class="pre-post btn btn-default" title='面向对象(下)'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            面向对象(下)</span>
+    </a>
+    
+    
+    <a href="/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/" class="next-post btn btn-default" title='面向对象(中)补1'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            面向对象(中)补1</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'LWmP4tvyNOjV0hDcXSzBxE6c-gzGzoHsz',
+    appKey: 'R7xHtkFCXCFDHvyOSB5h4YjG',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '5',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-每日一问"><span class="toc-text">1.每日一问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-重写与super"><span class="toc-text">2.重写与super</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#debug-调试"><span class="toc-text">debug 调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重载"><span class="toc-text">重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super"><span class="toc-text">super</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-子类对象实例化过程及多态性"><span class="toc-text">3.子类对象实例化过程及多态性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多调性的理解"><span class="toc-text">多调性的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-向下转型的使用"><span class="toc-text">4. 向下转型的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-instanceof-关键字的使用"><span class="toc-text">5.instanceof 关键字的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof关键字的使用"><span class="toc-text">instanceof关键字的使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-向下转型的几个常用问题"><span class="toc-text">6.向下转型的几个常用问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-多态练习—调用属性和方法"><span class="toc-text">7.多态练习—调用属性和方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-9-基本操作–多态性"><span class="toc-text">8-9.基本操作–多态性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-object-类的使用"><span class="toc-text">11 object 类的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-运算符的回顾"><span class="toc-text">12. &#x3D;&#x3D;运算符的回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试题-和equals-的区别"><span class="toc-text">面试题:&#x3D;&#x3D;和equals()的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重写equals-方法的原则"><span class="toc-text">重写equals()方法的原则.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-equals-的使用"><span class="toc-text">13.equals()的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-重写equals-方法"><span class="toc-text">14.重写equals() 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自动生成-General-代码自动生成"><span class="toc-text">自动生成   General  代码自动生成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-总结-与equals"><span class="toc-text">15. 总结&#x3D;&#x3D;与equals()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-equals-方法的练习"><span class="toc-text">16.equals 方法的练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-toString-的使用"><span class="toc-text">17.toString()的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-objetc类的练习"><span class="toc-text">19 objetc类的练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-单元测试方法的使用"><span class="toc-text">20.单元测试方法的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-包装类的理解"><span class="toc-text">21.包装类的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-基本数据类型转化为包装类"><span class="toc-text">22.基本数据类型转化为包装类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-包装类转化基本数据类型"><span class="toc-text">23.包装类转化基本数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-自动装箱和拆箱"><span class="toc-text">24.自动装箱和拆箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-基本数据类型、包装类与String间的相互转化"><span class="toc-text">25.基本数据类型、包装类与String间的相互转化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-包装类常见面试题"><span class="toc-text">26.包装类常见面试题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-包装类的练习"><span class="toc-text">27 包装类的练习</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+
+<script type="text/javascript" src="/js/love_mouse.js"></script>
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+<script type="text/javascript" src="/js/code/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/js/code/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/js/code/codeCopy.js"></script>
+<script type="text/javascript" src="/js/code/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/js/code/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+
+
+
+</body>
+</html>

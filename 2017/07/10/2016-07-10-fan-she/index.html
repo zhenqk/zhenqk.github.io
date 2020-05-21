@@ -1,0 +1,613 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="反射" />
+
+
+<meta name="description" content="1.每日一考
+一个IP对应着哪个类的一个对象？InetAddress
+
+实例化这个类的两种方式是？
+InetAddress.getByName(String host);
+InetAddress..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    反射 |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="反射">
+            
+            反射
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E5%8F%8D%E5%B0%84/" rel="tag">反射</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2017/07/10</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><ol>
+<li>一个IP对应着哪个类的一个对象？InetAddress</li>
+</ol>
+<p>实例化这个类的两种方式是？</p>
+<p>InetAddress.getByName(String host);</p>
+<p>InetAddress.getLocalHost();//获取本地ip</p>
+<p>两个常用的方法是？<br>getHostName();<br>getHostAddress();</p>
+<p>2.传输层的TCP协议和UDP协议的主要区别是？<br>TCP:可靠的数据传输(三次握手)；进行大数据量的传输；效率低<br>UDP:不可靠；以数据报形式发送，数据报限定为64k；效率高</p>
+<p>3.什么是URL，你能写一个URL吗？</p>
+<p><a href="URL:统一资源定位符">URL:统一资源定位符</a></p>
+<p>URL url = new URL(“<a href="http://192.168.14.100:8080/examples/hello.txt?username=Tom”" target="_blank" rel="noopener">http://192.168.14.100:8080/examples/hello.txt?username=Tom”</a>);</p>
+<p>4.谈谈你对对象序列化机制的理解</p>
+<p>序列化过程：</p>
+<p>反序列化过程：  再还原为内存</p>
+<p>5.对象要想实现序列化，需要满足哪几个条件</p>
+<p>\1. 实现接口：Serializable  标识接口</p>
+<p>\2. 对象所在的类提供常量：序列版本号</p>
+<p>\3. 要求对象的属性也必须是可序列化的。（基本数据类型、String：本身就已经是可序列化的。）</p>
+<h2 id="2-对象序列化机制"><a href="#2-对象序列化机制" class="headerlink" title="2.对象序列化机制"></a>2.对象序列化机制</h2><h4 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h4><h5 id="对象流的使用"><a href="#对象流的使用" class="headerlink" title="对象流的使用"></a>对象流的使用</h5><p>1.对象流:</p>
+<p>ObjectOutputStream和ObjectInputStream</p>
+<p>2.作用:</p>
+<p>objectoutputStream:内存中的对象–&gt;存储中的文件、通过网络传输出去  序列化过程<br>objectInputStream:存储中的文件、通过网络接收过来–&gt;内存中的对象   反序列化过程</p>
+<p>进程和进程之间传输要序列化</p>
+<p>3.对象的序列化机制:</p>
+<p>对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种二进制流持久地保存在磁盘上，或通过网络将这种二进制流传输到另- - 个网络节点。//当其它程序获取了这种二进制流，就可以恢复成原来的Java对象</p>
+<p>4.<br>序列化过程代码实现:</p>
+ <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">序列化过程：将内存中的java对象保存到磁盘中或通过网络传输出去</span><br><span class="line"> 使用ObjectOutputStream实现</span><br><span class="line">  */</span><br><span class="line"> <span class="meta">@Test</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testObjectOutputStream</span><span class="params">()</span></span>{</span><br><span class="line">     ObjectOutputStream oos = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">try</span> {</span><br><span class="line">         <span class="comment">//1.</span></span><br><span class="line">         oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">"object.dat"</span>));</span><br><span class="line">         <span class="comment">//2.</span></span><br><span class="line">         oos.writeObject(<span class="keyword">new</span> String(<span class="string">"我爱北京天安门"</span>));</span><br><span class="line">         oos.flush();<span class="comment">//刷新操作</span></span><br><span class="line"></span><br><span class="line">         oos.writeObject(<span class="keyword">new</span> Person(<span class="string">"王铭"</span>,<span class="number">23</span>));</span><br><span class="line">         oos.flush();</span><br><span class="line"></span><br><span class="line">         oos.writeObject(<span class="keyword">new</span> Person(<span class="string">"张学良"</span>,<span class="number">23</span>,<span class="number">1001</span>,<span class="keyword">new</span> Account(<span class="number">5000</span>)));</span><br><span class="line">         oos.flush();</span><br><span class="line"></span><br><span class="line">     } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     } <span class="keyword">finally</span> {</span><br><span class="line">         <span class="keyword">if</span>(oos != <span class="keyword">null</span>){</span><br><span class="line">             <span class="comment">//3.</span></span><br><span class="line">             <span class="keyword">try</span> {</span><br><span class="line">                 oos.close();</span><br><span class="line">             } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                 e.printStackTrace();</span><br><span class="line">             }</span><br><span class="line"></span><br><span class="line">         }</span><br><span class="line">     }</span><br><span class="line"></span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>5.<br>反序列化代码实现：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   反序列化：将磁盘文件中的对象还原为内存中的一个java对象</span></span><br><span class="line"><span class="comment">   使用ObjectInputStream来实现</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testObjectInputStream</span><span class="params">()</span></span>{</span><br><span class="line">       ObjectInputStream ois = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">try</span> {</span><br><span class="line">           ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"object.dat"</span>));</span><br><span class="line">           Object obj = ois.readObject();</span><br><span class="line">           String str = (String) obj;</span><br><span class="line">           Person p = (Person) ois.readObject();</span><br><span class="line">           Person p1 = (Person) ois.readObject();</span><br><span class="line"></span><br><span class="line">           System.out.println(str);</span><br><span class="line">           System.out.println(p);</span><br><span class="line">           System.out.println(p1);</span><br><span class="line"></span><br><span class="line">       } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       } <span class="keyword">catch</span> (ClassNotFoundException e) {</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       } <span class="keyword">finally</span> {</span><br><span class="line">           <span class="keyword">if</span>(ois != <span class="keyword">null</span>){</span><br><span class="line">               <span class="keyword">try</span> {</span><br><span class="line">                   ois.close();</span><br><span class="line">               } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               }</span><br><span class="line"></span><br><span class="line">           }</span><br><span class="line">       }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>开发基本用string 去序列化</p>
+<p>6.实现序列化的对象所属的类需要满足:</p>
+<ul>
+<li><p>Person需要满足如下的要求，方可序列化</p>
+</li>
+<li><p>1.需要实现接口：Serializable</p>
+</li>
+<li><p>2.当前类提供一个全局常量：serialVersionUID</p>
+</li>
+<li><p>3.除了当前Person类需要实现Serializable接口之外，还必须保证其内部所有属性</p>
+<p>也必须是可序列化的。（默认情况下，基本数据类型可序列化）</p>
+<p>补充：ObjectOutputStream和ObjectInputStream不能序列化static和transient修饰的成员变量</p>
+</li>
+</ul>
+<h2 id="3-复习：-其他IO流内容"><a href="#3-复习：-其他IO流内容" class="headerlink" title="3.复习： 其他IO流内容"></a>3.复习： 其他IO流内容</h2><h4 id="RandomAccessFile"><a href="#RandomAccessFile" class="headerlink" title="RandomAccessFile"></a>RandomAccessFile</h4><p>1.随机存取文件流:    可读可写  RandomAccessFile</p>
+<p>2.使用说明:</p>
+<p>1.RandomAccessFile直接继承于java.lang.Object类，实现了DataInput和DataOutput接口<br>2.RandomAccessFile既可以作为一个输入流，又可以作为一个输出流，同一个类 不同对象<br>3.如果RandomAccessFile作为输出流时，写出到的文件如果不存在，则在执行过程中自动创建。<br>  如果写出到的文件存在，则会对原有文件内容进行覆盖。（默认情况下，从头覆盖）</p>
+<p>4.可以通过相关的操作，实现RandomAccessFile“插入”数据的效果   seek(int pos)</p>
+<p>3.<br>典型代码1</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_23" alt="1588459927396">:</p>
+<p>典型代码2:</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_26" alt="1588461597717"></p>
+<h4 id="Path-Paths-Files的使用"><a href="#Path-Paths-Files的使用" class="headerlink" title="Path\Paths\Files的使用"></a>Path\Paths\Files的使用</h4><p>常用  开源框架 ，第三方jar<br>1.NIO的使用说明:<br>Java NIO (New I0，Non-Blocking I0)是从Java 1.4版本开始引入的一套新<br>的I0 API，可以替代标准的Java I0 API。<br>NIO与原来的I0有同样的作用和目的，但是使用的方式完全不同，NIO支持面向缓冲区的(I0是面向流的)、基于通道的I0操作。NIO将以更加高效的方式进行文件的读写操作。<br>随着JDK 7的发布，Java对NIO进行了极大的扩展，增强了对<br>文件处理和文件系统特性的支持，以至于我们称他们为NIO.2。</p>
+<p>2.Path的使用–jdk7提供<br>2.1Path的说明:<br>Path替换原有的File类。<br>2.2如何实例化:</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_01" alt="1588483560328"></p>
+<p>2.3常用方法: .</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_32" alt="1588462010980"></p>
+<p>3.Files工具类–jdk7提供<br>3.1作用:操作文件或问价目录的工具类</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_33" alt="1588462037569"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_34" alt="1588462086709"></p>
+<h2 id="复习4-网络通信要素"><a href="#复习4-网络通信要素" class="headerlink" title="复习4. 网络通信要素"></a>复习4. 网络通信要素</h2><h4 id="InetAddress类的使用"><a href="#InetAddress类的使用" class="headerlink" title="InetAddress类的使用"></a>InetAddress类的使用</h4><p>一、 实现网络通信需要解决的两个问题</p>
+<p>1.如何准确地定位网络上一台或多台主机；定位主机上的特定的应用<br>2.找到主机后如何可靠高效地进行数据传输</p>
+<p>二、网络通信的两个要素:</p>
+<p>1.对应问题一：IP和端口号<br>2.对应问题二：提供网络通信协议：TCP/IP参考模型（应用层、传输层、网络层、物理+数据链路层）</p>
+<p>三、通信要素一: IP和端口号<br>1.IP的理解</p>
+<ol>
+<li><p>IP:唯一的标识 Internet 上的计算机（通信实体）</p>
+</li>
+<li><p>在Java中使用InetAddress类代表IP</p>
+</li>
+<li><p>IP分类：IPv4 和 IPv6 ; 万维网 和 局域网</p>
+</li>
+<li><p>域名:   <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>   <a href="http://www.mi.com" target="_blank" rel="noopener">www.mi.com</a>  <a href="http://www.sina.com" target="_blank" rel="noopener">www.sina.com</a>  <a href="http://www.jd.com" target="_blank" rel="noopener">www.jd.com</a></p>
+<pre><code>www.vip.com</code></pre><p>域名解析:域名容易记忆， 当在连接网络时输入一个主机的域名后，域名服务器(DNS)负责将域名转化成IP地址，这样才能和主机建立连接。..域名解析</p>
+</li>
+<li><p>本地回路地址：127.0.0.1 对应着：localhost</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>InetAddress类: 此类的一个对象就代表着一个具体的IP地址<br> 2.1实例化</p>
+<p>getByName(String host) 、 getLocalHost()</p>
+</li>
+</ol>
+<p>  2.2常用方法</p>
+<p>  getHostName() / getHostAddress()</p>
+<p>  3.端口号:正在计算机上运行的进程。<br>  要求：不同的进程有不同的端口号<br>  范围：被规定为一个 16 位的整数 0~65535。</p>
+<p>端口号与IP地址的组合得出-一个网络套接字: Socket</p>
+<p>四、通信要素二:网络通信协议<br>1.分型模型<br><img src="/2017/07/10/2016-07-10-fan-she/27_39" alt="1588464678863"></p>
+<p>2.TCP和UDP的区别</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_49" alt="1588468669762"></p>
+<ol start="3">
+<li>TCP三次握手和四次挥手</li>
+</ol>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_50" alt="1588468691949"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_76" alt="1588468711223"></p>
+<p>目的提高建立可靠连接，提高</p>
+<h2 id="5-复习-TCP、UDP、URL网络编程"><a href="#5-复习-TCP、UDP、URL网络编程" class="headerlink" title="5.复习:TCP、UDP、URL网络编程."></a>5.复习:TCP、UDP、URL网络编程.</h2><h4 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h4><h5 id="TCP-网络编程"><a href="#TCP-网络编程" class="headerlink" title="TCP 网络编程"></a>TCP 网络编程</h5><ul>
+<li><p>例子1：客户端发送信息给服务端，服务端将数据显示在控制台上</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">client</span><span class="params">()</span>  </span>{</span><br><span class="line">        Socket socket = <span class="keyword">null</span>; </span><br><span class="line">        OutputStream os = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="comment">//1.创建Socket对象，指明服务器端的ip和端口号</span></span><br><span class="line">            InetAddress inet = InetAddress.getByName(<span class="string">"192.168.14.100"</span>);</span><br><span class="line">            socket = <span class="keyword">new</span> Socket(inet,<span class="number">8899</span>);</span><br><span class="line">            <span class="comment">//2.获取一个输出流，用于输出数据</span></span><br><span class="line">            os = socket.getOutputStream();</span><br><span class="line">            <span class="comment">//3.写出数据的操作</span></span><br><span class="line">            os.write(<span class="string">"你好，我是客户端mm"</span>.getBytes());</span><br><span class="line">        } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        } <span class="keyword">finally</span> {</span><br><span class="line">            <span class="comment">//4.资源的关闭</span></span><br><span class="line">            <span class="keyword">if</span>(os != <span class="keyword">null</span>){</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    os.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(socket != <span class="keyword">null</span>){</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    socket.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//服务端</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">server</span><span class="params">()</span>  </span>{</span><br><span class="line">        ServerSocket ss = <span class="keyword">null</span>;</span><br><span class="line">        Socket socket = <span class="keyword">null</span>;</span><br><span class="line">        InputStream is = <span class="keyword">null</span>;</span><br><span class="line">        ByteArrayOutputStream baos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="comment">//1.创建服务器端的ServerSocket，指明自己的端口号</span></span><br><span class="line">            ss = <span class="keyword">new</span> ServerSocket(<span class="number">8899</span>);</span><br><span class="line">            <span class="comment">//2.调用accept()表示接收来自于客户端的socket</span></span><br><span class="line">            socket = ss.accept();</span><br><span class="line">            <span class="comment">//3.获取输入流</span></span><br><span class="line">            is = socket.getInputStream();</span><br><span class="line">            <span class="comment">//不建议这样写，可能会有乱码</span></span><br><span class="line"><span class="comment">//        byte[] buffer = new byte[1024];</span></span><br><span class="line"><span class="comment">//        int len;</span></span><br><span class="line"><span class="comment">//        while((len = is.read(buffer)) != -1){</span></span><br><span class="line"><span class="comment">//            String str = new String(buffer,0,len);</span></span><br><span class="line"><span class="comment">//            System.out.print(str);</span></span><br><span class="line"><span class="comment">//        }</span></span><br><span class="line">            <span class="comment">//4.读取输入流中的数据</span></span><br><span class="line">            baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">5</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span>((len = is.read(buffer)) != -<span class="number">1</span>){</span><br><span class="line">                baos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">            }</span><br><span class="line">            System.out.println(baos.toString());</span><br><span class="line">            <span class="comment">//看谁给我发的</span></span><br><span class="line">            System.out.println(<span class="string">"收到了来自于："</span> + socket.getInetAddress().getHostAddress() + <span class="string">"的数据"</span>);</span><br><span class="line">        } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        } <span class="keyword">finally</span> {</span><br><span class="line">            <span class="keyword">if</span>(baos != <span class="keyword">null</span>){</span><br><span class="line">                <span class="comment">//5.关闭资源</span></span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    baos.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(is != <span class="keyword">null</span>){</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    is.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(socket != <span class="keyword">null</span>){</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    socket.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(ss != <span class="keyword">null</span>){</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    ss.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ul>
+<p>2.客户端发送文件给服务端，服务端将文件保存在本地。</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_54" alt="1588470827777"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_77" alt="1588470923833"></p>
+<p>实例三:从客户端发送文件给服务端，服务端保存到本地。并返回“发送成功”给客户端。并关闭相应的连接。</p>
+<p>服务器端</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/27_55" alt="1588471281061"></p>
+<p>os.close</p>
+<p>客户端socket.shutdownOutput()  告诉数据结束      阻塞式的操作</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/..%5CstudyNote_Pic%5Csgg%5Cday12%5C1588471342577.png" alt="1588471342577"></p>
+<p>baos.close()</p>
+<h5 id="UDP-网络编程"><a href="#UDP-网络编程" class="headerlink" title="UDP 网络编程"></a>UDP 网络编程</h5><p>示例一<br><img src="/2017/07/10/2016-07-10-fan-she/27_64" alt="1588472841104"></p>
+<h5 id="UR编程"><a href="#UR编程" class="headerlink" title="UR编程"></a>UR编程</h5><p>1.URL(Uniform Resource Locator)的理解:<br>统一资源定位符，对应着互联网的某一资源地址</p>
+<p>2.URL的5个基本结构:<br> <a href="http://localhost:8080/examples/beauty.jpg?username=Tom" target="_blank" rel="noopener">http://localhost:8080/examples/beauty.jpg?username=Tom</a><br> 协议   主机名    端口号  资源地址           参数列表<br>3.如何实例化:<br>URL url = new URL(“<a href="http://localhost:8080/examples/beauty.jpg?username=Tom&quot;" target="_blank" rel="noopener">http://localhost:8080/examples/beauty.jpg?username=Tom"</a>);</p>
+<p>4.常用方法:<br><img src="/2017/07/10/2016-07-10-fan-she/27_68" alt="1588472841104"></p>
+<p>5.可以读取、下载对应的ur1资源:</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.HttpURLConnection;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">URLTest1</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">        HttpURLConnection urlConnection = <span class="keyword">null</span>;</span><br><span class="line">        InputStream is = <span class="keyword">null</span>;</span><br><span class="line">        FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            URL url = <span class="keyword">new</span> URL(<span class="string">"http://localhost:8080/examples/beauty.jpg"</span>);</span><br><span class="line">            urlConnection = (HttpURLConnection) url.openConnection();</span><br><span class="line">            urlConnection.connect();</span><br><span class="line">            is = urlConnection.getInputStream();</span><br><span class="line">            fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"day10\\beauty3.jpg"</span>);</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span>((len = is.read(buffer)) != -<span class="number">1</span>){</span><br><span class="line">                fos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">            }</span><br><span class="line">            System.out.println(<span class="string">"下载完成"</span>);</span><br><span class="line">        } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        } <span class="keyword">finally</span> {</span><br><span class="line">            <span class="comment">//关闭资源</span></span><br><span class="line">            <span class="keyword">if</span>(is != <span class="keyword">null</span>){</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    is.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(fos != <span class="keyword">null</span>){</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    fos.close();</span><br><span class="line">                } <span class="keyword">catch</span> (IOException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(urlConnection != <span class="keyword">null</span>){</span><br><span class="line">                urlConnection.disconnect();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="6-反射的概述-lt-设计代码会写"><a href="#6-反射的概述-lt-设计代码会写" class="headerlink" title="6.反射的概述<设计代码会写"></a>6.反射的概述&lt;设计代码会写</h2><h4 id="1-Java反射机制概述"><a href="#1-Java反射机制概述" class="headerlink" title="1.Java反射机制概述"></a>1.Java反射机制概述</h4><p><img src="/2017/07/10/2016-07-10-fan-she/28_02" alt="1588486379717"></p>
+<p>运行时才能确定，造那个对象，调用那个方法</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_03" alt="1588486483361"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_04" alt="1588486625491"></p>
+<p>spring动态代理</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_05" alt="1588486693586"></p>
+<p>Class 通用类    任意类都有  属性方法构造器   ，，通用描述其他类信息；；；描述类的类</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_06" alt="1588486839082"></p>
+<h4 id="2-理解Class类并获取Class实例"><a href="#2-理解Class类并获取Class实例" class="headerlink" title="2.理解Class类并获取Class实例*"></a>2.理解Class类并获取Class实例*</h4><h2 id="7-反射之前，类的实例化等操作"><a href="#7-反射之前，类的实例化等操作" class="headerlink" title="7.反射之前，类的实例化等操作"></a>7.反射之前，类的实例化等操作</h2><p>引入反射</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person{"</span> +</span><br><span class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", age="</span> + age +</span><br><span class="line">                <span class="string">'}'</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>{</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">(String name)</span> </span>{</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"Person()"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>{</span><br><span class="line">        System.out.println(<span class="string">"你好，我是一个人"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">showNation</span><span class="params">(String nation)</span></span>{</span><br><span class="line">        System.out.println(<span class="string">"我的国籍是："</span> + nation);</span><br><span class="line">        <span class="keyword">return</span> nation;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>demo 类</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_07" alt="1588487306057"></p>
+<h2 id="8-使用反射，实现同上的操作"><a href="#8-使用反射，实现同上的操作" class="headerlink" title="8.使用反射，实现同上的操作"></a>8.使用反射，实现同上的操作</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_08" alt="1588487656995"></p>
+<h2 id="9-反射的强大-调用类的私有结构"><a href="#9-反射的强大-调用类的私有结构" class="headerlink" title="9.反射的强大 :调用类的私有结构"></a>9.反射的强大 :调用类的私有结构</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_09" alt="1588488931785"></p>
+<h2 id="10-如何看待反射和封装性两个技术"><a href="#10-如何看待反射和封装性两个技术" class="headerlink" title="10.如何看待反射和封装性两个技术"></a>10.如何看待反射和封装性两个技术</h2><p>//疑问1：通过直接new的方式或反射的方式都可以调用公共的结构，开发中到底用那个？<br>    //建议：直接new的方式。<br>    //什么时候会使用：反射的方式。 反射的特征：动态性        ;编译的时候不能确定调用那个对象<br>    //  服务器已经开启了，<br>    //疑问2：反射机制与面向对象中的封装性是不是矛盾的？如何看待两个技术？<br>    //不矛盾。   反射是动态性，原来的时候还是那个用<br>//封装 正常调用 用不着,单例对于反射 没必要构造对象<br>//反射是能不能调用的问题    ，封装解决 到底建议你怎么调用</p>
+<h2 id="11-Class类的理解"><a href="#11-Class类的理解" class="headerlink" title="11.Class类的理解"></a>11.Class类的理解</h2><p> /*<br>    关于java.lang.Class类的理解<br>    1.类的加载过程：<br>    程序经过javac.exe命令以后，会生成一个或多个字节码文件(.class结尾)。<br>    接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件<br>    加载到内存中。此过程就称为类的加载。加载到内存中的类，我们就称为运行时类，此<br>    运行时类，就作为Class的一个实例。<br>    2.换句话说，Class的实例就对应着一个运行时类。<br>    3.加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式<br>    来获取此运行时类。<br>     */<br>     class 是大Class 对象<br>万事万物皆对象<br>加上泛型避免强转</p>
+<h2 id="12-获取Class-实例的4种方式-前三种要求掌握"><a href="#12-获取Class-实例的4种方式-前三种要求掌握" class="headerlink" title="12.获取Class 实例的4种方式 (前三种要求掌握)"></a>12.获取Class 实例的4种方式 (前三种要求掌握)</h2><pre><code>![1588491323588](28_10)</code></pre><p>第三种的用的多</p>
+<h2 id="13-Class实例对应的结构的说明"><a href="#13-Class实例对应的结构的说明" class="headerlink" title="13. Class实例对应的结构的说明."></a>13. Class实例对应的结构的说明.</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_11" alt="1588491520221"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_12" alt="1588491541456"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_13" alt="1588491566384"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_14" alt="1588491587195"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_15" alt="1588491751810"></p>
+<p>true</p>
+<h4 id="3-类的加载与ClassLoader的理解"><a href="#3-类的加载与ClassLoader的理解" class="headerlink" title="3.类的加载与ClassLoader的理解"></a>3.类的加载与ClassLoader的理解</h4><h2 id="14-理解类的加载过程"><a href="#14-理解类的加载过程" class="headerlink" title="14.理解类的加载过程"></a>14.理解类的加载过程</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_16" alt="1588491931848"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_17" alt="1588492111554"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_18" alt="1588492181644"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_19" alt="1588492247651"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_20" alt="1588492268577"></p>
+<h2 id="15-ClassLoader的理解"><a href="#15-ClassLoader的理解" class="headerlink" title="15.ClassLoader的理解"></a>15.ClassLoader的理解</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_21" alt="1588492290739"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_22" alt="1588492370657"></p>
+<p>引导  加载器  string</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_23" alt="1588492528630"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_29" alt="1588493843728"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_24" alt="1588492597689"></p>
+<h2 id="16-使用Classloader加载配置文件"><a href="#16-使用Classloader加载配置文件" class="headerlink" title="16. 使用Classloader加载配置文件"></a>16. 使用Classloader加载配置文件</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_25" alt="1588492840087"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_26" alt="1588492992423"></p>
+<p>第一种  src\jdbc1.properties</p>
+<h4 id="4-创建运行时类的对象"><a href="#4-创建运行时类的对象" class="headerlink" title="4.创建运行时类的对象*"></a>4.创建运行时类的对象*</h4><h2 id="17-创建运行时类的对象"><a href="#17-创建运行时类的对象" class="headerlink" title="17.创建运行时类的对象"></a>17.创建运行时类的对象</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_27" alt="1588493229705"></p>
+<p>用泛型 不用转型了</p>
+<pre><code>/*
+newInstance():调用此方法，创建对应的运行时类的对象。内部调用了运行时类的空参的构造器。
+
+要想此方法正常的创建运行时类的对象，要求：
+1.运行时类必须提供空参的构造器
+2.空参的构造器的访问权限得够。通常，设置为public。
+在javabean中要求提供一个public的空参构造器。原因：
+1.便于通过反射，创建运行时类的对象
+2.便于子类继承此运行时类时，默认调用super()时，保证父类有此构造器
+
+ */</code></pre><p><img src="/2017/07/10/2016-07-10-fan-she/28_28" alt="1588493725904"></p>
+<p>只有构造器才能造对象，newInstance  内部调用构造器     不带参数好处理，避免各个子类之间属性不一样</p>
+<p>通常 通过反射创建对象 ，都喜欢空参的</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_30" alt="1588494021095"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_31" alt="1588494042948"></p>
+<h2 id="18-体会反射的动态性"><a href="#18-体会反射的动态性" class="headerlink" title="18.体会反射的动态性"></a>18.体会反射的动态性</h2><p>只有运行过后才能确认</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_32" alt="1588494556537"></p>
+<h4 id="5-获取运行时类的完整结构-不要求掌握"><a href="#5-获取运行时类的完整结构-不要求掌握" class="headerlink" title="5.获取运行时类的完整结构  (不要求掌握)"></a>5.获取运行时类的完整结构  (不要求掌握)</h4><h2 id="19-提供结构丰富的Person类（Creature-java，MyInterface-java，MyAnnotation-java-Person-java）"><a href="#19-提供结构丰富的Person类（Creature-java，MyInterface-java，MyAnnotation-java-Person-java）" class="headerlink" title="19. 提供结构丰富的Person类（Creature.java，MyInterface.java，MyAnnotation.java,Person.java）"></a>19. 提供结构丰富的Person类（Creature.java，MyInterface.java，MyAnnotation.java,Person.java）</h2><p>Creature.java</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Creature</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span> gender;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">double</span> weight;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span></span>{</span><br><span class="line">        System.out.println(<span class="string">"生物呼吸"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>{</span><br><span class="line">        System.out.println(<span class="string">"生物吃东西"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>MyInterface.java</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>MyAnnotation.java</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation {</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "hello"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Person.java</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyAnnotation</span>(value=<span class="string">"hi"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Creature</span>&lt;<span class="title">String</span>&gt; <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;,<span class="title">MyInterface</span></span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>{}</span><br><span class="line"></span><br><span class="line">    <span class="meta">@MyAnnotation</span>(value=<span class="string">"abc"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">(String name)</span></span>{</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">     Person(String name,<span class="keyword">int</span> age){</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    }</span><br><span class="line">    <span class="meta">@MyAnnotation</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">show</span><span class="params">(String nation)</span></span>{</span><br><span class="line">        System.out.println(<span class="string">"我的国籍是："</span> + nation);</span><br><span class="line">        <span class="keyword">return</span> nation;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">display</span><span class="params">(String interests,<span class="keyword">int</span> age)</span> <span class="keyword">throws</span> NullPointerException,ClassCastException</span>{</span><br><span class="line">        <span class="keyword">return</span> interests + age;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>{</span><br><span class="line">        System.out.println(<span class="string">"我是一个人"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(String o)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showDesc</span><span class="params">()</span></span>{</span><br><span class="line">        System.out.println(<span class="string">"我是一个可爱的人"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Person{"</span> +</span><br><span class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", age="</span> + age +</span><br><span class="line">                <span class="string">", id="</span> + id +</span><br><span class="line">                <span class="string">'}'</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h2 id="20-获取运行时类的属性结构及其内部结构"><a href="#20-获取运行时类的属性结构及其内部结构" class="headerlink" title="20.获取运行时类的属性结构及其内部结构."></a>20.获取运行时类的属性结构及其内部结构.</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_33" alt="1588495783337"></p>
+<p>本类中声明的属性</p>
+<p>属性的具体某个结构拿到   (实际开发不用 太无聊了)</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_34" alt="1588496598491"></p>
+<h2 id="21-获取运行时类的方法结构"><a href="#21-获取运行时类的方法结构" class="headerlink" title="21.获取运行时类的方法结构"></a>21.获取运行时类的方法结构</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_35" alt="1588497813290"></p>
+<h2 id="22-获取运行时类的方法的内部结构"><a href="#22-获取运行时类的方法的内部结构" class="headerlink" title="22.获取运行时类的方法的内部结构"></a>22.获取运行时类的方法的内部结构</h2><p>注解  runtime 可以获取到，，，改成RetentionPolicy.class 获取不到</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_37" alt="1588498829875"></p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_36" alt="1588498803536"></p>
+<p>可重复注解，所以是多了类型</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_38" alt="1588499949858"></p>
+<p>后续通过反射拿到方法  ，接着获取注解，看想做什么</p>
+<p>注解+反射+设计模式=框架</p>
+<h2 id="23-获取运行时类的构造器结构"><a href="#23-获取运行时类的构造器结构" class="headerlink" title="23. 获取运行时类的构造器结构"></a>23. 获取运行时类的构造器结构</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_39" alt="1588500150497"></p>
+<h2 id="24-获取运行时类的父类及父类的泛型"><a href="#24-获取运行时类的父类及父类的泛型" class="headerlink" title="24.获取运行时类的父类及父类的泛型"></a>24.获取运行时类的父类及父类的泛型</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_40" alt="1588500639738"></p>
+<h2 id="25-获取运行时类的接、所在包、注解等"><a href="#25-获取运行时类的接、所在包、注解等" class="headerlink" title="25. 获取运行时类的接、所在包、注解等"></a>25. 获取运行时类的接、所在包、注解等</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_41" alt="1588501117780"></p>
+<p>test4.  test5(动态代理)    test7  框架用到的多（可能用在某个方法上）</p>
+<h4 id="6-调用运行时类的指定结构"><a href="#6-调用运行时类的指定结构" class="headerlink" title="6.调用运行时类的指定结构*"></a>6.调用运行时类的指定结构*</h4><h2 id="26-调用运行时类中的指定属性-属性-方法-构造器-重点方法"><a href="#26-调用运行时类中的指定属性-属性-方法-构造器-重点方法" class="headerlink" title="26.调用运行时类中的指定属性 (属性  方法 构造器 )  重点方法"></a>26.调用运行时类中的指定属性 (属性  方法 构造器 )  重点方法</h2><p>declare  范围比较小</p>
+<p><img src="/2017/07/10/2016-07-10-fan-she/28_42" alt="1588501820312"></p>
+<h2 id="27-调用运行时类中的指定方法"><a href="#27-调用运行时类中的指定方法" class="headerlink" title="27.调用运行时类中的指定方法."></a>27.调用运行时类中的指定方法.</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_43" alt="1588502254601"></p>
+<p>  静态 :   null==Person.class 都可以</p>
+<h2 id="28-调用运行时类中的指定构造器（不常用）"><a href="#28-调用运行时类中的指定构造器（不常用）" class="headerlink" title="28.调用运行时类中的指定构造器（不常用）"></a>28.调用运行时类中的指定构造器（不常用）</h2><p><img src="/2017/07/10/2016-07-10-fan-she/28_44" alt="1588502603077"></p>
+<p>通用  通用  –&gt;   空参数 通用</p>
+<h4 id="7-反射的应用-动态代理"><a href="#7-反射的应用-动态代理" class="headerlink" title="7.反射的应用:动态代理"></a>7.反射的应用:动态代理</h4><p>二轮面试  项目经理和开发组长</p>
+<p>待遇   20% </p>
+<p>参与项目  ，项目采用什么架构  ，主要那一块   用什么技术实现的</p>
+<p> 这就是下一个目标</p>
+<p>代码: 逻辑性代码 VS 功能性代码 </p>
+<p>逻辑性代码  要保存起来  ，  从一个页面到另一个页面的逻辑    保存</p>
+<p>功能性代码    :知道代码干什么事就够了   不用深究</p>
+<p>知道怎么用  ，</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2018/12/01/2018-12-01-centos-7-18-10-da-jian-si-ren-wang-pan-he-bo-ke/" class="pre-post btn btn-default" title='CentOS 7(18.10)搭建个人网盘和博客'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            CentOS 7(18.10)搭建个人网盘和博客</span>
+    </a>
+    
+    
+    <a href="/2017/07/09/2016-07-09-io-liu-yu-wang-luo-bian-cheng/" class="next-post btn btn-default" title='IO流与网络编程'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            IO流与网络编程</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'LWmP4tvyNOjV0hDcXSzBxE6c-gzGzoHsz',
+    appKey: 'R7xHtkFCXCFDHvyOSB5h4YjG',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '5',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-每日一考"><span class="toc-text">1.每日一考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-对象序列化机制"><span class="toc-text">2.对象序列化机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IO-流"><span class="toc-text">IO 流</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对象流的使用"><span class="toc-text">对象流的使用</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-复习：-其他IO流内容"><span class="toc-text">3.复习： 其他IO流内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RandomAccessFile"><span class="toc-text">RandomAccessFile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Path-Paths-Files的使用"><span class="toc-text">Path\Paths\Files的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复习4-网络通信要素"><span class="toc-text">复习4. 网络通信要素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#InetAddress类的使用"><span class="toc-text">InetAddress类的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-复习-TCP、UDP、URL网络编程"><span class="toc-text">5.复习:TCP、UDP、URL网络编程.</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#网络编程"><span class="toc-text">网络编程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP-网络编程"><span class="toc-text">TCP 网络编程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UDP-网络编程"><span class="toc-text">UDP 网络编程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UR编程"><span class="toc-text">UR编程</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-反射的概述-lt-设计代码会写"><span class="toc-text">6.反射的概述&lt;设计代码会写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Java反射机制概述"><span class="toc-text">1.Java反射机制概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-理解Class类并获取Class实例"><span class="toc-text">2.理解Class类并获取Class实例*</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-反射之前，类的实例化等操作"><span class="toc-text">7.反射之前，类的实例化等操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-使用反射，实现同上的操作"><span class="toc-text">8.使用反射，实现同上的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-反射的强大-调用类的私有结构"><span class="toc-text">9.反射的强大 :调用类的私有结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-如何看待反射和封装性两个技术"><span class="toc-text">10.如何看待反射和封装性两个技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Class类的理解"><span class="toc-text">11.Class类的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-获取Class-实例的4种方式-前三种要求掌握"><span class="toc-text">12.获取Class 实例的4种方式 (前三种要求掌握)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Class实例对应的结构的说明"><span class="toc-text">13. Class实例对应的结构的说明.</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-类的加载与ClassLoader的理解"><span class="toc-text">3.类的加载与ClassLoader的理解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-理解类的加载过程"><span class="toc-text">14.理解类的加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-ClassLoader的理解"><span class="toc-text">15.ClassLoader的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-使用Classloader加载配置文件"><span class="toc-text">16. 使用Classloader加载配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-创建运行时类的对象"><span class="toc-text">4.创建运行时类的对象*</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-创建运行时类的对象"><span class="toc-text">17.创建运行时类的对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-体会反射的动态性"><span class="toc-text">18.体会反射的动态性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-获取运行时类的完整结构-不要求掌握"><span class="toc-text">5.获取运行时类的完整结构  (不要求掌握)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-提供结构丰富的Person类（Creature-java，MyInterface-java，MyAnnotation-java-Person-java）"><span class="toc-text">19. 提供结构丰富的Person类（Creature.java，MyInterface.java，MyAnnotation.java,Person.java）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-获取运行时类的属性结构及其内部结构"><span class="toc-text">20.获取运行时类的属性结构及其内部结构.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-获取运行时类的方法结构"><span class="toc-text">21.获取运行时类的方法结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-获取运行时类的方法的内部结构"><span class="toc-text">22.获取运行时类的方法的内部结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-获取运行时类的构造器结构"><span class="toc-text">23. 获取运行时类的构造器结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-获取运行时类的父类及父类的泛型"><span class="toc-text">24.获取运行时类的父类及父类的泛型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-获取运行时类的接、所在包、注解等"><span class="toc-text">25. 获取运行时类的接、所在包、注解等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-调用运行时类的指定结构"><span class="toc-text">6.调用运行时类的指定结构*</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-调用运行时类中的指定属性-属性-方法-构造器-重点方法"><span class="toc-text">26.调用运行时类中的指定属性 (属性  方法 构造器 )  重点方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-调用运行时类中的指定方法"><span class="toc-text">27.调用运行时类中的指定方法.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-调用运行时类中的指定构造器（不常用）"><span class="toc-text">28.调用运行时类中的指定构造器（不常用）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-反射的应用-动态代理"><span class="toc-text">7.反射的应用:动态代理</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+
+<script type="text/javascript" src="/js/love_mouse.js"></script>
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+<script type="text/javascript" src="/js/code/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/js/code/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/js/code/codeCopy.js"></script>
+<script type="text/javascript" src="/js/code/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/js/code/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -78,11 +78,119 @@
   </entry>
   
   <entry>
+    <title>反射</title>
+    <link href="http://zhenqk.github.io/2017/07/10/2016-07-10-fan-she/"/>
+    <id>http://zhenqk.github.io/2017/07/10/2016-07-10-fan-she/</id>
+    <published>2017-07-09T22:54:12.000Z</published>
+    <updated>2020-05-21T00:07:33.703Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="反射" scheme="http://zhenqk.github.io/tags/%E5%8F%8D%E5%B0%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IO流与网络编程</title>
+    <link href="http://zhenqk.github.io/2017/07/09/2016-07-09-io-liu-yu-wang-luo-bian-cheng/"/>
+    <id>http://zhenqk.github.io/2017/07/09/2016-07-09-io-liu-yu-wang-luo-bian-cheng/</id>
+    <published>2017-07-09T07:42:24.000Z</published>
+    <updated>2020-05-21T00:41:53.819Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="网络编程" scheme="http://zhenqk.github.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IO流</title>
+    <link href="http://zhenqk.github.io/2017/07/09/2016-07-09-io-liu-m/"/>
+    <id>http://zhenqk.github.io/2017/07/09/2016-07-09-io-liu-m/</id>
+    <published>2017-07-08T23:19:15.000Z</published>
+    <updated>2020-05-21T00:39:33.934Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一问&quot;&gt;&lt;a href=&quot;#1-每日一问&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="IO流" scheme="http://zhenqk.github.io/tags/IO%E6%B5%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>泛型</title>
+    <link href="http://zhenqk.github.io/2017/07/08/2016-07-08-fan-xing/"/>
+    <id>http://zhenqk.github.io/2017/07/08/2016-07-08-fan-xing/</id>
+    <published>2017-07-07T22:59:04.000Z</published>
+    <updated>2020-05-20T23:25:00.679Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="泛型" scheme="http://zhenqk.github.io/tags/%E6%B3%9B%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>集合(补1)</title>
-    <link href="http://zhenqk.github.io/2016/07/06/2016-07-06-ji-he-bu-1/"/>
-    <id>http://zhenqk.github.io/2016/07/06/2016-07-06-ji-he-bu-1/</id>
-    <published>2016-07-06T06:52:54.000Z</published>
-    <updated>2020-05-20T17:07:10.355Z</updated>
+    <link href="http://zhenqk.github.io/2017/07/06/2016-07-06-ji-he-bu-1/"/>
+    <id>http://zhenqk.github.io/2017/07/06/2016-07-06-ji-he-bu-1/</id>
+    <published>2017-07-06T06:52:54.000Z</published>
+    <updated>2020-05-20T23:24:44.651Z</updated>
     
     <summary type="html">
     
@@ -106,10 +214,10 @@
   
   <entry>
     <title>集合</title>
-    <link href="http://zhenqk.github.io/2016/07/06/2016-07-06-ji-he/"/>
-    <id>http://zhenqk.github.io/2016/07/06/2016-07-06-ji-he/</id>
-    <published>2016-07-05T22:37:54.000Z</published>
-    <updated>2020-05-20T17:13:05.246Z</updated>
+    <link href="http://zhenqk.github.io/2017/07/06/2016-07-06-ji-he/"/>
+    <id>http://zhenqk.github.io/2017/07/06/2016-07-06-ji-he/</id>
+    <published>2017-07-05T22:37:54.000Z</published>
+    <updated>2020-05-20T23:24:36.474Z</updated>
     
     <summary type="html">
     
@@ -133,10 +241,10 @@
   
   <entry>
     <title>枚举类与注解</title>
-    <link href="http://zhenqk.github.io/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/"/>
-    <id>http://zhenqk.github.io/2016/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/</id>
-    <published>2016-07-04T23:16:58.000Z</published>
-    <updated>2020-05-20T16:27:33.286Z</updated>
+    <link href="http://zhenqk.github.io/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/"/>
+    <id>http://zhenqk.github.io/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/</id>
+    <published>2017-07-04T23:16:58.000Z</published>
+    <updated>2020-05-20T23:23:07.518Z</updated>
     
     <summary type="html">
     
@@ -162,10 +270,10 @@
   
   <entry>
     <title>常用类Date</title>
-    <link href="http://zhenqk.github.io/2016/07/04/2016-07-04-chang-yong-lei-date/"/>
-    <id>http://zhenqk.github.io/2016/07/04/2016-07-04-chang-yong-lei-date/</id>
-    <published>2016-07-03T23:20:57.000Z</published>
-    <updated>2020-05-20T02:26:00.051Z</updated>
+    <link href="http://zhenqk.github.io/2017/07/04/2016-07-04-chang-yong-lei-date/"/>
+    <id>http://zhenqk.github.io/2017/07/04/2016-07-04-chang-yong-lei-date/</id>
+    <published>2017-07-03T23:20:57.000Z</published>
+    <updated>2020-05-20T23:22:59.597Z</updated>
     
     <summary type="html">
     
@@ -191,10 +299,10 @@
   
   <entry>
     <title>常用类String</title>
-    <link href="http://zhenqk.github.io/2016/07/02/2016-07-02-chang-yong-lei-string/"/>
-    <id>http://zhenqk.github.io/2016/07/02/2016-07-02-chang-yong-lei-string/</id>
-    <published>2016-07-02T07:24:09.000Z</published>
-    <updated>2020-05-20T02:28:14.470Z</updated>
+    <link href="http://zhenqk.github.io/2017/07/02/2016-07-02-chang-yong-lei-string/"/>
+    <id>http://zhenqk.github.io/2017/07/02/2016-07-02-chang-yong-lei-string/</id>
+    <published>2017-07-02T07:24:09.000Z</published>
+    <updated>2020-05-20T23:31:15.346Z</updated>
     
     <summary type="html">
     
@@ -220,10 +328,10 @@
   
   <entry>
     <title>多线程（补1）多</title>
-    <link href="http://zhenqk.github.io/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/"/>
-    <id>http://zhenqk.github.io/2016/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/</id>
-    <published>2016-07-01T02:10:40.000Z</published>
-    <updated>2020-05-20T10:06:28.089Z</updated>
+    <link href="http://zhenqk.github.io/2017/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/"/>
+    <id>http://zhenqk.github.io/2017/07/01/2016-07-01-duo-xian-cheng-bu-1-duo/</id>
+    <published>2017-07-01T02:10:40.000Z</published>
+    <updated>2020-05-20T23:26:52.035Z</updated>
     
     <summary type="html">
     
@@ -250,10 +358,10 @@
   
   <entry>
     <title>IDEA学习与多线程</title>
-    <link href="http://zhenqk.github.io/2016/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/"/>
-    <id>http://zhenqk.github.io/2016/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/</id>
-    <published>2016-06-30T03:30:13.000Z</published>
-    <updated>2020-05-20T02:11:53.276Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/"/>
+    <id>http://zhenqk.github.io/2017/06/30/2016-06-30-idea-xue-xi-yu-duo-xian-cheng/</id>
+    <published>2017-06-30T03:30:13.000Z</published>
+    <updated>2020-05-20T23:22:28.875Z</updated>
     
     <summary type="html">
     
@@ -279,10 +387,10 @@
   
   <entry>
     <title>异常处理</title>
-    <link href="http://zhenqk.github.io/2016/06/30/2016-06-30-yi-chang-chu-li/"/>
-    <id>http://zhenqk.github.io/2016/06/30/2016-06-30-yi-chang-chu-li/</id>
-    <published>2016-06-29T22:58:49.000Z</published>
-    <updated>2020-05-20T02:01:00.768Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/30/2016-06-30-yi-chang-chu-li/"/>
+    <id>http://zhenqk.github.io/2017/06/30/2016-06-30-yi-chang-chu-li/</id>
+    <published>2017-06-29T22:58:49.000Z</published>
+    <updated>2020-05-20T23:22:36.441Z</updated>
     
     <summary type="html">
     
@@ -307,10 +415,10 @@
   
   <entry>
     <title>面向对象(下)补1</title>
-    <link href="http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/"/>
-    <id>http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/</id>
-    <published>2016-06-29T03:17:18.000Z</published>
-    <updated>2020-05-20T17:09:32.801Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/"/>
+    <id>http://zhenqk.github.io/2017/06/29/2016-06-29-mian-xiang-dui-xiang-xia-bu-1/</id>
+    <published>2017-06-29T03:17:18.000Z</published>
+    <updated>2020-05-20T23:33:26.389Z</updated>
     
     <summary type="html">
     
@@ -334,10 +442,10 @@
   
   <entry>
     <title>面向对象(下)</title>
-    <link href="http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia/"/>
-    <id>http://zhenqk.github.io/2016/06/29/2016-06-29-mian-xiang-dui-xiang-xia/</id>
-    <published>2016-06-28T23:27:18.000Z</published>
-    <updated>2020-05-19T11:38:55.921Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/29/2016-06-29-mian-xiang-dui-xiang-xia/"/>
+    <id>http://zhenqk.github.io/2017/06/29/2016-06-29-mian-xiang-dui-xiang-xia/</id>
+    <published>2017-06-28T23:27:18.000Z</published>
+    <updated>2020-05-20T23:32:34.333Z</updated>
     
     <summary type="html">
     
@@ -361,10 +469,10 @@
   
   <entry>
     <title>面向对象(中)补2</title>
-    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/"/>
-    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/</id>
-    <published>2016-06-28T07:02:45.000Z</published>
-    <updated>2020-05-19T11:09:45.473Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/"/>
+    <id>http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-2/</id>
+    <published>2017-06-28T07:02:45.000Z</published>
+    <updated>2020-05-20T23:34:49.148Z</updated>
     
     <summary type="html">
     
@@ -388,10 +496,10 @@
   
   <entry>
     <title>面向对象(中)补1</title>
-    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/"/>
-    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/</id>
-    <published>2016-06-28T03:55:22.000Z</published>
-    <updated>2020-05-19T11:09:34.410Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/"/>
+    <id>http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong-bu-1/</id>
+    <published>2017-06-28T03:55:22.000Z</published>
+    <updated>2020-05-20T23:34:07.810Z</updated>
     
     <summary type="html">
     
@@ -416,10 +524,10 @@
   
   <entry>
     <title>面向对象(中)</title>
-    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/"/>
-    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/</id>
-    <published>2016-06-28T01:17:34.000Z</published>
-    <updated>2020-05-19T10:53:22.475Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/"/>
+    <id>http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/</id>
+    <published>2017-06-28T01:17:34.000Z</published>
+    <updated>2020-05-20T23:35:10.946Z</updated>
     
     <summary type="html">
     
@@ -443,10 +551,10 @@
   
   <entry>
     <title>面向对象(上)补2</title>
-    <link href="http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/"/>
-    <id>http://zhenqk.github.io/2016/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/</id>
-    <published>2016-06-27T23:25:46.000Z</published>
-    <updated>2020-05-19T10:53:44.814Z</updated>
+    <link href="http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/"/>
+    <id>http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/</id>
+    <published>2017-06-27T23:25:46.000Z</published>
+    <updated>2020-05-20T23:37:42.746Z</updated>
     
     <summary type="html">
     
@@ -465,106 +573,6 @@
     
     
       <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象(上)补1</title>
-    <link href="http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang-bu-1/"/>
-    <id>http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang-bu-1/</id>
-    <published>2016-06-27T02:57:13.000Z</published>
-    <updated>2020-05-19T10:54:04.464Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-2-每天一问&quot;&gt;&lt;a href=&quot;#1-2-每天一问&quot; class=&quot;headerlink&quot; title=&quot;1-2. 每天一问&quot;&gt;&lt;/a&gt;1-2.
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象(上)</title>
-    <link href="http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang/"/>
-    <id>http://zhenqk.github.io/2016/06/27/2016-06-10-mian-xiang-dui-xiang-shang/</id>
-    <published>2016-06-26T22:49:32.000Z</published>
-    <updated>2020-05-19T10:54:19.286Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;Java语言的基本元素-类与对象&quot;&gt;&lt;a href=&quot;#Java语言的基本元素-类与对象&quot; class=&quot;headerlink&quot; title=&quot;Java语言的基本元素 类与对象&quot;&gt;&lt;/a&gt;Java语言的基本元素 类与对象&lt;/h4&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基本数据类型</title>
-    <link href="http://zhenqk.github.io/2016/06/24/2016-06-24-ji-ben-shu-ju-lei-xing/"/>
-    <id>http://zhenqk.github.io/2016/06/24/2016-06-24-ji-ben-shu-ju-lei-xing/</id>
-    <published>2016-06-24T12:08:07.000Z</published>
-    <updated>2020-05-19T10:19:52.766Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;1-Java-语言基础-基本数据类型&quot;&gt;&lt;a href=&quot;#1-Java-语言基础-基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;1. Java 语言基础-基本数据类型&quot;&gt;&lt;/a&gt;1. Java 语言基础-基本数据类型&lt;/h3&gt;&lt;h4
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>引言:为什么学习Java以及怎么学习Java</title>
-    <link href="http://zhenqk.github.io/2016/06/24/2016-06-24-wei-shi-me-xue-xi-java-yi-ji-zen-me-xue-xi-java/"/>
-    <id>http://zhenqk.github.io/2016/06/24/2016-06-24-wei-shi-me-xue-xi-java-yi-ji-zen-me-xue-xi-java/</id>
-    <published>2016-06-24T10:11:03.000Z</published>
-    <updated>2020-05-20T07:27:08.409Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1认识Java&quot;&gt;&lt;a href=&quot;#1认识Java&quot; class=&quot;headerlink&quot; title=&quot;1认识Java+&quot;&gt;&lt;/a&gt;1认识Java+&lt;/h3&gt;&lt;h4 id=&quot;1-Java在公司里是用于干啥的-主要1和3&quot;&gt;&lt;a href=&quot;#1-Java在公司里是用于干啥的-主要1和3&quot; class=&quot;headerlink&quot; title=&quot;1. Java在公司里是用于干啥的?(主要1和3)&quot;&gt;&lt;/a&gt;1. Java在公司里是用于干啥的?(主要1和3)&lt;/h4&gt;&lt;p&gt;①Java web: 银行系统&amp;amp;银行网站&amp;amp;酒店系统&amp;amp;N多后台管理系统   主要&lt;br&gt;②App: android是 用java写的，今年出了新的kotlin语言&lt;br&gt;③接口:为android、i0S等App提供数据访问接口    主要&lt;br&gt;④大数据(马云说过“大”是计算的意思)&lt;br&gt;⑤桌面应用(比较少开发桌面应用)&lt;br&gt;⑥….&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="DOS命令" scheme="http://zhenqk.github.io/tags/DOS%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   

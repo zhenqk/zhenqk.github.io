@@ -1,0 +1,574 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="泛型" />
+
+
+<meta name="description" content="1.每日一考
+1.Map存储数据的特点是什么？并指明key，value，entry存储数据的特点。
+
+双列数据，存储key-value对数据。
+key：无序的、不可重复的-&gt;Set存储
+v..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    泛型 |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="泛型">
+            
+            泛型
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E6%B3%9B%E5%9E%8B/" rel="tag">泛型</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2017/07/08</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><ul>
+<li>1.Map存储数据的特点是什么？并指明key，value，entry存储数据的特点。</li>
+</ul>
+<p>双列数据，存储key-value对数据。</p>
+<p>key：无序的、不可重复的-&gt;Set存储</p>
+<p>value:无序的、可重复的 –&gt;Collection存储</p>
+<p>key-value:无序的、不可重复 -&gt;Set存储</p>
+<ul>
+<li><p>2.描述HashMap的底层实现原理(jdk 8版)</p>
+</li>
+<li><p>3.Map中常用实现类有哪些？各自有什么特点？</p>
+</li>
+<li><p>4.如何遍历Map中的key-value对，代码实现</p>
+</li>
+<li><p>5.Collection和Collections的区别？</p>
+</li>
+</ul>
+<p>处理出核心   ，在逐渐细化</p>
+<h2 id="2-复习Map"><a href="#2-复习Map" class="headerlink" title="2.复习Map"></a>2.复习Map</h2><p>双列集合框架: Map<br>1.常用实现类结构</p>
+<p> |—-Map:双列数据，存储key-value对的数据   —类似于高中的函数：y = f(x)<br>        |—-HashMap:作为Map的主要实现类；线程不安全的，效率高；存储null的key和value<br>             |—-LinkedHashMap:保证在遍历map元素时，可以按照添加的顺序实现遍历。<br>                     原因：在原有的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。<br>                     对于频繁的遍历操作，此类执行效率高于HashMap。<br>        |—-TreeMap:保证按照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序<br>                     底层使用红黑树<br>        |—-Hashtable:作为古老的实现类；线程安全的，效率低；不能存储null的key和value<br>             |—-Properties:常用来处理配置文件。key和value都是String类型<br>     HashMap的底层：数组+链表  （jdk7及之前）<br>                   数组+链表+红黑树 （jdk 8）</p>
+<p>[面试题]</p>
+<ol>
+<li>HashMap的底层实现原理？</li>
+<li>HashMap 和 Hashtable的异同？</li>
+<li>CurrentHashMap 与 Hashtable的异同？（暂时不讲）<br>*</li>
+</ol>
+<p>2.存储结构的理解:</p>
+<pre><code>Map中的key:无序的、不可重复的，使用Set存储所有的key  ---&gt; key所在的类要重写equals()和hashCode() （以HashMap为例）
+ Map中的value:无序的、可重复的，使用Collection存储所有的value ---&gt;value所在的类要重写equals()
+ 一个键值对：key-value构成了一个Entry对象。
+ Map中的entry:无序的、不可重复的，使用Set存储所有的entry</code></pre><p>图示:</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/24_12" alt="1588300324391"></p>
+<p>3.常用方法</p>
+<p>添加：put(Object key,Object value)<br>删除：remove(Object key)<br>修改：put(Object key,Object value)<br>查询：get(Object key)<br>长度：size()<br>遍历：keySet() / values() / entrySet()</p>
+<p>4.内存结构说明: (难点)<br>4.1 HashMap在jdk7中实现原理:</p>
+<p>  HashMap map = new HashMap():<br>     在实例化以后，底层创建了长度是16的一维数组Entry[] table。<br>     …可能已经执行过多次put…<br>     map.put(key1,value1):<br>     首先，调用key1所在类的hashCode()计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。<br>     如果此位置上的数据为空，此时的key1-value1添加成功。 —-情况1<br>     如果此位置上的数据不为空，(意味着此位置上存在一个或多个数据(以链表形式存在)),比较key1和已经存在的一个或多个数据<br>     的哈希值：<br>             如果key1的哈希值与已经存在的数据的哈希值都不相同，此时key1-value1添加成功。—-情况2<br>             如果key1的哈希值和已经存在的某一个数据(key2-value2)的哈希值相同，继续比较：调用key1所在类的equals(key2)方法，比较：<br>                     如果equals()返回false:此时key1-value1添加成功。—-情况3<br>                     如果equals()返回true:使用value1替换value2。<br> *<br>      补充：关于情况2和情况3：此时key1-value1和原来的数据以链表的方式存储。<br> *<br>     在不断的添加过程中，会涉及到扩容问题，当超出临界值(且要存放的位置非空)时，扩容。默认的扩容方式：扩容为原来容量的2倍，并将原有的数据复制过来。</p>
+<p>4.2 HashMap在jdk8中相较于jdk7在底层实现方面的不同:</p>
+<ol>
+<li>new HashMap():底层没有创建一个长度为16的数组</li>
+<li>jdk 8底层的数组是：Node[],而非Entry[]</li>
+<li>首次调用put()方法时，底层创建长度为16的数组</li>
+<li>jdk7底层结构只有：数组+链表。jdk8中底层结构：数组+链表+红黑树。<br>*形成链表时，七上八下（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）<br>*当数组的某一个索引位置上的元素以链表形式存在的数据个数 &gt; 8 且当前数组的长度 &gt; 64时，此时此索引位置上的所数据改为使用红黑树存储。</li>
+</ol>
+<p>4.3 HashMap底层典型属性的属性的说明:</p>
+<pre><code>DEFAULT_INITIAL_CAPACITY : HashMap的默认容量，16
+ DEFAULT_LOAD_FACTOR：HashMap的默认加载因子：0.75
+ threshold：扩容的临界值，=容量*填充因子：16\*0.75 =&gt; 12
+ TREEIFY_THRESHOLD：Bucket中链表长度大于该默认值，转化为红黑树:8
+ MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量:64</code></pre><p>4.4 LinkedHashMap的底层实现原理(了解)</p>
+<p>LinkedHashMap底层使用的结构与HashMap相同，因为LinkedHashMap继 承于HashMap.<br>区别就在于: LinkedHashMap内 部提供了Entry,替换HashMap中的Node.</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/24_25" alt="1588306337685"></p>
+<p>5.TreeMap的使用<br>向TreeMap中添加key-value，要求key必须是由同一个类创建的对象<br>因为要按照key进行排序：自然排序 、定制排序</p>
+<p>6.使用Properties读取配置文件</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/24_39" alt="1588312710514"></p>
+<h2 id="3-复习Collections和数据结构"><a href="#3-复习Collections和数据结构" class="headerlink" title="3.复习Collections和数据结构"></a>3.复习Collections和数据结构</h2><p>Colectiorls工具类<br>1.作用:操作Collection和Map的工具类<br>2.常用方法:</p>
+<p>reverse(List)：反转 List 中元素的顺序<br>shuffle(List)：对 List 集合元素进行随机排序<br>sort(List)：根据元素的自然顺序对指定 List 集合元素按升序排序<br>sort(List，Comparator)：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序<br>swap(List，int， int)：将指定 list 集合中的 i 处元素和 j 处元素进行交换</p>
+<p>Object max(Collection)：根据元素的自然顺序，返回给定集合中的最大元素<br>Object max(Collection，Comparator)：根据 Comparator 指定的顺序，返回给定集合中的最大元素<br>Object min(Collection)<br>Object min(Collection，Comparator)<br>int frequency(Collection，Object)：返回指定集合中指定元素的出现次数<br>void copy(List dest,List src)：将src中的内容复制到dest中<br>boolean replaceAll(List list，Object oldVal，Object newVal)：使用新值替换 List 对象的所有旧值</p>
+<p>返回线程安全的<br><img src="/2017/07/08/2016-07-08-fan-xing/24_42" alt="1588313045587"><br>说明: ArayList和Hashlap都是线程不安全的，如果程序要求线程安全，我们可以将ArrayList、HashMap转换为线程安全的。<br>使用synchronizedList(List list) 和synchronizedMap (Map map)</p>
+<p>3.’面试题:<br> 面试题：Collection 和 Collections的区别？<br>数据结构</p>
+<p>1.为什么要有泛型</p>
+<h2 id="4-为什么使用泛型"><a href="#4-为什么使用泛型" class="headerlink" title="4.为什么使用泛型"></a>4.为什么使用泛型</h2><p><img src="/2017/07/08/2016-07-08-fan-xing/25_01" alt="1588323642655"></p>
+<p>写上之后只能放大黄</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_02" alt="1588323885911"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_03" alt="1588323961456"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_04" alt="1588324008545"></p>
+<p>泛型的使用<br>1.jdk 5.0新增的特性<br> *<br>2.在集合中使用泛型：<br> 总结：<br> ① 集合接口或集合类在jdk5.0时都修改为带泛型的结构。<br> ② 在实例化集合类时，可以指明具体的泛型类型<br> ③ 指明完以后，在集合类或接口中凡是定义类或接口时，内部结构（比如：方法、构造器、属性等）使用到类的泛型的位置，都指定为实例化的泛型类型。<br>   比如：add(E e)  —&gt;实例化以后：add(Integer e)<br> ④ 注意点：泛型的类型必须是类，不能是基本数据类型。需要用到基本数据类型的位置，拿包装类替换<br> ⑤ 如果实例化时，没有指明泛型的类型。默认类型为java.lang.Object类型。<br> *<br>3.如何自定义泛型结构：泛型类、泛型接口；泛型方法。见 GenericTest1.java ##7. </p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_05" alt="1588324328690"></p>
+<h2 id="5-在集合中使用泛型"><a href="#5-在集合中使用泛型" class="headerlink" title="5.在集合中使用泛型"></a>5.在集合中使用泛型</h2><p>泛型不能是基本数据类型，需要用包装类</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_06" alt="1588324618982"></p>
+<p>2.在集合中使用泛型</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_07" alt="1588325149840"></p>
+<h2 id="6-集合中使用泛型的练习"><a href="#6-集合中使用泛型的练习" class="headerlink" title="6.集合中使用泛型的练习"></a>6.集合中使用泛型的练习</h2><p><img src="/2017/07/08/2016-07-08-fan-xing/25_08" alt="1588325325110"></p>
+<ul>
+<li><p>自然排序<br><img src="/2017/07/08/2016-07-08-fan-xing/25_09" alt="1588325379865"><br><img src="/2017/07/08/2016-07-08-fan-xing/25_10" alt="1588325447329"></p>
+</li>
+<li><p>定制排序:</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_11" alt="1588325740164"></p>
+<p>MyDate</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_12" alt="1588325919271"></p>
+</li>
+</ul>
+<p>3.自定义泛型结构</p>
+<h2 id="7-自定义泛型类举例"><a href="#7-自定义泛型类举例" class="headerlink" title="7.自定义泛型类举例"></a>7.自定义泛型类举例</h2><p>自定义泛型类， T是一个参数 </p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_13" alt="1588326158843"></p>
+<p>不使用T认为是object类型</p>
+<p>加泛型做了不必要的强转、或判断类型</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_14" alt="1588326446496"></p>
+<p>子类实现父类  order后面的参数</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_15" alt="1588326532877"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_16" alt="1588326570785"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_17" alt="1588326670561"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_18" alt="1588326696998"></p>
+<h2 id="8-自定义泛型类泛型接口的注意点"><a href="#8-自定义泛型类泛型接口的注意点" class="headerlink" title="8 .自定义泛型类泛型接口的注意点"></a>8 .自定义泛型类泛型接口的注意点</h2><p><img src="/2017/07/08/2016-07-08-fan-xing/25_19" alt="1588326800412"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_20" alt="1588326826440"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_21" alt="1588326848230"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_22" alt="1588326883741"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_23" alt="1588326912345"></p>
+<ol start="9">
+<li>泛型是实例化执行的</li>
+</ol>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_24" alt="1588326934639"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_25" alt="1588326955562"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_26" alt="1588326982639"></p>
+<h2 id="9-自定义泛型方法举例"><a href="#9-自定义泛型方法举例" class="headerlink" title="9.自定义泛型方法举例"></a>9.自定义泛型方法举例</h2><p>泛型方法  只针对方法来说，与接口和类无关</p>
+<p>泛型方法：在方法中出现了泛型的结构，泛型参数与类的泛型参数没有任何关系。<br>换句话说，泛型方法所属的类是不是泛型类都没有关系。<br>泛型方法，可以声明为静态的。原因：泛型参数是在调用方法时确定的。并非在实例化类时确定。</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_30" alt="1588327885599"></p>
+<p>测试<img src="/2017/07/08/2016-07-08-fan-xing/25_31" alt="1588327996559"></p>
+<p>参数确定好类型，也就确定了返回值的类型&amp;&amp;  可声明称static ，因为此时E 由于传入的integer 已经确定了，调用的时候确定的，调用的时候告诉我就可以</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_27" alt="1588327021068"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_28" alt="1588327041797"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_29" alt="1588327063542"></p>
+<h2 id="10-举例泛型类和泛型方法的使用情境"><a href="#10-举例泛型类和泛型方法的使用情境" class="headerlink" title="10.举例泛型类和泛型方法的使用情境"></a>10.举例泛型类和泛型方法的使用情境</h2><p>dao    数据访问对象</p>
+<p>ORM思想</p>
+<p>表对应一个java类</p>
+<p>不确定那个表    public class<t>{   操作表的共性操作</t></p>
+<p>}</p>
+<p>public class CustomerDAO extends DAO<customer>{}</customer></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_32" alt="1588328575792"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_33" alt="1588328619914"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_34" alt="1588328666240"></p>
+<p>另外一张表：</p>
+<p>studentDao  extends DAO<studetn>{ 只能操作某一个表的dao</studetn></p>
+<p>}</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_35" alt="1588328877633"></p>
+<p>4.泛型在继承上的体现</p>
+<h2 id="11-泛型在继承方面的体现"><a href="#11-泛型在继承方面的体现" class="headerlink" title="11.泛型在继承方面的体现"></a>11.泛型在继承方面的体现</h2><p><img src="/2017/07/08/2016-07-08-fan-xing/25_36" alt="1588329874945"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_37" alt="1588329905787"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_38" alt="1588329948614"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_39" alt="1588330095294"></p>
+<h4 id="此时的lists1和list2的类型不具有子父类的关系，因此编译不通过"><a href="#此时的lists1和list2的类型不具有子父类的关系，因此编译不通过" class="headerlink" title="此时的lists1和list2的类型不具有子父类的关系，因此编译不通过"></a>此时的lists1和list2的类型不具有子父类的关系，因此编译不通过</h4><ol>
+<li><p>泛型在继承方面的体现</p>
+<p>  虽然类A是类B的父类，但是G<a> 和G<b>二者不具备子父类关系，二者是并列关系。</b></a></p>
+<p>   补充：类A是类B的父类，A<g> 是 B<g> 的父类</g></g></p>
+</li>
+</ol>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_40" alt="1588330332577"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_41" alt="1588330392030"></p>
+<hr>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_42" alt="补充"></p>
+<p>5.通配符的使用</p>
+<h2 id="12-通配符的使用"><a href="#12-通配符的使用" class="headerlink" title="12. 通配符的使用"></a>12. 通配符的使用</h2><p><img src="/2017/07/08/2016-07-08-fan-xing/25_43" alt="1588330682268"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_44" alt="1588330701996"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_45" alt="1588330742514"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_46" alt="1588330760910"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_47" alt="1588330782660"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_48" alt="1588330802243"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_49" alt="1588330823181"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_50" alt="1588330876670"></p>
+<p>他两的父类</p>
+<p> 通配符：?<br>类A是类B的父类，G<a>和G<b>是没有关系的，二者共同的父类是：G&lt;?&gt;</b></a></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_51" alt="1588331008908"></p>
+<h2 id="13-使用通配符后数据的读取和写入要求"><a href="#13-使用通配符后数据的读取和写入要求" class="headerlink" title="13.使用通配符后数据的读取和写入要求"></a>13.使用通配符后数据的读取和写入要求</h2><p><img src="/2017/07/08/2016-07-08-fan-xing/25_52" alt="1588331323208"></p>
+<h2 id="14-有限制条件的通配符的使用"><a href="#14-有限制条件的通配符的使用" class="headerlink" title="14.有限制条件的通配符的使用"></a>14.有限制条件的通配符的使用</h2><p>extends &lt;=</p>
+<p>super &gt;=</p>
+<p>  ? extends A:          若 ？ 比student 还小<br>                G&lt;? extends A&gt; 可以作为G<a>和G<b>的父类，其中B是A的子类</b></a></p>
+<p>  ? super A:<br>                G&lt;? super A&gt; 可以作为G<a>和G<b>的父类，其中B是A的父类</b></a></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_53" alt="1588332375330"></p>
+<p>list1可以作为list3、list4 的父类出现，   可以person（list1）的子类 甚至自己</p>
+<hr>
+<p>super 可以是person  甚至比它大</p>
+<hr>
+<p>list1   不是小于等于person list1=list4  可以用person  或object</p>
+<p>list1=list3</p>
+<p>虽然可以  当list1小于等于person最小写person</p>
+<p>–</p>
+<p>list2 =list4</p>
+<p>list2.get(0) 只能写object     大于等于person 是person的父类</p>
+<p>–</p>
+<p>list2.add(new student)   可以   由于  super  student  继承于person</p>
+<hr>
+<p>list1.add(new Student)   报错  ，若list1  比student还要小   子类可以付给父类，父类不能赋值给子类</p>
+<p>不能把右边的赋值给左边</p>
+<p>6.泛型应用举例</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_54" alt="1588332429730"></p>
+<h2 id="15-自定义泛型类练习"><a href="#15-自定义泛型类练习" class="headerlink" title="15.自定义泛型类练习."></a>15.自定义泛型类练习.</h2><p><img src="/2017/07/08/2016-07-08-fan-xing/25_55" alt="1588333926311"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_56" alt="1588334311572"></p>
+<p>map 重写equals hashCode</p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_57" alt="1588334568809"></p>
+<p><img src="/2017/07/08/2016-07-08-fan-xing/25_58" alt="1588334667212"></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义个泛型类 DAO&lt;T&gt;，在其中定义一个Map 成员变量，Map 的键为 String 类型，值为 T 类型。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 分别创建以下方法：</span></span><br><span class="line"><span class="comment"> public void save(String id,T entity)： 保存 T 类型的对象到 Map 成员变量中</span></span><br><span class="line"><span class="comment"> public T get(String id)：从 map 中获取 id 对应的对象</span></span><br><span class="line"><span class="comment"> public void update(String id,T entity)：替换 map 中key为id的内容,改为 entity 对象</span></span><br><span class="line"><span class="comment"> public List&lt;T&gt; list()：返回 map 中存放的所有 T 对象</span></span><br><span class="line"><span class="comment"> public void delete(String id)：删除指定 id 对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DAO</span>&lt;<span class="title">T</span>&gt; </span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,T&gt; map = <span class="keyword">new</span> HashMap&lt;String,T&gt;();</span><br><span class="line">    <span class="comment">//保存 T 类型的对象到 Map 成员变量中</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(String id,T entity)</span></span>{</span><br><span class="line">        map.put(id,entity);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//从 map 中获取 id 对应的对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">(String id)</span></span>{</span><br><span class="line">        <span class="keyword">return</span> map.get(id);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//替换 map 中key为id的内容,改为 entity 对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String id,T entity)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(id)){</span><br><span class="line">            map.put(id,entity);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//返回 map 中存放的所有 T 对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;T&gt; <span class="title">list</span><span class="params">()</span></span>{</span><br><span class="line">        <span class="comment">//错误的：</span></span><br><span class="line"><span class="comment">//        Collection&lt;T&gt; values = map.values();</span></span><br><span class="line"><span class="comment">//        return (List&lt;T&gt;) values;</span></span><br><span class="line">        <span class="comment">//正确的：</span></span><br><span class="line">        ArrayList&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Collection&lt;T&gt; values = map.values();</span><br><span class="line">        <span class="keyword">for</span>(T t : values){</span><br><span class="line">            list.add(t);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//删除指定 id 对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(String id)</span></span>{</span><br><span class="line">        map.remove(id);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2017/07/09/2016-07-09-io-liu-m/" class="pre-post btn btn-default" title='IO流'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            IO流</span>
+    </a>
+    
+    
+    <a href="/2017/07/06/2016-07-06-ji-he-bu-1/" class="next-post btn btn-default" title='集合(补1)'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            集合(补1)</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'LWmP4tvyNOjV0hDcXSzBxE6c-gzGzoHsz',
+    appKey: 'R7xHtkFCXCFDHvyOSB5h4YjG',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '5',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-每日一考"><span class="toc-text">1.每日一考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-复习Map"><span class="toc-text">2.复习Map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-复习Collections和数据结构"><span class="toc-text">3.复习Collections和数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-为什么使用泛型"><span class="toc-text">4.为什么使用泛型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-在集合中使用泛型"><span class="toc-text">5.在集合中使用泛型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-集合中使用泛型的练习"><span class="toc-text">6.集合中使用泛型的练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-自定义泛型类举例"><span class="toc-text">7.自定义泛型类举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-自定义泛型类泛型接口的注意点"><span class="toc-text">8 .自定义泛型类泛型接口的注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-自定义泛型方法举例"><span class="toc-text">9.自定义泛型方法举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-举例泛型类和泛型方法的使用情境"><span class="toc-text">10.举例泛型类和泛型方法的使用情境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-泛型在继承方面的体现"><span class="toc-text">11.泛型在继承方面的体现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#此时的lists1和list2的类型不具有子父类的关系，因此编译不通过"><span class="toc-text">此时的lists1和list2的类型不具有子父类的关系，因此编译不通过</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-通配符的使用"><span class="toc-text">12. 通配符的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-使用通配符后数据的读取和写入要求"><span class="toc-text">13.使用通配符后数据的读取和写入要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-有限制条件的通配符的使用"><span class="toc-text">14.有限制条件的通配符的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-自定义泛型类练习"><span class="toc-text">15.自定义泛型类练习.</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+
+<script type="text/javascript" src="/js/love_mouse.js"></script>
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+<script type="text/javascript" src="/js/code/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/js/code/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/js/code/codeCopy.js"></script>
+<script type="text/javascript" src="/js/code/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/js/code/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+
+
+
+</body>
+</html>

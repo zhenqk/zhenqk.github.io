@@ -1,0 +1,585 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="程序员Tony">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://zhenqk.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="枚举,注解" />
+
+
+<meta name="description" content="1.每日一考
+将字符串”2017-08-16”转换为对应的java.sql.Date类的对象。
+
+（使用JDK8之前或JDK8中的API皆可）
+SimpleDateFormat  sdf = n..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    枚举类与注解 |
+    
+    程序员Tony
+</title>
+
+<link rel="alternate" href="/atom.xml" title="程序员Tony" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+
+    <header class="main-header"  style="background-image:url(
+    https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1589855563474&amp;di=3aa70d773e2c49618ad522cba950a73c&amp;imgtype=0&amp;src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F00%2F09%2F33%2F28562e1bc3ca3a9.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tony'>
+            <img src="/img/avatar.gif" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+          <!--<h2 class="text-hide">成为自己要成为的人</h2> -->
+            
+            <h2>
+                越简单越OK
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://zhenqk.github.io">
+                        程序员Tony</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                主目录</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+
+            <div class="row">
+ 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="枚举类与注解">
+            
+            枚举类与注解
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/Java-%E5%9F%BA%E7%A1%80/">Java 基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/%E6%9E%9A%E4%B8%BE/" rel="tag">枚举</a> <a class="tag-link" href="/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2017/07/05</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="1-每日一考"><a href="#1-每日一考" class="headerlink" title="1.每日一考"></a>1.每日一考</h2><ol>
+<li>将字符串”2017-08-16”转换为对应的java.sql.Date类的对象。</li>
+</ol>
+<p>（使用JDK8之前或JDK8中的API皆可）</p>
+<p>SimpleDateFormat  sdf = new SimpleDateFormat(“yyyy-MM-dd”);</p>
+<p>解析：java.util.Date date = sdf.parse(“2017-08-16”);</p>
+<p>DateTimeFormatter dtf= DateTimeFormatter.ofPattern(“yyyy-MM-dd”); </p>
+<p>new + 构造器</p>
+<p>单例、Calendar.getInstance()</p>
+<ol start="2">
+<li>解释何为编码？解码？ 何为日期时间的格式化？解析？</li>
+</ol>
+<p>编码：字符串 -&gt;字节</p>
+<p>解码：字节 -&gt;字符串</p>
+<p>格式化：日期 -&gt;字符串 format</p>
+<p>解析：字符串 -&gt;日期  parse </p>
+<ol start="3">
+<li>自定义Person类如下，如何实现自然排序（按姓名从小到大排序），代码说明</li>
+</ol>
+<p>class Person implements Comparable{</p>
+<p>​       private String name;</p>
+<p>​       private int age;</p>
+<p>​       public int compareTo(Object obj){</p>
+<p>​              //…  this.name.compareTo(s.name);</p>
+<p>}</p>
+<p>}</p>
+<ol start="4">
+<li>提供定制排序涉及到的接口的实现类对象，并按Person类的年龄从大到小排序</li>
+</ol>
+<p>Comparator com = new Comparator(){</p>
+<p>​       public int compare(Object obj1,Object obj2){</p>
+<p>​              if(){</p>
+<p>}</p>
+<p>}</p>
+<p>};</p>
+<ol start="5">
+<li>JDK 8之前和JDK8中日期、时间相关的类分别有哪些？</li>
+</ol>
+<p>java.util.Date 和 java.sql.Date  -&gt; Instant</p>
+<p>SimpleDateFormat  -&gt;DateTimeFormatter</p>
+<p>Calendar  -&gt; LocalDate、LocalTime、LocalDateTime</p>
+<h2 id="2-复习-日期时间API"><a href="#2-复习-日期时间API" class="headerlink" title="2.复习 日期时间API"></a>2.复习 日期时间API</h2><p>痛苦才有所变化</p>
+<ol start="3">
+<li>java . text. SimpleDataFormat类<br>SimpleDateFormat对日期Date类的格式化和解析<br>1.两个操作:<br>1.1 格式化:日期—&gt;字符串<br>1.2解析:格式化的逆过程，字符串—&gt; 日期<br>2.SimpleDateFormat的实例化:new +构造器</li>
+</ol>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_18.png" alt="##SimpleDateFormat"></p>
+<p>小练习:</p>
+<p>练习一：字符串”2020-09-08”转换为java.sql.Date</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   String birth = <span class="string">"2020-09-08"</span>;</span><br><span class="line">  SimpleDateFormat sdf1 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">  Date date = sdf1.parse(birth);</span><br><span class="line"><span class="comment">// System.out.println(date);</span></span><br><span class="line">java.sql.Date birthDate = <span class="keyword">new</span> java.sql.Date(date.getTime());</span><br><span class="line">System.out.println(birthDate);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>练习二：”三天打渔两天晒网”   1990-01-01  xxxx-xx-xx 打渔？晒网？<br>    举例：2020-09-08 ？ 总天数</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">总天数 % 5 == 1,2,3 : 打渔</span><br><span class="line">总天数 % 5 == 4,0 : 晒网</span><br><span class="line"></span><br><span class="line">总天数的计算？</span><br><span class="line">方式一：( date2.getTime() - date1.getTime()) / (1000606024) + 1（小数）=...天</span><br><span class="line">方式二：1990-01-01  --&gt; 2019-12-31  +  2020-01-01 --&gt;2020-09-08</span><br></pre></td></tr></tbody></table></figure>
+
+<p>4.Calendar类： 日历类，抽象类</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_20" alt="calendar的使用"></p>
+<h4 id="JDK8新日期时间API"><a href="#JDK8新日期时间API" class="headerlink" title="JDK8新日期时间API"></a>JDK8新日期时间API</h4><p>1.日期时间API的迭代:<br>第一代: jdk1.0Date类<br>第二代: jdk 1.1 Calendar类，一定程度 上替换Date类<br>第三代: jdk 1.8提出了新的一套API</p>
+<p>2.前两代存在的问题举例:<br>可变性:像日期和时间这样的类应该是不可变的。<br>偏移性: Date中的年份是从1900开始的，而月份都从0开始。<br>格式化:格式化只对Date用，Calendar则不行。<br>此外，它们也不是线程安全的;不能处理闰秒等。</p>
+<p>3.java 8中新的日期时间API涉及到的包</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_24.png" alt="calendar的使用"></p>
+<p>4.本地日期、本地时间、本地日期时间的使用: LocalDate / LocalTime / LocalDateTime</p>
+<p>4.1说明:</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_25.png" alt="calendar的使用"></p>
+<p>说明：<br>        1.LocalDateTime相较于LocalDate、LocalTime，使用频率要高<br>        2.类似于Calendar</p>
+<p>4.2常用方法:</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_26.png" alt="calendar的使用"></p>
+<p>5.时间点: Instant<br>5.1说明:</p>
+<p>①时间线上的一个瞬时点。概念上讲， 它只是简单的表示自1970年1月1日0时0分0秒(UTC开始的秒数。)<br>②类似于java.util.Date类</p>
+<p>5.2常用方法:</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_30.png" alt="Instant"></p>
+<p>6.日期时间格式化类: DateTimeFormatter<br>6.1说明:</p>
+<p>6.日期时间格式化类: DateTimeFormatter<br>6.1说明:</p>
+<p>①格式化或解析日期、时间<br>②类似于SimpleDateFormat</p>
+<p>6.2常用方法:</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_32.png" alt="Instant"></p>
+<p>特别的:自定义的格式。如: ofPattern(“””yy-MM-dd h:mmss”);方式三</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_33" alt="1588165071299"></p>
+<p>7.其它API的使用(不讲)</p>
+<h2 id="3-复习-Java比较器"><a href="#3-复习-Java比较器" class="headerlink" title="3.复习 Java比较器"></a>3.复习 Java比较器</h2><p>1.Java比较器的使用背景:.</p>
+<p>Java中的对象，正常情况下，只能进行比较:==或!=。不能使用〉或&lt;的<br>但是在开发场景中，我们需要对多个对象进行排序，言外之意，就需要比较对象的大小。如何实现?使用两个接口中的任何-一个: Comparable 或Comparator</p>
+<p>2.自然排序:使用Comparable接口<br>2.1说明</p>
+<p>1.像String、包装类等实现了Comparable接口，重写了compareTo(obj)方法，给出了比较两个对象大小的方式。<br>2.像String、包装类重写compareTo()方法以后，进行了从小到大的排列</p>
+<p>3.重写compareTo(obj)的规则：<br>       如果当前对象this大于形参对象obj，则返回正整数，<br>       如果当前对象this小于形参对象obj，则返回负整数，<br>       如果当前对象this等于形参对象obj，则返回零。<br>4.对于自定义类来说，如果需要排序，我们可以让自定义类实现Comparable接口，重写compareTo(obj)方法。<br>       在compareTo(obj)方法中指明如何排序</p>
+<p>2.2自定义类代码举例:</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_48.png" alt="1588165488963"></p>
+<p>3.定制排序:使用Comparator接口</p>
+<p>3.1 说明</p>
+<p> 1.背景：<br>    当元素的类型没有实现java.lang.Comparable接口而又不方便修改代码，<br>    或者实现了java.lang.Comparable接口的排序规则不适合当前的操作，<br>    那么可以考虑使用 Comparator 的对象来排序<br>    2.重写compare(Object o1,Object o2)方法，比较o1和o2的大小：<br>    如果方法返回正整数，则表示o1大于o2；<br>    如果返回0，表示相等；<br>    返回负整数，表示o1小于o2。</p>
+<p>3.2代码举例:</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_52.png" alt="1588165488963"></p>
+<p>使用:</p>
+<p>Arrays.sort(goods,com);</p>
+<p>Collections.sort(coll,com);</p>
+<p>new TreeSet(com)</p>
+<p>4.两种排序方式对比</p>
+<p>   Comparable接口的方式一旦一定，保证Comparable接口实现类的对象在任何位置都可以比较大小。(一劳永逸)<br>   Comparator接口属于临时性的比较。(临时工)</p>
+<h4 id="其他类"><a href="#其他类" class="headerlink" title="其他类"></a>其他类</h4><p>1.System类<img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_54.png" alt="System类"></p>
+<p>native long currentTimeMillis()<br>void exitint status)<br>void gc()<br>String getProperty(String key)</p>
+<p>2.Math类</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_57.png" alt="Math类"></p>
+<p>3.BigInteger类、BigDecimal类<br>说明:</p>
+<p>①java. math包的BigInteger可以表示不可变的任意精度的整数。<br>❷要求数字精度比较高，用到java.math.BigDecimal类</p>
+<p>代码举例:</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/21_61.png" alt="BigDecimal类"></p>
+<h4 id="10-1枚举类的使用"><a href="#10-1枚举类的使用" class="headerlink" title="10.1枚举类的使用"></a>10.1枚举类的使用</h4><p>如何使用关键字enum定义枚举类<br>Enum类的主要方法</p>
+<h2 id="4-枚举类的理解"><a href="#4-枚举类的理解" class="headerlink" title="4.枚举类的理解"></a>4.枚举类的理解</h2><p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_01.png" alt="BigDecimal类"></p>
+<p>列全</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_02.png" alt="BigDecimal类"></p>
+<p>一、枚举类的使用<br>1.枚举类的理解：类的对象只有有限个，确定的。我们称此类为枚举类<br>2.当需要定义一组常量时，强烈建议使用枚举类<br>3.如果枚举类中只有一个对象，则可以作为单例模式的实现方式。<br> *<br>二、如何定义枚举类<br>方式一：jdk5.0之前，自定义枚举类<br>方式二：jdk5.0，可以使用enum关键字定义枚举类<br> *<br>三、Enum类中的常用方法：<br>   values()方法：返回枚举类型的对象数组。该方法可以很方便地遍历所有的枚举值。<br>   valueOf(String str)：可以把一个字符串转为对应的枚举类对象。要求字符串必须是枚举类对象的“名字”。如不是，会有运行时异常：IllegalArgumentException。<br>   toString()：返回当前枚举类对象常量的名称<br> *<br>四、使用enum关键字定义的枚举类实现接口的情况<br>  情况一：实现接口，在enum类中实现抽象方法<br>  情况二：让枚举类的对象分别实现接口中的抽象方法</p>
+<h2 id="5-自定义枚举类"><a href="#5-自定义枚举类" class="headerlink" title="5.自定义枚举类"></a>5.自定义枚举类</h2><p>5.0  自动装箱 拆箱 ，stringbuilder，注解</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_03" alt="自定义枚举类"></p>
+<h2 id="6-使用enum关键字定义枚举类"><a href="#6-使用enum关键字定义枚举类" class="headerlink" title="6.使用enum关键字定义枚举类"></a>6.使用enum关键字定义枚举类</h2><p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_04.png" alt="自定义枚举类"></p>
+<p>​                                        public String getSeasonDesc(){ return seasonDesc }</p>
+<p>不用重写toString      ‘’‘’ System.out.println(Season1.class.getSuperclass());</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_05.png" alt="自定义枚举类"></p>
+<h2 id="7-enum类的常用方法"><a href="#7-enum类的常用方法" class="headerlink" title="7.enum类的常用方法"></a>7.enum类的常用方法</h2><p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_06.png" alt="自定义枚举类"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_07.png" alt="自定义枚举类"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_08.png" alt="自定义枚举类"></p>
+<p>单个枚举值用 ，隔开</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_09.png" alt="enum类的常用方法"></p>
+<h2 id="8-使用enum关键字定义的枚举类实现接口"><a href="#8-使用enum关键字定义的枚举类实现接口" class="headerlink" title="8.使用enum关键字定义的枚举类实现接口"></a>8.使用enum关键字定义的枚举类实现接口</h2><p> 情况一：实现接口，在enum类中实现抽象方法</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interface Info{    void show();}</span><br></pre></td></tr></tbody></table></figure>
+
+<p> enum Season1 implements Info{</p>
+<p>重写方法</p>
+<p>public void show() {<br>System. out. println(“这是- -个季节”);<br>}4</p>
+<p>}</p>
+<p>主方法:</p>
+<p>winter. show();|</p>
+<p>情况二：让枚举类的对象分别实现接口中的抽象方法</p>
+<p>希望每个对象调用方法展示不同内容，由于情况一都是“ 这是- -个季节”</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_10.png" alt="枚举类对象分别实现接口"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_11.png" alt="自定义枚举类"></p>
+<h2 id="9-修改status-为enum的定义"><a href="#9-修改status-为enum的定义" class="headerlink" title="9.修改status 为enum的定义"></a>9.修改status 为enum的定义</h2><p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_12.png" alt="自定义枚举类"></p>
+<p>把myproject03放置module中，</p>
+<p>setting-&gt;module-&gt;加号</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_13" alt="1588209226627"></p>
+<p>两个字的名字  可以中间整空格</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_14" alt="1588209371076"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_15.png" alt="1588209371076"></p>
+<p>switch 可以实现</p>
+<h4 id="10-2注解的使用"><a href="#10-2注解的使用" class="headerlink" title="10.2注解的使用"></a>10.2注解的使用</h4><h2 id="10-注解的理解"><a href="#10-注解的理解" class="headerlink" title="10.注解的理解"></a>10.注解的理解</h2><p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_16.png" alt="1588209371076"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_17.png" alt="1588209371076"></p>
+<p>放射  读取操作注解</p>
+<h2 id="11-Annotation的使用实例"><a href="#11-Annotation的使用实例" class="headerlink" title="11.Annotation的使用实例"></a>11.Annotation的使用实例</h2><p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_18.png" alt="1588209371076"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_19.png" alt="1588209371076"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_20.png" alt="1588209371076"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_21.png" alt="1588209371076"></p>
+<p>下面的替换掉</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_22.png" alt="1588209371076"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_23.png" alt="1588209371076"></p>
+<ol>
+<li>理解Annotation:<br>① jdk 5.0 新增的功能<br>② Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用 Annotation,<br>程序员可以在不改变原有逻辑的情况下, 在源文件中嵌入一些补充信息。<br>③在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE/Android中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替JavaEE旧版中所遗留的繁冗代码和XML配置等。</li>
+</ol>
+<h3 id="12-JDK内置的三个基本注解"><a href="#12-JDK内置的三个基本注解" class="headerlink" title="12.JDK内置的三个基本注解"></a>12.JDK内置的三个基本注解</h3><ol start="2">
+<li><p>Annocation的使用示例<br>示例一：生成文档相关的注解<br>示例二：在编译时进行格式检查(JDK内置的三个基本注解)<br>  @Override: 限定重写父类方法, 该注解只能用于方法;;加上注解编译的时候校验,不加在运行时校验<br>  @Deprecated: 用于表示所修饰的元素(类, 方法等)已过时。通常是因为所修饰的结构危险或存在更好的选择(向下兼容)<br>  @SuppressWarnings: 抑制编译器警告</p>
+<p>示例:跟踪代码依赖性,实现替代配置文件功能</p>
+</li>
+</ol>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_24.png" alt="1588209371076"></p>
+<p> 示例三：跟踪代码依赖性，实现替代配置文件功能</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_25" alt="1588211605579"></p>
+<p>rawtypes 泛型警告</p>
+<p>3.如何自定义注解：参照@SuppressWarnings定义<br>     ① 注解声明为：@interface<br>     ② 内部定义成员，通常使用value表示<br>     ③ 可以指定成员的默认值，使用default定义<br>     ④ 如果自定义注解没有成员，表明是一个标识作用。override</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果注解有成员，在使用注解时，需要指明成员的值。</span><br><span class="line">自定义注解必须配上注解的信息处理流程(使用反射)才有意义。</span><br><span class="line">自定义注解通过都会指明两个元注解：Retention、Target</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_26.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_27" alt="1588212033250"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_28.png" alt="1588212033250"></p>
+<p>指定默认值<img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_29.png" alt="1588212033250"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_30.png" alt="1588211605579"></p>
+<p>回头用反射读取注解值，看想做什么</p>
+<h2 id="14-15-jdk中4个基本的元注解的使用"><a href="#14-15-jdk中4个基本的元注解的使用" class="headerlink" title="14-15.jdk中4个基本的元注解的使用"></a>14-15.jdk中4个基本的元注解的使用</h2><p>4.jdk 提供的4种元注解<br>         元注解：对现有的注解进行解释说明的注解</p>
+<p>Retention：指定所修饰的 Annotation 的生命周期：SOURCE javac 不保留注解  \CLASS（默认行为） 运行时不保留注解 不会加载内存 \RUNTIME(运行时候需要调  反射)只有声明为RUNTIME生命周期的注解，才能通过反射获取。<br>Target:用于指定被修饰的 Annotation 能用于修饰哪些程序元素<br>     <strong>***</strong>出现的频率较低<strong>***</strong><br>     Documented:表示所修饰的注解在被javadoc解析时，保留下来。<br>     Inherited:被它修饰的 Annotation 将具有继承性。</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_31.png" alt="1588211605579"><br><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_32.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_33.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_34" alt="1588213206634"><br>注解继承演示  具有继承性 在注解上加<br><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_35.png" alt="1588211605579"><br>5.通过反射获取注解信息 —到反射内容时系统讲解<br><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_36.png" alt="1588211605579"></p>
+<h2 id="16-jdk-8-中注解的新特性"><a href="#16-jdk-8-中注解的新特性" class="headerlink" title="16.jdk 8 中注解的新特性"></a>16.jdk 8 中注解的新特性</h2><p>6.jdk 8 中注解的新特性：可重复注解、类型注解<br>  6.1 可重复注解：<br>   ① 在MyAnnotation上声明@Repeatable，成员值为MyAnnotations.class  两个注解关联在一起<br>   ② MyAnnotation的Target和Retention等元注解与MyAnnotations相同。<br>    <img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_37.png" alt="1588211605579"></p>
+<p>   <img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_38.png" alt="1588211605579"><br>    上面是jdk8 之前</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_39.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_40.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_41.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_42.png" alt="1588211605579"></p>
+<h2 id="17-类型注解"><a href="#17-类型注解" class="headerlink" title="17 类型注解"></a>17 类型注解</h2><p>  6.2 类型注解：<br>     ElementType.TYPE_PARAMETER 表示该注解能写在类型变量的声明语句中（如：泛型声明）。<br>     ElementType.TYPE_USE 表示该注解能写在使用类型的任何语句中。</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_43.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_44.png" alt="1588211605579"></p>
+<p>注解可以修饰参数</p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_45.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_46.png" alt="1588211605579"></p>
+<p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_47.png" alt="1588211605579"></p>
+<h2 id="18-可重复注解中元注解不一致的问题解决"><a href="#18-可重复注解中元注解不一致的问题解决" class="headerlink" title="18.可重复注解中元注解不一致的问题解决"></a>18.可重复注解中元注解不一致的问题解决</h2><p><img src="/2017/07/05/2016-07-05-mei-ju-lei-yu-zhu-jie/22_48" alt="1588215653288"></p>
+<p>元注解 解释哈哈哈</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155417931-1887836889.jpg"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="https://img2020.cnblogs.com/blog/1508241/202005/1508241-20200519155421281-200217015.jpg"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        一分一毛也是爱
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Tony</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2017/07/06/2016-07-06-ji-he/" class="pre-post btn btn-default" title='集合'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            集合</span>
+    </a>
+    
+    
+    <a href="/2017/07/04/2016-07-04-chang-yong-lei-date/" class="next-post btn btn-default" title='常用类Date'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            常用类Date</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+
+<script src="http://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'LWmP4tvyNOjV0hDcXSzBxE6c-gzGzoHsz',
+    appKey: 'R7xHtkFCXCFDHvyOSB5h4YjG',
+    placeholder: '说点什么吧',
+    notify: true,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '5',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                  
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            大纲
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-每日一考"><span class="toc-text">1.每日一考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-复习-日期时间API"><span class="toc-text">2.复习 日期时间API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK8新日期时间API"><span class="toc-text">JDK8新日期时间API</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-复习-Java比较器"><span class="toc-text">3.复习 Java比较器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#其他类"><span class="toc-text">其他类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1枚举类的使用"><span class="toc-text">10.1枚举类的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-枚举类的理解"><span class="toc-text">4.枚举类的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-自定义枚举类"><span class="toc-text">5.自定义枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-使用enum关键字定义枚举类"><span class="toc-text">6.使用enum关键字定义枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-enum类的常用方法"><span class="toc-text">7.enum类的常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-使用enum关键字定义的枚举类实现接口"><span class="toc-text">8.使用enum关键字定义的枚举类实现接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-修改status-为enum的定义"><span class="toc-text">9.修改status 为enum的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2注解的使用"><span class="toc-text">10.2注解的使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-注解的理解"><span class="toc-text">10.注解的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Annotation的使用实例"><span class="toc-text">11.Annotation的使用实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-JDK内置的三个基本注解"><span class="toc-text">12.JDK内置的三个基本注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-15-jdk中4个基本的元注解的使用"><span class="toc-text">14-15.jdk中4个基本的元注解的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-jdk-8-中注解的新特性"><span class="toc-text">16.jdk 8 中注解的新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-类型注解"><span class="toc-text">17 类型注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-可重复注解中元注解不一致的问题解决"><span class="toc-text">18.可重复注解中元注解不一致的问题解决</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+
+
+<script type="text/javascript" src="/js/love_mouse.js"></script>
+<canvas id="canv" width="630" height="648" style="position: fixed; top: 0px; left: 0px; z-index: -2; opacity: 1.0;"></canvas>
+ <script type="text/javascript" src="/js/jscartoon2.js"></script>  
+<script type="text/javascript" src="/js/code/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/js/code/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/js/code/codeCopy.js"></script>
+<script type="text/javascript" src="/js/code/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/js/code/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2015
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//user.qzone.qq.com/943697678" class="copyright-links" target="_blank" rel="nofollow">QQ空间</a>
+                </span> |
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+
+
+
+</body>
+</html>
