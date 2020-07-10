@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenqk.github.io/"/>
-  <updated>2020-05-19T09:13:25.011Z</updated>
+  <updated>2020-05-31T04:13:00.649Z</updated>
   <id>http://zhenqk.github.io/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows系列安装SQLServer2012</title>
+    <link href="http://zhenqk.github.io/2020/05/31/windows-xi-lie-an-zhuang-sqlserver2012/"/>
+    <id>http://zhenqk.github.io/2020/05/31/windows-xi-lie-an-zhuang-sqlserver2012/</id>
+    <published>2020-05-31T04:08:48.000Z</published>
+    <updated>2020-05-31T04:13:00.649Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;安装环境: win10 1803&lt;/p&gt;
+&lt;p&gt;软件版本:cn_sql_server_2012_enterprise_edition_with_sp1_x64_dvd_1234495&lt;/p&gt;
+&lt;p&gt;要求：安装的空间要预留出10G&lt;/p&gt;
+&lt;p&gt;sql_server
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Windows的常用命令</title>
+    <link href="http://zhenqk.github.io/2020/05/31/windows-de-chang-yong-ming-ling/"/>
+    <id>http://zhenqk.github.io/2020/05/31/windows-de-chang-yong-ming-ling/</id>
+    <published>2020-05-31T03:32:08.000Z</published>
+    <updated>2020-05-31T03:49:11.980Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;关闭防火墙 control.exe /name microsoft.windowsfirewall&lt;br&gt;网络连接 ncpa.cpl&lt;br&gt;网络配置 control.exe /name Microsoft.NetworkAndSharingCenter&lt;br&gt;ren *
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Ubuntu1810下安装MySQL</title>
@@ -509,60 +558,6 @@
         
           &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1. 每日一考&quot;&gt;&lt;/a&gt;1. 每日一考&lt;/h2&gt;&lt;p&gt;Arraylist 替换数组   可扩展长度—&lt;/p&gt;
 &lt;h2 id=&quot;2-复习&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象(中)</title>
-    <link href="http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/"/>
-    <id>http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-zhong/</id>
-    <published>2017-06-28T01:17:34.000Z</published>
-    <updated>2020-05-20T23:35:10.946Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-每日一考&quot;&gt;&lt;a href=&quot;#1-每日一考&quot; class=&quot;headerlink&quot; title=&quot;1. 每日一考&quot;&gt;&lt;/a&gt;1. 每日一考&lt;/h2&gt;&lt;h3 id=&quot;1-构造器的作用是什么-使用中有哪些注意点-gt-3条&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java 基础" scheme="http://zhenqk.github.io/categories/Java-%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="面向对象概述" scheme="http://zhenqk.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A6%82%E8%BF%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面向对象(上)补2</title>
-    <link href="http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/"/>
-    <id>http://zhenqk.github.io/2017/06/28/2016-06-28-mian-xiang-dui-xiang-shang-bu-2/</id>
-    <published>2017-06-27T23:25:46.000Z</published>
-    <updated>2020-05-20T23:37:42.746Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-每天一问&quot;&gt;&lt;a href=&quot;#1-每天一问&quot; class=&quot;headerlink&quot; title=&quot;1. 每天一问&quot;&gt;&lt;/a&gt;1.
         
       
     
